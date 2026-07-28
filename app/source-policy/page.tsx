@@ -9,26 +9,28 @@ export default function SourcePolicyPage() {
       <section>
         <h2>What this release contains</h2>
         <p>
-          The six pilot lessons, interactive demonstrations, diagrams, interface,
-          and examples in Gradient Atlas were written specifically for this
-          project. They do not reproduce WikiDocs prose or media.
+          Gradient Atlas contains 122 learning pages in English, Vietnamese,
+          and Korean. Its explanatory prose, examples, exercises, interactive
+          demonstrations, diagrams, and interface were written specifically
+          for this project. They do not reproduce WikiDocs prose or media.
         </p>
       </section>
       <section>
         <h2>How WikiDocs is used</h2>
         <p>
-          The public book at <a href="https://wikidocs.net/book/9057">WikiDocs book 9057</a> informed
-          the general subject scope. Gradient Atlas links to it as related reading.
-          A topic name such as “evaluation metrics” identifies a field of knowledge;
-          the explanations and learning design here are independent.
+          The page sequence and topic outline are adapted from the public
+          <a href="https://wikidocs.net/book/9057"> WikiDocs book 9057</a> under
+          its displayed <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0 license</a>.
+          Every reader page links to its exact WikiDocs source page. The
+          explanations and learning design are independently authored.
         </p>
       </section>
       <section>
-        <h2>Future adaptations</h2>
+        <h2>Attribution record</h2>
         <p>
-          Any future page adapted from a third party must record its author,
-          original URL, captured revision, license, modifications, and asset-level
-          rights. Unknown or restricted material remains unpublished.
+          The machine-readable catalog records each original URL, source page
+          ID, outline license, modification state, and original-body status.
+          No third-party image, code sample, or media asset is included.
         </p>
       </section>
       <section>

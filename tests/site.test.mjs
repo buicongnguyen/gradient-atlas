@@ -1,5 +1,6 @@
 import assert from "node:assert/strict";
 import test from "node:test";
+import { curriculumSeeds } from "../app/data/full-curriculum.ts";
 
 const workerUrl = new URL("../dist/server/index.js", import.meta.url);
 workerUrl.searchParams.set("test", `${process.pid}-${Date.now()}`);
@@ -38,6 +39,18 @@ test("renders all locale atlas routes with labs and preview disclosure", async (
   }
 });
 
+test("renders searchable catalogs with the complete corpus", async () => {
+  for (const locale of ["en", "vi", "ko"]) {
+    const response = await render(`/${locale}/catalog/`);
+    assert.equal(response.status, 200, locale);
+    const html = await response.text();
+    assert.match(html, /122/);
+    assert.match(html, /architecture-of-deep-learning-bible/);
+    assert.match(html, /projects/);
+    assert.match(html, /type="search"/);
+  }
+});
+
 test("renders exact trilingual lesson counterparts", async () => {
   const slug = "metrics-and-thresholds";
   const expected = {
@@ -62,4 +75,19 @@ test("renders the source policy", async () => {
   const html = await response.text();
   assert.match(html, /Original first/);
   assert.match(html, /do not reproduce WikiDocs prose or media/);
+  assert.match(html, /CC BY 4.0/);
+});
+
+test("renders every source-corresponding page in every locale", async () => {
+  assert.equal(curriculumSeeds.length, 122);
+  for (const seed of curriculumSeeds) {
+    for (const locale of ["en", "vi", "ko"]) {
+      const response = await render(`/${locale}/learn/${seed.slug}/`);
+      assert.equal(response.status, 200, `${locale}/${seed.slug}`);
+      const html = await response.text();
+      assert.match(html, new RegExp(`<div lang="${locale}" class="site-shell"`), `${locale}/${seed.slug}`);
+      assert.match(html, new RegExp(`https://wikidocs.net/${seed.sourcePageId}`));
+      assert.match(html, /CC BY 4\.0/);
+    }
+  }
 });

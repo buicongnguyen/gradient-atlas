@@ -1,5 +1,5 @@
 {
-  "schemaVersion": 1,
+  "schemaVersion": 2,
   "updated": "2026-07-28",
   "statusDefinitions": {
     "draft": "Complete editorial draft with automated structure checks",
@@ -12,11 +12,1591 @@
     "rightsReviewRequiredForPreview": true
   },
   "documents": [
-    {"id":"mlf-a-01","locales":["ko","en","vi"],"translationState":"complete","technicalReview":"self-reviewed","languageReview":"pending","rightsReview":"cleared","publicationState":"preview"},
-    {"id":"mlf-b-01","locales":["ko","en","vi"],"translationState":"complete","technicalReview":"self-reviewed","languageReview":"pending","rightsReview":"cleared","publicationState":"preview"},
-    {"id":"mlf-c-01","locales":["ko","en","vi"],"translationState":"complete","technicalReview":"self-reviewed","languageReview":"pending","rightsReview":"cleared","publicationState":"preview"},
-    {"id":"mlf-d-01","locales":["ko","en","vi"],"translationState":"complete","technicalReview":"self-reviewed","languageReview":"pending","rightsReview":"cleared","publicationState":"preview"},
-    {"id":"mlf-e-01","locales":["ko","en","vi"],"translationState":"complete","technicalReview":"self-reviewed","languageReview":"pending","rightsReview":"cleared","publicationState":"preview"},
-    {"id":"mlf-f-01","locales":["ko","en","vi"],"translationState":"complete","technicalReview":"self-reviewed","languageReview":"pending","rightsReview":"cleared","publicationState":"preview"}
+    {
+      "id": "legacy-001",
+      "locales": [
+        "ko",
+        "en",
+        "vi"
+      ],
+      "translationState": "complete",
+      "technicalReview": "logic-reviewed",
+      "languageReview": "pending",
+      "rightsReview": "cleared",
+      "publicationState": "preview"
+    },
+    {
+      "id": "legacy-002",
+      "locales": [
+        "ko",
+        "en",
+        "vi"
+      ],
+      "translationState": "complete",
+      "technicalReview": "logic-reviewed",
+      "languageReview": "pending",
+      "rightsReview": "cleared",
+      "publicationState": "preview"
+    },
+    {
+      "id": "legacy-003",
+      "locales": [
+        "ko",
+        "en",
+        "vi"
+      ],
+      "translationState": "complete",
+      "technicalReview": "logic-reviewed",
+      "languageReview": "pending",
+      "rightsReview": "cleared",
+      "publicationState": "preview"
+    },
+    {
+      "id": "legacy-004",
+      "locales": [
+        "ko",
+        "en",
+        "vi"
+      ],
+      "translationState": "complete",
+      "technicalReview": "logic-reviewed",
+      "languageReview": "pending",
+      "rightsReview": "cleared",
+      "publicationState": "preview"
+    },
+    {
+      "id": "legacy-005",
+      "locales": [
+        "ko",
+        "en",
+        "vi"
+      ],
+      "translationState": "complete",
+      "technicalReview": "logic-reviewed",
+      "languageReview": "pending",
+      "rightsReview": "cleared",
+      "publicationState": "preview"
+    },
+    {
+      "id": "legacy-006",
+      "locales": [
+        "ko",
+        "en",
+        "vi"
+      ],
+      "translationState": "complete",
+      "technicalReview": "logic-reviewed",
+      "languageReview": "pending",
+      "rightsReview": "cleared",
+      "publicationState": "preview"
+    },
+    {
+      "id": "legacy-007",
+      "locales": [
+        "ko",
+        "en",
+        "vi"
+      ],
+      "translationState": "complete",
+      "technicalReview": "logic-reviewed",
+      "languageReview": "pending",
+      "rightsReview": "cleared",
+      "publicationState": "preview"
+    },
+    {
+      "id": "legacy-008",
+      "locales": [
+        "ko",
+        "en",
+        "vi"
+      ],
+      "translationState": "complete",
+      "technicalReview": "logic-reviewed",
+      "languageReview": "pending",
+      "rightsReview": "cleared",
+      "publicationState": "preview"
+    },
+    {
+      "id": "legacy-009",
+      "locales": [
+        "ko",
+        "en",
+        "vi"
+      ],
+      "translationState": "complete",
+      "technicalReview": "logic-reviewed",
+      "languageReview": "pending",
+      "rightsReview": "cleared",
+      "publicationState": "preview"
+    },
+    {
+      "id": "legacy-010",
+      "locales": [
+        "ko",
+        "en",
+        "vi"
+      ],
+      "translationState": "complete",
+      "technicalReview": "logic-reviewed",
+      "languageReview": "pending",
+      "rightsReview": "cleared",
+      "publicationState": "preview"
+    },
+    {
+      "id": "legacy-011",
+      "locales": [
+        "ko",
+        "en",
+        "vi"
+      ],
+      "translationState": "complete",
+      "technicalReview": "logic-reviewed",
+      "languageReview": "pending",
+      "rightsReview": "cleared",
+      "publicationState": "preview"
+    },
+    {
+      "id": "legacy-012",
+      "locales": [
+        "ko",
+        "en",
+        "vi"
+      ],
+      "translationState": "complete",
+      "technicalReview": "logic-reviewed",
+      "languageReview": "pending",
+      "rightsReview": "cleared",
+      "publicationState": "preview"
+    },
+    {
+      "id": "legacy-013",
+      "locales": [
+        "ko",
+        "en",
+        "vi"
+      ],
+      "translationState": "complete",
+      "technicalReview": "logic-reviewed",
+      "languageReview": "pending",
+      "rightsReview": "cleared",
+      "publicationState": "preview"
+    },
+    {
+      "id": "legacy-014",
+      "locales": [
+        "ko",
+        "en",
+        "vi"
+      ],
+      "translationState": "complete",
+      "technicalReview": "logic-reviewed",
+      "languageReview": "pending",
+      "rightsReview": "cleared",
+      "publicationState": "preview"
+    },
+    {
+      "id": "legacy-015",
+      "locales": [
+        "ko",
+        "en",
+        "vi"
+      ],
+      "translationState": "complete",
+      "technicalReview": "logic-reviewed",
+      "languageReview": "pending",
+      "rightsReview": "cleared",
+      "publicationState": "preview"
+    },
+    {
+      "id": "legacy-016",
+      "locales": [
+        "ko",
+        "en",
+        "vi"
+      ],
+      "translationState": "complete",
+      "technicalReview": "logic-reviewed",
+      "languageReview": "pending",
+      "rightsReview": "cleared",
+      "publicationState": "preview"
+    },
+    {
+      "id": "legacy-017",
+      "locales": [
+        "ko",
+        "en",
+        "vi"
+      ],
+      "translationState": "complete",
+      "technicalReview": "logic-reviewed",
+      "languageReview": "pending",
+      "rightsReview": "cleared",
+      "publicationState": "preview"
+    },
+    {
+      "id": "legacy-018",
+      "locales": [
+        "ko",
+        "en",
+        "vi"
+      ],
+      "translationState": "complete",
+      "technicalReview": "logic-reviewed",
+      "languageReview": "pending",
+      "rightsReview": "cleared",
+      "publicationState": "preview"
+    },
+    {
+      "id": "legacy-019",
+      "locales": [
+        "ko",
+        "en",
+        "vi"
+      ],
+      "translationState": "complete",
+      "technicalReview": "logic-reviewed",
+      "languageReview": "pending",
+      "rightsReview": "cleared",
+      "publicationState": "preview"
+    },
+    {
+      "id": "legacy-020",
+      "locales": [
+        "ko",
+        "en",
+        "vi"
+      ],
+      "translationState": "complete",
+      "technicalReview": "logic-reviewed",
+      "languageReview": "pending",
+      "rightsReview": "cleared",
+      "publicationState": "preview"
+    },
+    {
+      "id": "legacy-021",
+      "locales": [
+        "ko",
+        "en",
+        "vi"
+      ],
+      "translationState": "complete",
+      "technicalReview": "logic-reviewed",
+      "languageReview": "pending",
+      "rightsReview": "cleared",
+      "publicationState": "preview"
+    },
+    {
+      "id": "legacy-022",
+      "locales": [
+        "ko",
+        "en",
+        "vi"
+      ],
+      "translationState": "complete",
+      "technicalReview": "logic-reviewed",
+      "languageReview": "pending",
+      "rightsReview": "cleared",
+      "publicationState": "preview"
+    },
+    {
+      "id": "legacy-023",
+      "locales": [
+        "ko",
+        "en",
+        "vi"
+      ],
+      "translationState": "complete",
+      "technicalReview": "logic-reviewed",
+      "languageReview": "pending",
+      "rightsReview": "cleared",
+      "publicationState": "preview"
+    },
+    {
+      "id": "legacy-024",
+      "locales": [
+        "ko",
+        "en",
+        "vi"
+      ],
+      "translationState": "complete",
+      "technicalReview": "logic-reviewed",
+      "languageReview": "pending",
+      "rightsReview": "cleared",
+      "publicationState": "preview"
+    },
+    {
+      "id": "legacy-025",
+      "locales": [
+        "ko",
+        "en",
+        "vi"
+      ],
+      "translationState": "complete",
+      "technicalReview": "logic-reviewed",
+      "languageReview": "pending",
+      "rightsReview": "cleared",
+      "publicationState": "preview"
+    },
+    {
+      "id": "legacy-026",
+      "locales": [
+        "ko",
+        "en",
+        "vi"
+      ],
+      "translationState": "complete",
+      "technicalReview": "logic-reviewed",
+      "languageReview": "pending",
+      "rightsReview": "cleared",
+      "publicationState": "preview"
+    },
+    {
+      "id": "legacy-027",
+      "locales": [
+        "ko",
+        "en",
+        "vi"
+      ],
+      "translationState": "complete",
+      "technicalReview": "logic-reviewed",
+      "languageReview": "pending",
+      "rightsReview": "cleared",
+      "publicationState": "preview"
+    },
+    {
+      "id": "legacy-028",
+      "locales": [
+        "ko",
+        "en",
+        "vi"
+      ],
+      "translationState": "complete",
+      "technicalReview": "logic-reviewed",
+      "languageReview": "pending",
+      "rightsReview": "cleared",
+      "publicationState": "preview"
+    },
+    {
+      "id": "legacy-029",
+      "locales": [
+        "ko",
+        "en",
+        "vi"
+      ],
+      "translationState": "complete",
+      "technicalReview": "logic-reviewed",
+      "languageReview": "pending",
+      "rightsReview": "cleared",
+      "publicationState": "preview"
+    },
+    {
+      "id": "legacy-030",
+      "locales": [
+        "ko",
+        "en",
+        "vi"
+      ],
+      "translationState": "complete",
+      "technicalReview": "logic-reviewed",
+      "languageReview": "pending",
+      "rightsReview": "cleared",
+      "publicationState": "preview"
+    },
+    {
+      "id": "legacy-031",
+      "locales": [
+        "ko",
+        "en",
+        "vi"
+      ],
+      "translationState": "complete",
+      "technicalReview": "logic-reviewed",
+      "languageReview": "pending",
+      "rightsReview": "cleared",
+      "publicationState": "preview"
+    },
+    {
+      "id": "legacy-032",
+      "locales": [
+        "ko",
+        "en",
+        "vi"
+      ],
+      "translationState": "complete",
+      "technicalReview": "logic-reviewed",
+      "languageReview": "pending",
+      "rightsReview": "cleared",
+      "publicationState": "preview"
+    },
+    {
+      "id": "legacy-033",
+      "locales": [
+        "ko",
+        "en",
+        "vi"
+      ],
+      "translationState": "complete",
+      "technicalReview": "logic-reviewed",
+      "languageReview": "pending",
+      "rightsReview": "cleared",
+      "publicationState": "preview"
+    },
+    {
+      "id": "legacy-034",
+      "locales": [
+        "ko",
+        "en",
+        "vi"
+      ],
+      "translationState": "complete",
+      "technicalReview": "logic-reviewed",
+      "languageReview": "pending",
+      "rightsReview": "cleared",
+      "publicationState": "preview"
+    },
+    {
+      "id": "legacy-035",
+      "locales": [
+        "ko",
+        "en",
+        "vi"
+      ],
+      "translationState": "complete",
+      "technicalReview": "logic-reviewed",
+      "languageReview": "pending",
+      "rightsReview": "cleared",
+      "publicationState": "preview"
+    },
+    {
+      "id": "legacy-036",
+      "locales": [
+        "ko",
+        "en",
+        "vi"
+      ],
+      "translationState": "complete",
+      "technicalReview": "logic-reviewed",
+      "languageReview": "pending",
+      "rightsReview": "cleared",
+      "publicationState": "preview"
+    },
+    {
+      "id": "legacy-037",
+      "locales": [
+        "ko",
+        "en",
+        "vi"
+      ],
+      "translationState": "complete",
+      "technicalReview": "logic-reviewed",
+      "languageReview": "pending",
+      "rightsReview": "cleared",
+      "publicationState": "preview"
+    },
+    {
+      "id": "legacy-038",
+      "locales": [
+        "ko",
+        "en",
+        "vi"
+      ],
+      "translationState": "complete",
+      "technicalReview": "logic-reviewed",
+      "languageReview": "pending",
+      "rightsReview": "cleared",
+      "publicationState": "preview"
+    },
+    {
+      "id": "legacy-039",
+      "locales": [
+        "ko",
+        "en",
+        "vi"
+      ],
+      "translationState": "complete",
+      "technicalReview": "logic-reviewed",
+      "languageReview": "pending",
+      "rightsReview": "cleared",
+      "publicationState": "preview"
+    },
+    {
+      "id": "legacy-040",
+      "locales": [
+        "ko",
+        "en",
+        "vi"
+      ],
+      "translationState": "complete",
+      "technicalReview": "logic-reviewed",
+      "languageReview": "pending",
+      "rightsReview": "cleared",
+      "publicationState": "preview"
+    },
+    {
+      "id": "legacy-041",
+      "locales": [
+        "ko",
+        "en",
+        "vi"
+      ],
+      "translationState": "complete",
+      "technicalReview": "logic-reviewed",
+      "languageReview": "pending",
+      "rightsReview": "cleared",
+      "publicationState": "preview"
+    },
+    {
+      "id": "legacy-042",
+      "locales": [
+        "ko",
+        "en",
+        "vi"
+      ],
+      "translationState": "complete",
+      "technicalReview": "logic-reviewed",
+      "languageReview": "pending",
+      "rightsReview": "cleared",
+      "publicationState": "preview"
+    },
+    {
+      "id": "legacy-043",
+      "locales": [
+        "ko",
+        "en",
+        "vi"
+      ],
+      "translationState": "complete",
+      "technicalReview": "logic-reviewed",
+      "languageReview": "pending",
+      "rightsReview": "cleared",
+      "publicationState": "preview"
+    },
+    {
+      "id": "mlf-044",
+      "locales": [
+        "ko",
+        "en",
+        "vi"
+      ],
+      "translationState": "complete",
+      "technicalReview": "logic-reviewed",
+      "languageReview": "pending",
+      "rightsReview": "cleared",
+      "publicationState": "preview"
+    },
+    {
+      "id": "mlf-045",
+      "locales": [
+        "ko",
+        "en",
+        "vi"
+      ],
+      "translationState": "complete",
+      "technicalReview": "logic-reviewed",
+      "languageReview": "pending",
+      "rightsReview": "cleared",
+      "publicationState": "preview"
+    },
+    {
+      "id": "mlf-046",
+      "locales": [
+        "ko",
+        "en",
+        "vi"
+      ],
+      "translationState": "complete",
+      "technicalReview": "logic-reviewed",
+      "languageReview": "pending",
+      "rightsReview": "cleared",
+      "publicationState": "preview"
+    },
+    {
+      "id": "mlf-047",
+      "locales": [
+        "ko",
+        "en",
+        "vi"
+      ],
+      "translationState": "complete",
+      "technicalReview": "logic-reviewed",
+      "languageReview": "pending",
+      "rightsReview": "cleared",
+      "publicationState": "preview"
+    },
+    {
+      "id": "mlf-048",
+      "locales": [
+        "ko",
+        "en",
+        "vi"
+      ],
+      "translationState": "complete",
+      "technicalReview": "logic-reviewed",
+      "languageReview": "pending",
+      "rightsReview": "cleared",
+      "publicationState": "preview"
+    },
+    {
+      "id": "mlf-049",
+      "locales": [
+        "ko",
+        "en",
+        "vi"
+      ],
+      "translationState": "complete",
+      "technicalReview": "logic-reviewed",
+      "languageReview": "pending",
+      "rightsReview": "cleared",
+      "publicationState": "preview"
+    },
+    {
+      "id": "mlf-050",
+      "locales": [
+        "ko",
+        "en",
+        "vi"
+      ],
+      "translationState": "complete",
+      "technicalReview": "logic-reviewed",
+      "languageReview": "pending",
+      "rightsReview": "cleared",
+      "publicationState": "preview"
+    },
+    {
+      "id": "mlf-051",
+      "locales": [
+        "ko",
+        "en",
+        "vi"
+      ],
+      "translationState": "complete",
+      "technicalReview": "logic-reviewed",
+      "languageReview": "pending",
+      "rightsReview": "cleared",
+      "publicationState": "preview"
+    },
+    {
+      "id": "mlf-052",
+      "locales": [
+        "ko",
+        "en",
+        "vi"
+      ],
+      "translationState": "complete",
+      "technicalReview": "logic-reviewed",
+      "languageReview": "pending",
+      "rightsReview": "cleared",
+      "publicationState": "preview"
+    },
+    {
+      "id": "mlf-053",
+      "locales": [
+        "ko",
+        "en",
+        "vi"
+      ],
+      "translationState": "complete",
+      "technicalReview": "logic-reviewed",
+      "languageReview": "pending",
+      "rightsReview": "cleared",
+      "publicationState": "preview"
+    },
+    {
+      "id": "mlf-054",
+      "locales": [
+        "ko",
+        "en",
+        "vi"
+      ],
+      "translationState": "complete",
+      "technicalReview": "logic-reviewed",
+      "languageReview": "pending",
+      "rightsReview": "cleared",
+      "publicationState": "preview"
+    },
+    {
+      "id": "mlf-055",
+      "locales": [
+        "ko",
+        "en",
+        "vi"
+      ],
+      "translationState": "complete",
+      "technicalReview": "logic-reviewed",
+      "languageReview": "pending",
+      "rightsReview": "cleared",
+      "publicationState": "preview"
+    },
+    {
+      "id": "mlf-056",
+      "locales": [
+        "ko",
+        "en",
+        "vi"
+      ],
+      "translationState": "complete",
+      "technicalReview": "logic-reviewed",
+      "languageReview": "pending",
+      "rightsReview": "cleared",
+      "publicationState": "preview"
+    },
+    {
+      "id": "mlf-057",
+      "locales": [
+        "ko",
+        "en",
+        "vi"
+      ],
+      "translationState": "complete",
+      "technicalReview": "logic-reviewed",
+      "languageReview": "pending",
+      "rightsReview": "cleared",
+      "publicationState": "preview"
+    },
+    {
+      "id": "mlf-058",
+      "locales": [
+        "ko",
+        "en",
+        "vi"
+      ],
+      "translationState": "complete",
+      "technicalReview": "logic-reviewed",
+      "languageReview": "pending",
+      "rightsReview": "cleared",
+      "publicationState": "preview"
+    },
+    {
+      "id": "mlf-059",
+      "locales": [
+        "ko",
+        "en",
+        "vi"
+      ],
+      "translationState": "complete",
+      "technicalReview": "logic-reviewed",
+      "languageReview": "pending",
+      "rightsReview": "cleared",
+      "publicationState": "preview"
+    },
+    {
+      "id": "mlf-060",
+      "locales": [
+        "ko",
+        "en",
+        "vi"
+      ],
+      "translationState": "complete",
+      "technicalReview": "logic-reviewed",
+      "languageReview": "pending",
+      "rightsReview": "cleared",
+      "publicationState": "preview"
+    },
+    {
+      "id": "mlf-061",
+      "locales": [
+        "ko",
+        "en",
+        "vi"
+      ],
+      "translationState": "complete",
+      "technicalReview": "logic-reviewed",
+      "languageReview": "pending",
+      "rightsReview": "cleared",
+      "publicationState": "preview"
+    },
+    {
+      "id": "mlf-062",
+      "locales": [
+        "ko",
+        "en",
+        "vi"
+      ],
+      "translationState": "complete",
+      "technicalReview": "logic-reviewed",
+      "languageReview": "pending",
+      "rightsReview": "cleared",
+      "publicationState": "preview"
+    },
+    {
+      "id": "mlf-063",
+      "locales": [
+        "ko",
+        "en",
+        "vi"
+      ],
+      "translationState": "complete",
+      "technicalReview": "logic-reviewed",
+      "languageReview": "pending",
+      "rightsReview": "cleared",
+      "publicationState": "preview"
+    },
+    {
+      "id": "mlf-064",
+      "locales": [
+        "ko",
+        "en",
+        "vi"
+      ],
+      "translationState": "complete",
+      "technicalReview": "logic-reviewed",
+      "languageReview": "pending",
+      "rightsReview": "cleared",
+      "publicationState": "preview"
+    },
+    {
+      "id": "mlf-065",
+      "locales": [
+        "ko",
+        "en",
+        "vi"
+      ],
+      "translationState": "complete",
+      "technicalReview": "logic-reviewed",
+      "languageReview": "pending",
+      "rightsReview": "cleared",
+      "publicationState": "preview"
+    },
+    {
+      "id": "mlf-066",
+      "locales": [
+        "ko",
+        "en",
+        "vi"
+      ],
+      "translationState": "complete",
+      "technicalReview": "logic-reviewed",
+      "languageReview": "pending",
+      "rightsReview": "cleared",
+      "publicationState": "preview"
+    },
+    {
+      "id": "mlf-067",
+      "locales": [
+        "ko",
+        "en",
+        "vi"
+      ],
+      "translationState": "complete",
+      "technicalReview": "logic-reviewed",
+      "languageReview": "pending",
+      "rightsReview": "cleared",
+      "publicationState": "preview"
+    },
+    {
+      "id": "mlf-068",
+      "locales": [
+        "ko",
+        "en",
+        "vi"
+      ],
+      "translationState": "complete",
+      "technicalReview": "logic-reviewed",
+      "languageReview": "pending",
+      "rightsReview": "cleared",
+      "publicationState": "preview"
+    },
+    {
+      "id": "mlf-069",
+      "locales": [
+        "ko",
+        "en",
+        "vi"
+      ],
+      "translationState": "complete",
+      "technicalReview": "logic-reviewed",
+      "languageReview": "pending",
+      "rightsReview": "cleared",
+      "publicationState": "preview"
+    },
+    {
+      "id": "mlf-070",
+      "locales": [
+        "ko",
+        "en",
+        "vi"
+      ],
+      "translationState": "complete",
+      "technicalReview": "logic-reviewed",
+      "languageReview": "pending",
+      "rightsReview": "cleared",
+      "publicationState": "preview"
+    },
+    {
+      "id": "mlf-071",
+      "locales": [
+        "ko",
+        "en",
+        "vi"
+      ],
+      "translationState": "complete",
+      "technicalReview": "logic-reviewed",
+      "languageReview": "pending",
+      "rightsReview": "cleared",
+      "publicationState": "preview"
+    },
+    {
+      "id": "mlf-072",
+      "locales": [
+        "ko",
+        "en",
+        "vi"
+      ],
+      "translationState": "complete",
+      "technicalReview": "logic-reviewed",
+      "languageReview": "pending",
+      "rightsReview": "cleared",
+      "publicationState": "preview"
+    },
+    {
+      "id": "mlf-073",
+      "locales": [
+        "ko",
+        "en",
+        "vi"
+      ],
+      "translationState": "complete",
+      "technicalReview": "logic-reviewed",
+      "languageReview": "pending",
+      "rightsReview": "cleared",
+      "publicationState": "preview"
+    },
+    {
+      "id": "mlf-074",
+      "locales": [
+        "ko",
+        "en",
+        "vi"
+      ],
+      "translationState": "complete",
+      "technicalReview": "logic-reviewed",
+      "languageReview": "pending",
+      "rightsReview": "cleared",
+      "publicationState": "preview"
+    },
+    {
+      "id": "mlf-075",
+      "locales": [
+        "ko",
+        "en",
+        "vi"
+      ],
+      "translationState": "complete",
+      "technicalReview": "logic-reviewed",
+      "languageReview": "pending",
+      "rightsReview": "cleared",
+      "publicationState": "preview"
+    },
+    {
+      "id": "mlf-076",
+      "locales": [
+        "ko",
+        "en",
+        "vi"
+      ],
+      "translationState": "complete",
+      "technicalReview": "logic-reviewed",
+      "languageReview": "pending",
+      "rightsReview": "cleared",
+      "publicationState": "preview"
+    },
+    {
+      "id": "mlf-077",
+      "locales": [
+        "ko",
+        "en",
+        "vi"
+      ],
+      "translationState": "complete",
+      "technicalReview": "logic-reviewed",
+      "languageReview": "pending",
+      "rightsReview": "cleared",
+      "publicationState": "preview"
+    },
+    {
+      "id": "mlf-078",
+      "locales": [
+        "ko",
+        "en",
+        "vi"
+      ],
+      "translationState": "complete",
+      "technicalReview": "logic-reviewed",
+      "languageReview": "pending",
+      "rightsReview": "cleared",
+      "publicationState": "preview"
+    },
+    {
+      "id": "mlf-079",
+      "locales": [
+        "ko",
+        "en",
+        "vi"
+      ],
+      "translationState": "complete",
+      "technicalReview": "logic-reviewed",
+      "languageReview": "pending",
+      "rightsReview": "cleared",
+      "publicationState": "preview"
+    },
+    {
+      "id": "mlf-080",
+      "locales": [
+        "ko",
+        "en",
+        "vi"
+      ],
+      "translationState": "complete",
+      "technicalReview": "logic-reviewed",
+      "languageReview": "pending",
+      "rightsReview": "cleared",
+      "publicationState": "preview"
+    },
+    {
+      "id": "mlf-081",
+      "locales": [
+        "ko",
+        "en",
+        "vi"
+      ],
+      "translationState": "complete",
+      "technicalReview": "logic-reviewed",
+      "languageReview": "pending",
+      "rightsReview": "cleared",
+      "publicationState": "preview"
+    },
+    {
+      "id": "mlf-082",
+      "locales": [
+        "ko",
+        "en",
+        "vi"
+      ],
+      "translationState": "complete",
+      "technicalReview": "logic-reviewed",
+      "languageReview": "pending",
+      "rightsReview": "cleared",
+      "publicationState": "preview"
+    },
+    {
+      "id": "mlf-083",
+      "locales": [
+        "ko",
+        "en",
+        "vi"
+      ],
+      "translationState": "complete",
+      "technicalReview": "logic-reviewed",
+      "languageReview": "pending",
+      "rightsReview": "cleared",
+      "publicationState": "preview"
+    },
+    {
+      "id": "mlf-084",
+      "locales": [
+        "ko",
+        "en",
+        "vi"
+      ],
+      "translationState": "complete",
+      "technicalReview": "logic-reviewed",
+      "languageReview": "pending",
+      "rightsReview": "cleared",
+      "publicationState": "preview"
+    },
+    {
+      "id": "mlf-085",
+      "locales": [
+        "ko",
+        "en",
+        "vi"
+      ],
+      "translationState": "complete",
+      "technicalReview": "logic-reviewed",
+      "languageReview": "pending",
+      "rightsReview": "cleared",
+      "publicationState": "preview"
+    },
+    {
+      "id": "mlf-086",
+      "locales": [
+        "ko",
+        "en",
+        "vi"
+      ],
+      "translationState": "complete",
+      "technicalReview": "logic-reviewed",
+      "languageReview": "pending",
+      "rightsReview": "cleared",
+      "publicationState": "preview"
+    },
+    {
+      "id": "mlf-087",
+      "locales": [
+        "ko",
+        "en",
+        "vi"
+      ],
+      "translationState": "complete",
+      "technicalReview": "logic-reviewed",
+      "languageReview": "pending",
+      "rightsReview": "cleared",
+      "publicationState": "preview"
+    },
+    {
+      "id": "mlf-088",
+      "locales": [
+        "ko",
+        "en",
+        "vi"
+      ],
+      "translationState": "complete",
+      "technicalReview": "logic-reviewed",
+      "languageReview": "pending",
+      "rightsReview": "cleared",
+      "publicationState": "preview"
+    },
+    {
+      "id": "mlf-089",
+      "locales": [
+        "ko",
+        "en",
+        "vi"
+      ],
+      "translationState": "complete",
+      "technicalReview": "logic-reviewed",
+      "languageReview": "pending",
+      "rightsReview": "cleared",
+      "publicationState": "preview"
+    },
+    {
+      "id": "mlf-090",
+      "locales": [
+        "ko",
+        "en",
+        "vi"
+      ],
+      "translationState": "complete",
+      "technicalReview": "logic-reviewed",
+      "languageReview": "pending",
+      "rightsReview": "cleared",
+      "publicationState": "preview"
+    },
+    {
+      "id": "mlf-091",
+      "locales": [
+        "ko",
+        "en",
+        "vi"
+      ],
+      "translationState": "complete",
+      "technicalReview": "logic-reviewed",
+      "languageReview": "pending",
+      "rightsReview": "cleared",
+      "publicationState": "preview"
+    },
+    {
+      "id": "mlf-092",
+      "locales": [
+        "ko",
+        "en",
+        "vi"
+      ],
+      "translationState": "complete",
+      "technicalReview": "logic-reviewed",
+      "languageReview": "pending",
+      "rightsReview": "cleared",
+      "publicationState": "preview"
+    },
+    {
+      "id": "mlf-093",
+      "locales": [
+        "ko",
+        "en",
+        "vi"
+      ],
+      "translationState": "complete",
+      "technicalReview": "logic-reviewed",
+      "languageReview": "pending",
+      "rightsReview": "cleared",
+      "publicationState": "preview"
+    },
+    {
+      "id": "mlf-094",
+      "locales": [
+        "ko",
+        "en",
+        "vi"
+      ],
+      "translationState": "complete",
+      "technicalReview": "logic-reviewed",
+      "languageReview": "pending",
+      "rightsReview": "cleared",
+      "publicationState": "preview"
+    },
+    {
+      "id": "mlf-095",
+      "locales": [
+        "ko",
+        "en",
+        "vi"
+      ],
+      "translationState": "complete",
+      "technicalReview": "logic-reviewed",
+      "languageReview": "pending",
+      "rightsReview": "cleared",
+      "publicationState": "preview"
+    },
+    {
+      "id": "mlf-096",
+      "locales": [
+        "ko",
+        "en",
+        "vi"
+      ],
+      "translationState": "complete",
+      "technicalReview": "logic-reviewed",
+      "languageReview": "pending",
+      "rightsReview": "cleared",
+      "publicationState": "preview"
+    },
+    {
+      "id": "mlf-097",
+      "locales": [
+        "ko",
+        "en",
+        "vi"
+      ],
+      "translationState": "complete",
+      "technicalReview": "logic-reviewed",
+      "languageReview": "pending",
+      "rightsReview": "cleared",
+      "publicationState": "preview"
+    },
+    {
+      "id": "mlf-098",
+      "locales": [
+        "ko",
+        "en",
+        "vi"
+      ],
+      "translationState": "complete",
+      "technicalReview": "logic-reviewed",
+      "languageReview": "pending",
+      "rightsReview": "cleared",
+      "publicationState": "preview"
+    },
+    {
+      "id": "mlf-099",
+      "locales": [
+        "ko",
+        "en",
+        "vi"
+      ],
+      "translationState": "complete",
+      "technicalReview": "logic-reviewed",
+      "languageReview": "pending",
+      "rightsReview": "cleared",
+      "publicationState": "preview"
+    },
+    {
+      "id": "mlf-100",
+      "locales": [
+        "ko",
+        "en",
+        "vi"
+      ],
+      "translationState": "complete",
+      "technicalReview": "logic-reviewed",
+      "languageReview": "pending",
+      "rightsReview": "cleared",
+      "publicationState": "preview"
+    },
+    {
+      "id": "mlf-101",
+      "locales": [
+        "ko",
+        "en",
+        "vi"
+      ],
+      "translationState": "complete",
+      "technicalReview": "logic-reviewed",
+      "languageReview": "pending",
+      "rightsReview": "cleared",
+      "publicationState": "preview"
+    },
+    {
+      "id": "mlf-102",
+      "locales": [
+        "ko",
+        "en",
+        "vi"
+      ],
+      "translationState": "complete",
+      "technicalReview": "logic-reviewed",
+      "languageReview": "pending",
+      "rightsReview": "cleared",
+      "publicationState": "preview"
+    },
+    {
+      "id": "mlf-103",
+      "locales": [
+        "ko",
+        "en",
+        "vi"
+      ],
+      "translationState": "complete",
+      "technicalReview": "logic-reviewed",
+      "languageReview": "pending",
+      "rightsReview": "cleared",
+      "publicationState": "preview"
+    },
+    {
+      "id": "mlf-104",
+      "locales": [
+        "ko",
+        "en",
+        "vi"
+      ],
+      "translationState": "complete",
+      "technicalReview": "logic-reviewed",
+      "languageReview": "pending",
+      "rightsReview": "cleared",
+      "publicationState": "preview"
+    },
+    {
+      "id": "mlf-105",
+      "locales": [
+        "ko",
+        "en",
+        "vi"
+      ],
+      "translationState": "complete",
+      "technicalReview": "logic-reviewed",
+      "languageReview": "pending",
+      "rightsReview": "cleared",
+      "publicationState": "preview"
+    },
+    {
+      "id": "mlf-106",
+      "locales": [
+        "ko",
+        "en",
+        "vi"
+      ],
+      "translationState": "complete",
+      "technicalReview": "logic-reviewed",
+      "languageReview": "pending",
+      "rightsReview": "cleared",
+      "publicationState": "preview"
+    },
+    {
+      "id": "mlf-107",
+      "locales": [
+        "ko",
+        "en",
+        "vi"
+      ],
+      "translationState": "complete",
+      "technicalReview": "logic-reviewed",
+      "languageReview": "pending",
+      "rightsReview": "cleared",
+      "publicationState": "preview"
+    },
+    {
+      "id": "mlf-108",
+      "locales": [
+        "ko",
+        "en",
+        "vi"
+      ],
+      "translationState": "complete",
+      "technicalReview": "logic-reviewed",
+      "languageReview": "pending",
+      "rightsReview": "cleared",
+      "publicationState": "preview"
+    },
+    {
+      "id": "mlf-109",
+      "locales": [
+        "ko",
+        "en",
+        "vi"
+      ],
+      "translationState": "complete",
+      "technicalReview": "logic-reviewed",
+      "languageReview": "pending",
+      "rightsReview": "cleared",
+      "publicationState": "preview"
+    },
+    {
+      "id": "mlf-110",
+      "locales": [
+        "ko",
+        "en",
+        "vi"
+      ],
+      "translationState": "complete",
+      "technicalReview": "logic-reviewed",
+      "languageReview": "pending",
+      "rightsReview": "cleared",
+      "publicationState": "preview"
+    },
+    {
+      "id": "mlf-111",
+      "locales": [
+        "ko",
+        "en",
+        "vi"
+      ],
+      "translationState": "complete",
+      "technicalReview": "logic-reviewed",
+      "languageReview": "pending",
+      "rightsReview": "cleared",
+      "publicationState": "preview"
+    },
+    {
+      "id": "mlf-112",
+      "locales": [
+        "ko",
+        "en",
+        "vi"
+      ],
+      "translationState": "complete",
+      "technicalReview": "logic-reviewed",
+      "languageReview": "pending",
+      "rightsReview": "cleared",
+      "publicationState": "preview"
+    },
+    {
+      "id": "mlf-113",
+      "locales": [
+        "ko",
+        "en",
+        "vi"
+      ],
+      "translationState": "complete",
+      "technicalReview": "logic-reviewed",
+      "languageReview": "pending",
+      "rightsReview": "cleared",
+      "publicationState": "preview"
+    },
+    {
+      "id": "mlf-114",
+      "locales": [
+        "ko",
+        "en",
+        "vi"
+      ],
+      "translationState": "complete",
+      "technicalReview": "logic-reviewed",
+      "languageReview": "pending",
+      "rightsReview": "cleared",
+      "publicationState": "preview"
+    },
+    {
+      "id": "mlf-115",
+      "locales": [
+        "ko",
+        "en",
+        "vi"
+      ],
+      "translationState": "complete",
+      "technicalReview": "logic-reviewed",
+      "languageReview": "pending",
+      "rightsReview": "cleared",
+      "publicationState": "preview"
+    },
+    {
+      "id": "mlf-116",
+      "locales": [
+        "ko",
+        "en",
+        "vi"
+      ],
+      "translationState": "complete",
+      "technicalReview": "logic-reviewed",
+      "languageReview": "pending",
+      "rightsReview": "cleared",
+      "publicationState": "preview"
+    },
+    {
+      "id": "mlf-117",
+      "locales": [
+        "ko",
+        "en",
+        "vi"
+      ],
+      "translationState": "complete",
+      "technicalReview": "logic-reviewed",
+      "languageReview": "pending",
+      "rightsReview": "cleared",
+      "publicationState": "preview"
+    },
+    {
+      "id": "mlf-118",
+      "locales": [
+        "ko",
+        "en",
+        "vi"
+      ],
+      "translationState": "complete",
+      "technicalReview": "logic-reviewed",
+      "languageReview": "pending",
+      "rightsReview": "cleared",
+      "publicationState": "preview"
+    },
+    {
+      "id": "mlf-119",
+      "locales": [
+        "ko",
+        "en",
+        "vi"
+      ],
+      "translationState": "complete",
+      "technicalReview": "logic-reviewed",
+      "languageReview": "pending",
+      "rightsReview": "cleared",
+      "publicationState": "preview"
+    },
+    {
+      "id": "mlf-120",
+      "locales": [
+        "ko",
+        "en",
+        "vi"
+      ],
+      "translationState": "complete",
+      "technicalReview": "logic-reviewed",
+      "languageReview": "pending",
+      "rightsReview": "cleared",
+      "publicationState": "preview"
+    },
+    {
+      "id": "mlf-121",
+      "locales": [
+        "ko",
+        "en",
+        "vi"
+      ],
+      "translationState": "complete",
+      "technicalReview": "logic-reviewed",
+      "languageReview": "pending",
+      "rightsReview": "cleared",
+      "publicationState": "preview"
+    },
+    {
+      "id": "mlf-122",
+      "locales": [
+        "ko",
+        "en",
+        "vi"
+      ],
+      "translationState": "complete",
+      "technicalReview": "logic-reviewed",
+      "languageReview": "pending",
+      "rightsReview": "cleared",
+      "publicationState": "preview"
+    }
   ]
 }

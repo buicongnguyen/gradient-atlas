@@ -1,9 +1,10 @@
 # Gradient Atlas
 
 Gradient Atlas is an original, visual, trilingual guide to machine-learning
-foundations. It publishes exact Korean, English, and Vietnamese counterparts
-for six pilot lessons and includes interactive demonstrations for dataset
-splitting, classification thresholds, and generalization.
+foundations. It publishes 122 linked Korean, English, and Vietnamese learning
+pages (366 localized reader routes), a searchable catalog, and interactive
+demonstrations for dataset splitting, classification thresholds, and
+generalization.
 
 ## Read locally
 
@@ -36,6 +37,7 @@ npm run build:pages
 ```text
 /
 /en/  /vi/  /ko/
+/en/catalog/  /vi/catalog/  /ko/catalog/
 /en/learn/<slug>/
 /vi/learn/<slug>/
 /ko/learn/<slug>/
@@ -46,12 +48,13 @@ npm run build:pages
 
 This release is a public preview:
 
-- six original lessons;
-- three locales per lesson;
-- self-reviewed technical drafts;
+- 122 outline pages and three locales per page;
+- 43 legacy/reference pages and 79 fundamentals pages;
+- six expanded editorial showcase lessons;
+- logic-reviewed technical drafts;
 - native-language and independent technical review pending;
 - no copied WikiDocs prose, code, or media;
-- no third-party assets in the pilot.
+- no third-party assets.
 
 Machine-readable governance lives in:
 
@@ -65,9 +68,11 @@ and logic review are in
 
 ## Relationship to WikiDocs
 
+The page sequence and topic outline are adapted from
 [DL Bible – 07. Machine Learning Fundamentals](https://wikidocs.net/book/9057)
-informed the general topic scope and is linked as related reading. Gradient
-Atlas was written independently and does not mirror its text or assets.
+under its displayed CC BY 4.0 license. Every reader page links to its exact
+source page. Gradient Atlas independently authors the explanatory prose,
+examples, exercises, and interface; it does not mirror WikiDocs text or assets.
 
 ## Licenses
 

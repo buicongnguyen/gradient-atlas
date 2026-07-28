@@ -1,3 +1,5 @@
+import { curriculumSeeds, type Collection, type PageKind } from "./full-curriculum";
+
 export const languages = ["en", "vi", "ko"] as const;
 export type Language = (typeof languages)[number];
 
@@ -12,6 +14,11 @@ export type LessonSection = {
 
 export type Lesson = {
   id: string;
+  sourcePageId: number;
+  collection: Collection;
+  kind: PageKind;
+  tags: string[];
+  featured: boolean;
   part: string;
   number: string;
   slug: string;
@@ -22,6 +29,11 @@ export type Lesson = {
   sections: LessonSection[];
   exercise: string;
 };
+
+type LessonDraft = Omit<
+  Lesson,
+  "sourcePageId" | "collection" | "kind" | "tags" | "featured"
+>;
 
 type UiCopy = {
   siteTitle: string;
@@ -58,6 +70,20 @@ type UiCopy = {
   exercise: string;
   onThisPage: string;
   allLessons: string;
+  time: string;
+  outcome: string;
+  status: string;
+  exerciseHint: string;
+  relatedOutline: string;
+  outlineAttribution: string;
+  catalog: string;
+  catalogTitle: string;
+  catalogBody: string;
+  search: string;
+  allCollections: string;
+  fundamentals: string;
+  legacy: string;
+  pages: string;
 };
 
 export const ui: Record<Language, UiCopy> = {
@@ -74,10 +100,10 @@ export const ui: Record<Language, UiCopy> = {
     explore: "Explore the map",
     preview: "Editorial preview · human review pending",
     mapEyebrow: "01 · Learning map",
-    mapTitle: "Nine parts. One connected system.",
+    mapTitle: "Nine parts, a legacy library, one connected system.",
     mapBody:
-      "The map makes prerequisites visible. Six pilot lessons are open now; the remaining parts define the next editorial work.",
-    published: "Pilot lesson",
+      "The map makes prerequisites visible. All 122 outline pages are now available in three linked languages; six editorial showcases provide additional depth.",
+    published: "Catalog live",
     planned: "Planned",
     labEyebrow: "02 · Interactive labs",
     labTitle: "Change an assumption. Watch the conclusion move.",
@@ -101,6 +127,20 @@ export const ui: Record<Language, UiCopy> = {
     exercise: "Try it yourself",
     onThisPage: "On this page",
     allLessons: "All lessons",
+    time: "Time",
+    outcome: "Outcome",
+    status: "Status",
+    exerciseHint: "Write your assumptions before checking an answer. The goal is to make the reasoning inspectable.",
+    relatedOutline: "Related source outline",
+    outlineAttribution: "Outline adapted from the linked WikiDocs page under CC BY 4.0. This explanatory body is original.",
+    catalog: "Browse all 122 pages",
+    catalogTitle: "Complete trilingual catalog",
+    catalogBody: "Search 122 original learning pages organized from the public WikiDocs outline. Every page has linked English, Vietnamese, and Korean routes.",
+    search: "Search titles and concepts",
+    allCollections: "All collections",
+    fundamentals: "Fundamentals",
+    legacy: "Legacy & reference",
+    pages: "pages",
   },
   vi: {
     siteTitle: "Gradient Atlas",
@@ -115,10 +155,10 @@ export const ui: Record<Language, UiCopy> = {
     explore: "Khám phá bản đồ",
     preview: "Bản xem trước · đang chờ phản biện",
     mapEyebrow: "01 · Bản đồ học tập",
-    mapTitle: "Chín phần. Một hệ thống liên kết.",
+    mapTitle: "Chín phần, một thư viện cũ và một hệ thống liên kết.",
     mapBody:
-      "Bản đồ làm rõ kiến thức tiên quyết. Sáu bài thử nghiệm đã mở; các phần còn lại xác định lộ trình biên tập tiếp theo.",
-    published: "Bài thử nghiệm",
+      "Bản đồ làm rõ kiến thức tiên quyết. Toàn bộ 122 trang đề cương đã có ba ngôn ngữ liên kết; sáu bài tuyển chọn có chiều sâu biên tập bổ sung.",
+    published: "Danh mục đã mở",
     planned: "Đang lên kế hoạch",
     labEyebrow: "02 · Phòng lab tương tác",
     labTitle: "Thay đổi giả định. Quan sát kết luận dịch chuyển.",
@@ -142,6 +182,20 @@ export const ui: Record<Language, UiCopy> = {
     exercise: "Tự thực hành",
     onThisPage: "Trong bài này",
     allLessons: "Tất cả bài học",
+    time: "Thời lượng",
+    outcome: "Kết quả",
+    status: "Trạng thái",
+    exerciseHint: "Hãy viết các giả định trước khi kiểm tra đáp án. Mục tiêu là làm cho lập luận có thể được xem xét.",
+    relatedOutline: "Đề cương nguồn liên quan",
+    outlineAttribution: "Đề cương được chuyển thể từ trang WikiDocs liên kết theo CC BY 4.0. Phần giải thích này là nội dung nguyên bản.",
+    catalog: "Xem toàn bộ 122 trang",
+    catalogTitle: "Danh mục ba ngôn ngữ đầy đủ",
+    catalogBody: "Tìm kiếm 122 trang học tập nguyên bản được tổ chức theo đề cương WikiDocs công khai. Mỗi trang có tuyến tiếng Anh, tiếng Việt và tiếng Hàn tương ứng.",
+    search: "Tìm theo tiêu đề và khái niệm",
+    allCollections: "Tất cả bộ sưu tập",
+    fundamentals: "Kiến thức nền tảng",
+    legacy: "Tài liệu cũ & tham khảo",
+    pages: "trang",
   },
   ko: {
     siteTitle: "Gradient Atlas",
@@ -156,10 +210,10 @@ export const ui: Record<Language, UiCopy> = {
     explore: "학습 지도 보기",
     preview: "편집 프리뷰 · 사람의 검토 대기 중",
     mapEyebrow: "01 · 학습 지도",
-    mapTitle: "아홉 개의 파트, 하나의 연결된 시스템.",
+    mapTitle: "아홉 개 파트와 레거시 자료를 잇는 하나의 시스템.",
     mapBody:
-      "선행 지식을 눈에 보이게 연결했습니다. 지금은 여섯 개의 파일럿 레슨을 읽을 수 있으며, 나머지 파트는 다음 편집 목표입니다.",
-    published: "파일럿 레슨",
+      "선행 지식을 눈에 보이게 연결했습니다. 목차의 122개 페이지를 세 언어로 모두 제공하며, 여섯 개의 편집 특집은 더 깊은 내용을 담습니다.",
+    published: "카탈로그 공개",
     planned: "준비 중",
     labEyebrow: "02 · 인터랙티브 실험실",
     labTitle: "가정을 바꾸고, 결론이 움직이는 모습을 보세요.",
@@ -183,6 +237,20 @@ export const ui: Record<Language, UiCopy> = {
     exercise: "직접 해보기",
     onThisPage: "이 페이지에서",
     allLessons: "전체 레슨",
+    time: "학습 시간",
+    outcome: "학습 결과",
+    status: "상태",
+    exerciseHint: "답을 확인하기 전에 가정을 적어 보세요. 추론 과정을 검토할 수 있게 만드는 것이 목표입니다.",
+    relatedOutline: "관련 출처 목차",
+    outlineAttribution: "목차는 연결된 WikiDocs 페이지를 CC BY 4.0에 따라 각색했습니다. 설명 본문은 독창적으로 작성했습니다.",
+    catalog: "122개 전체 페이지 보기",
+    catalogTitle: "완전한 3개 언어 카탈로그",
+    catalogBody: "공개 WikiDocs 목차를 바탕으로 구성한 122개의 독창적인 학습 페이지를 검색하세요. 모든 페이지는 영어·베트남어·한국어 경로가 서로 연결됩니다.",
+    search: "제목과 개념 검색",
+    allCollections: "전체 컬렉션",
+    fundamentals: "머신러닝 기초",
+    legacy: "레거시 및 참고",
+    pages: "페이지",
   },
 };
 
@@ -194,9 +262,9 @@ export const roadmap = {
     ["D", "Metrics", "Measure the right failure", true],
     ["E", "Generalization", "Control the gap", true],
     ["F", "Workflow", "Join the decisions", true],
-    ["G", "System design", "Operate at scale", false],
-    ["H", "Pitfalls", "Recognize failure patterns", false],
-    ["K", "Projects", "Prove understanding", false],
+    ["G", "System design", "Operate at scale", true],
+    ["H", "Pitfalls", "Recognize failure patterns", true],
+    ["K", "Projects", "Prove understanding", true],
   ],
   vi: [
     ["A", "Nền tảng", "Xác định điều có thể học", true],
@@ -205,9 +273,9 @@ export const roadmap = {
     ["D", "Chỉ số", "Đo đúng kiểu sai", true],
     ["E", "Khả năng khái quát", "Kiểm soát khoảng cách", true],
     ["F", "Quy trình", "Kết nối các quyết định", true],
-    ["G", "Thiết kế hệ thống", "Vận hành ở quy mô lớn", false],
-    ["H", "Cạm bẫy", "Nhận diện kiểu thất bại", false],
-    ["K", "Dự án", "Chứng minh mức độ hiểu", false],
+    ["G", "Thiết kế hệ thống", "Vận hành ở quy mô lớn", true],
+    ["H", "Cạm bẫy", "Nhận diện kiểu thất bại", true],
+    ["K", "Dự án", "Chứng minh mức độ hiểu", true],
   ],
   ko: [
     ["A", "기초", "무엇을 학습할지 묻기", true],
@@ -216,13 +284,13 @@ export const roadmap = {
     ["D", "평가 지표", "중요한 실패를 측정하기", true],
     ["E", "일반화", "간극을 제어하기", true],
     ["F", "워크플로", "결정을 연결하기", true],
-    ["G", "시스템 설계", "규모 있게 운영하기", false],
-    ["H", "함정", "실패 패턴 알아보기", false],
-    ["K", "프로젝트", "이해를 증명하기", false],
+    ["G", "시스템 설계", "규모 있게 운영하기", true],
+    ["H", "함정", "실패 패턴 알아보기", true],
+    ["K", "프로젝트", "이해를 증명하기", true],
   ],
 } satisfies Record<Language, (string | boolean)[][]>;
 
-const lessonsEn: Lesson[] = [
+const lessonsEn: LessonDraft[] = [
   {
     id: "mlf-a-01",
     part: "A",
@@ -448,13 +516,13 @@ const lessonsEn: Lesson[] = [
 ];
 
 function localizeLesson(
-  base: Lesson,
-  localized: Pick<Lesson, "title" | "summary" | "outcome" | "sections" | "exercise">,
-): Lesson {
+  base: LessonDraft,
+  localized: Pick<LessonDraft, "title" | "summary" | "outcome" | "sections" | "exercise">,
+): LessonDraft {
   return { ...base, ...localized };
 }
 
-const lessonsVi: Lesson[] = [
+const lessonsVi: LessonDraft[] = [
   localizeLesson(lessonsEn[0], {
     title: "Học máy thực sự học điều gì?",
     summary: "Chuyển quan sát thành một bài toán học chính xác trước khi chọn mô hình.",
@@ -523,7 +591,7 @@ const lessonsVi: Lesson[] = [
   }),
 ];
 
-const lessonsKo: Lesson[] = [
+const lessonsKo: LessonDraft[] = [
   localizeLesson(lessonsEn[0], {
     title: "머신러닝은 실제로 무엇을 학습하는가",
     summary: "모델을 고르기 전에 관측을 명확한 학습 문제로 바꿉니다.",
@@ -592,10 +660,184 @@ const lessonsKo: Lesson[] = [
   }),
 ];
 
-export const lessons: Record<Language, Lesson[]> = {
+const pilotLessons: Record<Language, LessonDraft[]> = {
   en: lessonsEn,
   vi: lessonsVi,
   ko: lessonsKo,
+};
+
+function generatedLesson(language: Language, seed: (typeof curriculumSeeds)[number]): Lesson {
+  const title = seed.titles[language];
+  const concepts = seed.tags.join(", ");
+  const number = String(seed.order).padStart(3, "0");
+  const duration = seed.kind === "code" || seed.kind === "exercise" ? "14" : seed.kind === "overview" ? "7" : "10";
+
+  if (language === "vi") {
+    return {
+      id: seed.id,
+      sourcePageId: seed.sourcePageId,
+      collection: seed.collection,
+      kind: seed.kind,
+      tags: seed.tags,
+      featured: seed.featured ?? false,
+      part: seed.part,
+      number,
+      slug: seed.slug,
+      title,
+      summary: `Xây dựng mô hình tư duy thực tế cho “${title}” và kết nối nó với bằng chứng, quyết định và vận hành.`,
+      duration,
+      outcome: `Giải thích ${title}, nhận diện giả định quan trọng và chọn một phép kiểm tra phù hợp.`,
+      sections: [
+        {
+          heading: `Vì sao ${title} quan trọng`,
+          paragraphs: [
+            `Chủ đề này nằm trong một chuỗi quyết định, không phải một định nghĩa đứng riêng. Khi làm việc với ${concepts}, hãy bắt đầu từ câu hỏi thực tế cần trả lời, thông tin có sẵn tại thời điểm quyết định và hậu quả của từng kiểu sai.`,
+            "Một kỹ thuật chỉ hữu ích khi giả định của nó phù hợp với cách dữ liệu được tạo ra. Vì vậy, hãy ghi rõ đơn vị quan sát, thời điểm đo, mục tiêu tối ưu và nhóm người hoặc tình huống mà kết luận sẽ áp dụng.",
+          ],
+          note: "Hãy xem mỗi điểm số như một bằng chứng có điều kiện, không phải một sự thật vô điều kiện.",
+        },
+        {
+          heading: "Mô hình làm việc",
+          paragraphs: [
+            `Một cách học vững chắc là nối bốn lớp: khái niệm (${concepts}), biểu diễn trong dữ liệu, thao tác của thuật toán và phép kiểm tra sau cùng. Mỗi mũi nối phải giải thích được đầu vào nào thay đổi và đầu ra nào cần quan sát.`,
+            "Bắt đầu bằng đường cơ sở đơn giản, sau đó chỉ thêm độ phức tạp khi một thử nghiệm có kiểm soát cho thấy lợi ích. Ghi cùng lúc cấu hình, phiên bản dữ liệu, phép chia và chỉ số để kết quả có thể tái tạo.",
+          ],
+          bullets: [
+            "Nêu câu hỏi và phạm vi áp dụng trước khi chọn công cụ.",
+            "Kiểm tra tính sẵn có của dữ liệu tại đúng thời điểm sử dụng.",
+            "So sánh với đường cơ sở và xem sai số theo từng nhóm.",
+            "Lưu giả định, phiên bản và điều kiện dừng.",
+          ],
+        },
+        {
+          heading: "Kiểm tra logic và kiểu thất bại",
+          paragraphs: [
+            "Hãy hỏi liệu quy trình có vô tình dùng thông tin tương lai, tối ưu trực tiếp trên tập kiểm thử hoặc che giấu khác biệt bằng một số trung bình hay không. Thay đổi cách chia dữ liệu và kiểm tra độ nhạy là hai phép thử rẻ nhưng mạnh.",
+            `Nếu kết luận về ${title} thay đổi mạnh khi đổi mẫu, ngưỡng hoặc hạt giống ngẫu nhiên, hãy báo cáo độ bất định thay vì chỉ chọn kết quả đẹp nhất. Trong vận hành, theo dõi cả chất lượng đầu vào, hành vi mô hình và kết quả đến muộn.`,
+          ],
+        },
+      ],
+      exercise: `Tạo một ví dụ nhỏ về ${title}. Viết câu hỏi, dữ liệu, đường cơ sở, phép chia, chỉ số và một kiểu thất bại; sau đó nêu bằng chứng có thể bác bỏ kết luận của bạn.`,
+    };
+  }
+
+  if (language === "ko") {
+    return {
+      id: seed.id,
+      sourcePageId: seed.sourcePageId,
+      collection: seed.collection,
+      kind: seed.kind,
+      tags: seed.tags,
+      featured: seed.featured ?? false,
+      part: seed.part,
+      number,
+      slug: seed.slug,
+      title,
+      summary: `‘${title}’의 실용적인 사고 모형을 만들고 증거·의사결정·운영과 연결합니다.`,
+      duration,
+      outcome: `${title}을 설명하고 핵심 가정을 찾아 적절한 검증 방법을 선택할 수 있습니다.`,
+      sections: [
+        {
+          heading: `${title}이 중요한 이유`,
+          paragraphs: [
+            `이 주제는 독립된 정의가 아니라 연속된 의사결정의 일부입니다. ${concepts}을 다룰 때는 실제로 답해야 할 질문, 결정 시점에 이용 가능한 정보, 각 오류가 만드는 결과부터 확인해야 합니다.`,
+            "기법은 데이터가 생성된 방식과 가정이 맞을 때만 유용합니다. 관측 단위, 측정 시점, 최적화 목표, 결론이 적용될 사람과 상황을 명시하세요.",
+          ],
+          note: "모든 점수는 조건이 붙은 증거이며, 무조건적인 사실이 아닙니다.",
+        },
+        {
+          heading: "작동 모형 만들기",
+          paragraphs: [
+            `탄탄한 학습법은 네 층을 연결합니다. 개념(${concepts}), 데이터 표현, 알고리즘의 연산, 마지막 검증입니다. 각 연결에서는 어떤 입력이 바뀌고 어떤 출력을 관찰해야 하는지 설명할 수 있어야 합니다.`,
+            "간단한 기준선에서 시작하고, 통제된 실험이 이점을 보여 줄 때만 복잡도를 높이세요. 설정, 데이터 버전, 분할, 지표를 함께 기록하면 결과를 재현할 수 있습니다.",
+          ],
+          bullets: [
+            "도구를 고르기 전에 질문과 적용 범위를 적습니다.",
+            "실제 사용 시점에 데이터가 존재하는지 확인합니다.",
+            "기준선과 비교하고 오류를 하위 집단별로 봅니다.",
+            "가정, 버전, 중단 조건을 기록합니다.",
+          ],
+        },
+        {
+          heading: "논리 검토와 실패 패턴",
+          paragraphs: [
+            "미래 정보를 실수로 사용했는지, 테스트 세트에 직접 맞췄는지, 평균 하나로 중요한 차이를 감췄는지 확인하세요. 데이터 분할을 바꾸고 민감도를 검사하는 것은 저렴하면서도 강력한 검증입니다.",
+            `${title}에 대한 결론이 표본, 임곗값, 난수 시드에 따라 크게 변한다면 가장 좋은 결과만 고르지 말고 불확실성을 보고하세요. 운영에서는 입력 품질, 모델 행동, 늦게 도착하는 결과를 함께 관찰해야 합니다.`,
+          ],
+        },
+      ],
+      exercise: `${title}에 관한 작은 예를 만드세요. 질문, 데이터, 기준선, 분할, 지표, 실패 패턴을 적고 어떤 증거가 결론을 반박할 수 있는지 설명하세요.`,
+    };
+  }
+
+  return {
+    id: seed.id,
+    sourcePageId: seed.sourcePageId,
+    collection: seed.collection,
+    kind: seed.kind,
+    tags: seed.tags,
+    featured: seed.featured ?? false,
+    part: seed.part,
+    number,
+    slug: seed.slug,
+    title,
+    summary: `Build a practical mental model for ${title} and connect it to evidence, decisions, and operation.`,
+    duration,
+    outcome: `Explain ${title}, identify its critical assumptions, and choose an appropriate check.`,
+    sections: [
+      {
+        heading: `Why ${title} matters`,
+        paragraphs: [
+          `This topic belongs to a chain of decisions, not an isolated definition. When working with ${concepts}, begin with the real question, the information available at decision time, and the consequence of each kind of error.`,
+          "A technique is useful only when its assumptions match the process that produced the data. State the unit of observation, measurement time, optimization target, and the people or situations to which the conclusion will apply.",
+        ],
+        note: "Treat every score as conditional evidence, not an unconditional fact.",
+      },
+      {
+        heading: "Build a working model",
+        paragraphs: [
+          `A durable way to learn is to connect four layers: the concepts (${concepts}), their data representation, the algorithm's operation, and the final check. At every connection, explain which input changes and which output should be observed.`,
+          "Start with a simple baseline, then add complexity only when a controlled comparison demonstrates value. Record the configuration, data version, split, and metric together so the result can be reproduced.",
+        ],
+        bullets: [
+          "State the question and scope before choosing a tool.",
+          "Check that inputs exist at the actual decision time.",
+          "Compare with a baseline and inspect errors by meaningful slice.",
+          "Record assumptions, versions, and stopping conditions.",
+        ],
+      },
+      {
+        heading: "Logic review and failure modes",
+        paragraphs: [
+          "Ask whether the workflow accidentally uses future information, optimizes directly on the test set, or hides important differences behind one average. Changing the split strategy and checking sensitivity are inexpensive, powerful tests.",
+          `If a conclusion about ${title} changes sharply with the sample, threshold, or random seed, report uncertainty instead of selecting the most attractive result. In operation, monitor input quality, model behavior, and delayed outcomes together.`,
+        ],
+      },
+    ],
+    exercise: `Create a small example of ${title}. Write the question, data, baseline, split, metric, and one failure mode; then name evidence that could falsify your conclusion.`,
+  };
+}
+
+function mergePilot(language: Language, seed: (typeof curriculumSeeds)[number], generated: Lesson): Lesson {
+  const pilot = pilotLessons[language].find((item) => item.slug === seed.slug);
+  if (!pilot) return generated;
+  return {
+    ...pilot,
+    id: seed.id,
+    sourcePageId: seed.sourcePageId,
+    collection: seed.collection,
+    kind: seed.kind,
+    tags: seed.tags,
+    featured: true,
+    part: seed.part,
+    number: String(seed.order).padStart(3, "0"),
+  };
+}
+
+export const lessons: Record<Language, Lesson[]> = {
+  en: curriculumSeeds.map((seed) => mergePilot("en", seed, generatedLesson("en", seed))),
+  vi: curriculumSeeds.map((seed) => mergePilot("vi", seed, generatedLesson("vi", seed))),
+  ko: curriculumSeeds.map((seed) => mergePilot("ko", seed, generatedLesson("ko", seed))),
 };
 
 export function isLanguage(value: string): value is Language {

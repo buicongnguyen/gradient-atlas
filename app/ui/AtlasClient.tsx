@@ -170,6 +170,7 @@ export function AtlasClient({
   lessons: Lesson[];
 }) {
   const copy = ui[language];
+  const featuredLessons = lessons.filter((lesson) => lesson.featured).slice(0, 6);
   return (
     <>
       <section className="hero">
@@ -232,7 +233,7 @@ export function AtlasClient({
           <p>{copy.lessonBody}</p>
         </div>
         <div className="lesson-grid">
-          {lessons.map((lesson) => (
+          {featuredLessons.map((lesson) => (
             <Link href={`/${language}/learn/${lesson.slug}/`} className="lesson-card" key={lesson.id}>
               <div className="lesson-meta"><span>PART {lesson.part}</span><small>{lesson.duration} {copy.minutes}</small></div>
               <b>{lesson.number}</b>
@@ -241,6 +242,11 @@ export function AtlasClient({
               <div><span>{copy.read}</span><ArrowUpRight /></div>
             </Link>
           ))}
+        </div>
+        <div className="catalog-cta">
+          <Link className="button primary" href={`/${language}/catalog/`}>
+            {copy.catalog}<ArrowUpRight />
+          </Link>
         </div>
       </section>
 

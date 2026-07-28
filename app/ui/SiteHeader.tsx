@@ -15,12 +15,13 @@ export function SiteHeader({
   const copy = ui[language];
 
   useEffect(() => {
+    document.documentElement.lang = language;
     const saved = window.localStorage.getItem("gradient-atlas-theme");
     const useLight =
       saved === "light" ||
       (!saved && window.matchMedia("(prefers-color-scheme: light)").matches);
     document.documentElement.dataset.theme = useLight ? "light" : "dark";
-  }, []);
+  }, [language]);
 
   function toggleTheme() {
     const next = document.documentElement.dataset.theme !== "light";
@@ -39,7 +40,7 @@ export function SiteHeader({
       </Link>
       <nav className="main-nav" aria-label="Primary navigation">
         <Link href={`/${language}/#map`}>{copy.nav.map}</Link>
-        <Link href={`/${language}/#lessons`}>{copy.nav.lessons}</Link>
+        <Link href={`/${language}/catalog/`}>{copy.nav.lessons}</Link>
         <Link href={`/${language}/#labs`}>{copy.nav.labs}</Link>
         <Link href={`/${language}/#about`}>{copy.nav.about}</Link>
       </nav>

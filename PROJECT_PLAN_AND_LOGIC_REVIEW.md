@@ -666,7 +666,8 @@ related reading.
 - original-content, review, and rights status ledgers;
 - separate MIT software and CC BY 4.0 content licenses;
 - production worker build for hosted deployment;
-- static export containing 25 routes for GitHub Pages;
+- pilot static export containing 25 routes for GitHub Pages (superseded by the
+  376-file full-corpus export in Section 13);
 - CI and GitHub Pages deployment workflows;
 - route-render, content-governance, and translation-identity tests.
 
@@ -757,13 +758,63 @@ Resolution:
 | Human ML review | Pending | Blocks stable label, not preview |
 | Native-language review | Pending | Blocks stable label, not preview |
 
-### 12.5 Next content gate
+### 12.5 Pilot-era next content gate (superseded)
 
-Parts G, H, and K remain roadmap-only. They should not receive lesson routes
-until:
+At the pilot checkpoint, Parts G, H, and K remained roadmap-only. That gate was
+later resolved by the rights-safe full-corpus strategy in Section 13. The
+original conditions were:
 
 1. the six pilot lessons receive human feedback;
 2. glossary and style corrections are folded back into all three locales;
 3. the review effort per lesson is measured;
 4. the project decides whether future material remains fully original or uses
    author-approved CC BY adaptations.
+
+## 13. Full-corpus execution addendum (implemented 2026-07-28)
+
+The project proceeded with the rights-safe path selected in the review:
+WikiDocs book 9057 supplies the licensed page order and topic outline, while
+Gradient Atlas supplies independently written explanations, exercises,
+examples, interface, and interactive demonstrations.
+
+### 13.1 Delivered scope
+
+- 122 stable curriculum identities: 43 legacy/reference and 79 fundamentals.
+- 366 localized reader routes: English, Vietnamese, and Korean for every page.
+- Exact page-level WikiDocs source links and CC BY 4.0 modification disclosure.
+- One searchable, filterable catalog per language.
+- Six expanded editorial showcase chapters retained inside the full catalog.
+- Generated governance records for all 122 documents and all three locales.
+- Static generation for the root, locale homes, catalogs, policy, and readers.
+
+### 13.2 Full-corpus logic review
+
+`Risk: catalog, routes, and governance ledgers drift apart`
+
+Resolution: `app/data/full-curriculum.ts` is the single identity source. Runtime
+lessons and generated governance records derive from it. Automated checks assert
+122 unique IDs, slugs, and source page IDs plus the 43/79 collection split.
+
+`Risk: 122 links make the home page and reader unusable`
+
+Resolution: the home page retains six editorial showcase cards; a dedicated
+catalog adds search and collection filters. The reader sidebar shows the
+current part while previous/next navigation preserves global reading order.
+
+`Risk: language switching loses the current document`
+
+Resolution: all locales share stable slugs. Locale links preserve either
+`/catalog/` or `/learn/<slug>/`, and the build enumerates the same 122 slugs for
+each language.
+
+`Risk: outline adaptation is mistaken for copied prose`
+
+Resolution: every page carries its exact source-page link and localized
+modification notice. Governance separates `outlineLicense: CC-BY-4.0` from
+`bodyRights: original`; no WikiDocs prose, images, code, or media are imported.
+
+`Risk: generated coverage is mistaken for independent editorial approval`
+
+Resolution: all 366 pages remain clearly labeled public preview. Automated
+logic, structure, rights, build, and route checks do not change the pending
+native-language and independent technical review status.

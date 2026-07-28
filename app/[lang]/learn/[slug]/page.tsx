@@ -36,6 +36,9 @@ export default async function LessonPage({
   const index = lessonList.findIndex((item) => item.id === lesson.id);
   const previous = lessonList[index - 1];
   const next = lessonList[index + 1];
+  const nearbyLessons = lessonList.filter(
+    (item) => item.collection === lesson.collection && item.part === lesson.part,
+  );
   const copy = ui[lang];
   const suffix = `/learn/${lesson.slug}/`;
 
@@ -44,10 +47,10 @@ export default async function LessonPage({
       <SiteHeader language={lang} pathSuffix={suffix} />
       <main className="reader-shell">
         <aside className="reader-sidebar">
-          <Link className="back-to-map" href={`/${lang}/#lessons`}>← {copy.allLessons}</Link>
+          <Link className="back-to-map" href={`/${lang}/catalog/`}>← {copy.allLessons}</Link>
           <p>{copy.allLessons}</p>
           <nav aria-label={copy.allLessons}>
-            {lessonList.map((item) => (
+            {nearbyLessons.map((item) => (
               <Link
                 key={item.id}
                 href={`/${lang}/learn/${item.slug}/`}
@@ -72,9 +75,9 @@ export default async function LessonPage({
             <h1>{lesson.title}</h1>
             <p>{lesson.summary}</p>
             <dl>
-              <div><dt>Time</dt><dd>{lesson.duration} {copy.minutes}</dd></div>
-              <div><dt>Outcome</dt><dd>{lesson.outcome}</dd></div>
-              <div><dt>Status</dt><dd>{copy.humanReview}</dd></div>
+              <div><dt>{copy.time}</dt><dd>{lesson.duration} {copy.minutes}</dd></div>
+              <div><dt>{copy.outcome}</dt><dd>{lesson.outcome}</dd></div>
+              <div><dt>{copy.status}</dt><dd>{copy.humanReview}</dd></div>
             </dl>
           </header>
 
@@ -90,10 +93,21 @@ export default async function LessonPage({
             </section>
           ))}
 
+          <aside className="article-source">
+            <a
+              href={`https://wikidocs.net/${lesson.sourcePageId}`}
+              target="_blank"
+              rel="noreferrer"
+            >
+              {copy.relatedOutline} <ArrowUpRight />
+            </a>
+            <p>{copy.outlineAttribution}</p>
+          </aside>
+
           <section className="exercise-card">
             <span>{copy.exercise}</span>
             <h2>{lesson.exercise}</h2>
-            <p>Write your assumptions before checking an answer. The goal is to make the reasoning inspectable.</p>
+            <p>{copy.exerciseHint}</p>
           </section>
 
           <nav className="article-pagination" aria-label="Lesson pagination">
@@ -111,9 +125,15 @@ export default async function LessonPage({
           {lesson.sections.map((section, sectionIndex) => (
             <Link href={`#section-${sectionIndex + 1}`} key={section.heading}>{section.heading}</Link>
           ))}
-          <a className="wikidocs-reference" href="https://wikidocs.net/book/9057" target="_blank" rel="noreferrer">
-            Related WikiDocs syllabus <ArrowUpRight />
+          <a
+            className="wikidocs-reference"
+            href={`https://wikidocs.net/${lesson.sourcePageId}`}
+            target="_blank"
+            rel="noreferrer"
+          >
+            {copy.relatedOutline} <ArrowUpRight />
           </a>
+          <small className="source-attribution">{copy.outlineAttribution}</small>
         </aside>
       </main>
     </div>

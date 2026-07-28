@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
 import "./globals.css";
 
+const siteUrl =
+  process.env.NEXT_PUBLIC_SITE_URL ??
+  "https://buicongnguyen.github.io/gradient-atlas/";
+
 export const metadata: Metadata = {
-  metadataBase: new URL(
-    process.env.NEXT_PUBLIC_SITE_URL ??
-      "https://buicongnguyen.github.io/gradient-atlas/",
-  ),
+  metadataBase: new URL(siteUrl),
   title: {
     default: "Gradient Atlas · Machine Learning, clearly mapped",
     template: "%s · Gradient Atlas",
@@ -19,7 +20,7 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "/og.png",
+        url: new URL("og.png", siteUrl).toString(),
         width: 1728,
         height: 908,
         alt: "Gradient Atlas machine-learning evidence loop",
@@ -31,7 +32,7 @@ export const metadata: Metadata = {
     title: "Gradient Atlas",
     description:
       "Machine-learning foundations, mapped in Korean, English, and Vietnamese.",
-    images: ["/og.png"],
+    images: [new URL("og.png", siteUrl).toString()],
   },
 };
 

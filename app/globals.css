@@ -210,6 +210,33 @@ input[type="range"] { width: 100%; accent-color: var(--acid); cursor: pointer; }
 .lesson-card h3 { max-width: 270px; margin: 4.4rem 0 .8rem; font-size: 1.45rem; line-height: 1.15; letter-spacing: -.025em; z-index: 1; }
 .lesson-card > p { margin: 0; color: var(--muted); font-size: .84rem; z-index: 1; }
 .lesson-card > div:last-child { margin-top: auto; padding-top: 1rem; display: flex; justify-content: space-between; border-top: 1px solid var(--line); color: var(--acid); font-size: .72rem; font-weight: 750; }
+.catalog-cta { margin-top: 2rem; display: flex; justify-content: center; }
+.catalog-page { width: min(var(--max), calc(100% - 2.4rem)); margin: 0 auto; padding: 5rem 0 8rem; }
+.catalog-hero { max-width: 840px; padding-bottom: 3rem; }
+.catalog-hero h1 { margin: 0; font-size: clamp(3rem, 7vw, 6.5rem); line-height: .96; letter-spacing: -.06em; }
+.catalog-hero > p:last-child { max-width: 680px; margin: 1.7rem 0 0; color: var(--muted); font-size: 1.05rem; }
+.catalog-controls { padding: 1.2rem; display: grid; grid-template-columns: minmax(260px, 1fr) auto auto; gap: 1rem; align-items: end; position: sticky; top: 74px; z-index: 20; background: color-mix(in srgb, var(--bg) 92%, transparent); border: 1px solid var(--line); backdrop-filter: blur(18px); }
+.catalog-controls label { display: grid; gap: .4rem; }
+.catalog-controls label span { color: var(--muted); font: 700 .58rem ui-monospace, monospace; text-transform: uppercase; letter-spacing: .08em; }
+.catalog-controls input { width: 100%; padding: .75rem .85rem; color: var(--ink); background: var(--panel); border: 1px solid var(--line-strong); }
+.catalog-filters { display: flex; }
+.catalog-filters button { min-height: 44px; padding: .65rem .8rem; color: var(--muted); background: var(--panel); border: 1px solid var(--line); cursor: pointer; }
+.catalog-filters button + button { border-left: 0; }
+.catalog-filters button[aria-pressed="true"] { color: var(--bg-deep); background: var(--acid); border-color: var(--acid); }
+.catalog-controls output { padding-bottom: .7rem; color: var(--acid); font: 700 .68rem ui-monospace, monospace; white-space: nowrap; }
+.catalog-groups { margin-top: 3rem; display: grid; gap: 3.5rem; }
+.catalog-group > header { display: grid; grid-template-columns: 1fr auto; align-items: end; padding-bottom: 1rem; border-bottom: 1px solid var(--line-strong); }
+.catalog-group > header span { grid-column: 1 / -1; color: var(--acid); font: 700 .58rem ui-monospace, monospace; text-transform: uppercase; letter-spacing: .1em; }
+.catalog-group > header h2 { margin: .45rem 0 0; font-size: 1.8rem; }
+.catalog-group > header small { color: var(--muted); }
+.catalog-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.catalog-list a { min-height: 112px; padding: 1rem; display: grid; grid-template-columns: 42px 1fr auto; gap: .8rem; align-items: start; text-decoration: none; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.catalog-list a:hover { background: var(--acid-soft); }
+.catalog-list a > span { color: var(--acid); font: 700 .65rem ui-monospace, monospace; }
+.catalog-list a > div { display: grid; gap: .35rem; }
+.catalog-list strong { font-size: .9rem; line-height: 1.25; }
+.catalog-list small { color: var(--muted); font-size: .68rem; line-height: 1.45; }
+.catalog-list a > svg { color: var(--muted); }
 .about-section { display: grid; grid-template-columns: .9fr 1.1fr; gap: 6rem; }
 .about-section > div:last-child > p { margin: 0; color: var(--muted); font-size: 1.08rem; }
 .policy-actions { margin-top: 2rem; display: flex; flex-wrap: wrap; gap: .7rem; }
@@ -247,6 +274,9 @@ input[type="range"] { width: 100%; accent-color: var(--acid); cursor: pointer; }
 .formula-block, .article-section pre { margin: 1.6rem 0; padding: 1.3rem; overflow-x: auto; background: var(--bg-deep); border: 1px solid var(--line); color: var(--acid); font: .84rem/1.7 ui-monospace, SFMono-Regular, Consolas, monospace; }
 .article-note { margin: 1.6rem 0; padding: 1rem 1.2rem; display: flex; gap: .8rem; background: var(--acid-soft); border-left: 2px solid var(--acid); color: var(--acid); }
 .article-note p { margin: 0; color: var(--ink); font-size: .85rem; }
+.article-source { margin-top: 3rem; padding: 1.2rem; border: 1px solid var(--line); background: var(--panel); }
+.article-source a { display: inline-flex; align-items: center; gap: .5rem; color: var(--acid); text-decoration: none; font-size: .72rem; font-weight: 700; }
+.article-source p { margin: .6rem 0 0; color: var(--muted); font-size: .68rem; }
 .exercise-card { margin-top: 4rem; padding: 2rem; background: var(--acid); color: var(--bg-deep); }
 .exercise-card > span { font: 700 .63rem ui-monospace, monospace; text-transform: uppercase; letter-spacing: .1em; }
 .exercise-card h2 { margin: 1.2rem 0; font-size: 1.55rem; line-height: 1.3; }
@@ -258,6 +288,7 @@ input[type="range"] { width: 100%; accent-color: var(--acid); cursor: pointer; }
 .article-outline > a { color: var(--muted); text-decoration: none; font-size: .68rem; line-height: 1.35; }
 .article-outline > a:hover { color: var(--ink); }
 .article-outline .wikidocs-reference { margin-top: 2rem; padding-top: 1rem; display: flex; justify-content: space-between; color: var(--acid); border-top: 1px solid var(--line); }
+.source-attribution { margin-top: .3rem; color: var(--muted); font-size: .58rem; line-height: 1.45; }
 .policy-page { width: min(780px, calc(100% - 2rem)); margin: 0 auto; padding: 5rem 0 8rem; }
 .policy-page > a { display: inline-block; margin-bottom: 5rem; color: var(--acid); text-decoration: none; font-size: .72rem; }
 .policy-page h1 { margin: 0 0 5rem; font-size: clamp(3rem, 8vw, 6rem); line-height: .95; letter-spacing: -.06em; }
@@ -273,6 +304,8 @@ input[type="range"] { width: 100%; accent-color: var(--acid); cursor: pointer; }
   .hero { grid-template-columns: 1fr; padding: 7rem 0; }
   .hero-system { width: min(560px, 84vw); margin: 0 auto; }
   .roadmap, .lesson-grid { grid-template-columns: repeat(2, 1fr); }
+  .catalog-controls { grid-template-columns: 1fr; position: static; }
+  .catalog-controls output { padding: 0; }
   .lab-grid { grid-template-columns: 1fr; }
   .lab-card { min-height: 430px; }
   .reader-shell { grid-template-columns: 230px minmax(0, 1fr); }
@@ -289,6 +322,10 @@ input[type="range"] { width: 100%; accent-color: var(--acid); cursor: pointer; }
   .system-node { min-width: 68px; padding: .4rem; font-size: .52rem; }
   .system-center { width: 106px; height: 106px; }
   .language-cards, .roadmap, .lesson-grid, .about-section { grid-template-columns: 1fr; }
+  .catalog-page { width: min(100% - 1.5rem, var(--max)); padding-top: 3.5rem; }
+  .catalog-filters { overflow-x: auto; }
+  .catalog-filters button { white-space: nowrap; }
+  .catalog-list { grid-template-columns: 1fr; }
   .page-section { width: min(100% - 1.5rem, var(--max)); padding: 5rem 0; }
   .labs-section { width: 100%; }
   .about-section { gap: 2rem; }

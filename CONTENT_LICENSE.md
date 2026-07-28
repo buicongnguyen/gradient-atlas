@@ -6,6 +6,11 @@ Gradient Atlas are licensed under the
 
 Attribution: “Gradient Atlas contributors.”
 
-Third-party adaptations, if added later, must retain their own attribution,
-source, license, and modification notice. The related WikiDocs syllabus is not
-included in this repository.
+The curriculum order and topic outline are adapted from
+[DL Bible – 07. Machine Learning Fundamentals](https://wikidocs.net/book/9057),
+which displays the CC BY 4.0 license. Each lesson links to its exact source page
+and the governance catalog records the modification. WikiDocs prose, images,
+code, and other media are not included.
+
+Other third-party adaptations must retain their own attribution, source,
+license, and modification notice.
