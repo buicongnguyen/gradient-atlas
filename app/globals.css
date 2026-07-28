@@ -247,8 +247,12 @@ input[type="range"] { width: 100%; accent-color: var(--acid); cursor: pointer; }
 .about-section { display: grid; grid-template-columns: .9fr 1.1fr; gap: 6rem; }
 .about-section > div:last-child > p { margin: 0; color: var(--muted); font-size: 1.08rem; }
 .policy-actions { margin-top: 2rem; display: flex; flex-wrap: wrap; gap: .7rem; }
-.policy-actions span, .policy-actions a { padding: .6rem .75rem; display: inline-flex; align-items: center; gap: .45rem; border: 1px solid var(--line); text-decoration: none; font-size: .7rem; }
-.policy-actions span > span { padding: 0; border: 0; color: var(--acid); }
+.policy-actions > span, .policy-actions > a { padding: .6rem .75rem; display: inline-flex; align-items: center; gap: .45rem; border: 1px solid var(--line); text-decoration: none; font-size: .7rem; }
+.policy-actions > span > span, .policy-actions > a > span { padding: 0; border: 0; color: var(--acid); }
+.policy-actions a:hover { color: var(--acid); border-color: var(--acid); background: var(--acid-soft); }
+.policy-actions .policy-original-link { color: var(--bg-deep); background: var(--acid); border-color: var(--acid); font-weight: 750; }
+.policy-actions .policy-original-link:hover { color: var(--bg-deep); background: color-mix(in srgb, var(--acid) 86%, white); }
+.policy-actions .policy-original-link > span { color: var(--bg-deep); }
 .site-footer { min-height: 90px; padding: 2rem max(1.2rem, calc((100vw - var(--max)) / 2)); display: flex; justify-content: space-between; color: var(--muted); border-top: 1px solid var(--line); font-size: .68rem; }
 
 .skip-link { padding: .7rem 1rem; position: fixed; left: 1rem; top: -5rem; z-index: 200; color: var(--bg-deep); background: var(--acid); text-decoration: none; font-weight: 750; }
@@ -646,6 +650,7 @@ input[type="range"] { width: 100%; accent-color: var(--acid); cursor: pointer; }
 .policy-page h1 { margin: 0 0 5rem; font-size: clamp(3rem, 8vw, 6rem); line-height: .95; letter-spacing: -.06em; }
 .policy-page h1 em { color: var(--acid); font-style: normal; font-weight: 400; }
 .policy-page section { padding: 2.2rem 0; border-top: 1px solid var(--line); }
+.policy-page section[id] { scroll-margin-top: 2rem; }
 .policy-page section h2 { margin: 0 0 .8rem; font-size: 1.35rem; }
 .policy-page section p { margin: 0; color: var(--muted); }
 .policy-page section a { color: var(--acid); }

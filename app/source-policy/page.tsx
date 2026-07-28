@@ -6,7 +6,7 @@ export default function SourcePolicyPage() {
       <Link href="/en/">← Gradient Atlas</Link>
       <p className="eyebrow">Source and rights policy</p>
       <h1>Original first.<br /><em>Traceable always.</em></h1>
-      <section>
+      <section id="original-content">
         <h2>What this release contains</h2>
         <p>
           Gradient Atlas contains 122 learning pages in English, Vietnamese,
@@ -15,7 +15,7 @@ export default function SourcePolicyPage() {
           for this project. They do not reproduce WikiDocs prose or media.
         </p>
       </section>
-      <section>
+      <section id="source-outline">
         <h2>How WikiDocs is used</h2>
         <p>
           The page sequence and topic outline are adapted from the public

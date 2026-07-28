@@ -45,6 +45,7 @@ test("renders all locale atlas routes with labs and preview disclosure", async (
     assert.match(html, /WikiDocs/);
     assert.match(html, /https:\/\/wikidocs\.net\/book\/9057/);
     assert.match(html, /CC BY 4\.0/);
+    assert.match(html, /href="\/source-policy\/#source-outline"/);
     assert.match(html, /preview|xem trước|프리뷰/i);
   }
 });
@@ -161,6 +162,9 @@ test("renders the source policy", async () => {
   assert.match(html, /Original first/);
   assert.match(html, /do not reproduce WikiDocs prose or media/);
   assert.match(html, /CC BY 4.0/);
+  assert.match(html, /id="original-content"/);
+  assert.match(html, /id="source-outline"/);
+  assert.match(html, /https:\/\/wikidocs\.net\/book\/9057/);
 });
 
 test("renders every source-corresponding page in every locale", async () => {
