@@ -7,6 +7,7 @@ const catalog = {
   contentPolicy: "outline-adapted-original-body",
   relatedSyllabus: {
     title: "DL Bible - 07. Machine Learning Fundamentals",
+    creators: ["고민수", "장선진"],
     url: "https://wikidocs.net/book/9057",
     use: "Page order, topic titles, and outline under CC BY 4.0; explanatory prose, examples, exercises, and interface are original.",
   },
@@ -19,7 +20,9 @@ const catalog = {
     kind: seed.kind,
     sourcePageId: seed.sourcePageId,
     sourceUrl: `https://wikidocs.net/${seed.sourcePageId}`,
+    creators: ["고민수", "장선진"],
     outlineLicense: "CC-BY-4.0",
+    modifications: ["translation", "restructuring"],
     bodyRights: "original",
     sourceState: "outline-adapted",
   })),

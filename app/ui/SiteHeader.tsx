@@ -8,9 +8,13 @@ import { CircleDot, Moon } from "./icons";
 export function SiteHeader({
   language,
   pathSuffix = "",
+  bookMode = false,
+  readingPosition,
 }: {
   language: Language;
   pathSuffix?: string;
+  bookMode?: boolean;
+  readingPosition?: string;
 }) {
   const copy = ui[language];
 
@@ -30,7 +34,7 @@ export function SiteHeader({
   }
 
   return (
-    <header className="site-header">
+    <header className={`site-header ${bookMode ? "book-header" : ""}`}>
       <Link className="brand" href={`/${language}/`}>
         <span className="brand-mark"><CircleDot /></span>
         <span>
@@ -44,6 +48,12 @@ export function SiteHeader({
         <Link href={`/${language}/#labs`}>{copy.nav.labs}</Link>
         <Link href={`/${language}/#about`}>{copy.nav.about}</Link>
       </nav>
+      {bookMode && readingPosition && (
+        <div className="header-reader-status" aria-label={copy.readerProgress}>
+          <small>{copy.preview}</small>
+          <strong>{readingPosition} {copy.pages}</strong>
+        </div>
+      )}
       <div className="header-actions">
         <div className="locale-switch" aria-label="Language">
           {(["ko", "en", "vi"] as Language[]).map((locale) => (

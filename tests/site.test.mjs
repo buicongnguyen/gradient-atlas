@@ -66,6 +66,11 @@ test("renders exact trilingual lesson counterparts", async () => {
     assert.match(html, new RegExp(title));
     assert.match(html, /precision = TP/);
     assert.match(html, /Human review pending|Đang chờ phản biện|사람의 검토 대기 중/);
+    assert.match(html, /book-menu-button/);
+    assert.match(html, /book-sidebar/);
+    assert.match(html, /book-outline/);
+    assert.match(html, /architecture-of-deep-learning-bible/);
+    assert.match(html, /projects/);
   }
 });
 
@@ -85,7 +90,7 @@ test("renders every source-corresponding page in every locale", async () => {
       const response = await render(`/${locale}/learn/${seed.slug}/`);
       assert.equal(response.status, 200, `${locale}/${seed.slug}`);
       const html = await response.text();
-      assert.match(html, new RegExp(`<div lang="${locale}" class="site-shell"`), `${locale}/${seed.slug}`);
+      assert.match(html, new RegExp(`<div lang="${locale}" class="site-shell book-site"`), `${locale}/${seed.slug}`);
       assert.match(html, new RegExp(`https://wikidocs.net/${seed.sourcePageId}`));
       assert.match(html, /CC BY 4\.0/);
     }

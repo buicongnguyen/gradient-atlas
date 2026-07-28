@@ -21,7 +21,9 @@ export default function SourcePolicyPage() {
           The page sequence and topic outline are adapted from the public
           <a href="https://wikidocs.net/book/9057"> WikiDocs book 9057</a> under
           its displayed <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0 license</a>.
+          The named authors are 고민수 and 장선진.
           Every reader page links to its exact WikiDocs source page. The
+          outline changes include translation and restructuring; the
           explanations and learning design are independently authored.
         </p>
       </section>

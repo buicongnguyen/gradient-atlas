@@ -28,7 +28,9 @@ for (const document of catalog.documents) {
   assert.ok(seed, `${document.id} missing from curriculum source`);
   assert.equal(document.slug, seed.slug);
   assert.equal(document.sourcePageId, seed.sourcePageId);
+  assert.deepEqual(document.creators, ["고민수", "장선진"]);
   assert.equal(document.outlineLicense, "CC-BY-4.0");
+  assert.deepEqual(document.modifications, ["translation", "restructuring"]);
   assert.equal(document.bodyRights, "original");
   const translation = status.documents.find((item) => item.id === document.id);
   assert.ok(translation, `${document.id} missing translation status`);

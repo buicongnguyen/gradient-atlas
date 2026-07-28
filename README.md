@@ -6,6 +6,11 @@ pages (366 localized reader routes), a searchable catalog, and interactive
 demonstrations for dataset splitting, classification thresholds, and
 generalization.
 
+The reader uses a book-oriented layout: a persistent, independently scrollable
+chapter tree on desktop; an accessible off-canvas contents drawer on mobile;
+current-page highlighting; chapter search; inline section bookmarks; reading
+progress; and previous/next navigation.
+
 ## Read locally
 
 Requirements: Node.js 22.13 or newer.

@@ -84,6 +84,12 @@ type UiCopy = {
   fundamentals: string;
   legacy: string;
   pages: string;
+  bookContents: string;
+  openContents: string;
+  closeContents: string;
+  currentPage: string;
+  readerProgress: string;
+  skipToArticle: string;
 };
 
 export const ui: Record<Language, UiCopy> = {
@@ -132,7 +138,7 @@ export const ui: Record<Language, UiCopy> = {
     status: "Status",
     exerciseHint: "Write your assumptions before checking an answer. The goal is to make the reasoning inspectable.",
     relatedOutline: "Related source outline",
-    outlineAttribution: "Outline adapted from the linked WikiDocs page under CC BY 4.0. This explanatory body is original.",
+    outlineAttribution: "Outline adapted from the linked WikiDocs work by 고민수 and 장선진 under CC BY 4.0; changes include translation and restructuring. This explanatory body is original.",
     catalog: "Browse all 122 pages",
     catalogTitle: "Complete trilingual catalog",
     catalogBody: "Search 122 original learning pages organized from the public WikiDocs outline. Every page has linked English, Vietnamese, and Korean routes.",
@@ -141,6 +147,12 @@ export const ui: Record<Language, UiCopy> = {
     fundamentals: "Fundamentals",
     legacy: "Legacy & reference",
     pages: "pages",
+    bookContents: "Book contents",
+    openContents: "Open book contents",
+    closeContents: "Close book contents",
+    currentPage: "Current page",
+    readerProgress: "Reader progress",
+    skipToArticle: "Skip to the lesson",
   },
   vi: {
     siteTitle: "Gradient Atlas",
@@ -187,7 +199,7 @@ export const ui: Record<Language, UiCopy> = {
     status: "Trạng thái",
     exerciseHint: "Hãy viết các giả định trước khi kiểm tra đáp án. Mục tiêu là làm cho lập luận có thể được xem xét.",
     relatedOutline: "Đề cương nguồn liên quan",
-    outlineAttribution: "Đề cương được chuyển thể từ trang WikiDocs liên kết theo CC BY 4.0. Phần giải thích này là nội dung nguyên bản.",
+    outlineAttribution: "Đề cương được chuyển thể từ tác phẩm WikiDocs của 고민수 và 장선진 theo CC BY 4.0; các thay đổi gồm dịch và tái cấu trúc. Phần giải thích này là nội dung nguyên bản.",
     catalog: "Xem toàn bộ 122 trang",
     catalogTitle: "Danh mục ba ngôn ngữ đầy đủ",
     catalogBody: "Tìm kiếm 122 trang học tập nguyên bản được tổ chức theo đề cương WikiDocs công khai. Mỗi trang có tuyến tiếng Anh, tiếng Việt và tiếng Hàn tương ứng.",
@@ -196,6 +208,12 @@ export const ui: Record<Language, UiCopy> = {
     fundamentals: "Kiến thức nền tảng",
     legacy: "Tài liệu cũ & tham khảo",
     pages: "trang",
+    bookContents: "Mục lục sách",
+    openContents: "Mở mục lục sách",
+    closeContents: "Đóng mục lục sách",
+    currentPage: "Trang hiện tại",
+    readerProgress: "Tiến độ đọc",
+    skipToArticle: "Chuyển đến bài học",
   },
   ko: {
     siteTitle: "Gradient Atlas",
@@ -242,7 +260,7 @@ export const ui: Record<Language, UiCopy> = {
     status: "상태",
     exerciseHint: "답을 확인하기 전에 가정을 적어 보세요. 추론 과정을 검토할 수 있게 만드는 것이 목표입니다.",
     relatedOutline: "관련 출처 목차",
-    outlineAttribution: "목차는 연결된 WikiDocs 페이지를 CC BY 4.0에 따라 각색했습니다. 설명 본문은 독창적으로 작성했습니다.",
+    outlineAttribution: "목차는 고민수·장선진의 WikiDocs 저작물을 CC BY 4.0에 따라 번역·재구성했습니다. 설명 본문은 독창적으로 작성했습니다.",
     catalog: "122개 전체 페이지 보기",
     catalogTitle: "완전한 3개 언어 카탈로그",
     catalogBody: "공개 WikiDocs 목차를 바탕으로 구성한 122개의 독창적인 학습 페이지를 검색하세요. 모든 페이지는 영어·베트남어·한국어 경로가 서로 연결됩니다.",
@@ -251,6 +269,12 @@ export const ui: Record<Language, UiCopy> = {
     fundamentals: "머신러닝 기초",
     legacy: "레거시 및 참고",
     pages: "페이지",
+    bookContents: "책 목차",
+    openContents: "책 목차 열기",
+    closeContents: "책 목차 닫기",
+    currentPage: "현재 페이지",
+    readerProgress: "읽기 진행률",
+    skipToArticle: "레슨으로 건너뛰기",
   },
 };
 

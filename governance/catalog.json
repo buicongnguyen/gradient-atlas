@@ -4,6 +4,10 @@
   "contentPolicy": "outline-adapted-original-body",
   "relatedSyllabus": {
     "title": "DL Bible - 07. Machine Learning Fundamentals",
+    "creators": [
+      "고민수",
+      "장선진"
+    ],
     "url": "https://wikidocs.net/book/9057",
     "use": "Page order, topic titles, and outline under CC BY 4.0; explanatory prose, examples, exercises, and interface are original."
   },
@@ -17,7 +21,15 @@
       "kind": "overview",
       "sourcePageId": 195334,
       "sourceUrl": "https://wikidocs.net/195334",
+      "creators": [
+        "고민수",
+        "장선진"
+      ],
       "outlineLicense": "CC-BY-4.0",
+      "modifications": [
+        "translation",
+        "restructuring"
+      ],
       "bodyRights": "original",
       "sourceState": "outline-adapted"
     },
@@ -30,7 +42,15 @@
       "kind": "overview",
       "sourcePageId": 195609,
       "sourceUrl": "https://wikidocs.net/195609",
+      "creators": [
+        "고민수",
+        "장선진"
+      ],
       "outlineLicense": "CC-BY-4.0",
+      "modifications": [
+        "translation",
+        "restructuring"
+      ],
       "bodyRights": "original",
       "sourceState": "outline-adapted"
     },
@@ -43,7 +63,15 @@
       "kind": "concept",
       "sourcePageId": 195610,
       "sourceUrl": "https://wikidocs.net/195610",
+      "creators": [
+        "고민수",
+        "장선진"
+      ],
       "outlineLicense": "CC-BY-4.0",
+      "modifications": [
+        "translation",
+        "restructuring"
+      ],
       "bodyRights": "original",
       "sourceState": "outline-adapted"
     },
@@ -56,7 +84,15 @@
       "kind": "concept",
       "sourcePageId": 200933,
       "sourceUrl": "https://wikidocs.net/200933",
+      "creators": [
+        "고민수",
+        "장선진"
+      ],
       "outlineLicense": "CC-BY-4.0",
+      "modifications": [
+        "translation",
+        "restructuring"
+      ],
       "bodyRights": "original",
       "sourceState": "outline-adapted"
     },
@@ -69,7 +105,15 @@
       "kind": "overview",
       "sourcePageId": 189663,
       "sourceUrl": "https://wikidocs.net/189663",
+      "creators": [
+        "고민수",
+        "장선진"
+      ],
       "outlineLicense": "CC-BY-4.0",
+      "modifications": [
+        "translation",
+        "restructuring"
+      ],
       "bodyRights": "original",
       "sourceState": "outline-adapted"
     },
@@ -82,7 +126,15 @@
       "kind": "concept",
       "sourcePageId": 201027,
       "sourceUrl": "https://wikidocs.net/201027",
+      "creators": [
+        "고민수",
+        "장선진"
+      ],
       "outlineLicense": "CC-BY-4.0",
+      "modifications": [
+        "translation",
+        "restructuring"
+      ],
       "bodyRights": "original",
       "sourceState": "outline-adapted"
     },
@@ -95,7 +147,15 @@
       "kind": "concept",
       "sourcePageId": 201039,
       "sourceUrl": "https://wikidocs.net/201039",
+      "creators": [
+        "고민수",
+        "장선진"
+      ],
       "outlineLicense": "CC-BY-4.0",
+      "modifications": [
+        "translation",
+        "restructuring"
+      ],
       "bodyRights": "original",
       "sourceState": "outline-adapted"
     },
@@ -108,7 +168,15 @@
       "kind": "concept",
       "sourcePageId": 189666,
       "sourceUrl": "https://wikidocs.net/189666",
+      "creators": [
+        "고민수",
+        "장선진"
+      ],
       "outlineLicense": "CC-BY-4.0",
+      "modifications": [
+        "translation",
+        "restructuring"
+      ],
       "bodyRights": "original",
       "sourceState": "outline-adapted"
     },
@@ -121,7 +189,15 @@
       "kind": "concept",
       "sourcePageId": 189667,
       "sourceUrl": "https://wikidocs.net/189667",
+      "creators": [
+        "고민수",
+        "장선진"
+      ],
       "outlineLicense": "CC-BY-4.0",
+      "modifications": [
+        "translation",
+        "restructuring"
+      ],
       "bodyRights": "original",
       "sourceState": "outline-adapted"
     },
@@ -134,7 +210,15 @@
       "kind": "algorithm",
       "sourcePageId": 189786,
       "sourceUrl": "https://wikidocs.net/189786",
+      "creators": [
+        "고민수",
+        "장선진"
+      ],
       "outlineLicense": "CC-BY-4.0",
+      "modifications": [
+        "translation",
+        "restructuring"
+      ],
       "bodyRights": "original",
       "sourceState": "outline-adapted"
     },
@@ -147,7 +231,15 @@
       "kind": "algorithm",
       "sourcePageId": 189787,
       "sourceUrl": "https://wikidocs.net/189787",
+      "creators": [
+        "고민수",
+        "장선진"
+      ],
       "outlineLicense": "CC-BY-4.0",
+      "modifications": [
+        "translation",
+        "restructuring"
+      ],
       "bodyRights": "original",
       "sourceState": "outline-adapted"
     },
@@ -160,7 +252,15 @@
       "kind": "algorithm",
       "sourcePageId": 189668,
       "sourceUrl": "https://wikidocs.net/189668",
+      "creators": [
+        "고민수",
+        "장선진"
+      ],
       "outlineLicense": "CC-BY-4.0",
+      "modifications": [
+        "translation",
+        "restructuring"
+      ],
       "bodyRights": "original",
       "sourceState": "outline-adapted"
     },
@@ -173,7 +273,15 @@
       "kind": "concept",
       "sourcePageId": 189669,
       "sourceUrl": "https://wikidocs.net/189669",
+      "creators": [
+        "고민수",
+        "장선진"
+      ],
       "outlineLicense": "CC-BY-4.0",
+      "modifications": [
+        "translation",
+        "restructuring"
+      ],
       "bodyRights": "original",
       "sourceState": "outline-adapted"
     },
@@ -186,7 +294,15 @@
       "kind": "concept",
       "sourcePageId": 189670,
       "sourceUrl": "https://wikidocs.net/189670",
+      "creators": [
+        "고민수",
+        "장선진"
+      ],
       "outlineLicense": "CC-BY-4.0",
+      "modifications": [
+        "translation",
+        "restructuring"
+      ],
       "bodyRights": "original",
       "sourceState": "outline-adapted"
     },
@@ -199,7 +315,15 @@
       "kind": "algorithm",
       "sourcePageId": 189671,
       "sourceUrl": "https://wikidocs.net/189671",
+      "creators": [
+        "고민수",
+        "장선진"
+      ],
       "outlineLicense": "CC-BY-4.0",
+      "modifications": [
+        "translation",
+        "restructuring"
+      ],
       "bodyRights": "original",
       "sourceState": "outline-adapted"
     },
@@ -212,7 +336,15 @@
       "kind": "algorithm",
       "sourcePageId": 189672,
       "sourceUrl": "https://wikidocs.net/189672",
+      "creators": [
+        "고민수",
+        "장선진"
+      ],
       "outlineLicense": "CC-BY-4.0",
+      "modifications": [
+        "translation",
+        "restructuring"
+      ],
       "bodyRights": "original",
       "sourceState": "outline-adapted"
     },
@@ -225,7 +357,15 @@
       "kind": "concept",
       "sourcePageId": 189673,
       "sourceUrl": "https://wikidocs.net/189673",
+      "creators": [
+        "고민수",
+        "장선진"
+      ],
       "outlineLicense": "CC-BY-4.0",
+      "modifications": [
+        "translation",
+        "restructuring"
+      ],
       "bodyRights": "original",
       "sourceState": "outline-adapted"
     },
@@ -238,7 +378,15 @@
       "kind": "algorithm",
       "sourcePageId": 189674,
       "sourceUrl": "https://wikidocs.net/189674",
+      "creators": [
+        "고민수",
+        "장선진"
+      ],
       "outlineLicense": "CC-BY-4.0",
+      "modifications": [
+        "translation",
+        "restructuring"
+      ],
       "bodyRights": "original",
       "sourceState": "outline-adapted"
     },
@@ -251,7 +399,15 @@
       "kind": "overview",
       "sourcePageId": 189675,
       "sourceUrl": "https://wikidocs.net/189675",
+      "creators": [
+        "고민수",
+        "장선진"
+      ],
       "outlineLicense": "CC-BY-4.0",
+      "modifications": [
+        "translation",
+        "restructuring"
+      ],
       "bodyRights": "original",
       "sourceState": "outline-adapted"
     },
@@ -264,7 +420,15 @@
       "kind": "concept",
       "sourcePageId": 215069,
       "sourceUrl": "https://wikidocs.net/215069",
+      "creators": [
+        "고민수",
+        "장선진"
+      ],
       "outlineLicense": "CC-BY-4.0",
+      "modifications": [
+        "translation",
+        "restructuring"
+      ],
       "bodyRights": "original",
       "sourceState": "outline-adapted"
     },
@@ -277,7 +441,15 @@
       "kind": "concept",
       "sourcePageId": 195461,
       "sourceUrl": "https://wikidocs.net/195461",
+      "creators": [
+        "고민수",
+        "장선진"
+      ],
       "outlineLicense": "CC-BY-4.0",
+      "modifications": [
+        "translation",
+        "restructuring"
+      ],
       "bodyRights": "original",
       "sourceState": "outline-adapted"
     },
@@ -290,7 +462,15 @@
       "kind": "algorithm",
       "sourcePageId": 189677,
       "sourceUrl": "https://wikidocs.net/189677",
+      "creators": [
+        "고민수",
+        "장선진"
+      ],
       "outlineLicense": "CC-BY-4.0",
+      "modifications": [
+        "translation",
+        "restructuring"
+      ],
       "bodyRights": "original",
       "sourceState": "outline-adapted"
     },
@@ -303,7 +483,15 @@
       "kind": "algorithm",
       "sourcePageId": 189678,
       "sourceUrl": "https://wikidocs.net/189678",
+      "creators": [
+        "고민수",
+        "장선진"
+      ],
       "outlineLicense": "CC-BY-4.0",
+      "modifications": [
+        "translation",
+        "restructuring"
+      ],
       "bodyRights": "original",
       "sourceState": "outline-adapted"
     },
@@ -316,7 +504,15 @@
       "kind": "overview",
       "sourcePageId": 189679,
       "sourceUrl": "https://wikidocs.net/189679",
+      "creators": [
+        "고민수",
+        "장선진"
+      ],
       "outlineLicense": "CC-BY-4.0",
+      "modifications": [
+        "translation",
+        "restructuring"
+      ],
       "bodyRights": "original",
       "sourceState": "outline-adapted"
     },
@@ -329,7 +525,15 @@
       "kind": "algorithm",
       "sourcePageId": 191763,
       "sourceUrl": "https://wikidocs.net/191763",
+      "creators": [
+        "고민수",
+        "장선진"
+      ],
       "outlineLicense": "CC-BY-4.0",
+      "modifications": [
+        "translation",
+        "restructuring"
+      ],
       "bodyRights": "original",
       "sourceState": "outline-adapted"
     },
@@ -342,7 +546,15 @@
       "kind": "algorithm",
       "sourcePageId": 204645,
       "sourceUrl": "https://wikidocs.net/204645",
+      "creators": [
+        "고민수",
+        "장선진"
+      ],
       "outlineLicense": "CC-BY-4.0",
+      "modifications": [
+        "translation",
+        "restructuring"
+      ],
       "bodyRights": "original",
       "sourceState": "outline-adapted"
     },
@@ -355,7 +567,15 @@
       "kind": "concept",
       "sourcePageId": 201495,
       "sourceUrl": "https://wikidocs.net/201495",
+      "creators": [
+        "고민수",
+        "장선진"
+      ],
       "outlineLicense": "CC-BY-4.0",
+      "modifications": [
+        "translation",
+        "restructuring"
+      ],
       "bodyRights": "original",
       "sourceState": "outline-adapted"
     },
@@ -368,7 +588,15 @@
       "kind": "concept",
       "sourcePageId": 189681,
       "sourceUrl": "https://wikidocs.net/189681",
+      "creators": [
+        "고민수",
+        "장선진"
+      ],
       "outlineLicense": "CC-BY-4.0",
+      "modifications": [
+        "translation",
+        "restructuring"
+      ],
       "bodyRights": "original",
       "sourceState": "outline-adapted"
     },
@@ -381,7 +609,15 @@
       "kind": "algorithm",
       "sourcePageId": 189682,
       "sourceUrl": "https://wikidocs.net/189682",
+      "creators": [
+        "고민수",
+        "장선진"
+      ],
       "outlineLicense": "CC-BY-4.0",
+      "modifications": [
+        "translation",
+        "restructuring"
+      ],
       "bodyRights": "original",
       "sourceState": "outline-adapted"
     },
@@ -394,7 +630,15 @@
       "kind": "concept",
       "sourcePageId": 201494,
       "sourceUrl": "https://wikidocs.net/201494",
+      "creators": [
+        "고민수",
+        "장선진"
+      ],
       "outlineLicense": "CC-BY-4.0",
+      "modifications": [
+        "translation",
+        "restructuring"
+      ],
       "bodyRights": "original",
       "sourceState": "outline-adapted"
     },
@@ -407,7 +651,15 @@
       "kind": "algorithm",
       "sourcePageId": 191761,
       "sourceUrl": "https://wikidocs.net/191761",
+      "creators": [
+        "고민수",
+        "장선진"
+      ],
       "outlineLicense": "CC-BY-4.0",
+      "modifications": [
+        "translation",
+        "restructuring"
+      ],
       "bodyRights": "original",
       "sourceState": "outline-adapted"
     },
@@ -420,7 +672,15 @@
       "kind": "algorithm",
       "sourcePageId": 204646,
       "sourceUrl": "https://wikidocs.net/204646",
+      "creators": [
+        "고민수",
+        "장선진"
+      ],
       "outlineLicense": "CC-BY-4.0",
+      "modifications": [
+        "translation",
+        "restructuring"
+      ],
       "bodyRights": "original",
       "sourceState": "outline-adapted"
     },
@@ -433,7 +693,15 @@
       "kind": "algorithm",
       "sourcePageId": 191765,
       "sourceUrl": "https://wikidocs.net/191765",
+      "creators": [
+        "고민수",
+        "장선진"
+      ],
       "outlineLicense": "CC-BY-4.0",
+      "modifications": [
+        "translation",
+        "restructuring"
+      ],
       "bodyRights": "original",
       "sourceState": "outline-adapted"
     },
@@ -446,7 +714,15 @@
       "kind": "overview",
       "sourcePageId": 189834,
       "sourceUrl": "https://wikidocs.net/189834",
+      "creators": [
+        "고민수",
+        "장선진"
+      ],
       "outlineLicense": "CC-BY-4.0",
+      "modifications": [
+        "translation",
+        "restructuring"
+      ],
       "bodyRights": "original",
       "sourceState": "outline-adapted"
     },
@@ -459,7 +735,15 @@
       "kind": "reference",
       "sourcePageId": 189280,
       "sourceUrl": "https://wikidocs.net/189280",
+      "creators": [
+        "고민수",
+        "장선진"
+      ],
       "outlineLicense": "CC-BY-4.0",
+      "modifications": [
+        "translation",
+        "restructuring"
+      ],
       "bodyRights": "original",
       "sourceState": "outline-adapted"
     },
@@ -472,7 +756,15 @@
       "kind": "reference",
       "sourcePageId": 189281,
       "sourceUrl": "https://wikidocs.net/189281",
+      "creators": [
+        "고민수",
+        "장선진"
+      ],
       "outlineLicense": "CC-BY-4.0",
+      "modifications": [
+        "translation",
+        "restructuring"
+      ],
       "bodyRights": "original",
       "sourceState": "outline-adapted"
     },
@@ -485,7 +777,15 @@
       "kind": "reference",
       "sourcePageId": 189282,
       "sourceUrl": "https://wikidocs.net/189282",
+      "creators": [
+        "고민수",
+        "장선진"
+      ],
       "outlineLicense": "CC-BY-4.0",
+      "modifications": [
+        "translation",
+        "restructuring"
+      ],
       "bodyRights": "original",
       "sourceState": "outline-adapted"
     },
@@ -498,7 +798,15 @@
       "kind": "reference",
       "sourcePageId": 195464,
       "sourceUrl": "https://wikidocs.net/195464",
+      "creators": [
+        "고민수",
+        "장선진"
+      ],
       "outlineLicense": "CC-BY-4.0",
+      "modifications": [
+        "translation",
+        "restructuring"
+      ],
       "bodyRights": "original",
       "sourceState": "outline-adapted"
     },
@@ -511,7 +819,15 @@
       "kind": "reference",
       "sourcePageId": 189283,
       "sourceUrl": "https://wikidocs.net/189283",
+      "creators": [
+        "고민수",
+        "장선진"
+      ],
       "outlineLicense": "CC-BY-4.0",
+      "modifications": [
+        "translation",
+        "restructuring"
+      ],
       "bodyRights": "original",
       "sourceState": "outline-adapted"
     },
@@ -524,7 +840,15 @@
       "kind": "reference",
       "sourcePageId": 189284,
       "sourceUrl": "https://wikidocs.net/189284",
+      "creators": [
+        "고민수",
+        "장선진"
+      ],
       "outlineLicense": "CC-BY-4.0",
+      "modifications": [
+        "translation",
+        "restructuring"
+      ],
       "bodyRights": "original",
       "sourceState": "outline-adapted"
     },
@@ -537,7 +861,15 @@
       "kind": "reference",
       "sourcePageId": 189285,
       "sourceUrl": "https://wikidocs.net/189285",
+      "creators": [
+        "고민수",
+        "장선진"
+      ],
       "outlineLicense": "CC-BY-4.0",
+      "modifications": [
+        "translation",
+        "restructuring"
+      ],
       "bodyRights": "original",
       "sourceState": "outline-adapted"
     },
@@ -550,7 +882,15 @@
       "kind": "reference",
       "sourcePageId": 189286,
       "sourceUrl": "https://wikidocs.net/189286",
+      "creators": [
+        "고민수",
+        "장선진"
+      ],
       "outlineLicense": "CC-BY-4.0",
+      "modifications": [
+        "translation",
+        "restructuring"
+      ],
       "bodyRights": "original",
       "sourceState": "outline-adapted"
     },
@@ -563,7 +903,15 @@
       "kind": "reference",
       "sourcePageId": 189287,
       "sourceUrl": "https://wikidocs.net/189287",
+      "creators": [
+        "고민수",
+        "장선진"
+      ],
       "outlineLicense": "CC-BY-4.0",
+      "modifications": [
+        "translation",
+        "restructuring"
+      ],
       "bodyRights": "original",
       "sourceState": "outline-adapted"
     },
@@ -576,7 +924,15 @@
       "kind": "overview",
       "sourcePageId": 234702,
       "sourceUrl": "https://wikidocs.net/234702",
+      "creators": [
+        "고민수",
+        "장선진"
+      ],
       "outlineLicense": "CC-BY-4.0",
+      "modifications": [
+        "translation",
+        "restructuring"
+      ],
       "bodyRights": "original",
       "sourceState": "outline-adapted"
     },
@@ -589,7 +945,15 @@
       "kind": "concept",
       "sourcePageId": 351847,
       "sourceUrl": "https://wikidocs.net/351847",
+      "creators": [
+        "고민수",
+        "장선진"
+      ],
       "outlineLicense": "CC-BY-4.0",
+      "modifications": [
+        "translation",
+        "restructuring"
+      ],
       "bodyRights": "original",
       "sourceState": "outline-adapted"
     },
@@ -602,7 +966,15 @@
       "kind": "concept",
       "sourcePageId": 351848,
       "sourceUrl": "https://wikidocs.net/351848",
+      "creators": [
+        "고민수",
+        "장선진"
+      ],
       "outlineLicense": "CC-BY-4.0",
+      "modifications": [
+        "translation",
+        "restructuring"
+      ],
       "bodyRights": "original",
       "sourceState": "outline-adapted"
     },
@@ -615,7 +987,15 @@
       "kind": "concept",
       "sourcePageId": 351849,
       "sourceUrl": "https://wikidocs.net/351849",
+      "creators": [
+        "고민수",
+        "장선진"
+      ],
       "outlineLicense": "CC-BY-4.0",
+      "modifications": [
+        "translation",
+        "restructuring"
+      ],
       "bodyRights": "original",
       "sourceState": "outline-adapted"
     },
@@ -628,7 +1008,15 @@
       "kind": "concept",
       "sourcePageId": 351850,
       "sourceUrl": "https://wikidocs.net/351850",
+      "creators": [
+        "고민수",
+        "장선진"
+      ],
       "outlineLicense": "CC-BY-4.0",
+      "modifications": [
+        "translation",
+        "restructuring"
+      ],
       "bodyRights": "original",
       "sourceState": "outline-adapted"
     },
@@ -641,7 +1029,15 @@
       "kind": "concept",
       "sourcePageId": 351851,
       "sourceUrl": "https://wikidocs.net/351851",
+      "creators": [
+        "고민수",
+        "장선진"
+      ],
       "outlineLicense": "CC-BY-4.0",
+      "modifications": [
+        "translation",
+        "restructuring"
+      ],
       "bodyRights": "original",
       "sourceState": "outline-adapted"
     },
@@ -654,7 +1050,15 @@
       "kind": "overview",
       "sourcePageId": 351852,
       "sourceUrl": "https://wikidocs.net/351852",
+      "creators": [
+        "고민수",
+        "장선진"
+      ],
       "outlineLicense": "CC-BY-4.0",
+      "modifications": [
+        "translation",
+        "restructuring"
+      ],
       "bodyRights": "original",
       "sourceState": "outline-adapted"
     },
@@ -667,7 +1071,15 @@
       "kind": "code",
       "sourcePageId": 351853,
       "sourceUrl": "https://wikidocs.net/351853",
+      "creators": [
+        "고민수",
+        "장선진"
+      ],
       "outlineLicense": "CC-BY-4.0",
+      "modifications": [
+        "translation",
+        "restructuring"
+      ],
       "bodyRights": "original",
       "sourceState": "outline-adapted"
     },
@@ -680,7 +1092,15 @@
       "kind": "concept",
       "sourcePageId": 351854,
       "sourceUrl": "https://wikidocs.net/351854",
+      "creators": [
+        "고민수",
+        "장선진"
+      ],
       "outlineLicense": "CC-BY-4.0",
+      "modifications": [
+        "translation",
+        "restructuring"
+      ],
       "bodyRights": "original",
       "sourceState": "outline-adapted"
     },
@@ -693,7 +1113,15 @@
       "kind": "overview",
       "sourcePageId": 191764,
       "sourceUrl": "https://wikidocs.net/191764",
+      "creators": [
+        "고민수",
+        "장선진"
+      ],
       "outlineLicense": "CC-BY-4.0",
+      "modifications": [
+        "translation",
+        "restructuring"
+      ],
       "bodyRights": "original",
       "sourceState": "outline-adapted"
     },
@@ -706,7 +1134,15 @@
       "kind": "concept",
       "sourcePageId": 351855,
       "sourceUrl": "https://wikidocs.net/351855",
+      "creators": [
+        "고민수",
+        "장선진"
+      ],
       "outlineLicense": "CC-BY-4.0",
+      "modifications": [
+        "translation",
+        "restructuring"
+      ],
       "bodyRights": "original",
       "sourceState": "outline-adapted"
     },
@@ -719,7 +1155,15 @@
       "kind": "concept",
       "sourcePageId": 351856,
       "sourceUrl": "https://wikidocs.net/351856",
+      "creators": [
+        "고민수",
+        "장선진"
+      ],
       "outlineLicense": "CC-BY-4.0",
+      "modifications": [
+        "translation",
+        "restructuring"
+      ],
       "bodyRights": "original",
       "sourceState": "outline-adapted"
     },
@@ -732,7 +1176,15 @@
       "kind": "concept",
       "sourcePageId": 351857,
       "sourceUrl": "https://wikidocs.net/351857",
+      "creators": [
+        "고민수",
+        "장선진"
+      ],
       "outlineLicense": "CC-BY-4.0",
+      "modifications": [
+        "translation",
+        "restructuring"
+      ],
       "bodyRights": "original",
       "sourceState": "outline-adapted"
     },
@@ -745,7 +1197,15 @@
       "kind": "concept",
       "sourcePageId": 351858,
       "sourceUrl": "https://wikidocs.net/351858",
+      "creators": [
+        "고민수",
+        "장선진"
+      ],
       "outlineLicense": "CC-BY-4.0",
+      "modifications": [
+        "translation",
+        "restructuring"
+      ],
       "bodyRights": "original",
       "sourceState": "outline-adapted"
     },
@@ -758,7 +1218,15 @@
       "kind": "concept",
       "sourcePageId": 351859,
       "sourceUrl": "https://wikidocs.net/351859",
+      "creators": [
+        "고민수",
+        "장선진"
+      ],
       "outlineLicense": "CC-BY-4.0",
+      "modifications": [
+        "translation",
+        "restructuring"
+      ],
       "bodyRights": "original",
       "sourceState": "outline-adapted"
     },
@@ -771,7 +1239,15 @@
       "kind": "algorithm",
       "sourcePageId": 351860,
       "sourceUrl": "https://wikidocs.net/351860",
+      "creators": [
+        "고민수",
+        "장선진"
+      ],
       "outlineLicense": "CC-BY-4.0",
+      "modifications": [
+        "translation",
+        "restructuring"
+      ],
       "bodyRights": "original",
       "sourceState": "outline-adapted"
     },
@@ -784,7 +1260,15 @@
       "kind": "algorithm",
       "sourcePageId": 351861,
       "sourceUrl": "https://wikidocs.net/351861",
+      "creators": [
+        "고민수",
+        "장선진"
+      ],
       "outlineLicense": "CC-BY-4.0",
+      "modifications": [
+        "translation",
+        "restructuring"
+      ],
       "bodyRights": "original",
       "sourceState": "outline-adapted"
     },
@@ -797,7 +1281,15 @@
       "kind": "code",
       "sourcePageId": 351862,
       "sourceUrl": "https://wikidocs.net/351862",
+      "creators": [
+        "고민수",
+        "장선진"
+      ],
       "outlineLicense": "CC-BY-4.0",
+      "modifications": [
+        "translation",
+        "restructuring"
+      ],
       "bodyRights": "original",
       "sourceState": "outline-adapted"
     },
@@ -810,7 +1302,15 @@
       "kind": "concept",
       "sourcePageId": 351863,
       "sourceUrl": "https://wikidocs.net/351863",
+      "creators": [
+        "고민수",
+        "장선진"
+      ],
       "outlineLicense": "CC-BY-4.0",
+      "modifications": [
+        "translation",
+        "restructuring"
+      ],
       "bodyRights": "original",
       "sourceState": "outline-adapted"
     },
@@ -823,7 +1323,15 @@
       "kind": "overview",
       "sourcePageId": 351817,
       "sourceUrl": "https://wikidocs.net/351817",
+      "creators": [
+        "고민수",
+        "장선진"
+      ],
       "outlineLicense": "CC-BY-4.0",
+      "modifications": [
+        "translation",
+        "restructuring"
+      ],
       "bodyRights": "original",
       "sourceState": "outline-adapted"
     },
@@ -836,7 +1344,15 @@
       "kind": "concept",
       "sourcePageId": 351880,
       "sourceUrl": "https://wikidocs.net/351880",
+      "creators": [
+        "고민수",
+        "장선진"
+      ],
       "outlineLicense": "CC-BY-4.0",
+      "modifications": [
+        "translation",
+        "restructuring"
+      ],
       "bodyRights": "original",
       "sourceState": "outline-adapted"
     },
@@ -849,7 +1365,15 @@
       "kind": "concept",
       "sourcePageId": 351881,
       "sourceUrl": "https://wikidocs.net/351881",
+      "creators": [
+        "고민수",
+        "장선진"
+      ],
       "outlineLicense": "CC-BY-4.0",
+      "modifications": [
+        "translation",
+        "restructuring"
+      ],
       "bodyRights": "original",
       "sourceState": "outline-adapted"
     },
@@ -862,7 +1386,15 @@
       "kind": "algorithm",
       "sourcePageId": 351882,
       "sourceUrl": "https://wikidocs.net/351882",
+      "creators": [
+        "고민수",
+        "장선진"
+      ],
       "outlineLicense": "CC-BY-4.0",
+      "modifications": [
+        "translation",
+        "restructuring"
+      ],
       "bodyRights": "original",
       "sourceState": "outline-adapted"
     },
@@ -875,7 +1407,15 @@
       "kind": "concept",
       "sourcePageId": 351883,
       "sourceUrl": "https://wikidocs.net/351883",
+      "creators": [
+        "고민수",
+        "장선진"
+      ],
       "outlineLicense": "CC-BY-4.0",
+      "modifications": [
+        "translation",
+        "restructuring"
+      ],
       "bodyRights": "original",
       "sourceState": "outline-adapted"
     },
@@ -888,7 +1428,15 @@
       "kind": "algorithm",
       "sourcePageId": 351884,
       "sourceUrl": "https://wikidocs.net/351884",
+      "creators": [
+        "고민수",
+        "장선진"
+      ],
       "outlineLicense": "CC-BY-4.0",
+      "modifications": [
+        "translation",
+        "restructuring"
+      ],
       "bodyRights": "original",
       "sourceState": "outline-adapted"
     },
@@ -901,7 +1449,15 @@
       "kind": "code",
       "sourcePageId": 351885,
       "sourceUrl": "https://wikidocs.net/351885",
+      "creators": [
+        "고민수",
+        "장선진"
+      ],
       "outlineLicense": "CC-BY-4.0",
+      "modifications": [
+        "translation",
+        "restructuring"
+      ],
       "bodyRights": "original",
       "sourceState": "outline-adapted"
     },
@@ -914,7 +1470,15 @@
       "kind": "concept",
       "sourcePageId": 351886,
       "sourceUrl": "https://wikidocs.net/351886",
+      "creators": [
+        "고민수",
+        "장선진"
+      ],
       "outlineLicense": "CC-BY-4.0",
+      "modifications": [
+        "translation",
+        "restructuring"
+      ],
       "bodyRights": "original",
       "sourceState": "outline-adapted"
     },
@@ -927,7 +1491,15 @@
       "kind": "code",
       "sourcePageId": 351887,
       "sourceUrl": "https://wikidocs.net/351887",
+      "creators": [
+        "고민수",
+        "장선진"
+      ],
       "outlineLicense": "CC-BY-4.0",
+      "modifications": [
+        "translation",
+        "restructuring"
+      ],
       "bodyRights": "original",
       "sourceState": "outline-adapted"
     },
@@ -940,7 +1512,15 @@
       "kind": "overview",
       "sourcePageId": 351818,
       "sourceUrl": "https://wikidocs.net/351818",
+      "creators": [
+        "고민수",
+        "장선진"
+      ],
       "outlineLicense": "CC-BY-4.0",
+      "modifications": [
+        "translation",
+        "restructuring"
+      ],
       "bodyRights": "original",
       "sourceState": "outline-adapted"
     },
@@ -953,7 +1533,15 @@
       "kind": "concept",
       "sourcePageId": 351896,
       "sourceUrl": "https://wikidocs.net/351896",
+      "creators": [
+        "고민수",
+        "장선진"
+      ],
       "outlineLicense": "CC-BY-4.0",
+      "modifications": [
+        "translation",
+        "restructuring"
+      ],
       "bodyRights": "original",
       "sourceState": "outline-adapted"
     },
@@ -966,7 +1554,15 @@
       "kind": "concept",
       "sourcePageId": 351897,
       "sourceUrl": "https://wikidocs.net/351897",
+      "creators": [
+        "고민수",
+        "장선진"
+      ],
       "outlineLicense": "CC-BY-4.0",
+      "modifications": [
+        "translation",
+        "restructuring"
+      ],
       "bodyRights": "original",
       "sourceState": "outline-adapted"
     },
@@ -979,7 +1575,15 @@
       "kind": "code",
       "sourcePageId": 351898,
       "sourceUrl": "https://wikidocs.net/351898",
+      "creators": [
+        "고민수",
+        "장선진"
+      ],
       "outlineLicense": "CC-BY-4.0",
+      "modifications": [
+        "translation",
+        "restructuring"
+      ],
       "bodyRights": "original",
       "sourceState": "outline-adapted"
     },
@@ -992,7 +1596,15 @@
       "kind": "code",
       "sourcePageId": 351899,
       "sourceUrl": "https://wikidocs.net/351899",
+      "creators": [
+        "고민수",
+        "장선진"
+      ],
       "outlineLicense": "CC-BY-4.0",
+      "modifications": [
+        "translation",
+        "restructuring"
+      ],
       "bodyRights": "original",
       "sourceState": "outline-adapted"
     },
@@ -1005,7 +1617,15 @@
       "kind": "concept",
       "sourcePageId": 351900,
       "sourceUrl": "https://wikidocs.net/351900",
+      "creators": [
+        "고민수",
+        "장선진"
+      ],
       "outlineLicense": "CC-BY-4.0",
+      "modifications": [
+        "translation",
+        "restructuring"
+      ],
       "bodyRights": "original",
       "sourceState": "outline-adapted"
     },
@@ -1018,7 +1638,15 @@
       "kind": "concept",
       "sourcePageId": 351901,
       "sourceUrl": "https://wikidocs.net/351901",
+      "creators": [
+        "고민수",
+        "장선진"
+      ],
       "outlineLicense": "CC-BY-4.0",
+      "modifications": [
+        "translation",
+        "restructuring"
+      ],
       "bodyRights": "original",
       "sourceState": "outline-adapted"
     },
@@ -1031,7 +1659,15 @@
       "kind": "concept",
       "sourcePageId": 351902,
       "sourceUrl": "https://wikidocs.net/351902",
+      "creators": [
+        "고민수",
+        "장선진"
+      ],
       "outlineLicense": "CC-BY-4.0",
+      "modifications": [
+        "translation",
+        "restructuring"
+      ],
       "bodyRights": "original",
       "sourceState": "outline-adapted"
     },
@@ -1044,7 +1680,15 @@
       "kind": "concept",
       "sourcePageId": 351903,
       "sourceUrl": "https://wikidocs.net/351903",
+      "creators": [
+        "고민수",
+        "장선진"
+      ],
       "outlineLicense": "CC-BY-4.0",
+      "modifications": [
+        "translation",
+        "restructuring"
+      ],
       "bodyRights": "original",
       "sourceState": "outline-adapted"
     },
@@ -1057,7 +1701,15 @@
       "kind": "code",
       "sourcePageId": 351904,
       "sourceUrl": "https://wikidocs.net/351904",
+      "creators": [
+        "고민수",
+        "장선진"
+      ],
       "outlineLicense": "CC-BY-4.0",
+      "modifications": [
+        "translation",
+        "restructuring"
+      ],
       "bodyRights": "original",
       "sourceState": "outline-adapted"
     },
@@ -1070,7 +1722,15 @@
       "kind": "overview",
       "sourcePageId": 351819,
       "sourceUrl": "https://wikidocs.net/351819",
+      "creators": [
+        "고민수",
+        "장선진"
+      ],
       "outlineLicense": "CC-BY-4.0",
+      "modifications": [
+        "translation",
+        "restructuring"
+      ],
       "bodyRights": "original",
       "sourceState": "outline-adapted"
     },
@@ -1083,7 +1743,15 @@
       "kind": "concept",
       "sourcePageId": 351905,
       "sourceUrl": "https://wikidocs.net/351905",
+      "creators": [
+        "고민수",
+        "장선진"
+      ],
       "outlineLicense": "CC-BY-4.0",
+      "modifications": [
+        "translation",
+        "restructuring"
+      ],
       "bodyRights": "original",
       "sourceState": "outline-adapted"
     },
@@ -1096,7 +1764,15 @@
       "kind": "concept",
       "sourcePageId": 351906,
       "sourceUrl": "https://wikidocs.net/351906",
+      "creators": [
+        "고민수",
+        "장선진"
+      ],
       "outlineLicense": "CC-BY-4.0",
+      "modifications": [
+        "translation",
+        "restructuring"
+      ],
       "bodyRights": "original",
       "sourceState": "outline-adapted"
     },
@@ -1109,7 +1785,15 @@
       "kind": "concept",
       "sourcePageId": 351907,
       "sourceUrl": "https://wikidocs.net/351907",
+      "creators": [
+        "고민수",
+        "장선진"
+      ],
       "outlineLicense": "CC-BY-4.0",
+      "modifications": [
+        "translation",
+        "restructuring"
+      ],
       "bodyRights": "original",
       "sourceState": "outline-adapted"
     },
@@ -1122,7 +1806,15 @@
       "kind": "code",
       "sourcePageId": 351908,
       "sourceUrl": "https://wikidocs.net/351908",
+      "creators": [
+        "고민수",
+        "장선진"
+      ],
       "outlineLicense": "CC-BY-4.0",
+      "modifications": [
+        "translation",
+        "restructuring"
+      ],
       "bodyRights": "original",
       "sourceState": "outline-adapted"
     },
@@ -1135,7 +1827,15 @@
       "kind": "code",
       "sourcePageId": 351909,
       "sourceUrl": "https://wikidocs.net/351909",
+      "creators": [
+        "고민수",
+        "장선진"
+      ],
       "outlineLicense": "CC-BY-4.0",
+      "modifications": [
+        "translation",
+        "restructuring"
+      ],
       "bodyRights": "original",
       "sourceState": "outline-adapted"
     },
@@ -1148,7 +1848,15 @@
       "kind": "concept",
       "sourcePageId": 351910,
       "sourceUrl": "https://wikidocs.net/351910",
+      "creators": [
+        "고민수",
+        "장선진"
+      ],
       "outlineLicense": "CC-BY-4.0",
+      "modifications": [
+        "translation",
+        "restructuring"
+      ],
       "bodyRights": "original",
       "sourceState": "outline-adapted"
     },
@@ -1161,7 +1869,15 @@
       "kind": "concept",
       "sourcePageId": 351911,
       "sourceUrl": "https://wikidocs.net/351911",
+      "creators": [
+        "고민수",
+        "장선진"
+      ],
       "outlineLicense": "CC-BY-4.0",
+      "modifications": [
+        "translation",
+        "restructuring"
+      ],
       "bodyRights": "original",
       "sourceState": "outline-adapted"
     },
@@ -1174,7 +1890,15 @@
       "kind": "code",
       "sourcePageId": 351912,
       "sourceUrl": "https://wikidocs.net/351912",
+      "creators": [
+        "고민수",
+        "장선진"
+      ],
       "outlineLicense": "CC-BY-4.0",
+      "modifications": [
+        "translation",
+        "restructuring"
+      ],
       "bodyRights": "original",
       "sourceState": "outline-adapted"
     },
@@ -1187,7 +1911,15 @@
       "kind": "overview",
       "sourcePageId": 351820,
       "sourceUrl": "https://wikidocs.net/351820",
+      "creators": [
+        "고민수",
+        "장선진"
+      ],
       "outlineLicense": "CC-BY-4.0",
+      "modifications": [
+        "translation",
+        "restructuring"
+      ],
       "bodyRights": "original",
       "sourceState": "outline-adapted"
     },
@@ -1200,7 +1932,15 @@
       "kind": "overview",
       "sourcePageId": 351930,
       "sourceUrl": "https://wikidocs.net/351930",
+      "creators": [
+        "고민수",
+        "장선진"
+      ],
       "outlineLicense": "CC-BY-4.0",
+      "modifications": [
+        "translation",
+        "restructuring"
+      ],
       "bodyRights": "original",
       "sourceState": "outline-adapted"
     },
@@ -1213,7 +1953,15 @@
       "kind": "concept",
       "sourcePageId": 351931,
       "sourceUrl": "https://wikidocs.net/351931",
+      "creators": [
+        "고민수",
+        "장선진"
+      ],
       "outlineLicense": "CC-BY-4.0",
+      "modifications": [
+        "translation",
+        "restructuring"
+      ],
       "bodyRights": "original",
       "sourceState": "outline-adapted"
     },
@@ -1226,7 +1974,15 @@
       "kind": "concept",
       "sourcePageId": 351932,
       "sourceUrl": "https://wikidocs.net/351932",
+      "creators": [
+        "고민수",
+        "장선진"
+      ],
       "outlineLicense": "CC-BY-4.0",
+      "modifications": [
+        "translation",
+        "restructuring"
+      ],
       "bodyRights": "original",
       "sourceState": "outline-adapted"
     },
@@ -1239,7 +1995,15 @@
       "kind": "code",
       "sourcePageId": 351933,
       "sourceUrl": "https://wikidocs.net/351933",
+      "creators": [
+        "고민수",
+        "장선진"
+      ],
       "outlineLicense": "CC-BY-4.0",
+      "modifications": [
+        "translation",
+        "restructuring"
+      ],
       "bodyRights": "original",
       "sourceState": "outline-adapted"
     },
@@ -1252,7 +2016,15 @@
       "kind": "concept",
       "sourcePageId": 351934,
       "sourceUrl": "https://wikidocs.net/351934",
+      "creators": [
+        "고민수",
+        "장선진"
+      ],
       "outlineLicense": "CC-BY-4.0",
+      "modifications": [
+        "translation",
+        "restructuring"
+      ],
       "bodyRights": "original",
       "sourceState": "outline-adapted"
     },
@@ -1265,7 +2037,15 @@
       "kind": "concept",
       "sourcePageId": 351935,
       "sourceUrl": "https://wikidocs.net/351935",
+      "creators": [
+        "고민수",
+        "장선진"
+      ],
       "outlineLicense": "CC-BY-4.0",
+      "modifications": [
+        "translation",
+        "restructuring"
+      ],
       "bodyRights": "original",
       "sourceState": "outline-adapted"
     },
@@ -1278,7 +2058,15 @@
       "kind": "concept",
       "sourcePageId": 351936,
       "sourceUrl": "https://wikidocs.net/351936",
+      "creators": [
+        "고민수",
+        "장선진"
+      ],
       "outlineLicense": "CC-BY-4.0",
+      "modifications": [
+        "translation",
+        "restructuring"
+      ],
       "bodyRights": "original",
       "sourceState": "outline-adapted"
     },
@@ -1291,7 +2079,15 @@
       "kind": "concept",
       "sourcePageId": 351937,
       "sourceUrl": "https://wikidocs.net/351937",
+      "creators": [
+        "고민수",
+        "장선진"
+      ],
       "outlineLicense": "CC-BY-4.0",
+      "modifications": [
+        "translation",
+        "restructuring"
+      ],
       "bodyRights": "original",
       "sourceState": "outline-adapted"
     },
@@ -1304,7 +2100,15 @@
       "kind": "exercise",
       "sourcePageId": 351938,
       "sourceUrl": "https://wikidocs.net/351938",
+      "creators": [
+        "고민수",
+        "장선진"
+      ],
       "outlineLicense": "CC-BY-4.0",
+      "modifications": [
+        "translation",
+        "restructuring"
+      ],
       "bodyRights": "original",
       "sourceState": "outline-adapted"
     },
@@ -1317,7 +2121,15 @@
       "kind": "overview",
       "sourcePageId": 351821,
       "sourceUrl": "https://wikidocs.net/351821",
+      "creators": [
+        "고민수",
+        "장선진"
+      ],
       "outlineLicense": "CC-BY-4.0",
+      "modifications": [
+        "translation",
+        "restructuring"
+      ],
       "bodyRights": "original",
       "sourceState": "outline-adapted"
     },
@@ -1330,7 +2142,15 @@
       "kind": "concept",
       "sourcePageId": 351948,
       "sourceUrl": "https://wikidocs.net/351948",
+      "creators": [
+        "고민수",
+        "장선진"
+      ],
       "outlineLicense": "CC-BY-4.0",
+      "modifications": [
+        "translation",
+        "restructuring"
+      ],
       "bodyRights": "original",
       "sourceState": "outline-adapted"
     },
@@ -1343,7 +2163,15 @@
       "kind": "concept",
       "sourcePageId": 351949,
       "sourceUrl": "https://wikidocs.net/351949",
+      "creators": [
+        "고민수",
+        "장선진"
+      ],
       "outlineLicense": "CC-BY-4.0",
+      "modifications": [
+        "translation",
+        "restructuring"
+      ],
       "bodyRights": "original",
       "sourceState": "outline-adapted"
     },
@@ -1356,7 +2184,15 @@
       "kind": "concept",
       "sourcePageId": 351950,
       "sourceUrl": "https://wikidocs.net/351950",
+      "creators": [
+        "고민수",
+        "장선진"
+      ],
       "outlineLicense": "CC-BY-4.0",
+      "modifications": [
+        "translation",
+        "restructuring"
+      ],
       "bodyRights": "original",
       "sourceState": "outline-adapted"
     },
@@ -1369,7 +2205,15 @@
       "kind": "code",
       "sourcePageId": 351951,
       "sourceUrl": "https://wikidocs.net/351951",
+      "creators": [
+        "고민수",
+        "장선진"
+      ],
       "outlineLicense": "CC-BY-4.0",
+      "modifications": [
+        "translation",
+        "restructuring"
+      ],
       "bodyRights": "original",
       "sourceState": "outline-adapted"
     },
@@ -1382,7 +2226,15 @@
       "kind": "concept",
       "sourcePageId": 351952,
       "sourceUrl": "https://wikidocs.net/351952",
+      "creators": [
+        "고민수",
+        "장선진"
+      ],
       "outlineLicense": "CC-BY-4.0",
+      "modifications": [
+        "translation",
+        "restructuring"
+      ],
       "bodyRights": "original",
       "sourceState": "outline-adapted"
     },
@@ -1395,7 +2247,15 @@
       "kind": "concept",
       "sourcePageId": 351953,
       "sourceUrl": "https://wikidocs.net/351953",
+      "creators": [
+        "고민수",
+        "장선진"
+      ],
       "outlineLicense": "CC-BY-4.0",
+      "modifications": [
+        "translation",
+        "restructuring"
+      ],
       "bodyRights": "original",
       "sourceState": "outline-adapted"
     },
@@ -1408,7 +2268,15 @@
       "kind": "concept",
       "sourcePageId": 351954,
       "sourceUrl": "https://wikidocs.net/351954",
+      "creators": [
+        "고민수",
+        "장선진"
+      ],
       "outlineLicense": "CC-BY-4.0",
+      "modifications": [
+        "translation",
+        "restructuring"
+      ],
       "bodyRights": "original",
       "sourceState": "outline-adapted"
     },
@@ -1421,7 +2289,15 @@
       "kind": "code",
       "sourcePageId": 351955,
       "sourceUrl": "https://wikidocs.net/351955",
+      "creators": [
+        "고민수",
+        "장선진"
+      ],
       "outlineLicense": "CC-BY-4.0",
+      "modifications": [
+        "translation",
+        "restructuring"
+      ],
       "bodyRights": "original",
       "sourceState": "outline-adapted"
     },
@@ -1434,7 +2310,15 @@
       "kind": "overview",
       "sourcePageId": 351822,
       "sourceUrl": "https://wikidocs.net/351822",
+      "creators": [
+        "고민수",
+        "장선진"
+      ],
       "outlineLicense": "CC-BY-4.0",
+      "modifications": [
+        "translation",
+        "restructuring"
+      ],
       "bodyRights": "original",
       "sourceState": "outline-adapted"
     },
@@ -1447,7 +2331,15 @@
       "kind": "concept",
       "sourcePageId": 351956,
       "sourceUrl": "https://wikidocs.net/351956",
+      "creators": [
+        "고민수",
+        "장선진"
+      ],
       "outlineLicense": "CC-BY-4.0",
+      "modifications": [
+        "translation",
+        "restructuring"
+      ],
       "bodyRights": "original",
       "sourceState": "outline-adapted"
     },
@@ -1460,7 +2352,15 @@
       "kind": "concept",
       "sourcePageId": 351957,
       "sourceUrl": "https://wikidocs.net/351957",
+      "creators": [
+        "고민수",
+        "장선진"
+      ],
       "outlineLicense": "CC-BY-4.0",
+      "modifications": [
+        "translation",
+        "restructuring"
+      ],
       "bodyRights": "original",
       "sourceState": "outline-adapted"
     },
@@ -1473,7 +2373,15 @@
       "kind": "concept",
       "sourcePageId": 351958,
       "sourceUrl": "https://wikidocs.net/351958",
+      "creators": [
+        "고민수",
+        "장선진"
+      ],
       "outlineLicense": "CC-BY-4.0",
+      "modifications": [
+        "translation",
+        "restructuring"
+      ],
       "bodyRights": "original",
       "sourceState": "outline-adapted"
     },
@@ -1486,7 +2394,15 @@
       "kind": "concept",
       "sourcePageId": 351959,
       "sourceUrl": "https://wikidocs.net/351959",
+      "creators": [
+        "고민수",
+        "장선진"
+      ],
       "outlineLicense": "CC-BY-4.0",
+      "modifications": [
+        "translation",
+        "restructuring"
+      ],
       "bodyRights": "original",
       "sourceState": "outline-adapted"
     },
@@ -1499,7 +2415,15 @@
       "kind": "concept",
       "sourcePageId": 351960,
       "sourceUrl": "https://wikidocs.net/351960",
+      "creators": [
+        "고민수",
+        "장선진"
+      ],
       "outlineLicense": "CC-BY-4.0",
+      "modifications": [
+        "translation",
+        "restructuring"
+      ],
       "bodyRights": "original",
       "sourceState": "outline-adapted"
     },
@@ -1512,7 +2436,15 @@
       "kind": "concept",
       "sourcePageId": 351961,
       "sourceUrl": "https://wikidocs.net/351961",
+      "creators": [
+        "고민수",
+        "장선진"
+      ],
       "outlineLicense": "CC-BY-4.0",
+      "modifications": [
+        "translation",
+        "restructuring"
+      ],
       "bodyRights": "original",
       "sourceState": "outline-adapted"
     },
@@ -1525,7 +2457,15 @@
       "kind": "code",
       "sourcePageId": 351962,
       "sourceUrl": "https://wikidocs.net/351962",
+      "creators": [
+        "고민수",
+        "장선진"
+      ],
       "outlineLicense": "CC-BY-4.0",
+      "modifications": [
+        "translation",
+        "restructuring"
+      ],
       "bodyRights": "original",
       "sourceState": "outline-adapted"
     },
@@ -1538,7 +2478,15 @@
       "kind": "overview",
       "sourcePageId": 351823,
       "sourceUrl": "https://wikidocs.net/351823",
+      "creators": [
+        "고민수",
+        "장선진"
+      ],
       "outlineLicense": "CC-BY-4.0",
+      "modifications": [
+        "translation",
+        "restructuring"
+      ],
       "bodyRights": "original",
       "sourceState": "outline-adapted"
     },
@@ -1551,7 +2499,15 @@
       "kind": "overview",
       "sourcePageId": 351839,
       "sourceUrl": "https://wikidocs.net/351839",
+      "creators": [
+        "고민수",
+        "장선진"
+      ],
       "outlineLicense": "CC-BY-4.0",
+      "modifications": [
+        "translation",
+        "restructuring"
+      ],
       "bodyRights": "original",
       "sourceState": "outline-adapted"
     },
@@ -1564,7 +2520,15 @@
       "kind": "overview",
       "sourcePageId": 351840,
       "sourceUrl": "https://wikidocs.net/351840",
+      "creators": [
+        "고민수",
+        "장선진"
+      ],
       "outlineLicense": "CC-BY-4.0",
+      "modifications": [
+        "translation",
+        "restructuring"
+      ],
       "bodyRights": "original",
       "sourceState": "outline-adapted"
     },
@@ -1577,7 +2541,15 @@
       "kind": "exercise",
       "sourcePageId": 351841,
       "sourceUrl": "https://wikidocs.net/351841",
+      "creators": [
+        "고민수",
+        "장선진"
+      ],
       "outlineLicense": "CC-BY-4.0",
+      "modifications": [
+        "translation",
+        "restructuring"
+      ],
       "bodyRights": "original",
       "sourceState": "outline-adapted"
     },
@@ -1590,7 +2562,15 @@
       "kind": "exercise",
       "sourcePageId": 351842,
       "sourceUrl": "https://wikidocs.net/351842",
+      "creators": [
+        "고민수",
+        "장선진"
+      ],
       "outlineLicense": "CC-BY-4.0",
+      "modifications": [
+        "translation",
+        "restructuring"
+      ],
       "bodyRights": "original",
       "sourceState": "outline-adapted"
     }

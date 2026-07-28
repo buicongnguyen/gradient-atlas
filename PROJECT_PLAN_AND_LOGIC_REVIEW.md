@@ -818,3 +818,49 @@ modification notice. Governance separates `outlineLicense: CC-BY-4.0` from
 Resolution: all 366 pages remain clearly labeled public preview. Automated
 logic, structure, rights, build, and route checks do not change the pending
 native-language and independent technical review status.
+
+## 14. Book-reader interface review (implemented after reference audit)
+
+Reference behavior was reviewed against the Hello Algo Vietnamese reader. The
+useful design pattern is structural rather than visual copying: a sticky global
+header, an independently scrollable chapter tree, a centered long-form reading
+column, an inline section index, current-page context, and an off-canvas mobile
+contents drawer.
+
+### 14.1 Implemented reader behavior
+
+- all 122 pages remain visible in a chapter-grouped left navigation;
+- the chapter tree scrolls independently from the article;
+- the current page is highlighted and automatically centered in the tree;
+- title and concept search filters the navigation without changing routes;
+- the article exposes a native, collapsible “on this page” section index;
+- a top progress line reflects document scroll position;
+- mobile navigation uses a labeled drawer, backdrop, Escape handling, scroll
+  locking, and removes hidden links from keyboard navigation;
+- previous/next links preserve the canonical 122-page reading order.
+
+### 14.2 Logic review
+
+`Risk: 122 links make the document itself difficult to scroll`
+
+Resolution: the contents panel has its own viewport and overscroll boundary.
+The article remains normal document flow, so browser find, anchor links, and
+reading position behave conventionally.
+
+`Risk: mobile navigation disappears or traps keyboard users`
+
+Resolution: the same chapter tree becomes an off-canvas drawer. Its toggle
+exposes `aria-controls` and `aria-expanded`; when closed on narrow screens, the
+drawer is inert and hidden from assistive navigation.
+
+`Risk: copying the reference creates a derivative visual identity`
+
+Resolution: only the information architecture and interaction pattern are
+adopted. Gradient Atlas retains its own typography, palette, icon language,
+content cards, and editorial disclosures.
+
+`Risk: source attribution becomes secondary in the new layout`
+
+Resolution: attribution stays inside the article flow on every breakpoint and
+now names 고민수 and 장선진, links the exact page and CC BY 4.0 license, and
+identifies translation and restructuring as modifications.

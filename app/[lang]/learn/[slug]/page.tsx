@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getLesson, isLanguage, languages, lessons, ui } from "../../../data/content";
 import { ArrowUpRight, Check, CircleDot } from "../../../ui/icons";
+import { BookSidebar } from "../../../ui/BookSidebar";
 import { SiteHeader } from "../../../ui/SiteHeader";
 
 export function generateStaticParams() {
@@ -36,42 +37,45 @@ export default async function LessonPage({
   const index = lessonList.findIndex((item) => item.id === lesson.id);
   const previous = lessonList[index - 1];
   const next = lessonList[index + 1];
-  const nearbyLessons = lessonList.filter(
-    (item) => item.collection === lesson.collection && item.part === lesson.part,
-  );
   const copy = ui[lang];
   const suffix = `/learn/${lesson.slug}/`;
 
   return (
-    <div lang={lang} className="site-shell">
-      <SiteHeader language={lang} pathSuffix={suffix} />
+    <div lang={lang} className="site-shell book-site">
+      <a className="skip-link" href="#article">{copy.skipToArticle}</a>
+      <SiteHeader
+        language={lang}
+        pathSuffix={suffix}
+        bookMode
+        readingPosition={`${lesson.number} / ${lessonList.length}`}
+      />
       <main className="reader-shell">
-        <aside className="reader-sidebar">
-          <Link className="back-to-map" href={`/${lang}/catalog/`}>← {copy.allLessons}</Link>
-          <p>{copy.allLessons}</p>
-          <nav aria-label={copy.allLessons}>
-            {nearbyLessons.map((item) => (
-              <Link
-                key={item.id}
-                href={`/${lang}/learn/${item.slug}/`}
-                aria-current={item.id === lesson.id ? "page" : undefined}
-              >
-                <span>{item.number}</span>{item.title}
-              </Link>
-            ))}
-          </nav>
-          <div className="review-card">
-            <CircleDot />
-            <div><strong>{copy.humanReview}</strong><small>preview · v0.1</small></div>
-          </div>
-        </aside>
+        <BookSidebar language={lang} lessons={lessonList} currentLesson={lesson} />
 
-        <article className="lesson-article">
+        <article className="lesson-article" id="article">
           <header className="article-header">
             <div className="article-kicker">
               <span>PART {lesson.part} · {lesson.number}</span>
               <small><Check />{copy.original}</small>
             </div>
+            <aside className="reader-review-banner">
+              <CircleDot />
+              <div>
+                <strong>{copy.humanReview}</strong>
+                <p>{copy.preview}</p>
+              </div>
+            </aside>
+            <details className="book-outline">
+              <summary>{copy.onThisPage}</summary>
+              <nav aria-label={copy.onThisPage}>
+                {lesson.sections.map((section, sectionIndex) => (
+                  <Link href={`#section-${sectionIndex + 1}`} key={section.heading}>
+                    <span>{String(sectionIndex + 1).padStart(2, "0")}</span>
+                    {section.heading}
+                  </Link>
+                ))}
+              </nav>
+            </details>
             <h1>{lesson.title}</h1>
             <p>{lesson.summary}</p>
             <dl>
@@ -119,22 +123,6 @@ export default async function LessonPage({
             )}
           </nav>
         </article>
-
-        <aside className="article-outline">
-          <p>{copy.onThisPage}</p>
-          {lesson.sections.map((section, sectionIndex) => (
-            <Link href={`#section-${sectionIndex + 1}`} key={section.heading}>{section.heading}</Link>
-          ))}
-          <a
-            className="wikidocs-reference"
-            href={`https://wikidocs.net/${lesson.sourcePageId}`}
-            target="_blank"
-            rel="noreferrer"
-          >
-            {copy.relatedOutline} <ArrowUpRight />
-          </a>
-          <small className="source-attribution">{copy.outlineAttribution}</small>
-        </aside>
       </main>
     </div>
   );
