@@ -907,12 +907,15 @@ math label, and separate the expression from a wrapping symbol legend.
 
 ## 16. Original concept-diagram review
 
-Fourteen high-value lessons now contain code-native diagrams. The original set
+Twenty-two high-value lessons now contain code-native diagrams. The original set
 covers data leakage, train/validation/test splitting, the confusion matrix,
 linear regression, bias–variance behavior, and the end-to-end ML workflow. The
 expanded set adds the learning-type taxonomy, supervised-learning feedback,
 cluster geometry, neural-network layers, decision-tree branching,
 cross-validation rotation, the ROC trade-off curve, and distribution shift.
+The second-pass set adds the reinforcement-learning loop, ensemble aggregation,
+dimensionality projection, graph message passing, support-vector margins, the
+batch training loop, class imbalance, and the course concept map.
 The diagrams use only project-authored HTML and CSS, retain the Gradient Atlas
 visual system, and are captioned as original CC BY 4.0 illustrations.
 
@@ -932,8 +935,11 @@ exclusive confusion-matrix outcomes, residuals around a fitted line, the
 train–validation error gap, feedback in an ML workflow, taxonomy branches,
 label-driven feedback, spatial grouping, layer-wise transformation,
 question-based partitioning, fold rotation, threshold trade-offs, or changing
-feature distributions. The surrounding lesson and caption explain the limits
-of the model.
+feature distributions. The second-pass diagrams separately encode an
+action–reward cycle, parallel model aggregation, neighborhood-preserving
+projection, graph message passing, maximum-margin geometry, iterative parameter
+updates, skewed class prevalence, and curriculum dependencies. The surrounding
+lesson and caption explain the limits of the model.
 
 `Risk: the visual is inaccessible or language-specific`
 

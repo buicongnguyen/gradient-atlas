@@ -16,12 +16,14 @@ Vietnamese–English terminology panel. Mathematically substantive lessons also
 include independently written notation blocks with short explanations and
 symbol definitions.
 
-Fourteen core lessons include original, code-native concept diagrams. The
+Twenty-two core lessons include original, code-native concept diagrams. The
 visual set covers data leakage, dataset splitting, the confusion matrix,
 linear regression, bias–variance behavior, the end-to-end workflow, learning
 types, supervised feedback, clustering, neural-network layers, decision-tree
-branching, cross-validation, ROC trade-offs, and distribution shift. They use
-no copied or hotlinked media.
+branching, cross-validation, ROC trade-offs, distribution shift,
+reinforcement learning, ensembles, dimensionality reduction, graph learning,
+support-vector margins, the training loop, class imbalance, and the course
+concept map. They use no copied or hotlinked media.
 
 ## Read locally
 

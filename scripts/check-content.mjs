@@ -85,8 +85,16 @@ const expectedDiagramSlugs = [
   "cross-validation",
   "roc-auc",
   "distribution-shift",
+  "reinforcement-learning",
+  "ensemble-learning",
+  "dimensionality-reduction-and-metric-learning",
+  "graph-machine-learning",
+  "support-vector-machines",
+  "training-loop",
+  "data-imbalance",
+  "concept-map",
 ];
-assert.equal(new Set(expectedDiagramSlugs).size, 14);
+assert.equal(new Set(expectedDiagramSlugs).size, 22);
 assert.doesNotMatch(diagramSource, /<(?:img|video|iframe|svg)\b/i);
 for (const slug of expectedDiagramSlugs) {
   assert.match(diagramSource, new RegExp(`"${slug}"`));

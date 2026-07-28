@@ -97,7 +97,7 @@ test("renders bilingual Vietnamese terminology and original mathematical notatio
   }
 });
 
-test("renders fourteen original localized concept diagrams", async () => {
+test("renders twenty-two original localized concept diagrams", async () => {
   const diagramSlugs = [
     "data-leakage",
     "train-validation-and-test",
@@ -113,6 +113,14 @@ test("renders fourteen original localized concept diagrams", async () => {
     "cross-validation",
     "roc-auc",
     "distribution-shift",
+    "reinforcement-learning",
+    "ensemble-learning",
+    "dimensionality-reduction-and-metric-learning",
+    "graph-machine-learning",
+    "support-vector-machines",
+    "training-loop",
+    "data-imbalance",
+    "concept-map",
   ];
   const licenseCaptions = {
     en: "Original Gradient Atlas illustration",

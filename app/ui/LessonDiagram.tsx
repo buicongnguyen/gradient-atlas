@@ -16,6 +16,14 @@ const diagramSlugs = [
   "cross-validation",
   "roc-auc",
   "distribution-shift",
+  "reinforcement-learning",
+  "ensemble-learning",
+  "dimensionality-reduction-and-metric-learning",
+  "graph-machine-learning",
+  "support-vector-machines",
+  "training-loop",
+  "data-imbalance",
+  "concept-map",
 ] as const;
 
 type DiagramSlug = (typeof diagramSlugs)[number];
@@ -263,6 +271,142 @@ const copy: Record<DiagramSlug, Record<Language, DiagramCopy>> = {
       title: "운영 데이터는 학습 데이터에서 이동할 수 있습니다",
       description: "나란한 히스토그램은 같은 특징이 학습 시점과 운영 시점에 서로 다른 구간에 집중되는 모습을 보여줍니다.",
       labels: ["학습", "운영", "특징값", "빈도", "이동"],
+    },
+  },
+  "reinforcement-learning": {
+    en: {
+      title: "Learning emerges from an action–reward loop",
+      description: "An agent observes state, chooses an action, changes the environment, receives a reward, and updates its policy before acting again.",
+      labels: ["Agent", "Action", "Environment", "New state", "Reward", "Update policy"],
+    },
+    vi: {
+      title: "Việc học hình thành từ vòng lặp hành động–phần thưởng",
+      description: "Tác tử quan sát trạng thái, chọn hành động, làm thay đổi môi trường, nhận phần thưởng rồi cập nhật chính sách trước lần hành động tiếp theo.",
+      labels: ["Tác tử", "Hành động", "Môi trường", "Trạng thái mới", "Phần thưởng", "Cập nhật chính sách"],
+    },
+    ko: {
+      title: "학습은 행동–보상 순환에서 생깁니다",
+      description: "에이전트가 상태를 관찰하고 행동을 선택해 환경을 바꾸며, 보상을 받은 뒤 정책을 갱신하고 다시 행동합니다.",
+      labels: ["에이전트", "행동", "환경", "새 상태", "보상", "정책 갱신"],
+    },
+  },
+  "ensemble-learning": {
+    en: {
+      title: "Several models contribute to one decision",
+      description: "The same evidence reaches several diverse models; an aggregation rule combines their outputs into one final prediction.",
+      labels: ["Evidence", "Model A", "Model B", "Model C", "Aggregate", "Final prediction"],
+    },
+    vi: {
+      title: "Nhiều mô hình cùng đóng góp vào một quyết định",
+      description: "Cùng một bằng chứng được đưa vào nhiều mô hình đa dạng; quy tắc tổng hợp kết hợp các đầu ra thành một dự đoán cuối cùng.",
+      labels: ["Bằng chứng", "Mô hình A", "Mô hình B", "Mô hình C", "Tổng hợp", "Dự đoán cuối"],
+    },
+    ko: {
+      title: "여러 모델이 하나의 결정에 기여합니다",
+      description: "같은 근거가 다양한 모델에 입력되고, 집계 규칙이 각 출력을 하나의 최종 예측으로 결합합니다.",
+      labels: ["근거", "모델 A", "모델 B", "모델 C", "집계", "최종 예측"],
+    },
+  },
+  "dimensionality-reduction-and-metric-learning": {
+    en: {
+      title: "A projection preserves useful neighborhood structure",
+      description: "High-dimensional feature vectors are projected into two dimensions so nearby observations remain close and groups become inspectable.",
+      labels: ["High-dimensional vectors", "Project", "Two-dimensional embedding", "Near", "Far"],
+    },
+    vi: {
+      title: "Phép chiếu giữ lại cấu trúc lân cận hữu ích",
+      description: "Vector đặc trưng nhiều chiều được chiếu xuống hai chiều để các quan sát tương tự vẫn ở gần nhau và các nhóm có thể được quan sát.",
+      labels: ["Vector nhiều chiều", "Phép chiếu", "Không gian nhúng hai chiều", "Gần", "Xa"],
+    },
+    ko: {
+      title: "투영은 유용한 이웃 구조를 보존합니다",
+      description: "고차원 특징 벡터를 2차원으로 투영해 비슷한 관측값은 가깝게 유지하고 그룹을 살펴볼 수 있게 합니다.",
+      labels: ["고차원 벡터", "투영", "2차원 임베딩", "가까움", "멀리"],
+    },
+  },
+  "graph-machine-learning": {
+    en: {
+      title: "Nodes learn by exchanging neighborhood messages",
+      description: "A focal node receives messages from connected neighbors, aggregates them, and updates its representation.",
+      labels: ["Neighbor A", "Neighbor B", "Neighbor C", "Focal node", "Messages", "Updated representation"],
+    },
+    vi: {
+      title: "Các nút học bằng cách trao đổi thông điệp lân cận",
+      description: "Một nút trung tâm nhận thông điệp từ các nút lân cận có liên kết, tổng hợp chúng rồi cập nhật biểu diễn.",
+      labels: ["Lân cận A", "Lân cận B", "Lân cận C", "Nút trung tâm", "Thông điệp", "Biểu diễn mới"],
+    },
+    ko: {
+      title: "노드는 이웃 메시지를 교환하며 학습합니다",
+      description: "중심 노드가 연결된 이웃에서 메시지를 받고 집계한 뒤 자신의 표현을 갱신합니다.",
+      labels: ["이웃 A", "이웃 B", "이웃 C", "중심 노드", "메시지", "갱신된 표현"],
+    },
+  },
+  "support-vector-machines": {
+    en: {
+      title: "The widest margin defines the separator",
+      description: "Two classes lie on opposite sides of a decision boundary; the closest support vectors determine the parallel margin.",
+      labels: ["Class A", "Class B", "Decision boundary", "Margin", "Support vectors"],
+    },
+    vi: {
+      title: "Biên lớn nhất xác định đường phân tách",
+      description: "Hai lớp nằm ở hai phía của ranh giới quyết định; các vector hỗ trợ gần nhất xác định hai đường biên song song.",
+      labels: ["Lớp A", "Lớp B", "Ranh giới quyết định", "Biên", "Vector hỗ trợ"],
+    },
+    ko: {
+      title: "가장 넓은 마진이 분리 경계를 정합니다",
+      description: "두 클래스가 결정 경계의 반대편에 놓이고, 가장 가까운 서포트 벡터가 평행한 마진을 결정합니다.",
+      labels: ["클래스 A", "클래스 B", "결정 경계", "마진", "서포트 벡터"],
+    },
+  },
+  "training-loop": {
+    en: {
+      title: "Each batch produces one parameter update",
+      description: "A training batch moves through the forward pass and loss, then gradients flow backward before the optimizer updates parameters and repeats.",
+      labels: ["Batch", "Forward pass", "Loss", "Backpropagate", "Gradient", "Update parameters", "Next batch"],
+    },
+    vi: {
+      title: "Mỗi batch tạo ra một lần cập nhật tham số",
+      description: "Một batch huấn luyện đi qua lượt truyền xuôi và hàm mất mát; gradient truyền ngược trước khi bộ tối ưu cập nhật tham số rồi lặp lại.",
+      labels: ["Batch", "Truyền xuôi", "Hàm mất mát", "Lan truyền ngược", "Gradient", "Cập nhật tham số", "Batch tiếp theo"],
+    },
+    ko: {
+      title: "각 배치가 한 번의 매개변수 갱신을 만듭니다",
+      description: "학습 배치가 순전파와 손실을 거치고, 기울기가 역전파된 뒤 옵티마이저가 매개변수를 갱신하며 반복합니다.",
+      labels: ["배치", "순전파", "손실", "역전파", "기울기", "매개변수 갱신", "다음 배치"],
+    },
+  },
+  "data-imbalance": {
+    en: {
+      title: "A large majority can hide minority failure",
+      description: "A 90-to-10 class split shows why overall accuracy can look strong even when the smaller but important class is poorly recognized.",
+      labels: ["Majority · 90%", "Minority · 10%", "Overall accuracy", "Minority recall", "Inspect each class"],
+    },
+    vi: {
+      title: "Lớp đa số lớn có thể che giấu thất bại ở lớp thiểu số",
+      description: "Tỷ lệ lớp 90–10 cho thấy độ chính xác tổng thể có thể cao dù lớp nhỏ hơn nhưng quan trọng lại được nhận diện kém.",
+      labels: ["Đa số · 90%", "Thiểu số · 10%", "Độ chính xác tổng thể", "Recall lớp thiểu số", "Kiểm tra từng lớp"],
+    },
+    ko: {
+      title: "큰 다수 클래스가 소수 클래스 실패를 가릴 수 있습니다",
+      description: "90 대 10 클래스 비율은 중요하지만 작은 클래스를 잘 찾지 못해도 전체 정확도가 높아 보일 수 있음을 보여줍니다.",
+      labels: ["다수 · 90%", "소수 · 10%", "전체 정확도", "소수 재현율", "클래스별 확인"],
+    },
+  },
+  "concept-map": {
+    en: {
+      title: "Reliable ML connects five bodies of evidence",
+      description: "A concept map links problem definition, data, models, evaluation, and operations around a reliable machine-learning system.",
+      labels: ["Reliable ML", "Problem", "Data", "Model", "Evaluation", "Operations", "Feedback connects every stage"],
+    },
+    vi: {
+      title: "ML đáng tin cậy kết nối năm nhóm bằng chứng",
+      description: "Bản đồ khái niệm liên kết định nghĩa bài toán, dữ liệu, mô hình, đánh giá và vận hành quanh một hệ thống học máy đáng tin cậy.",
+      labels: ["ML đáng tin cậy", "Bài toán", "Dữ liệu", "Mô hình", "Đánh giá", "Vận hành", "Phản hồi kết nối mọi giai đoạn"],
+    },
+    ko: {
+      title: "신뢰할 수 있는 ML은 다섯 근거 영역을 연결합니다",
+      description: "개념 지도가 신뢰할 수 있는 머신러닝 시스템을 중심으로 문제 정의, 데이터, 모델, 평가, 운영을 연결합니다.",
+      labels: ["신뢰할 수 있는 ML", "문제", "데이터", "모델", "평가", "운영", "피드백이 모든 단계를 연결"],
     },
   },
 };
@@ -566,6 +710,172 @@ function DistributionShiftDiagram({ labels }: { labels: string[] }) {
   );
 }
 
+function ReinforcementDiagram({ labels }: { labels: string[] }) {
+  return (
+    <div className="diagram-canvas reinforcement-diagram">
+      <div className="rl-node agent"><span>01</span><strong>{labels[0]}</strong></div>
+      <div className="rl-exchange action"><strong>{labels[1]}</strong><span>→</span></div>
+      <div className="rl-node environment"><span>02</span><strong>{labels[2]}</strong></div>
+      <div className="rl-exchange state"><span>←</span><strong>{labels[3]}</strong><small>{labels[4]}</small></div>
+      <div className="rl-update"><span>↺</span><strong>{labels[5]}</strong></div>
+    </div>
+  );
+}
+
+function EnsembleDiagram({ labels }: { labels: string[] }) {
+  return (
+    <div className="diagram-canvas ensemble-diagram">
+      <div className="ensemble-source"><span>01</span><strong>{labels[0]}</strong></div>
+      <div className="ensemble-arrow">→</div>
+      <div className="ensemble-models">
+        {labels.slice(1, 4).map((label, index) => (
+          <div key={label}><span>{String(index + 1).padStart(2, "0")}</span><strong>{label}</strong></div>
+        ))}
+      </div>
+      <div className="ensemble-arrow">→</div>
+      <div className="ensemble-aggregate"><span>Σ</span><strong>{labels[4]}</strong></div>
+      <div className="ensemble-arrow">→</div>
+      <div className="ensemble-result"><span>✓</span><strong>{labels[5]}</strong></div>
+    </div>
+  );
+}
+
+function ProjectionDiagram({ labels }: { labels: string[] }) {
+  const embeddingPoints = [
+    ["a", 18, 30], ["a", 27, 38], ["a", 32, 24], ["a", 38, 34],
+    ["b", 62, 68], ["b", 69, 56], ["b", 76, 66], ["b", 82, 52],
+  ] as const;
+  return (
+    <div className="diagram-canvas projection-diagram">
+      <section className="vector-space">
+        <strong>{labels[0]}</strong>
+        {[
+          ["x₁", ".82", ".14", ".55", ".30"],
+          ["x₂", ".18", ".91", ".42", ".67"],
+          ["x₃", ".73", ".28", ".64", ".09"],
+        ].map((vector) => (
+          <div key={vector[0]}><b>{vector[0]}</b>{vector.slice(1).map((value, index) => <span key={index}>{value}</span>)}</div>
+        ))}
+      </section>
+      <div className="projection-action"><span>→</span><strong>{labels[1]}</strong></div>
+      <section className="embedding-space">
+        <strong>{labels[2]}</strong>
+        <div>
+          {embeddingPoints.map(([group, left, top], index) => (
+            <i
+              className={`embedding-point group-${group}`}
+              key={`${group}-${index}`}
+              style={{ "--left": `${left}%`, "--top": `${top}%` } as CSSProperties}
+            />
+          ))}
+          <small className="embedding-near">{labels[3]}</small>
+          <small className="embedding-far">{labels[4]}</small>
+        </div>
+      </section>
+    </div>
+  );
+}
+
+function GraphLearningDiagram({ labels }: { labels: string[] }) {
+  return (
+    <div className="diagram-canvas graph-learning-diagram">
+      <i className="graph-edge edge-a" /><i className="graph-edge edge-b" /><i className="graph-edge edge-c" />
+      {labels.slice(0, 3).map((label, index) => (
+        <div className={`graph-node neighbor neighbor-${index + 1}`} key={label}>
+          <span>{index + 1}</span><strong>{label}</strong>
+        </div>
+      ))}
+      <div className="graph-node focal"><span>Σ</span><strong>{labels[3]}</strong></div>
+      <div className="graph-message">{labels[4]} <span>→</span></div>
+      <div className="graph-output"><span>✓</span><strong>{labels[5]}</strong></div>
+    </div>
+  );
+}
+
+function SvmDiagram({ labels }: { labels: string[] }) {
+  const points = [
+    ["a", 13, 72], ["a", 22, 62], ["a", 27, 78], ["a support", 39, 61],
+    ["b support", 57, 42], ["b", 67, 26], ["b", 76, 38], ["b", 86, 22],
+  ] as const;
+  return (
+    <div className="diagram-canvas svm-diagram">
+      <div className="svm-margin margin-one" />
+      <div className="svm-boundary" />
+      <div className="svm-margin margin-two" />
+      {points.map(([kind, left, top], index) => (
+        <i
+          className={`svm-point class-${kind.charAt(0)}${kind.includes("support") ? " support" : ""}`}
+          key={index}
+          style={{ "--left": `${left}%`, "--top": `${top}%` } as CSSProperties}
+        />
+      ))}
+      <div className="svm-legend">
+        <span><i className="class-a" />{labels[0]}</span>
+        <span><i className="class-b" />{labels[1]}</span>
+        <span><i className="boundary-key" />{labels[2]}</span>
+        <span><i className="margin-key" />{labels[3]}</span>
+        <span><i className="support-key" />{labels[4]}</span>
+      </div>
+    </div>
+  );
+}
+
+function TrainingLoopDiagram({ labels }: { labels: string[] }) {
+  return (
+    <div className="diagram-canvas training-loop-diagram">
+      <div className="training-stages">
+        {labels.slice(0, 6).map((label, index) => (
+          <div key={label}>
+            <span>{String(index + 1).padStart(2, "0")}</span>
+            <strong>{label}</strong>
+            {index < 5 && <i>→</i>}
+          </div>
+        ))}
+      </div>
+      <div className="training-repeat"><span>↺</span><strong>{labels[6]}</strong></div>
+    </div>
+  );
+}
+
+function ImbalanceDiagram({ labels }: { labels: string[] }) {
+  return (
+    <div className="diagram-canvas imbalance-diagram">
+      <div className="imbalance-prevalence">
+        <div className="majority"><strong>{labels[0]}</strong></div>
+        <div className="minority"><strong>{labels[1]}</strong></div>
+      </div>
+      <div className="imbalance-metrics">
+        <section>
+          <span>92%</span>
+          <strong>{labels[2]}</strong>
+          <small>✓</small>
+        </section>
+        <div>≠</div>
+        <section className="warning">
+          <span>41%</span>
+          <strong>{labels[3]}</strong>
+          <small>!</small>
+        </section>
+      </div>
+      <div className="imbalance-note">→ {labels[4]}</div>
+    </div>
+  );
+}
+
+function ConceptMapDiagram({ labels }: { labels: string[] }) {
+  return (
+    <div className="diagram-canvas concept-map-diagram">
+      <div className="concept-hub"><span>ML</span><strong>{labels[0]}</strong></div>
+      {labels.slice(1, 6).map((label, index) => (
+        <div className={`concept-spoke spoke-${index + 1}`} key={label}>
+          <span>{String(index + 1).padStart(2, "0")}</span><strong>{label}</strong>
+        </div>
+      ))}
+      <div className="concept-feedback"><span>↺</span><strong>{labels[6]}</strong></div>
+    </div>
+  );
+}
+
 function diagramGraphic(slug: DiagramSlug, labels: string[]): ReactNode {
   switch (slug) {
     case "data-leakage":
@@ -596,6 +906,22 @@ function diagramGraphic(slug: DiagramSlug, labels: string[]): ReactNode {
       return <RocDiagram labels={labels} />;
     case "distribution-shift":
       return <DistributionShiftDiagram labels={labels} />;
+    case "reinforcement-learning":
+      return <ReinforcementDiagram labels={labels} />;
+    case "ensemble-learning":
+      return <EnsembleDiagram labels={labels} />;
+    case "dimensionality-reduction-and-metric-learning":
+      return <ProjectionDiagram labels={labels} />;
+    case "graph-machine-learning":
+      return <GraphLearningDiagram labels={labels} />;
+    case "support-vector-machines":
+      return <SvmDiagram labels={labels} />;
+    case "training-loop":
+      return <TrainingLoopDiagram labels={labels} />;
+    case "data-imbalance":
+      return <ImbalanceDiagram labels={labels} />;
+    case "concept-map":
+      return <ConceptMapDiagram labels={labels} />;
   }
 }
 
