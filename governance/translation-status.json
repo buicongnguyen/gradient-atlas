@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "updated": "2026-07-28",
+  "statusDefinitions": {
+    "draft": "Complete editorial draft with automated structure checks",
+    "preview": "Public preview awaiting independent review",
+    "published": "Independently reviewed stable release"
+  },
+  "qualityPolicy": {
+    "technicalReviewRequiredForPublished": true,
+    "nativeLanguageReviewRequiredForPublished": true,
+    "rightsReviewRequiredForPreview": true
+  },
+  "documents": [
+    {"id":"mlf-a-01","locales":["ko","en","vi"],"translationState":"complete","technicalReview":"self-reviewed","languageReview":"pending","rightsReview":"cleared","publicationState":"preview"},
+    {"id":"mlf-b-01","locales":["ko","en","vi"],"translationState":"complete","technicalReview":"self-reviewed","languageReview":"pending","rightsReview":"cleared","publicationState":"preview"},
+    {"id":"mlf-c-01","locales":["ko","en","vi"],"translationState":"complete","technicalReview":"self-reviewed","languageReview":"pending","rightsReview":"cleared","publicationState":"preview"},
+    {"id":"mlf-d-01","locales":["ko","en","vi"],"translationState":"complete","technicalReview":"self-reviewed","languageReview":"pending","rightsReview":"cleared","publicationState":"preview"},
+    {"id":"mlf-e-01","locales":["ko","en","vi"],"translationState":"complete","technicalReview":"self-reviewed","languageReview":"pending","rightsReview":"cleared","publicationState":"preview"},
+    {"id":"mlf-f-01","locales":["ko","en","vi"],"translationState":"complete","technicalReview":"self-reviewed","languageReview":"pending","rightsReview":"cleared","publicationState":"preview"}
+  ]
+}

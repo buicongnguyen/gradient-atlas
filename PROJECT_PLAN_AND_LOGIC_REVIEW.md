@@ -1,0 +1,769 @@
+# DL Bible Machine Learning — Trilingual GitHub and GitHub Pages Plan
+
+Status: planning and logic review  
+Prepared: 2026-07-28  
+Target languages: Korean (`ko`), English (`en`), Vietnamese (`vi`)  
+Reference implementation: local `helloalgo` repository  
+Analyzed source: [WikiDocs book 9057](https://wikidocs.net/book/9057)
+
+## 1. Executive decision
+
+The project is technically feasible, but full content mirroring and translation should not begin until the source and asset rights are confirmed with the authors.
+
+Recommended decision:
+
+1. Build one repository and one static GitHub Pages site with three parallel locale trees.
+2. Reuse the architectural ideas from `helloalgo`: stable cross-language routes, a translation ledger, locked source revisions, structural audits, human-review states, static search, and GitHub Actions deployment.
+3. Do not copy the `helloalgo` build scripts unchanged. They are tightly coupled to 119 Hello Algo documents, English as the only source language, and fixed Vietnamese/Korean manifests.
+4. Treat WikiDocs page IDs as permanent external identities and use project-owned stable slugs for public URLs.
+5. Separate the book's older A–D material from the newer Machine Learning Fundamentals curriculum instead of presenting both as one flat table of contents.
+6. Import only pages with meaningful content. Keep one-character placeholder pages in the catalog as `planned`, but do not publish them as finished lessons.
+7. Use an author-approved export or GitHub source. Do not build an unattended scraper against WikiDocs.
+
+## 2. Evidence gathered
+
+### 2.1 `helloalgo` reference project
+
+The local reference is a fork of `krahets/hello-algo` with:
+
+- Korean, English, and Vietnamese Atlas pages;
+- 119 reader documents per language;
+- exact cross-language page switching;
+- Markdown content plus a custom Node.js static build;
+- `translation-status.json` manifests;
+- locked source commits;
+- generated parity reports;
+- checks for headings, images, code, math, tables, callouts, routes, and runnable examples;
+- GitHub Actions for CI and GitHub Pages deployment;
+- a generated sitemap, robots file, `.nojekyll`, 404 page, theme control, responsive reader, local search, and article outlines.
+
+The current reference validation passes:
+
+- 119 locked English documents;
+- 119 Vietnamese and 119 Korean documents;
+- 165 code groups per localized edition;
+- 158 runnable examples and 20 correctness probes.
+
+Useful patterns to retain:
+
+- content and presentation are separate;
+- every translated page maps to one immutable source identity;
+- translation status is machine-readable;
+- “draft” is not presented as “published”;
+- structural parity and human review are separate quality gates;
+- the deploy workflow publishes only a validated static artifact.
+
+Patterns that must be redesigned:
+
+- the catalog assumes exactly 119 documents;
+- routes are derived from the Hello Algo MkDocs structure;
+- only `vi` and `ko` are modeled as target languages;
+- source locking assumes an upstream Git commit, while WikiDocs currently exposes page IDs and edit timestamps;
+- current builders duplicate language-specific logic;
+- many checks know Hello Algo-specific file names, code-tab syntax, and asset locations.
+
+### 2.2 WikiDocs book structure
+
+The live sidebar contains 122 unique page entries:
+
+- 43 entries in the older structure:
+  - architecture overview;
+  - Part A: What machine learning is;
+  - Part B: approaches;
+  - Part C: models;
+  - Part D: neural networks to deep learning and source/reference chapters.
+- 79 entries in the newer curriculum:
+  - Part A: What Is Machine Learning;
+  - Part B: Data, Features, and Labels;
+  - Part C: Training, Validation, and Test;
+  - Part D: Evaluation Metrics;
+  - Part E: Overfitting and Underfitting;
+  - Part F: End-to-End ML Workflow;
+  - Part G: Practical ML System Design;
+  - Part H: Common ML Pitfalls;
+  - Part K: Summary and Exercises.
+
+The book already has a separate [English WikiDocs volume](https://wikidocs.net/book/9413) with a matching broad outline. Therefore, English should be imported and reviewed where it exists, not regenerated automatically from Korean.
+
+The current outline is not equivalent to 122 completed lessons. Live samples from the new curriculum, including `00_Definition_of_ML` and `06_Debugging_Strategies [w/Code]`, contain only `x`. Recent-page summaries show the same placeholder pattern on several other new leaves. Some part-level pages contain substantive prose. Completeness must therefore be measured page by page.
+
+The book is an actively changing source. A source snapshot needs:
+
+- WikiDocs book ID;
+- WikiDocs page ID;
+- source language;
+- source URL;
+- page title;
+- parent page ID and ordering;
+- captured edit timestamp;
+- normalized content hash;
+- asset inventory and hashes;
+- capture date;
+- permission/license evidence.
+
+### 2.3 Copyright and access constraints
+
+The live copyright badge links to [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/deed.ko). CC BY 4.0 permits sharing and adaptation, including translation, if attribution is provided, modifications are identified, and no additional restrictions are imposed.
+
+This does not automatically clear every embedded item. The book states that substantial portions came from earlier researchers. Images, long quotations, code, datasets, figures, screenshots, and imported text may have separate licenses or attribution requirements.
+
+WikiDocs' [terms](https://wikidocs.net/help/terms) prohibit collecting user content by automated scraping without WikiDocs permission. The ingestion workflow should therefore use one of:
+
+1. an author-provided repository or export;
+2. the newer WikiDocs GitHub integration controlled by the authors;
+3. explicit written permission from both the authors and WikiDocs for automated collection;
+4. manual author-approved source delivery.
+
+Attribution must be page-level, not only repository-level. Each page should identify:
+
+- original title and authors;
+- original WikiDocs page URL;
+- source revision/capture date;
+- CC BY 4.0;
+- target-language translator/reviewer;
+- a notice that the page is a translation or adaptation;
+- third-party credits and licenses for individual assets.
+
+## 3. Proposed information architecture
+
+Do not flatten all 122 entries into one navigation tree.
+
+### 3.1 Public content collections
+
+`Fundamentals`
+
+- The newer 79-entry curriculum.
+- This is the primary learning path.
+- Empty leaves are hidden from the default reader navigation and shown on a roadmap as “planned.”
+
+`Legacy and references`
+
+- The older 43-entry A–D collection.
+- Preserve it as an archive/reference library.
+- Do not silently merge overlapping topics with the new curriculum.
+- Add redirects only after a human maps true equivalents.
+
+### 3.2 Locale routes
+
+Recommended routes:
+
+```text
+/
+/ko/
+/en/
+/vi/
+/ko/learn/<stable-slug>/
+/en/learn/<stable-slug>/
+/vi/learn/<stable-slug>/
+/ko/legacy/<stable-slug>/
+/en/legacy/<stable-slug>/
+/vi/legacy/<stable-slug>/
+```
+
+The root should show a language chooser and may remember a reader's choice. It should not permanently redirect all users to one language.
+
+Every page must use the same internal document ID across languages. A language switch changes only the locale segment. If a translation is unavailable, the switch should say “not translated yet” and offer the available source page; it must not return a 404.
+
+### 3.3 Atlas-style landing page
+
+The visual direction can resemble `helloalgo` without copying its book-specific content:
+
+- dark/light theme;
+- compact sticky navigation;
+- learning-roadmap graph for Parts A–K;
+- cards showing prerequisites, outcomes, and completion state;
+- interactive evaluation-metrics lab;
+- train/validation/test split visualizer;
+- bias–variance or overfitting visualizer;
+- end-to-end pipeline diagram;
+- filters for concept, code, exercise, project, and review state;
+- direct links from each Atlas node to the matching reader lesson;
+- a visible three-language switch.
+
+Animations and labs must be independently implemented and tested. They should explain this book's machine-learning concepts instead of rebranding Hello Algo's data-structure labs.
+
+## 4. Repository design
+
+Working repository name: `dl-bible-machine-learning`  
+Potential Pages URL: `https://buicongnguyen.github.io/dl-bible-machine-learning/`
+
+```text
+dl-bible-machine-learning/
+├─ .github/
+│  ├─ ISSUE_TEMPLATE/
+│  ├─ PULL_REQUEST_TEMPLATE.md
+│  └─ workflows/
+│     ├─ ci.yml
+│     ├─ source-drift.yml
+│     └─ pages.yml
+├─ content/
+│  ├─ catalog.json
+│  ├─ ko/
+│  │  ├─ fundamentals/
+│  │  └─ legacy/
+│  ├─ en/
+│  │  ├─ fundamentals/
+│  │  └─ legacy/
+│  └─ vi/
+│     ├─ fundamentals/
+│     └─ legacy/
+├─ governance/
+│  ├─ attribution.md
+│  ├─ asset-rights.json
+│  ├─ glossary-ko-en-vi.csv
+│  ├─ source-permission.md
+│  ├─ style-en.md
+│  ├─ style-ko.md
+│  ├─ style-vi.md
+│  └─ translation-status.json
+├─ public/
+│  └─ assets/
+├─ scripts/
+│  ├─ audit-content.mjs
+│  ├─ audit-links.mjs
+│  ├─ audit-rights.mjs
+│  ├─ audit-translations.mjs
+│  ├─ build-site.mjs
+│  ├─ check-code.mjs
+│  └─ snapshot-source.mjs
+├─ site/
+│  ├─ atlas/
+│  ├─ reader/
+│  ├─ search/
+│  └─ shared/
+├─ tests/
+├─ LICENSE
+├─ README.md
+└─ package.json
+```
+
+### 4.1 Catalog identity
+
+Example catalog record:
+
+```json
+{
+  "id": "mlf-a-00-definition",
+  "collection": "fundamentals",
+  "order": 10,
+  "parentId": "mlf-part-a",
+  "source": {
+    "bookId": 9057,
+    "pageId": 351847,
+    "language": "ko",
+    "url": "https://wikidocs.net/351847",
+    "capturedAt": "2026-07-28",
+    "contentHash": "sha256:..."
+  },
+  "slug": "definition-of-machine-learning",
+  "contentState": "placeholder",
+  "locales": {
+    "ko": {"status": "source-placeholder"},
+    "en": {"status": "source-placeholder"},
+    "vi": {"status": "planned"}
+  }
+}
+```
+
+Never derive identity from a translated title. Titles and slugs can change; the internal ID and WikiDocs page ID remain stable.
+
+### 4.2 Translation states
+
+Use orthogonal states instead of one overloaded status:
+
+```text
+sourceState: missing | placeholder | captured | changed
+translationState: planned | draft | complete
+technicalReview: pending | self-reviewed | independently-reviewed
+languageReview: pending | self-reviewed | independently-reviewed
+rightsReview: pending | cleared | restricted
+publicationState: hidden | preview | published | archived
+```
+
+Publication rule:
+
+```text
+published =
+  sourceState == captured
+  AND translationState == complete
+  AND technicalReview == independently-reviewed
+  AND languageReview == independently-reviewed
+  AND rightsReview == cleared
+  AND all automated checks pass
+```
+
+Korean source pages also require technical and rights review. “Source language” does not mean “factually correct” or “cleared for redistribution.”
+
+## 5. Source and translation workflow
+
+### 5.1 Establish the canonical source per page
+
+Do not assume one canonical language for the entire book.
+
+For each page:
+
+1. Compare the Korean and English WikiDocs versions.
+2. Ask the authors which language/version is authoritative.
+3. Record whether one is an original, a translation, or an independent adaptation.
+4. Lock the approved source revision.
+5. Translate Vietnamese from that approved source.
+6. Repair Korean or English only through a separately reviewed edit.
+
+If Korean and English disagree, do not average or merge them automatically. Open a source-resolution issue.
+
+### 5.2 Content normalization
+
+Normalize author-provided source into Markdown while preserving:
+
+- heading hierarchy;
+- paragraphs and lists;
+- formulas and symbols;
+- code language and indentation;
+- tables;
+- callouts;
+- citations and external links;
+- figure placement, captions, credits, and license;
+- exercise numbering;
+- intentional terminology in English;
+- page-to-page ordering.
+
+Raw HTML should be allowlisted and sanitized. Remote scripts, iframes, event handlers, trackers, and unsafe URLs must not enter the generated site.
+
+### 5.3 Translation process
+
+Per page:
+
+1. Freeze the source hash.
+2. Extract terms into the trilingual glossary.
+3. Produce a draft while preserving code, formulas, citations, and structure.
+4. Run structural checks.
+5. Run code and link tests.
+6. Conduct ML technical review.
+7. Conduct native-language review.
+8. Verify attribution and assets.
+9. Preview the built page at desktop and mobile sizes.
+10. Mark published only after independent approvals.
+
+Machine-assisted translation is acceptable for a draft, but it must be disclosed and cannot satisfy independent language or technical review.
+
+### 5.4 Source update handling
+
+For an approved export:
+
+1. Capture the new source.
+2. Compare normalized hashes.
+3. Mark affected translations `sourceState: changed`.
+4. Produce a semantic diff excluding formatting-only changes.
+5. Keep the last reviewed translation live with an “upstream changed” notice.
+6. Re-review only impacted sections.
+7. Never overwrite translated text automatically.
+
+## 6. Quality and CI gates
+
+### 6.1 Content checks
+
+- unique document IDs, slugs, and routes;
+- valid parent/child ordering;
+- no `x`, TODO-only, or empty pages published;
+- exact cross-language identity mapping;
+- matching required heading, image, table, formula, callout, and code-block counts;
+- no unexpected untranslated Korean in English/Vietnamese prose;
+- terminology checks against the glossary;
+- valid internal and external links;
+- local availability of approved assets;
+- alt text and figure captions;
+- attribution block on every page;
+- generated sitemap and `hreflang` links.
+
+Structural parity is necessary but insufficient. It can prove that two pages contain the same number of headings while both contain incorrect explanations.
+
+### 6.2 Technical checks
+
+- syntax checks for every code block with a declared language;
+- executable tests for self-contained Python examples;
+- deterministic seeds where examples claim reproducibility;
+- dependency/version declarations;
+- assertions for metrics and preprocessing examples;
+- no training example that silently uses test data;
+- no data leakage in example pipelines;
+- formula review for notation and rendered output;
+- responsive layout and keyboard navigation;
+- reduced-motion behavior;
+- HTML validation and basic accessibility audit;
+- build with the GitHub Pages repository base path, not only `/`.
+
+### 6.3 Rights checks
+
+CI should fail publication when:
+
+- a page lacks source URL, author, license, or modification notice;
+- an image has no creator/source/license record;
+- a code sample's origin or license is unknown;
+- a third-party excerpt exceeds the approved use;
+- the rights status is `pending` or `restricted`.
+
+## 7. GitHub and GitHub Pages workflow
+
+### 7.1 Branch and review policy
+
+- `main`: deployable, reviewed content only;
+- short-lived feature branches;
+- protected `main`;
+- required CI;
+- at least one technical reviewer and one language reviewer for `published`;
+- CODEOWNERS by content area and locale;
+- translation PR template with source hash and review checklist;
+- issue forms for translation, technical error, source drift, and rights concern.
+
+### 7.2 Actions
+
+`ci.yml`
+
+- install a pinned Node version;
+- validate catalog and manifests;
+- audit content, rights, links, and translations;
+- run code tests;
+- build the site;
+- inspect the generated artifact.
+
+`pages.yml`
+
+- run only after CI succeeds on `main`;
+- build once;
+- upload `dist/`;
+- deploy through GitHub Pages OIDC;
+- use deployment concurrency to cancel superseded builds.
+
+`source-drift.yml`
+
+- only after author/WikiDocs-approved source access exists;
+- compare approved source metadata;
+- open or update an issue when pages change;
+- never commit imported text or translations automatically.
+
+### 7.3 Static-site constraints
+
+GitHub Pages is a good fit for reading, search indexes, client-side labs, and language routing. It does not provide server-side search, private drafts, or authenticated editorial workflows. Draft previews should use pull-request artifacts or a separate preview mechanism; comments can use GitHub Discussions/Giscus only after repository discussion settings and privacy implications are agreed.
+
+## 8. Detailed delivery phases
+
+### Phase 0 — Permission and scope gate
+
+Deliverables:
+
+- written confirmation from both listed authors;
+- confirmation of CC BY 4.0 scope;
+- approved source-transfer method;
+- explicit treatment of third-party assets and code;
+- decision on whether the older 43-page collection is in scope;
+- decision on repository name and owner.
+
+Exit criteria:
+
+- `source-permission.md` is complete;
+- no scraping is required;
+- at least one pilot chapter has clear rights.
+
+Do not publish source text before this gate passes.
+
+### Phase 1 — Inventory and source freeze
+
+Deliverables:
+
+- complete catalog of 122 current WikiDocs entries;
+- separation of legacy and fundamentals collections;
+- Korean↔English page mapping;
+- content-state report: substantive, partial, placeholder, duplicate, or obsolete;
+- asset and citation inventory;
+- source hashes and timestamps.
+
+Exit criteria:
+
+- every page has a stable project ID;
+- no duplicate route or ambiguous parent;
+- every source page has a defined canonical-language decision or an open blocker.
+
+### Phase 2 — Site foundation
+
+Deliverables:
+
+- repository initialization;
+- static build and local server;
+- three locale roots;
+- shared reader shell;
+- Atlas landing-page shell;
+- language switch;
+- responsive navigation;
+- local search;
+- theme and reduced-motion support;
+- CI and Pages workflows;
+- 404, sitemap, robots, canonical, and `hreflang`.
+
+Exit criteria:
+
+- a synthetic/sample content set builds and deploys correctly under a repository subpath;
+- all route, accessibility, and artifact checks pass.
+
+### Phase 3 — Pilot content
+
+Recommended pilot:
+
+- one substantive Part A overview;
+- one math-heavy lesson;
+- one code lesson;
+- one figure-heavy legacy/reference lesson;
+- one exercise/project page;
+- one placeholder page represented only in the roadmap.
+
+Deliverables:
+
+- Korean, English, and Vietnamese versions;
+- trilingual glossary seed;
+- complete attribution and asset records;
+- technical and language review evidence;
+- rendered desktop/mobile QA.
+
+Exit criteria:
+
+- exact language switching;
+- code and formulas verified;
+- no unresolved rights items;
+- reviewers accept terminology and style;
+- the process produces measurable review effort per page.
+
+### Phase 4 — Batch translation
+
+Batch by coherent learning unit, not arbitrary page count:
+
+1. Part A — foundations;
+2. Part B — data/features/labels;
+3. Part C — training/validation/test;
+4. Part D — metrics;
+5. Part E — fitting and generalization;
+6. Part F — workflow;
+7. Part G — system design;
+8. Part H — pitfalls;
+9. Part K — summary/exercises/projects;
+10. legacy/reference material.
+
+Each batch repeats source lock → draft → automated checks → technical review → language review → rights review → preview → publish.
+
+### Phase 5 — Public beta
+
+Deliverables:
+
+- only reviewed pages marked stable;
+- draft/preview badges where applicable;
+- issue forms and contribution guide;
+- source-drift notices;
+- analytics decision that respects privacy;
+- broken-link and accessibility reports.
+
+Exit criteria:
+
+- no critical content, rights, security, route, or accessibility failures;
+- rollback procedure tested;
+- attribution visible on every page.
+
+### Phase 6 — Stable operation
+
+- monthly source-drift review;
+- glossary versioning;
+- dependency updates through reviewed PRs;
+- quarterly link and asset audit;
+- published correction log;
+- archived source snapshots and build artifacts;
+- clear deprecation/redirect policy when WikiDocs reorganizes pages.
+
+## 9. Logic review
+
+### Blocker — Permission and provenance
+
+CC BY 4.0 is favorable, but the book contains or references third-party material and WikiDocs restricts unauthorized automated collection. Obtain author-approved sources and asset-level provenance before mirroring.
+
+### High — Two competing information architectures
+
+The current sidebar combines 43 older entries and 79 newer entries. Publishing the flat tree would confuse readers, duplicate topics, and make translation status misleading. Separate `fundamentals` and `legacy`.
+
+### High — Page count is not completion
+
+Some new leaf pages contain only `x`. A 122/122 route claim would measure URLs, not educational content. Track `sourceState` and hide placeholders from the finished reader.
+
+### High — Canonical-language ambiguity
+
+An English book already exists. Translating Korean→English blindly would create a third version and introduce drift. Resolve authority per page and reuse author-approved English content where appropriate.
+
+### High — Reference scripts are overfitted
+
+The `helloalgo` implementation proves the workflow, but its registry and checks are hard-coded around Hello Algo. Refactor to data-driven catalogs and generic locale arrays before adding content.
+
+### Medium — Structural parity can create false confidence
+
+Matching headings, formulas, and images does not prove conceptual correctness. Independent ML review and executable examples are mandatory.
+
+### Medium — Moving source
+
+WikiDocs remains editable. Without immutable hashes and drift handling, translations become stale silently. Every publication must point to a frozen source revision.
+
+### Medium — Route instability
+
+Translated titles and WikiDocs ordering can change. Identity must use an internal ID plus external page ID, not title-derived paths alone.
+
+### Medium — Asset hotlinking
+
+Hotlinked WikiDocs images can disappear and may have unclear rights. Store only cleared assets locally and preserve credits; otherwise use a link to the original instead of copying.
+
+### Medium — ML example validity
+
+Code that runs can still contain leakage, invalid evaluation, non-reproducibility, or misleading claims. Tests must include ML-specific assertions, not syntax alone.
+
+### Low — GitHub Pages limitations
+
+Client-side search and static labs work well, but editorial permissions and private previews require GitHub workflows or another preview service.
+
+## 10. Definition of done
+
+The project is complete only when:
+
+- the rights and source-transfer gate is documented;
+- every published page has stable identity and source hash;
+- Korean, English, and Vietnamese routes switch exactly;
+- placeholders are never described as completed translations;
+- technical, language, and rights reviews are independently recorded;
+- code, math, links, assets, routes, accessibility, and the generated artifact pass CI;
+- GitHub Pages deploys only from reviewed `main`;
+- attribution and modification notices appear on every page;
+- source drift is detectable and does not overwrite reviewed translations;
+- the live site can be rebuilt from a clean clone with documented commands.
+
+## 11. Immediate next actions
+
+1. Contact 고민수 and 장선진 with a concrete request to republish and translate book 9057 on GitHub/GitHub Pages under CC BY 4.0, including its images and code.
+2. Ask for an official export or author-controlled GitHub source and identify the canonical language for each collection.
+3. Decide whether the project covers only the newer 79-entry curriculum or also the 43-entry legacy/reference tree.
+4. After those decisions, initialize this empty directory as the new repository and implement Phase 1 cataloging plus the Phase 2 site shell.
+5. Run the six-page pilot before estimating the full translation schedule.
+
+## 12. Execution addendum — permission-safe pilot
+
+Decision date: 2026-07-28
+
+The approved execution path is an original “Gradient Atlas” pilot. The project
+does not ingest, mirror, scrape, or translate WikiDocs prose or media. WikiDocs
+book 9057 is used only to understand the general subject area and is linked as
+related reading.
+
+### 12.1 Implemented scope
+
+- one language-selection route;
+- Korean, English, and Vietnamese Atlas routes;
+- six exact trilingual lesson counterparts;
+- a nine-part learning roadmap;
+- interactive split, threshold, and generalization labs;
+- responsive lesson reader with previous/next navigation and article outline;
+- dark/light theme and reduced-motion behavior;
+- source and rights policy page;
+- original-content, review, and rights status ledgers;
+- separate MIT software and CC BY 4.0 content licenses;
+- production worker build for hosted deployment;
+- static export containing 25 routes for GitHub Pages;
+- CI and GitHub Pages deployment workflows;
+- route-render, content-governance, and translation-identity tests.
+
+### 12.2 Pilot lesson matrix
+
+| Part | Stable ID | Stable slug | Primary teaching decision |
+|---|---|---|---|
+| A | `mlf-a-01` | `what-machine-learning-learns` | Define task, representation, objective, and evidence |
+| B | `mlf-b-01` | `data-features-and-labels` | Treat data as a measurement process |
+| C | `mlf-c-01` | `train-validation-and-test` | Separate fitting, choosing, and claiming |
+| D | `mlf-d-01` | `metrics-and-thresholds` | Choose metrics and operating thresholds from error costs |
+| E | `mlf-e-01` | `bias-variance-and-overfitting` | Diagnose generalization failure |
+| F | `mlf-f-01` | `end-to-end-ml-workflow` | Join decisions into an observable operating loop |
+
+Each ID has Korean, English, and Vietnamese content. The slug is deliberately
+language-neutral so changing language replaces only the locale segment.
+
+### 12.3 Execution logic review
+
+`Risk: public pages could look authoritatively finished`
+
+Resolution:
+
+- every lesson is `publicationState: preview`;
+- language review is `pending`;
+- the header, home page, reader sidebar, and source policy disclose the review
+  state;
+- no “independently reviewed” claim is generated by automated checks.
+
+`Risk: topic inspiration could be confused with copied expression`
+
+Resolution:
+
+- no WikiDocs page body was imported;
+- no WikiDocs page ID occurs in the authored lesson source;
+- no third-party images, code, or datasets ship in the pilot;
+- the relationship is described as topic-level reference and external reading;
+- future adaptations still require the Phase 0 rights gate.
+
+`Risk: one build architecture might not serve both GitHub Pages and hosted
+production`
+
+Resolution:
+
+- the normal build produces a Cloudflare Worker-compatible artifact;
+- `build:pages` performs a separate static export;
+- all language and lesson parameters are enumerated at build time;
+- trailing-slash routes work on static hosting;
+- the GitHub repository base path is added only for the Pages target.
+
+`Risk: localized titles could break language switching`
+
+Resolution:
+
+- all locales share one stable English slug and one internal document ID;
+- language links preserve the current lesson slug;
+- build tests render the same metrics lesson in all three languages.
+
+`Risk: structural checks could overstate quality`
+
+Resolution:
+
+- automated checks prove identity, coverage, rights state, and renderability;
+- they do not promote content to stable status;
+- independent ML and native-language review remain explicit human gates.
+
+`Risk: interactive demonstrations could imply empirical scientific results`
+
+Resolution:
+
+- the three labs are labeled conceptual demonstrations;
+- their deterministic values illustrate trade-offs rather than reporting a
+  dataset or experiment;
+- the accompanying lessons explain the assumptions behind each visualization.
+
+### 12.4 Pilot acceptance matrix
+
+| Gate | Automated evidence | Release decision |
+|---|---|---|
+| Content identity | 6 unique IDs and slugs | Required |
+| Locale coverage | 6 documents × 3 locales | Required |
+| Rights | All pilot documents `original`; asset list empty | Required |
+| Review honesty | All documents `preview`; language review pending | Required |
+| Worker rendering | Root, 3 Atlas routes, lesson counterparts, policy | Required |
+| Static publishing | 25 prerendered pages | Required |
+| Interactions | Three keyboard/touch-compatible range controls | Required |
+| Accessibility baseline | Semantic headings, labels, nav landmarks, focus styles, reduced motion | Required |
+| Human ML review | Pending | Blocks stable label, not preview |
+| Native-language review | Pending | Blocks stable label, not preview |
+
+### 12.5 Next content gate
+
+Parts G, H, and K remain roadmap-only. They should not receive lesson routes
+until:
+
+1. the six pilot lessons receive human feedback;
+2. glossary and style corrections are folded back into all three locales;
+3. the review effort per lesson is measured;
+4. the project decides whether future material remains fully original or uses
+   author-approved CC BY adaptations.

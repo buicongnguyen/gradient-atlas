@@ -1,0 +1,18 @@
+{
+  "schemaVersion": 1,
+  "project": "Gradient Atlas",
+  "contentPolicy": "original-first",
+  "relatedSyllabus": {
+    "title": "DL Bible - 07. Machine Learning Fundamentals",
+    "url": "https://wikidocs.net/book/9057",
+    "use": "Topic-level reference and external reading link only"
+  },
+  "documents": [
+    {"id":"mlf-a-01","part":"A","order":1,"slug":"what-machine-learning-learns","rights":"original","sourceState":"created"},
+    {"id":"mlf-b-01","part":"B","order":2,"slug":"data-features-and-labels","rights":"original","sourceState":"created"},
+    {"id":"mlf-c-01","part":"C","order":3,"slug":"train-validation-and-test","rights":"original","sourceState":"created"},
+    {"id":"mlf-d-01","part":"D","order":4,"slug":"metrics-and-thresholds","rights":"original","sourceState":"created"},
+    {"id":"mlf-e-01","part":"E","order":5,"slug":"bias-variance-and-overfitting","rights":"original","sourceState":"created"},
+    {"id":"mlf-f-01","part":"F","order":6,"slug":"end-to-end-ml-workflow","rights":"original","sourceState":"created"}
+  ]
+}
