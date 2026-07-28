@@ -907,11 +907,14 @@ math label, and separate the expression from a wrapping symbol legend.
 
 ## 16. Original concept-diagram review
 
-Six high-value lessons now contain code-native diagrams: data leakage,
-train/validation/test splitting, the confusion matrix, linear regression,
-bias–variance behavior, and the end-to-end ML workflow. The diagrams use only
-project-authored HTML and CSS, retain the Gradient Atlas visual system, and are
-captioned as original CC BY 4.0 illustrations.
+Fourteen high-value lessons now contain code-native diagrams. The original set
+covers data leakage, train/validation/test splitting, the confusion matrix,
+linear regression, bias–variance behavior, and the end-to-end ML workflow. The
+expanded set adds the learning-type taxonomy, supervised-learning feedback,
+cluster geometry, neural-network layers, decision-tree branching,
+cross-validation rotation, the ROC trade-off curve, and distribution shift.
+The diagrams use only project-authored HTML and CSS, retain the Gradient Atlas
+visual system, and are captioned as original CC BY 4.0 illustrations.
 
 ### 16.1 Logic review
 
@@ -926,8 +929,11 @@ that WikiDocs media is neither copied nor hotlinked.
 Resolution: each visual encodes one narrow relationship: the decision-time
 boundary, the different responsibilities of three data partitions, the four
 exclusive confusion-matrix outcomes, residuals around a fitted line, the
-train–validation error gap, or feedback in an ML workflow. The surrounding
-lesson and caption explain the limits of the model.
+train–validation error gap, feedback in an ML workflow, taxonomy branches,
+label-driven feedback, spatial grouping, layer-wise transformation,
+question-based partitioning, fold rotation, threshold trade-offs, or changing
+feature distributions. The surrounding lesson and caption explain the limits
+of the model.
 
 `Risk: the visual is inaccessible or language-specific`
 
@@ -940,3 +946,12 @@ Vietnamese, and Korean.
 Resolution: the figure viewport permits horizontal scrolling for diagrams that
 need a stable coordinate system. The bias–variance panels stack vertically,
 and captions continue to wrap normally.
+
+### 16.2 Placement review
+
+A visual is added only when it reduces a specific reasoning burden: comparing
+several categories, following a feedback loop, seeing spatial separation,
+tracking layered or branching structure, comparing repeated evaluation rounds,
+reading a two-axis trade-off, or noticing a distribution change. Topics that
+are already clearer as prose, formulas, or short lists remain text-only. This
+keeps diagrams instructional and avoids a decorative illustration quota.

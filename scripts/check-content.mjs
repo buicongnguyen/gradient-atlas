@@ -70,16 +70,25 @@ assert.match(contentSource, /Human review pending|human review pending/i);
 assert.match(plan, /122 unique page entries/);
 assert.match(plan, /Do not publish source text before this gate passes/);
 assert.match(contentSource, /outlineAttribution/);
-assert.equal((diagramSource.match(/^\s{2}"?[a-z][a-z-]+": \{$/gm) ?? []).length >= 6, true);
-assert.doesNotMatch(diagramSource, /<(?:img|video|iframe|svg)\b/i);
-for (const slug of [
+const expectedDiagramSlugs = [
   "data-leakage",
   "train-validation-and-test",
   "confusion-matrix",
   "linear-regression",
   "bias-variance-and-overfitting",
   "end-to-end-ml-workflow",
-]) {
+  "types-of-learning",
+  "supervised-learning",
+  "clustering",
+  "artificial-neural-networks",
+  "decision-trees",
+  "cross-validation",
+  "roc-auc",
+  "distribution-shift",
+];
+assert.equal(new Set(expectedDiagramSlugs).size, 14);
+assert.doesNotMatch(diagramSource, /<(?:img|video|iframe|svg)\b/i);
+for (const slug of expectedDiagramSlugs) {
   assert.match(diagramSource, new RegExp(`"${slug}"`));
 }
 await access("CONTENT_LICENSE.md");
