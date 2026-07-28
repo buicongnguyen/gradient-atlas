@@ -1,6 +1,10 @@
 import assert from "node:assert/strict";
 import { access, readFile } from "node:fs/promises";
 import { curriculumSeeds } from "../app/data/full-curriculum.ts";
+import {
+  formulaSupportBySlug,
+  vietnameseTerminology,
+} from "../app/data/learning-support.ts";
 
 const catalog = JSON.parse(await readFile("governance/catalog.json", "utf8"));
 const status = JSON.parse(await readFile("governance/translation-status.json", "utf8"));
@@ -21,6 +25,21 @@ for (const seed of curriculumSeeds) {
   assert.ok(seed.titles.ko.trim(), `${seed.id} missing Korean title`);
   assert.ok(new Set(Object.values(seed.titles)).size >= 2, `${seed.id} titles are not localized`);
   assert.ok(seed.tags.length >= 2, `${seed.id} needs at least two teaching concepts`);
+  const terminology = vietnameseTerminology(seed);
+  assert.ok(terminology.length >= 1, `${seed.id} missing Vietnamese–English terminology`);
+  assert.equal(terminology[0].local, seed.titles.vi);
+  assert.equal(terminology[0].english, seed.titles.en);
+}
+
+const formulaEntries = Object.entries(formulaSupportBySlug);
+assert.ok(formulaEntries.length >= 30, "Expected broad mathematical coverage");
+for (const [slug, formula] of formulaEntries) {
+  assert.ok(curriculumSeeds.some((seed) => seed.slug === slug), `Unknown formula slug: ${slug}`);
+  assert.ok(formula.expression.trim(), `${slug} missing formula expression`);
+  assert.ok(formula.explanation.en.trim(), `${slug} missing English formula explanation`);
+  assert.ok(formula.explanation.vi.trim(), `${slug} missing Vietnamese formula explanation`);
+  assert.ok(formula.explanation.ko.trim(), `${slug} missing Korean formula explanation`);
+  assert.doesNotMatch(formula.expression, /wikidocs|https?:\/\//i, `${slug} formula must be source-independent`);
 }
 
 for (const document of catalog.documents) {

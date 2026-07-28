@@ -1,4 +1,9 @@
 import { curriculumSeeds, type Collection, type PageKind } from "./full-curriculum";
+import {
+  formulaSupportBySlug,
+  vietnameseTerminology,
+  type TerminologyPair,
+} from "./learning-support";
 
 export const languages = ["en", "vi", "ko"] as const;
 export type Language = (typeof languages)[number];
@@ -8,6 +13,7 @@ export type LessonSection = {
   paragraphs: string[];
   bullets?: string[];
   formula?: string;
+  formulaVariables?: string[];
   code?: string;
   note?: string;
 };
@@ -23,6 +29,8 @@ export type Lesson = {
   number: string;
   slug: string;
   title: string;
+  englishTitle?: string;
+  terminology?: TerminologyPair[];
   summary: string;
   duration: string;
   outcome: string;
@@ -90,6 +98,9 @@ type UiCopy = {
   currentPage: string;
   readerProgress: string;
   skipToArticle: string;
+  terminology: string;
+  englishTerm: string;
+  formulaVariables: string;
 };
 
 export const ui: Record<Language, UiCopy> = {
@@ -153,6 +164,9 @@ export const ui: Record<Language, UiCopy> = {
     currentPage: "Current page",
     readerProgress: "Reader progress",
     skipToArticle: "Skip to the lesson",
+    terminology: "Terminology",
+    englishTerm: "Canonical English term",
+    formulaVariables: "Symbols",
   },
   vi: {
     siteTitle: "Gradient Atlas",
@@ -214,6 +228,9 @@ export const ui: Record<Language, UiCopy> = {
     currentPage: "Trang hiện tại",
     readerProgress: "Tiến độ đọc",
     skipToArticle: "Chuyển đến bài học",
+    terminology: "Thuật ngữ Việt–Anh",
+    englishTerm: "Thuật ngữ tiếng Anh chuẩn",
+    formulaVariables: "Ký hiệu",
   },
   ko: {
     siteTitle: "Gradient Atlas",
@@ -275,6 +292,9 @@ export const ui: Record<Language, UiCopy> = {
     currentPage: "현재 페이지",
     readerProgress: "읽기 진행률",
     skipToArticle: "레슨으로 건너뛰기",
+    terminology: "용어",
+    englishTerm: "표준 영어 용어",
+    formulaVariables: "기호",
   },
 };
 
@@ -858,10 +878,50 @@ function mergePilot(language: Language, seed: (typeof curriculumSeeds)[number], 
   };
 }
 
+const formulaSectionHeadings: Record<Language, string> = {
+  en: "Mathematical anchor",
+  vi: "Mốc toán học",
+  ko: "수학적 기준점",
+};
+
+function enrichLesson(
+  language: Language,
+  seed: (typeof curriculumSeeds)[number],
+  lesson: Lesson,
+): Lesson {
+  const support = formulaSupportBySlug[seed.slug];
+  const alreadyHasFormula = lesson.sections.some((section) => section.formula);
+  const sections =
+    support && !alreadyHasFormula
+      ? [
+          ...lesson.sections,
+          {
+            heading: formulaSectionHeadings[language],
+            paragraphs: [support.explanation[language]],
+            formula: support.expression,
+            formulaVariables: support.variables,
+          },
+        ]
+      : lesson.sections;
+
+  return {
+    ...lesson,
+    englishTitle: seed.titles.en,
+    terminology: language === "vi" ? vietnameseTerminology(seed) : undefined,
+    sections,
+  };
+}
+
 export const lessons: Record<Language, Lesson[]> = {
-  en: curriculumSeeds.map((seed) => mergePilot("en", seed, generatedLesson("en", seed))),
-  vi: curriculumSeeds.map((seed) => mergePilot("vi", seed, generatedLesson("vi", seed))),
-  ko: curriculumSeeds.map((seed) => mergePilot("ko", seed, generatedLesson("ko", seed))),
+  en: curriculumSeeds.map((seed) =>
+    enrichLesson("en", seed, mergePilot("en", seed, generatedLesson("en", seed))),
+  ),
+  vi: curriculumSeeds.map((seed) =>
+    enrichLesson("vi", seed, mergePilot("vi", seed, generatedLesson("vi", seed))),
+  ),
+  ko: curriculumSeeds.map((seed) =>
+    enrichLesson("ko", seed, mergePilot("ko", seed, generatedLesson("ko", seed))),
+  ),
 };
 
 export function isLanguage(value: string): value is Language {

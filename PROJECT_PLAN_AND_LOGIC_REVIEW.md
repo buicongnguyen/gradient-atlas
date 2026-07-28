@@ -864,3 +864,43 @@ content cards, and editorial disclosures.
 Resolution: attribution stays inside the article flow on every breakpoint and
 now names 고민수 and 장선진, links the exact page and CC BY 4.0 license, and
 identifies translation and restructuring as modifications.
+
+## 15. Vietnamese terminology and mathematical notation review
+
+The Vietnamese reader now preserves a canonical English reference beside every
+localized lesson title. A curated terminology panel pairs recurring Vietnamese
+terms with their English equivalents so readers can detect an uncertain
+translation without losing the localized explanation.
+
+Mathematical notation is added only when a formula materially clarifies the
+topic. The formula catalog covers core supervised learning, clustering,
+dimensionality reduction, reinforcement learning, neural networks, regression,
+probabilistic models, optimization, evaluation metrics, regularization, and
+distribution shift. Each entry is independently typeset and accompanied by an
+original explanation and symbol definitions where needed.
+
+### 15.1 Logic review
+
+`Risk: English terminology overwhelms the Vietnamese lesson`
+
+Resolution: the localized title remains the primary heading. The canonical
+English title appears as a compact reference, and the terminology panel is
+limited to the main topic plus at most three verified recurring terms.
+
+`Risk: a formula is decorative or misleading`
+
+Resolution: formula support is keyed to specific mathematically substantive
+topics. Overview and operational pages are not forced to contain equations.
+Automated checks reject unknown lesson keys, missing localized explanations,
+source URLs inside formulas, and formula coverage below the reviewed baseline.
+
+`Risk: mathematical facts are confused with copied exposition`
+
+Resolution: notation is independently selected and typeset. WikiDocs equations,
+images, examples, and prose are not imported. The accompanying teaching text
+and symbol definitions are original Gradient Atlas content.
+
+`Risk: long notation breaks the mobile reader`
+
+Resolution: formula figures are horizontally scrollable, keep their semantic
+math label, and separate the expression from a wrapping symbol legend.

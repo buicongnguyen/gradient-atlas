@@ -293,6 +293,15 @@ input[type="range"] { width: 100%; accent-color: var(--acid); cursor: pointer; }
 .book-outline a span { color: var(--acid); font-family: ui-monospace, monospace; }
 .book-outline a:hover { color: var(--ink); }
 .article-header h1 { max-width: 780px; margin: 1.7rem 0; font-size: clamp(2.8rem, 5vw, 5.2rem); line-height: .98; letter-spacing: -.055em; }
+.canonical-english-term { margin: -1rem 0 1.7rem; display: flex; flex-wrap: wrap; align-items: baseline; gap: .45rem .8rem; }
+.canonical-english-term span { color: var(--muted); font: 650 .58rem ui-monospace, monospace; text-transform: uppercase; letter-spacing: .06em; }
+.canonical-english-term strong { color: var(--cyan); font-size: .86rem; font-weight: 700; letter-spacing: 0; }
+.terminology-panel { margin: 0 0 1.8rem; padding: 1rem; background: color-mix(in srgb, var(--cyan) 6%, var(--panel)); border: 1px solid color-mix(in srgb, var(--cyan) 24%, var(--line)); border-radius: 10px; }
+.terminology-panel > strong { display: block; margin-bottom: .75rem; color: var(--ink); font-size: .68rem; }
+.terminology-panel dl { margin: 0; display: flex; flex-wrap: wrap; gap: .55rem; }
+.terminology-panel dl div { min-width: min(210px, 100%); padding: .6rem .7rem; display: grid; gap: .22rem; background: var(--bg-deep); border: 1px solid var(--line); border-radius: 7px; }
+.terminology-panel dt { color: var(--ink); font-size: .7rem; }
+.terminology-panel dd { margin: 0; color: var(--cyan); font: .61rem ui-monospace, monospace; }
 .article-header > p { color: var(--muted); font-size: 1.08rem; }
 .article-header dl { margin: 2.5rem 0 0; display: grid; grid-template-columns: .6fr 1.6fr 1fr; gap: 1rem; }
 .article-header dl div { padding-top: .8rem; border-top: 1px solid var(--line); }
@@ -306,6 +315,12 @@ input[type="range"] { width: 100%; accent-color: var(--acid); cursor: pointer; }
 .article-section li { padding: .75rem 0 .75rem 1.4rem; position: relative; border-bottom: 1px solid var(--line); }
 .article-section li::before { content: "→"; position: absolute; left: 0; color: var(--acid); }
 .formula-block, .article-section pre { margin: 1.6rem 0; padding: 1.3rem; overflow-x: auto; background: var(--bg-deep); border: 1px solid var(--line); color: var(--acid); font: .84rem/1.7 ui-monospace, SFMono-Regular, Consolas, monospace; }
+.formula-block { display: grid; gap: 1rem; border-left: 3px solid var(--acid); }
+.formula-expression { min-width: max-content; font-size: clamp(.86rem, 2.1vw, 1.08rem); letter-spacing: .01em; }
+.formula-block figcaption { padding-top: .85rem; display: grid; gap: .55rem; color: var(--muted); border-top: 1px solid var(--line); font-size: .62rem; }
+.formula-block figcaption strong { color: var(--ink); font-size: .58rem; text-transform: uppercase; letter-spacing: .07em; }
+.formula-block figcaption ul { margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: .35rem .75rem; list-style: none; }
+.formula-block figcaption li { padding: 0; border: 0; }
 .article-note { margin: 1.6rem 0; padding: 1rem 1.2rem; display: flex; gap: .8rem; background: var(--acid-soft); border-left: 2px solid var(--acid); color: var(--acid); }
 .article-note p { margin: 0; color: var(--ink); font-size: .85rem; }
 .article-source { margin-top: 3rem; padding: 1.2rem; border: 1px solid var(--line); background: var(--panel); }

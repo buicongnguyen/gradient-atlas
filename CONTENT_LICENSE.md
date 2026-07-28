@@ -13,5 +13,10 @@ translation and restructuring. Each lesson links to its exact source page and
 the governance catalog records the modification. WikiDocs prose, images, code,
 and other media are not included.
 
+Mathematical expressions in Gradient Atlas are independently selected and
+typeset statements of standard relationships. Their accompanying explanations,
+symbol definitions, examples, and learning design are original Gradient Atlas
+content; they are not transcribed from WikiDocs.
+
 Other third-party adaptations must retain their own attribution, source,
 license, and modification notice.

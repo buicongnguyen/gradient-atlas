@@ -1,6 +1,7 @@
 import assert from "node:assert/strict";
 import test from "node:test";
 import { curriculumSeeds } from "../app/data/full-curriculum.ts";
+import { formulaSupportBySlug } from "../app/data/learning-support.ts";
 
 const workerUrl = new URL("../dist/server/index.js", import.meta.url);
 workerUrl.searchParams.set("test", `${process.pid}-${Date.now()}`);
@@ -74,6 +75,28 @@ test("renders exact trilingual lesson counterparts", async () => {
   }
 });
 
+test("renders bilingual Vietnamese terminology and original mathematical notation", async () => {
+  const terminologyResponse = await render("/vi/learn/linear-regression/");
+  assert.equal(terminologyResponse.status, 200);
+  const terminologyHtml = await terminologyResponse.text();
+  assert.match(terminologyHtml, /canonical-english-term/);
+  assert.match(terminologyHtml, /terminology-panel/);
+  assert.match(terminologyHtml, /Hồi quy tuyến tính/);
+  assert.match(terminologyHtml, /Linear regression/);
+  assert.match(terminologyHtml, /formula-expression/);
+  assert.match(terminologyHtml, /role="math"/);
+  assert.match(terminologyHtml, /Ký hiệu/);
+
+  assert.ok(Object.keys(formulaSupportBySlug).length >= 30);
+  for (const slug of Object.keys(formulaSupportBySlug)) {
+    for (const locale of ["en", "vi", "ko"]) {
+      const response = await render(`/${locale}/learn/${slug}/`);
+      assert.equal(response.status, 200, `${locale}/${slug}`);
+      assert.match(await response.text(), /formula-expression/, `${locale}/${slug}`);
+    }
+  }
+});
+
 test("renders the source policy", async () => {
   const response = await render("/source-policy/");
   assert.equal(response.status, 200);
@@ -93,6 +116,10 @@ test("renders every source-corresponding page in every locale", async () => {
       assert.match(html, new RegExp(`<div lang="${locale}" class="site-shell book-site"`), `${locale}/${seed.slug}`);
       assert.match(html, new RegExp(`https://wikidocs.net/${seed.sourcePageId}`));
       assert.match(html, /CC BY 4\.0/);
+      if (locale === "vi") {
+        assert.match(html, /canonical-english-term/, `${locale}/${seed.slug}`);
+        assert.match(html, /terminology-panel/, `${locale}/${seed.slug}`);
+      }
     }
   }
 });

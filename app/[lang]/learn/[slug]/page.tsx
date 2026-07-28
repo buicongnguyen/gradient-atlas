@@ -77,6 +77,25 @@ export default async function LessonPage({
               </nav>
             </details>
             <h1>{lesson.title}</h1>
+            {lang === "vi" && lesson.englishTitle && (
+              <p className="canonical-english-term">
+                <span>{copy.englishTerm}</span>
+                <strong lang="en">{lesson.englishTitle}</strong>
+              </p>
+            )}
+            {lang === "vi" && lesson.terminology && (
+              <aside className="terminology-panel" aria-label={copy.terminology}>
+                <strong>{copy.terminology}</strong>
+                <dl>
+                  {lesson.terminology.map((term) => (
+                    <div key={`${term.local}:${term.english}`}>
+                      <dt>{term.local}</dt>
+                      <dd lang="en">{term.english}</dd>
+                    </div>
+                  ))}
+                </dl>
+              </aside>
+            )}
             <p>{lesson.summary}</p>
             <dl>
               <div><dt>{copy.time}</dt><dd>{lesson.duration} {copy.minutes}</dd></div>
@@ -90,7 +109,21 @@ export default async function LessonPage({
               <span className="section-number">{String(sectionIndex + 1).padStart(2, "0")}</span>
               <h2>{section.heading}</h2>
               {section.paragraphs.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
-              {section.formula && <div className="formula-block">{section.formula}</div>}
+              {section.formula && (
+                <figure className="formula-block">
+                  <div className="formula-expression" role="math" aria-label={section.formula}>
+                    {section.formula}
+                  </div>
+                  {section.formulaVariables && (
+                    <figcaption>
+                      <strong>{copy.formulaVariables}</strong>
+                      <ul>
+                        {section.formulaVariables.map((variable) => <li key={variable}>{variable}</li>)}
+                      </ul>
+                    </figcaption>
+                  )}
+                </figure>
+              )}
               {section.bullets && <ul>{section.bullets.map((bullet) => <li key={bullet}>{bullet}</li>)}</ul>}
               {section.code && <pre><code>{section.code}</code></pre>}
               {section.note && <aside className="article-note"><CircleDot /><p>{section.note}</p></aside>}

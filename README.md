@@ -11,6 +11,11 @@ chapter tree on desktop; an accessible off-canvas contents drawer on mobile;
 current-page highlighting; chapter search; inline section bookmarks; reading
 progress; and previous/next navigation.
 
+Every Vietnamese lesson displays its canonical English topic name and a curated
+Vietnamese–English terminology panel. Mathematically substantive lessons also
+include independently written notation blocks with short explanations and
+symbol definitions.
+
 ## Read locally
 
 Requirements: Node.js 22.13 or newer.
