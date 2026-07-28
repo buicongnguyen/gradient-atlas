@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { getLesson, isLanguage, languages, lessons, ui } from "../../../data/content";
 import { ArrowUpRight, Check, CircleDot } from "../../../ui/icons";
 import { BookSidebar } from "../../../ui/BookSidebar";
+import { LessonDiagram } from "../../../ui/LessonDiagram";
 import { SiteHeader } from "../../../ui/SiteHeader";
 
 export function generateStaticParams() {
@@ -103,6 +104,8 @@ export default async function LessonPage({
               <div><dt>{copy.status}</dt><dd>{copy.humanReview}</dd></div>
             </dl>
           </header>
+
+          <LessonDiagram language={lang} slug={lesson.slug} />
 
           {lesson.sections.map((section, sectionIndex) => (
             <section className="article-section" id={`section-${sectionIndex + 1}`} key={section.heading}>

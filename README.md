@@ -16,6 +16,11 @@ Vietnamese–English terminology panel. Mathematically substantive lessons also
 include independently written notation blocks with short explanations and
 symbol definitions.
 
+Six core lessons include original, code-native concept diagrams for data
+leakage, dataset splitting, the confusion matrix, linear regression,
+bias–variance behavior, and the end-to-end workflow. They use no copied or
+hotlinked media.
+
 ## Read locally
 
 Requirements: Node.js 22.13 or newer.

@@ -9,6 +9,7 @@ import {
 const catalog = JSON.parse(await readFile("governance/catalog.json", "utf8"));
 const status = JSON.parse(await readFile("governance/translation-status.json", "utf8"));
 const contentSource = await readFile("app/data/content.ts", "utf8");
+const diagramSource = await readFile("app/ui/LessonDiagram.tsx", "utf8");
 const plan = await readFile("PROJECT_PLAN_AND_LOGIC_REVIEW.md", "utf8");
 
 assert.equal(curriculumSeeds.length, 122, "Expected the verified 122-page outline");
@@ -69,6 +70,18 @@ assert.match(contentSource, /Human review pending|human review pending/i);
 assert.match(plan, /122 unique page entries/);
 assert.match(plan, /Do not publish source text before this gate passes/);
 assert.match(contentSource, /outlineAttribution/);
+assert.equal((diagramSource.match(/^\s{2}"?[a-z][a-z-]+": \{$/gm) ?? []).length >= 6, true);
+assert.doesNotMatch(diagramSource, /<(?:img|video|iframe|svg)\b/i);
+for (const slug of [
+  "data-leakage",
+  "train-validation-and-test",
+  "confusion-matrix",
+  "linear-regression",
+  "bias-variance-and-overfitting",
+  "end-to-end-ml-workflow",
+]) {
+  assert.match(diagramSource, new RegExp(`"${slug}"`));
+}
 await access("CONTENT_LICENSE.md");
 await access("LICENSE");
 

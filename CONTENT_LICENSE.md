@@ -18,5 +18,9 @@ typeset statements of standard relationships. Their accompanying explanations,
 symbol definitions, examples, and learning design are original Gradient Atlas
 content; they are not transcribed from WikiDocs.
 
+Original Gradient Atlas concept diagrams are implemented with project-authored
+HTML and CSS and are licensed with the surrounding lesson content under CC BY
+4.0. No WikiDocs image, video, or other media is copied or hotlinked.
+
 Other third-party adaptations must retain their own attribution, source,
 license, and modification notice.

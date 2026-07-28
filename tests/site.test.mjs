@@ -97,6 +97,38 @@ test("renders bilingual Vietnamese terminology and original mathematical notatio
   }
 });
 
+test("renders six original localized concept diagrams", async () => {
+  const diagramSlugs = [
+    "data-leakage",
+    "train-validation-and-test",
+    "confusion-matrix",
+    "linear-regression",
+    "bias-variance-and-overfitting",
+    "end-to-end-ml-workflow",
+  ];
+  const licenseCaptions = {
+    en: "Original Gradient Atlas illustration",
+    vi: "Minh họa gốc của Gradient Atlas",
+    ko: "Gradient Atlas 원본 도해",
+  };
+
+  for (const slug of diagramSlugs) {
+    for (const locale of ["en", "vi", "ko"]) {
+      const response = await render(`/${locale}/learn/${slug}/`);
+      assert.equal(response.status, 200, `${locale}/${slug}`);
+      const html = await response.text();
+      assert.equal((html.match(/class="concept-diagram"/g) ?? []).length, 1, `${locale}/${slug}`);
+      assert.match(html, new RegExp(`data-diagram="${slug}"`));
+      assert.match(html, /role="img"/);
+      assert.match(html, new RegExp(licenseCaptions[locale]));
+      assert.match(html, /CC BY 4\.0/);
+    }
+  }
+
+  const plainResponse = await render("/vi/learn/about-artificial-intelligence/");
+  assert.doesNotMatch(await plainResponse.text(), /class="concept-diagram"/);
+});
+
 test("renders the source policy", async () => {
   const response = await render("/source-policy/");
   assert.equal(response.status, 200);

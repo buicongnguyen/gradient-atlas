@@ -904,3 +904,39 @@ and symbol definitions are original Gradient Atlas content.
 
 Resolution: formula figures are horizontally scrollable, keep their semantic
 math label, and separate the expression from a wrapping symbol legend.
+
+## 16. Original concept-diagram review
+
+Six high-value lessons now contain code-native diagrams: data leakage,
+train/validation/test splitting, the confusion matrix, linear regression,
+bias–variance behavior, and the end-to-end ML workflow. The diagrams use only
+project-authored HTML and CSS, retain the Gradient Atlas visual system, and are
+captioned as original CC BY 4.0 illustrations.
+
+### 16.1 Logic review
+
+`Risk: an illustration silently reuses uncertain WikiDocs media`
+
+Resolution: the diagram component contains no image, video, iframe, or SVG
+asset. Automated checks enforce that boundary, and the content license states
+that WikiDocs media is neither copied nor hotlinked.
+
+`Risk: a diagram simplifies the concept into an incorrect claim`
+
+Resolution: each visual encodes one narrow relationship: the decision-time
+boundary, the different responsibilities of three data partitions, the four
+exclusive confusion-matrix outcomes, residuals around a fitted line, the
+train–validation error gap, or feedback in an ML workflow. The surrounding
+lesson and caption explain the limits of the model.
+
+`Risk: the visual is inaccessible or language-specific`
+
+Resolution: every figure has localized visible labels, a localized descriptive
+accessible name, explanatory caption text, and a license notice in English,
+Vietnamese, and Korean.
+
+`Risk: a wide visual breaks the mobile reader`
+
+Resolution: the figure viewport permits horizontal scrolling for diagrams that
+need a stable coordinate system. The bias–variance panels stack vertically,
+and captions continue to wrap normally.
