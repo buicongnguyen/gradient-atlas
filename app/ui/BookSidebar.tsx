@@ -16,10 +16,12 @@ export function BookSidebar({
   language,
   lessons,
   currentLesson,
+  currentLocation = "lesson",
 }: {
   language: Language;
   lessons: Lesson[];
-  currentLesson: Lesson;
+  currentLesson?: Lesson;
+  currentLocation?: "home" | "catalog" | "lesson" | "policy";
 }) {
   const copy = ui[language];
   const [open, setOpen] = useState(false);
@@ -63,7 +65,7 @@ export function BookSidebar({
       sidebar.scrollTop =
         current.offsetTop - sidebar.clientHeight / 2 + current.clientHeight / 2;
     }
-  }, [currentLesson.id, normalizedQuery]);
+  }, [currentLesson?.id, normalizedQuery]);
 
   useEffect(() => {
     function updateProgress() {
@@ -124,7 +126,26 @@ export function BookSidebar({
         <div className="book-sidebar-intro">
           <strong>{copy.bookContents}</strong>
           <span>122 × EN · VI · KO</span>
-          <Link href={`/${language}/catalog/`}>{copy.catalog}</Link>
+          <nav className="book-sidebar-destinations" aria-label={copy.bookContents}>
+            <Link
+              href={`/${language}/`}
+              aria-current={currentLocation === "home" ? "page" : undefined}
+            >
+              {copy.siteTitle}
+            </Link>
+            <Link
+              href={`/${language}/catalog/`}
+              aria-current={currentLocation === "catalog" ? "page" : undefined}
+            >
+              {copy.catalog}
+            </Link>
+            <Link
+              href="/source-policy/"
+              aria-current={currentLocation === "policy" ? "page" : undefined}
+            >
+              {copy.sourcePolicy}
+            </Link>
+          </nav>
         </div>
         <label className="book-search">
           <span>{copy.search}</span>
@@ -137,29 +158,43 @@ export function BookSidebar({
           />
         </label>
         <nav aria-label={copy.bookContents}>
-          {groups.map((group) => (
-            <section className="book-chapter" key={group.key}>
-              <header>
-                <small>
+          {groups.map((group) => {
+            const containsCurrent = group.lessons.some(
+              (item) => item.id === currentLesson?.id,
+            );
+            return (
+            <details
+              className="book-chapter"
+              key={group.key}
+              open={Boolean(normalizedQuery) || containsCurrent}
+            >
+              <summary>
+                <span>
+                  <small>
                   {group.collection === "fundamentals" ? copy.fundamentals : copy.legacy}
-                </small>
-                <strong>PART {group.part}</strong>
-              </header>
-              {group.lessons.map((item) => (
-                <Link
-                  ref={item.id === currentLesson.id ? currentRef : undefined}
-                  key={item.id}
-                  href={`/${language}/learn/${item.slug}/`}
-                  aria-current={item.id === currentLesson.id ? "page" : undefined}
-                  onClick={() => setOpen(false)}
-                >
-                  <span>{item.number}</span>
-                  <span>{item.title}</span>
-                  {item.id === currentLesson.id && <i>{copy.currentPage}</i>}
-                </Link>
-              ))}
-            </section>
-          ))}
+                  </small>
+                  <strong>PART {group.part}</strong>
+                </span>
+                <i>{group.lessons.length}</i>
+              </summary>
+              <div className="book-chapter-pages">
+                {group.lessons.map((item) => (
+                  <Link
+                    className="book-page-link"
+                    ref={item.id === currentLesson?.id ? currentRef : undefined}
+                    key={item.id}
+                    href={`/${language}/learn/${item.slug}/`}
+                    aria-current={item.id === currentLesson?.id ? "page" : undefined}
+                    onClick={() => setOpen(false)}
+                  >
+                    <span>{item.number}</span>
+                    <span>{item.title}</span>
+                    {item.id === currentLesson?.id && <i>{copy.currentPage}</i>}
+                  </Link>
+                ))}
+              </div>
+            </details>
+          )})}
         </nav>
         {groups.length === 0 && <p className="book-empty">0 {copy.pages}</p>}
       </aside>

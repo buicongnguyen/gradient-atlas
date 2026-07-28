@@ -6,10 +6,12 @@ pages (366 localized reader routes), a searchable catalog, and interactive
 demonstrations for dataset splitting, classification thresholds, and
 generalization.
 
-The reader uses a book-oriented layout: a persistent, independently scrollable
-chapter tree on desktop; an accessible off-canvas contents drawer on mobile;
-current-page highlighting; chapter search; inline section bookmarks; reading
-progress; and previous/next navigation.
+Every localized page uses a book-oriented layout: a persistent, independently
+scrollable 122-page chapter tree on desktop and an accessible off-canvas
+contents drawer on mobile. The homepage, catalog, source policy, and lessons
+share collapsible part headings, chapter search, and current-location
+highlighting; lessons add inline section bookmarks, reading progress, and
+previous/next navigation.
 
 Every Vietnamese lesson displays its canonical English topic name and a curated
 Vietnamese–English terminology panel. Mathematically substantive lessons also

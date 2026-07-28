@@ -46,6 +46,11 @@ test("renders all locale atlas routes with labs and preview disclosure", async (
     assert.match(html, /https:\/\/wikidocs\.net\/book\/9057/);
     assert.match(html, /CC BY 4\.0/);
     assert.match(html, /href="\/source-policy\/#source-outline"/);
+    assert.match(html, /class="reader-shell"/);
+    assert.match(html, /class="reader-sidebar book-sidebar/);
+    assert.match(html, /class="book-menu-button"/);
+    assert.match(html, /class="book-chapter"/);
+    assert.equal((html.match(/class="book-page-link"/g) ?? []).length, 122);
     assert.match(html, /preview|xem trước|프리뷰/i);
   }
 });
@@ -59,6 +64,9 @@ test("renders searchable catalogs with the complete corpus", async () => {
     assert.match(html, /architecture-of-deep-learning-bible/);
     assert.match(html, /projects/);
     assert.match(html, /type="search"/);
+    assert.match(html, /class="reader-sidebar book-sidebar/);
+    assert.match(html, /class="book-menu-button"/);
+    assert.equal((html.match(/class="book-page-link"/g) ?? []).length, 122);
   }
 });
 
@@ -165,6 +173,9 @@ test("renders the source policy", async () => {
   assert.match(html, /id="original-content"/);
   assert.match(html, /id="source-outline"/);
   assert.match(html, /https:\/\/wikidocs\.net\/book\/9057/);
+  assert.match(html, /class="reader-sidebar book-sidebar/);
+  assert.match(html, /class="book-menu-button"/);
+  assert.equal((html.match(/class="book-page-link"/g) ?? []).length, 122);
 });
 
 test("renders every source-corresponding page in every locale", async () => {

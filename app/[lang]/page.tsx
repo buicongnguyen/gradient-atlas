@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation";
-import { isLanguage, languages, lessons } from "../data/content";
+import { isLanguage, languages, lessons, ui } from "../data/content";
 import { AtlasClient } from "../ui/AtlasClient";
+import { BookSidebar } from "../ui/BookSidebar";
 import { SiteHeader } from "../ui/SiteHeader";
 
 export function generateStaticParams() {
@@ -16,15 +17,25 @@ export default async function LocaleHome({
   if (!isLanguage(lang)) notFound();
 
   return (
-    <div lang={lang} className="site-shell">
-      <SiteHeader language={lang} />
-      <main>
-        <AtlasClient language={lang} lessons={lessons[lang]} />
-      </main>
-      <footer className="site-footer">
-        <span>Gradient Atlas · 2026</span>
-        <span>Original trilingual learning project</span>
-      </footer>
+    <div lang={lang} className="site-shell book-site">
+      <a className="skip-link" href="#home-content">{ui[lang].skipToArticle}</a>
+      <SiteHeader language={lang} bookMode />
+      <div className="reader-shell">
+        <BookSidebar
+          language={lang}
+          lessons={lessons[lang]}
+          currentLocation="home"
+        />
+        <div className="book-page-content">
+          <main id="home-content">
+            <AtlasClient language={lang} lessons={lessons[lang]} />
+          </main>
+          <footer className="site-footer">
+            <span>Gradient Atlas · 2026</span>
+            <span>Original trilingual learning project</span>
+          </footer>
+        </div>
+      </div>
     </div>
   );
 }

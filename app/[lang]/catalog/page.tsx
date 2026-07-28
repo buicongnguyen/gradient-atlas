@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { isLanguage, languages, lessons, ui } from "../../data/content";
 import { CatalogClient } from "../../ui/CatalogClient";
+import { BookSidebar } from "../../ui/BookSidebar";
 import { SiteHeader } from "../../ui/SiteHeader";
 
 export function generateStaticParams() {
@@ -27,9 +28,17 @@ export default async function CatalogPage({
   if (!isLanguage(lang)) notFound();
 
   return (
-    <div lang={lang} className="site-shell">
-      <SiteHeader language={lang} pathSuffix="/catalog/" />
-      <CatalogClient language={lang} lessons={lessons[lang]} />
+    <div lang={lang} className="site-shell book-site">
+      <a className="skip-link" href="#catalog-content">{ui[lang].skipToArticle}</a>
+      <SiteHeader language={lang} pathSuffix="/catalog/" bookMode />
+      <div className="reader-shell">
+        <BookSidebar
+          language={lang}
+          lessons={lessons[lang]}
+          currentLocation="catalog"
+        />
+        <CatalogClient language={lang} lessons={lessons[lang]} />
+      </div>
     </div>
   );
 }

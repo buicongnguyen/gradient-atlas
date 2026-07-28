@@ -41,7 +41,7 @@ export function CatalogClient({
   }, [visible]);
 
   return (
-    <main className="catalog-page">
+    <main className="catalog-page" id="catalog-content">
       <header className="catalog-hero">
         <p className="eyebrow">122 × EN · VI · KO</p>
         <h1>{copy.catalogTitle}</h1>
