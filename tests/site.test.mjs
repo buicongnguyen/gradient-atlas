@@ -25,6 +25,13 @@ test("renders the language gate without starter metadata", async () => {
   assert.match(html, /English/);
   assert.match(html, /Tiếng Việt/);
   assert.match(html, /한국어/);
+  assert.match(html, /DL Bible – 07\. Machine Learning Fundamentals/);
+  assert.match(html, /https:\/\/wikidocs\.net\/book\/9057/);
+  assert.match(html, /고민수/);
+  assert.match(html, /장선진/);
+  assert.match(html, /CC BY 4\.0/);
+  assert.match(html, /WikiDocs prose and media are not copied/);
+  assert.match(html, /href="\/source-policy\/"/);
   assert.doesNotMatch(html, /codex-preview|react-loading-skeleton|Your site is taking shape/);
 });
 
@@ -36,6 +43,8 @@ test("renders all locale atlas routes with labs and preview disclosure", async (
     assert.match(html, /Gradient Atlas/);
     assert.match(html, /type="range"/);
     assert.match(html, /WikiDocs/);
+    assert.match(html, /https:\/\/wikidocs\.net\/book\/9057/);
+    assert.match(html, /CC BY 4\.0/);
     assert.match(html, /preview|xem trước|프리뷰/i);
   }
 });

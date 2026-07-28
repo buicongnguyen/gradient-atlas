@@ -91,6 +91,13 @@ a { color: inherit; }
 .language-cards a > span { color: var(--acid); font: 700 .72rem ui-monospace, monospace; }
 .language-cards a strong { font-size: 1.06rem; }
 .language-cards a > span:last-child { font-size: 1.2rem; }
+.gate-source { margin-top: 1.2rem; padding: 1.2rem 1.3rem; display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 1.5rem; background: color-mix(in srgb, var(--panel) 86%, transparent); border: 1px solid var(--line-strong); border-left: 3px solid var(--acid); text-align: left; }
+.gate-source .eyebrow { margin-bottom: .45rem; font-size: .58rem; }
+.gate-source h2 { margin: 0; font-size: .9rem; }
+.gate-source p:not(.eyebrow) { max-width: 630px; margin: .45rem 0 0; color: var(--muted); font-size: .67rem; line-height: 1.65; }
+.gate-source-actions { min-width: 178px; display: grid; gap: .45rem; }
+.gate-source-actions a { padding: .45rem .6rem; display: flex; align-items: center; justify-content: space-between; gap: .7rem; color: var(--acid); border: 1px solid var(--line); text-decoration: none; font-size: .62rem; font-weight: 700; }
+.gate-source-actions a:hover { border-color: var(--acid); background: var(--acid-soft); }
 .gate-note { margin-top: 1.4rem; color: var(--muted); font-size: .76rem; }
 
 .site-shell { min-height: 100vh; overflow: hidden; }
@@ -667,6 +674,8 @@ input[type="range"] { width: 100%; accent-color: var(--acid); cursor: pointer; }
   .system-node { min-width: 68px; padding: .4rem; font-size: .52rem; }
   .system-center { width: 106px; height: 106px; }
   .language-cards, .roadmap, .lesson-grid, .about-section { grid-template-columns: 1fr; }
+  .gate-source { grid-template-columns: 1fr; }
+  .gate-source-actions { min-width: 0; }
   .catalog-page { width: min(100% - 1.5rem, var(--max)); padding-top: 3.5rem; }
   .catalog-filters { overflow-x: auto; }
   .catalog-filters button { white-space: nowrap; }

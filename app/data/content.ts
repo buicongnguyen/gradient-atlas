@@ -135,7 +135,7 @@ export const ui: Record<Language, UiCopy> = {
     aboutEyebrow: "04 · Publishing policy",
     aboutTitle: "Original first. Attributed when adapted.",
     aboutBody:
-      "Gradient Atlas does not mirror WikiDocs text or assets. It teaches the same general subject area using original explanations, examples, diagrams, and code. Future adaptations will require page-level attribution and rights records.",
+      "Gradient Atlas translates and restructures the public outline of DL Bible – 07. Machine Learning Fundamentals by 고민수 and 장선진 under CC BY 4.0. Its explanations, examples, diagrams, and code are original; WikiDocs prose and media are not copied.",
     original: "Original content",
     sourcePolicy: "View source policy",
     humanReview: "Human review pending",
@@ -199,7 +199,7 @@ export const ui: Record<Language, UiCopy> = {
     aboutEyebrow: "04 · Chính sách xuất bản",
     aboutTitle: "Ưu tiên nội dung gốc. Ghi nguồn khi chuyển thể.",
     aboutBody:
-      "Gradient Atlas không sao chép văn bản hay tài sản từ WikiDocs. Dự án giảng dạy cùng lĩnh vực bằng lời giải thích, ví dụ, sơ đồ và mã nguồn do dự án tự xây dựng. Mọi chuyển thể trong tương lai phải có ghi nguồn theo từng trang và hồ sơ quyền sử dụng.",
+      "Gradient Atlas dịch và tái cấu trúc đề cương công khai của DL Bible – 07. Machine Learning Fundamentals do 고민수 và 장선진 biên soạn theo CC BY 4.0. Lời giải thích, ví dụ, sơ đồ và mã nguồn là nội dung gốc; dự án không sao chép văn bản hay tài sản truyền thông của WikiDocs.",
     original: "Nội dung nguyên bản",
     sourcePolicy: "Xem chính sách nguồn",
     humanReview: "Đang chờ phản biện",
@@ -263,7 +263,7 @@ export const ui: Record<Language, UiCopy> = {
     aboutEyebrow: "04 · 출판 원칙",
     aboutTitle: "먼저 독창적으로 쓰고, 각색할 때는 출처를 밝힙니다.",
     aboutBody:
-      "Gradient Atlas는 WikiDocs의 글이나 자산을 복제하지 않습니다. 같은 일반 주제를 독창적인 설명, 예제, 도표, 코드로 가르칩니다. 향후 각색 자료에는 페이지별 저작자 표시와 권리 기록을 요구합니다.",
+      "Gradient Atlas는 고민수·장선진의 DL Bible – 07. Machine Learning Fundamentals 공개 목차를 CC BY 4.0에 따라 번역·재구성합니다. 설명, 예제, 도표, 코드는 독창적으로 작성하며 WikiDocs의 본문이나 미디어는 복제하지 않습니다.",
     original: "독창적 콘텐츠",
     sourcePolicy: "출처 정책 보기",
     humanReview: "사람의 검토 대기 중",

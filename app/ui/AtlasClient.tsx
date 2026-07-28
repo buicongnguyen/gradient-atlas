@@ -260,6 +260,7 @@ export function AtlasClient({
           <div className="policy-actions">
             <span><Check />{copy.original}</span>
             <span><CircleDot />CC BY 4.0 ready</span>
+            <a href="https://wikidocs.net/book/9057">{copy.relatedOutline}<ArrowUpRight /></a>
             <Link href="/source-policy/">{copy.sourcePolicy}<ArrowUpRight /></Link>
           </div>
         </div>

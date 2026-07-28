@@ -40,8 +40,30 @@ export default function RootLanding() {
             <ArrowUpRight />
           </Link>
         </nav>
+        <aside className="gate-source" aria-labelledby="gate-source-title">
+          <div>
+            <p className="eyebrow" id="gate-source-title">Source · Nguồn · 출처</p>
+            <h2>DL Bible – 07. Machine Learning Fundamentals</h2>
+            <p lang="en">
+              The public outline by 고민수 and 장선진 is translated and
+              restructured under CC BY 4.0. Gradient Atlas explanations,
+              examples, diagrams, and code are original; WikiDocs prose and
+              media are not copied.
+            </p>
+          </div>
+          <div className="gate-source-actions">
+            <a href="https://wikidocs.net/book/9057">
+              Open WikiDocs source
+              <ArrowUpRight />
+            </a>
+            <Link href="/source-policy/">
+              Read source policy
+              <ArrowUpRight />
+            </Link>
+          </div>
+        </aside>
         <p className="gate-note">
-          Six pilot lessons · Three interactive labs · Human review pending
+          122 learning pages · 22 visual lessons · Human review pending
         </p>
       </section>
     </main>
