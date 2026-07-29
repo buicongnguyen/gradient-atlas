@@ -1,17 +1,18 @@
 # Gradient Atlas
 
 Gradient Atlas is an original, visual, trilingual guide to machine-learning
-foundations. It publishes 122 linked Korean, English, and Vietnamese learning
-pages (366 localized reader routes), a searchable catalog, and interactive
-demonstrations for dataset splitting, classification thresholds, and
-generalization.
+foundations. Its recommended path is a six-chapter guided course that builds
+one late-delivery risk system from decision framing to monitoring. A separate
+116-note reference atlas supports lookup by model, formula, and failure pattern.
+Together they form 122 English, Vietnamese, and Korean topics (366 localized
+reader routes).
 
-Every localized page uses a book-oriented layout: a persistent, independently
-scrollable 122-page chapter tree on desktop and an accessible off-canvas
-contents drawer on mobile. The homepage, catalog, source policy, and lessons
-share collapsible part headings, chapter search, and current-location
-highlighting; lessons add inline section bookmarks, reading progress, and
-previous/next navigation.
+Every localized page uses a book-oriented layout: the six guided chapters
+appear first in a persistent left column, followed by collapsible reference
+parts. The same contents becomes an accessible off-canvas drawer on mobile.
+Guided lessons add prerequisites, warm-ups, a continuing project deliverable,
+knowledge checks, curated references, inline bookmarks, reading progress, and
+course-only previous/next navigation.
 
 Every Vietnamese lesson displays its canonical English topic name and a curated
 Vietnamese–English terminology panel. Mathematically substantive lessons also
@@ -46,8 +47,8 @@ npm test
 npm run build:pages
 ```
 
-- `npm run check` audits content IDs, routes, translation coverage, rights
-  status, and preview disclosures.
+- `npm run check` audits content IDs, routes, localization coverage, reference
+  boundaries, source-independent rights records, and preview disclosures.
 - `npm test` builds the production worker and renders the language gate, all
   locale Atlas routes, trilingual lesson counterparts, and source policy.
 - `npm run build:pages` creates the static `out/` artifact used by GitHub
@@ -69,9 +70,9 @@ npm run build:pages
 
 This release is a public preview:
 
-- 122 outline pages and three locales per page;
-- 43 legacy/reference pages and 79 fundamentals pages;
-- six expanded editorial showcase lessons;
+- six guided chapters and 116 supporting reference notes;
+- three localized editions per topic;
+- one continuing late-delivery project;
 - logic-reviewed technical drafts;
 - native-language and independent technical review pending;
 - no copied WikiDocs prose, code, or media;
@@ -87,13 +88,22 @@ The detailed architecture, source analysis, rights gates, phased delivery plan,
 and logic review are in
 [`PROJECT_PLAN_AND_LOGIC_REVIEW.md`](PROJECT_PLAN_AND_LOGIC_REVIEW.md).
 
-## Relationship to WikiDocs
+## Reference model and WikiDocs history
 
-The page sequence and topic outline are adapted from
+The guided course uses
+[Microsoft Machine Learning for Beginners](https://github.com/microsoft/ML-For-Beginners)
+as a project-learning reference,
+[Google's Machine Learning Crash Course](https://developers.google.com/machine-learning/crash-course)
+as a modular and interactive reference, and the
+[scikit-learn User Guide](https://scikit-learn.org/stable/user_guide.html)
+as a technical verification source. Dive into Deep Learning and An Introduction
+to Statistical Learning are further-reading references only.
+
 [DL Bible – 07. Machine Learning Fundamentals](https://wikidocs.net/book/9057)
-under its displayed CC BY 4.0 license. Every reader page links to its exact
-source page. Gradient Atlas independently authors the explanatory prose,
-examples, exercises, and interface; it does not mirror WikiDocs text or assets.
+is preserved only as the historical topic index that prompted the project.
+Every atlas note keeps its corresponding link for traceability. Gradient Atlas
+does not rely on a WikiDocs reuse license and does not mirror, translate, or
+adapt WikiDocs expression or media.
 
 ## Licenses
 

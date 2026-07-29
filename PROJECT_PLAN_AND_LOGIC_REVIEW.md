@@ -6,6 +6,83 @@ Target languages: Korean (`ko`), English (`en`), Vietnamese (`vi`)
 Reference implementation: local `helloalgo` repository  
 Analyzed source: [WikiDocs book 9057](https://wikidocs.net/book/9057)
 
+> **2026-07-30 reconstruction decision:** Sections 1–16 preserve the original
+> investigation and implementation history. Their earlier assumption that the
+> WikiDocs outline could be adapted under CC BY 4.0 is no longer relied on.
+> The current release is independently authored, uses WikiDocs only as a
+> historical topic-link index, and does not copy, translate, or adapt WikiDocs
+> expression or media.
+
+## Current reader-first reconstruction
+
+The former 122-page sequence is too fragmented for a beginner reading from
+start to finish. It combines two collections, repeats broad concepts, and gives
+small topics the same navigational weight as foundational decisions. The
+reconstruction therefore exposes two deliberate modes:
+
+1. **Guided course:** six editorial chapters in a fixed dependency order.
+2. **Reference atlas:** 116 supporting notes grouped for lookup rather than
+   presented as required sequential reading.
+
+The guided course builds one late-delivery risk system:
+
+1. frame the decision and costly errors;
+2. audit features, labels, timestamps, and leakage;
+3. protect train, validation, and test evaluation;
+4. choose metrics and a decision threshold;
+5. diagnose bias, variance, overfitting, and shift;
+6. connect the model to deployment, fallback, monitoring, and retraining.
+
+Each chapter now has prerequisites, a warm-up with revealed reasoning, one
+project deliverable, a knowledge check, and selected further reading. Previous
+and next links stay inside the guided course. Reference notes have their own
+navigation sequence, so a learner is never pushed from a coherent chapter into
+an unrelated historical topic.
+
+### Reference stack
+
+- Microsoft Machine Learning for Beginners informs project pacing, checks, and
+  assignments.
+- Google Machine Learning Crash Course informs short modules, interactive
+  intuition, and the path from models to production systems.
+- Dive into Deep Learning informs the proximity of explanation, mathematics,
+  and runnable examples; no passages, figures, or code are adapted.
+- The scikit-learn User Guide is the technical verification source for model
+  selection, preprocessing, evaluation, pipelines, and implementation behavior.
+- An Introduction to Statistical Learning is recommendation-only because its
+  site states that the work is all rights reserved.
+- WikiDocs is a historical topic-link index only; its reuse license is not
+  assumed or required.
+
+### Reconstruction logic review
+
+`Risk: a larger source list creates a patchwork rather than a course`
+
+Resolution: the reference stack does not define the table of contents. One
+original six-step project spine defines the course; sources have narrowly
+documented roles and appear only as further reading or technical verification.
+
+`Risk: reference material is accidentally copied under incompatible terms`
+
+Resolution: the release contains no third-party passages, figures, media, or
+code. Governance records `sourceReuse: none` and
+`sourceLicenseReliedOn: false` for every historical WikiDocs link. External
+works retain their own licenses, including D2L's share-alike terms and the
+all-rights-reserved Statistical Learning book.
+
+`Risk: generated topic coverage is mistaken for a polished textbook`
+
+Resolution: the interface labels the six editorial chapters as the recommended
+course and the other 116 items as reference notes. All localized editions
+remain preview material pending independent technical and native-language
+review.
+
+`Risk: multiple languages drift into different courses`
+
+Resolution: the six guided slugs, project milestones, checkpoints, and source
+identities are shared across English, Vietnamese, and Korean. Localized prose
+can be reviewed independently without changing course structure or routes.
+
 ## 1. Executive decision
 
 The project is technically feasible, but full content mirroring and translation should not begin until the source and asset rights are confirmed with the authors.

@@ -5,6 +5,10 @@ import {
   formulaSupportBySlug,
   vietnameseTerminology,
 } from "../app/data/learning-support.ts";
+import {
+  guidedSlugs,
+  referenceSources,
+} from "../app/data/guided-course.ts";
 
 const catalog = JSON.parse(await readFile("governance/catalog.json", "utf8"));
 const status = JSON.parse(await readFile("governance/translation-status.json", "utf8"));
@@ -49,13 +53,16 @@ for (const document of catalog.documents) {
   assert.equal(document.slug, seed.slug);
   assert.equal(document.sourcePageId, seed.sourcePageId);
   assert.deepEqual(document.creators, ["고민수", "장선진"]);
-  assert.equal(document.outlineLicense, "CC-BY-4.0");
-  assert.deepEqual(document.modifications, ["translation", "restructuring"]);
+  assert.equal(document.sourceRole, "historical-topic-link");
+  assert.equal(document.sourceReuse, "none");
+  assert.equal(document.sourceLicenseReliedOn, false);
+  assert.deepEqual(document.modifications, []);
   assert.equal(document.bodyRights, "original");
+  assert.equal(document.sourceState, "independently-authored");
   const translation = status.documents.find((item) => item.id === document.id);
   assert.ok(translation, `${document.id} missing translation status`);
   assert.deepEqual(translation.locales, ["ko", "en", "vi"]);
-  assert.equal(translation.rightsReview, "cleared");
+  assert.equal(translation.rightsReview, "original-content-only");
   assert.equal(translation.publicationState, "preview");
   assert.notEqual(translation.languageReview, "independently-reviewed");
 }
@@ -65,6 +72,14 @@ for (const marker of ["lessonsEn", "lessonsVi", "lessonsKo"]) {
 }
 assert.match(contentSource, /function generatedLesson/);
 assert.match(contentSource, /function mergePilot/);
+assert.equal(guidedSlugs.length, 6, "Guided course must contain six chapters");
+assert.equal(new Set(guidedSlugs).size, 6, "Guided course contains duplicate chapters");
+for (const slug of guidedSlugs) {
+  assert.ok(curriculumSeeds.some((seed) => seed.slug === slug), `Unknown guided slug: ${slug}`);
+}
+assert.equal(referenceSources.length, 6, "Expected the curated six-source reference library");
+assert.ok(referenceSources.some((source) => source.id === "wikidocs-index" && /not relied on/i.test(source.license)));
+assert.ok(referenceSources.some((source) => source.id === "statistical-learning" && /all rights reserved/i.test(source.license)));
 
 assert.match(contentSource, /Human review pending|human review pending/i);
 assert.match(plan, /122 unique page entries/);
@@ -102,4 +117,4 @@ for (const slug of expectedDiagramSlugs) {
 await access("CONTENT_LICENSE.md");
 await access("LICENSE");
 
-console.log("Content audit passed: 122 pages × 3 locales, 43/79 collection split, unique IDs/routes/sources, rights-cleared preview status.");
+console.log("Content audit passed: six guided chapters, 116 reference notes, 122 topics × 3 locales, source-independent rights records.");

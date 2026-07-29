@@ -42,28 +42,29 @@ export default function RootLanding() {
         </nav>
         <aside className="gate-source" aria-labelledby="gate-source-title">
           <div>
-            <p className="eyebrow" id="gate-source-title">Source · Nguồn · 출처</p>
-            <h2>DL Bible – 07. Machine Learning Fundamentals</h2>
+            <p className="eyebrow" id="gate-source-title">References · Tham khảo · 참고 자료</p>
+            <h2>Reconstructed for a continuous reading path</h2>
             <p lang="en">
-              The public outline by 고민수 and 장선진 is translated and
-              restructured under CC BY 4.0. Gradient Atlas explanations,
-              examples, diagrams, and code are original; WikiDocs prose and
-              media are not copied.
+              Microsoft ML for Beginners informs the project rhythm, Google
+              ML Crash Course the concise interactive modules, D2L the
+              math–code pairing, and scikit-learn the implementation checks.
+              WikiDocs is retained only as the historical topic index that
+              prompted the reconstruction.
             </p>
           </div>
           <div className="gate-source-actions">
             <a href="https://wikidocs.net/book/9057">
-              Open WikiDocs source
+              Historical WikiDocs index
               <ArrowUpRight />
             </a>
             <Link href="/source-policy/">
-              Read source policy
+              Read reference policy
               <ArrowUpRight />
             </Link>
           </div>
         </aside>
         <p className="gate-note">
-          122 learning pages · 22 visual lessons · Human review pending
+          6 guided chapters · 116 reference notes · 22 original diagrams · Human review pending
         </p>
       </section>
     </main>

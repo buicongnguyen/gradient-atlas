@@ -2,14 +2,14 @@ import { writeFile } from "node:fs/promises";
 import { curriculumSeeds } from "../app/data/full-curriculum.ts";
 
 const catalog = {
-  schemaVersion: 2,
+  schemaVersion: 3,
   project: "Gradient Atlas",
-  contentPolicy: "outline-adapted-original-body",
-  relatedSyllabus: {
+  contentPolicy: "independently-authored-with-cited-references",
+  historicalTopicIndex: {
     title: "DL Bible - 07. Machine Learning Fundamentals",
     creators: ["고민수", "장선진"],
     url: "https://wikidocs.net/book/9057",
-    use: "Page order, topic titles, and outline under CC BY 4.0; explanatory prose, examples, exercises, and interface are original.",
+    use: "Historical topic links only. This release does not rely on a WikiDocs reuse license and does not reproduce or translate WikiDocs expression or media.",
   },
   documents: curriculumSeeds.map((seed) => ({
     id: seed.id,
@@ -21,16 +21,18 @@ const catalog = {
     sourcePageId: seed.sourcePageId,
     sourceUrl: `https://wikidocs.net/${seed.sourcePageId}`,
     creators: ["고민수", "장선진"],
-    outlineLicense: "CC-BY-4.0",
-    modifications: ["translation", "restructuring"],
+    sourceRole: "historical-topic-link",
+    sourceReuse: "none",
+    sourceLicenseReliedOn: false,
+    modifications: [],
     bodyRights: "original",
-    sourceState: "outline-adapted",
+    sourceState: "independently-authored",
   })),
 };
 
 const status = {
-  schemaVersion: 2,
-  updated: "2026-07-28",
+  schemaVersion: 3,
+  updated: "2026-07-30",
   statusDefinitions: {
     draft: "Complete editorial draft with automated structure checks",
     preview: "Public preview awaiting independent review",
@@ -47,7 +49,7 @@ const status = {
     translationState: "complete",
     technicalReview: "logic-reviewed",
     languageReview: "pending",
-    rightsReview: "cleared",
+    rightsReview: "original-content-only",
     publicationState: "preview",
   })),
 };

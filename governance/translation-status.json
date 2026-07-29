@@ -1,6 +1,6 @@
 {
-  "schemaVersion": 2,
-  "updated": "2026-07-28",
+  "schemaVersion": 3,
+  "updated": "2026-07-30",
   "statusDefinitions": {
     "draft": "Complete editorial draft with automated structure checks",
     "preview": "Public preview awaiting independent review",
@@ -22,7 +22,7 @@
       "translationState": "complete",
       "technicalReview": "logic-reviewed",
       "languageReview": "pending",
-      "rightsReview": "cleared",
+      "rightsReview": "original-content-only",
       "publicationState": "preview"
     },
     {
@@ -35,7 +35,7 @@
       "translationState": "complete",
       "technicalReview": "logic-reviewed",
       "languageReview": "pending",
-      "rightsReview": "cleared",
+      "rightsReview": "original-content-only",
       "publicationState": "preview"
     },
     {
@@ -48,7 +48,7 @@
       "translationState": "complete",
       "technicalReview": "logic-reviewed",
       "languageReview": "pending",
-      "rightsReview": "cleared",
+      "rightsReview": "original-content-only",
       "publicationState": "preview"
     },
     {
@@ -61,7 +61,7 @@
       "translationState": "complete",
       "technicalReview": "logic-reviewed",
       "languageReview": "pending",
-      "rightsReview": "cleared",
+      "rightsReview": "original-content-only",
       "publicationState": "preview"
     },
     {
@@ -74,7 +74,7 @@
       "translationState": "complete",
       "technicalReview": "logic-reviewed",
       "languageReview": "pending",
-      "rightsReview": "cleared",
+      "rightsReview": "original-content-only",
       "publicationState": "preview"
     },
     {
@@ -87,7 +87,7 @@
       "translationState": "complete",
       "technicalReview": "logic-reviewed",
       "languageReview": "pending",
-      "rightsReview": "cleared",
+      "rightsReview": "original-content-only",
       "publicationState": "preview"
     },
     {
@@ -100,7 +100,7 @@
       "translationState": "complete",
       "technicalReview": "logic-reviewed",
       "languageReview": "pending",
-      "rightsReview": "cleared",
+      "rightsReview": "original-content-only",
       "publicationState": "preview"
     },
     {
@@ -113,7 +113,7 @@
       "translationState": "complete",
       "technicalReview": "logic-reviewed",
       "languageReview": "pending",
-      "rightsReview": "cleared",
+      "rightsReview": "original-content-only",
       "publicationState": "preview"
     },
     {
@@ -126,7 +126,7 @@
       "translationState": "complete",
       "technicalReview": "logic-reviewed",
       "languageReview": "pending",
-      "rightsReview": "cleared",
+      "rightsReview": "original-content-only",
       "publicationState": "preview"
     },
     {
@@ -139,7 +139,7 @@
       "translationState": "complete",
       "technicalReview": "logic-reviewed",
       "languageReview": "pending",
-      "rightsReview": "cleared",
+      "rightsReview": "original-content-only",
       "publicationState": "preview"
     },
     {
@@ -152,7 +152,7 @@
       "translationState": "complete",
       "technicalReview": "logic-reviewed",
       "languageReview": "pending",
-      "rightsReview": "cleared",
+      "rightsReview": "original-content-only",
       "publicationState": "preview"
     },
     {
@@ -165,7 +165,7 @@
       "translationState": "complete",
       "technicalReview": "logic-reviewed",
       "languageReview": "pending",
-      "rightsReview": "cleared",
+      "rightsReview": "original-content-only",
       "publicationState": "preview"
     },
     {
@@ -178,7 +178,7 @@
       "translationState": "complete",
       "technicalReview": "logic-reviewed",
       "languageReview": "pending",
-      "rightsReview": "cleared",
+      "rightsReview": "original-content-only",
       "publicationState": "preview"
     },
     {
@@ -191,7 +191,7 @@
       "translationState": "complete",
       "technicalReview": "logic-reviewed",
       "languageReview": "pending",
-      "rightsReview": "cleared",
+      "rightsReview": "original-content-only",
       "publicationState": "preview"
     },
     {
@@ -204,7 +204,7 @@
       "translationState": "complete",
       "technicalReview": "logic-reviewed",
       "languageReview": "pending",
-      "rightsReview": "cleared",
+      "rightsReview": "original-content-only",
       "publicationState": "preview"
     },
     {
@@ -217,7 +217,7 @@
       "translationState": "complete",
       "technicalReview": "logic-reviewed",
       "languageReview": "pending",
-      "rightsReview": "cleared",
+      "rightsReview": "original-content-only",
       "publicationState": "preview"
     },
     {
@@ -230,7 +230,7 @@
       "translationState": "complete",
       "technicalReview": "logic-reviewed",
       "languageReview": "pending",
-      "rightsReview": "cleared",
+      "rightsReview": "original-content-only",
       "publicationState": "preview"
     },
     {
@@ -243,7 +243,7 @@
       "translationState": "complete",
       "technicalReview": "logic-reviewed",
       "languageReview": "pending",
-      "rightsReview": "cleared",
+      "rightsReview": "original-content-only",
       "publicationState": "preview"
     },
     {
@@ -256,7 +256,7 @@
       "translationState": "complete",
       "technicalReview": "logic-reviewed",
       "languageReview": "pending",
-      "rightsReview": "cleared",
+      "rightsReview": "original-content-only",
       "publicationState": "preview"
     },
     {
@@ -269,7 +269,7 @@
       "translationState": "complete",
       "technicalReview": "logic-reviewed",
       "languageReview": "pending",
-      "rightsReview": "cleared",
+      "rightsReview": "original-content-only",
       "publicationState": "preview"
     },
     {
@@ -282,7 +282,7 @@
       "translationState": "complete",
       "technicalReview": "logic-reviewed",
       "languageReview": "pending",
-      "rightsReview": "cleared",
+      "rightsReview": "original-content-only",
       "publicationState": "preview"
     },
     {
@@ -295,7 +295,7 @@
       "translationState": "complete",
       "technicalReview": "logic-reviewed",
       "languageReview": "pending",
-      "rightsReview": "cleared",
+      "rightsReview": "original-content-only",
       "publicationState": "preview"
     },
     {
@@ -308,7 +308,7 @@
       "translationState": "complete",
       "technicalReview": "logic-reviewed",
       "languageReview": "pending",
-      "rightsReview": "cleared",
+      "rightsReview": "original-content-only",
       "publicationState": "preview"
     },
     {
@@ -321,7 +321,7 @@
       "translationState": "complete",
       "technicalReview": "logic-reviewed",
       "languageReview": "pending",
-      "rightsReview": "cleared",
+      "rightsReview": "original-content-only",
       "publicationState": "preview"
     },
     {
@@ -334,7 +334,7 @@
       "translationState": "complete",
       "technicalReview": "logic-reviewed",
       "languageReview": "pending",
-      "rightsReview": "cleared",
+      "rightsReview": "original-content-only",
       "publicationState": "preview"
     },
     {
@@ -347,7 +347,7 @@
       "translationState": "complete",
       "technicalReview": "logic-reviewed",
       "languageReview": "pending",
-      "rightsReview": "cleared",
+      "rightsReview": "original-content-only",
       "publicationState": "preview"
     },
     {
@@ -360,7 +360,7 @@
       "translationState": "complete",
       "technicalReview": "logic-reviewed",
       "languageReview": "pending",
-      "rightsReview": "cleared",
+      "rightsReview": "original-content-only",
       "publicationState": "preview"
     },
     {
@@ -373,7 +373,7 @@
       "translationState": "complete",
       "technicalReview": "logic-reviewed",
       "languageReview": "pending",
-      "rightsReview": "cleared",
+      "rightsReview": "original-content-only",
       "publicationState": "preview"
     },
     {
@@ -386,7 +386,7 @@
       "translationState": "complete",
       "technicalReview": "logic-reviewed",
       "languageReview": "pending",
-      "rightsReview": "cleared",
+      "rightsReview": "original-content-only",
       "publicationState": "preview"
     },
     {
@@ -399,7 +399,7 @@
       "translationState": "complete",
       "technicalReview": "logic-reviewed",
       "languageReview": "pending",
-      "rightsReview": "cleared",
+      "rightsReview": "original-content-only",
       "publicationState": "preview"
     },
     {
@@ -412,7 +412,7 @@
       "translationState": "complete",
       "technicalReview": "logic-reviewed",
       "languageReview": "pending",
-      "rightsReview": "cleared",
+      "rightsReview": "original-content-only",
       "publicationState": "preview"
     },
     {
@@ -425,7 +425,7 @@
       "translationState": "complete",
       "technicalReview": "logic-reviewed",
       "languageReview": "pending",
-      "rightsReview": "cleared",
+      "rightsReview": "original-content-only",
       "publicationState": "preview"
     },
     {
@@ -438,7 +438,7 @@
       "translationState": "complete",
       "technicalReview": "logic-reviewed",
       "languageReview": "pending",
-      "rightsReview": "cleared",
+      "rightsReview": "original-content-only",
       "publicationState": "preview"
     },
     {
@@ -451,7 +451,7 @@
       "translationState": "complete",
       "technicalReview": "logic-reviewed",
       "languageReview": "pending",
-      "rightsReview": "cleared",
+      "rightsReview": "original-content-only",
       "publicationState": "preview"
     },
     {
@@ -464,7 +464,7 @@
       "translationState": "complete",
       "technicalReview": "logic-reviewed",
       "languageReview": "pending",
-      "rightsReview": "cleared",
+      "rightsReview": "original-content-only",
       "publicationState": "preview"
     },
     {
@@ -477,7 +477,7 @@
       "translationState": "complete",
       "technicalReview": "logic-reviewed",
       "languageReview": "pending",
-      "rightsReview": "cleared",
+      "rightsReview": "original-content-only",
       "publicationState": "preview"
     },
     {
@@ -490,7 +490,7 @@
       "translationState": "complete",
       "technicalReview": "logic-reviewed",
       "languageReview": "pending",
-      "rightsReview": "cleared",
+      "rightsReview": "original-content-only",
       "publicationState": "preview"
     },
     {
@@ -503,7 +503,7 @@
       "translationState": "complete",
       "technicalReview": "logic-reviewed",
       "languageReview": "pending",
-      "rightsReview": "cleared",
+      "rightsReview": "original-content-only",
       "publicationState": "preview"
     },
     {
@@ -516,7 +516,7 @@
       "translationState": "complete",
       "technicalReview": "logic-reviewed",
       "languageReview": "pending",
-      "rightsReview": "cleared",
+      "rightsReview": "original-content-only",
       "publicationState": "preview"
     },
     {
@@ -529,7 +529,7 @@
       "translationState": "complete",
       "technicalReview": "logic-reviewed",
       "languageReview": "pending",
-      "rightsReview": "cleared",
+      "rightsReview": "original-content-only",
       "publicationState": "preview"
     },
     {
@@ -542,7 +542,7 @@
       "translationState": "complete",
       "technicalReview": "logic-reviewed",
       "languageReview": "pending",
-      "rightsReview": "cleared",
+      "rightsReview": "original-content-only",
       "publicationState": "preview"
     },
     {
@@ -555,7 +555,7 @@
       "translationState": "complete",
       "technicalReview": "logic-reviewed",
       "languageReview": "pending",
-      "rightsReview": "cleared",
+      "rightsReview": "original-content-only",
       "publicationState": "preview"
     },
     {
@@ -568,7 +568,7 @@
       "translationState": "complete",
       "technicalReview": "logic-reviewed",
       "languageReview": "pending",
-      "rightsReview": "cleared",
+      "rightsReview": "original-content-only",
       "publicationState": "preview"
     },
     {
@@ -581,7 +581,7 @@
       "translationState": "complete",
       "technicalReview": "logic-reviewed",
       "languageReview": "pending",
-      "rightsReview": "cleared",
+      "rightsReview": "original-content-only",
       "publicationState": "preview"
     },
     {
@@ -594,7 +594,7 @@
       "translationState": "complete",
       "technicalReview": "logic-reviewed",
       "languageReview": "pending",
-      "rightsReview": "cleared",
+      "rightsReview": "original-content-only",
       "publicationState": "preview"
     },
     {
@@ -607,7 +607,7 @@
       "translationState": "complete",
       "technicalReview": "logic-reviewed",
       "languageReview": "pending",
-      "rightsReview": "cleared",
+      "rightsReview": "original-content-only",
       "publicationState": "preview"
     },
     {
@@ -620,7 +620,7 @@
       "translationState": "complete",
       "technicalReview": "logic-reviewed",
       "languageReview": "pending",
-      "rightsReview": "cleared",
+      "rightsReview": "original-content-only",
       "publicationState": "preview"
     },
     {
@@ -633,7 +633,7 @@
       "translationState": "complete",
       "technicalReview": "logic-reviewed",
       "languageReview": "pending",
-      "rightsReview": "cleared",
+      "rightsReview": "original-content-only",
       "publicationState": "preview"
     },
     {
@@ -646,7 +646,7 @@
       "translationState": "complete",
       "technicalReview": "logic-reviewed",
       "languageReview": "pending",
-      "rightsReview": "cleared",
+      "rightsReview": "original-content-only",
       "publicationState": "preview"
     },
     {
@@ -659,7 +659,7 @@
       "translationState": "complete",
       "technicalReview": "logic-reviewed",
       "languageReview": "pending",
-      "rightsReview": "cleared",
+      "rightsReview": "original-content-only",
       "publicationState": "preview"
     },
     {
@@ -672,7 +672,7 @@
       "translationState": "complete",
       "technicalReview": "logic-reviewed",
       "languageReview": "pending",
-      "rightsReview": "cleared",
+      "rightsReview": "original-content-only",
       "publicationState": "preview"
     },
     {
@@ -685,7 +685,7 @@
       "translationState": "complete",
       "technicalReview": "logic-reviewed",
       "languageReview": "pending",
-      "rightsReview": "cleared",
+      "rightsReview": "original-content-only",
       "publicationState": "preview"
     },
     {
@@ -698,7 +698,7 @@
       "translationState": "complete",
       "technicalReview": "logic-reviewed",
       "languageReview": "pending",
-      "rightsReview": "cleared",
+      "rightsReview": "original-content-only",
       "publicationState": "preview"
     },
     {
@@ -711,7 +711,7 @@
       "translationState": "complete",
       "technicalReview": "logic-reviewed",
       "languageReview": "pending",
-      "rightsReview": "cleared",
+      "rightsReview": "original-content-only",
       "publicationState": "preview"
     },
     {
@@ -724,7 +724,7 @@
       "translationState": "complete",
       "technicalReview": "logic-reviewed",
       "languageReview": "pending",
-      "rightsReview": "cleared",
+      "rightsReview": "original-content-only",
       "publicationState": "preview"
     },
     {
@@ -737,7 +737,7 @@
       "translationState": "complete",
       "technicalReview": "logic-reviewed",
       "languageReview": "pending",
-      "rightsReview": "cleared",
+      "rightsReview": "original-content-only",
       "publicationState": "preview"
     },
     {
@@ -750,7 +750,7 @@
       "translationState": "complete",
       "technicalReview": "logic-reviewed",
       "languageReview": "pending",
-      "rightsReview": "cleared",
+      "rightsReview": "original-content-only",
       "publicationState": "preview"
     },
     {
@@ -763,7 +763,7 @@
       "translationState": "complete",
       "technicalReview": "logic-reviewed",
       "languageReview": "pending",
-      "rightsReview": "cleared",
+      "rightsReview": "original-content-only",
       "publicationState": "preview"
     },
     {
@@ -776,7 +776,7 @@
       "translationState": "complete",
       "technicalReview": "logic-reviewed",
       "languageReview": "pending",
-      "rightsReview": "cleared",
+      "rightsReview": "original-content-only",
       "publicationState": "preview"
     },
     {
@@ -789,7 +789,7 @@
       "translationState": "complete",
       "technicalReview": "logic-reviewed",
       "languageReview": "pending",
-      "rightsReview": "cleared",
+      "rightsReview": "original-content-only",
       "publicationState": "preview"
     },
     {
@@ -802,7 +802,7 @@
       "translationState": "complete",
       "technicalReview": "logic-reviewed",
       "languageReview": "pending",
-      "rightsReview": "cleared",
+      "rightsReview": "original-content-only",
       "publicationState": "preview"
     },
     {
@@ -815,7 +815,7 @@
       "translationState": "complete",
       "technicalReview": "logic-reviewed",
       "languageReview": "pending",
-      "rightsReview": "cleared",
+      "rightsReview": "original-content-only",
       "publicationState": "preview"
     },
     {
@@ -828,7 +828,7 @@
       "translationState": "complete",
       "technicalReview": "logic-reviewed",
       "languageReview": "pending",
-      "rightsReview": "cleared",
+      "rightsReview": "original-content-only",
       "publicationState": "preview"
     },
     {
@@ -841,7 +841,7 @@
       "translationState": "complete",
       "technicalReview": "logic-reviewed",
       "languageReview": "pending",
-      "rightsReview": "cleared",
+      "rightsReview": "original-content-only",
       "publicationState": "preview"
     },
     {
@@ -854,7 +854,7 @@
       "translationState": "complete",
       "technicalReview": "logic-reviewed",
       "languageReview": "pending",
-      "rightsReview": "cleared",
+      "rightsReview": "original-content-only",
       "publicationState": "preview"
     },
     {
@@ -867,7 +867,7 @@
       "translationState": "complete",
       "technicalReview": "logic-reviewed",
       "languageReview": "pending",
-      "rightsReview": "cleared",
+      "rightsReview": "original-content-only",
       "publicationState": "preview"
     },
     {
@@ -880,7 +880,7 @@
       "translationState": "complete",
       "technicalReview": "logic-reviewed",
       "languageReview": "pending",
-      "rightsReview": "cleared",
+      "rightsReview": "original-content-only",
       "publicationState": "preview"
     },
     {
@@ -893,7 +893,7 @@
       "translationState": "complete",
       "technicalReview": "logic-reviewed",
       "languageReview": "pending",
-      "rightsReview": "cleared",
+      "rightsReview": "original-content-only",
       "publicationState": "preview"
     },
     {
@@ -906,7 +906,7 @@
       "translationState": "complete",
       "technicalReview": "logic-reviewed",
       "languageReview": "pending",
-      "rightsReview": "cleared",
+      "rightsReview": "original-content-only",
       "publicationState": "preview"
     },
     {
@@ -919,7 +919,7 @@
       "translationState": "complete",
       "technicalReview": "logic-reviewed",
       "languageReview": "pending",
-      "rightsReview": "cleared",
+      "rightsReview": "original-content-only",
       "publicationState": "preview"
     },
     {
@@ -932,7 +932,7 @@
       "translationState": "complete",
       "technicalReview": "logic-reviewed",
       "languageReview": "pending",
-      "rightsReview": "cleared",
+      "rightsReview": "original-content-only",
       "publicationState": "preview"
     },
     {
@@ -945,7 +945,7 @@
       "translationState": "complete",
       "technicalReview": "logic-reviewed",
       "languageReview": "pending",
-      "rightsReview": "cleared",
+      "rightsReview": "original-content-only",
       "publicationState": "preview"
     },
     {
@@ -958,7 +958,7 @@
       "translationState": "complete",
       "technicalReview": "logic-reviewed",
       "languageReview": "pending",
-      "rightsReview": "cleared",
+      "rightsReview": "original-content-only",
       "publicationState": "preview"
     },
     {
@@ -971,7 +971,7 @@
       "translationState": "complete",
       "technicalReview": "logic-reviewed",
       "languageReview": "pending",
-      "rightsReview": "cleared",
+      "rightsReview": "original-content-only",
       "publicationState": "preview"
     },
     {
@@ -984,7 +984,7 @@
       "translationState": "complete",
       "technicalReview": "logic-reviewed",
       "languageReview": "pending",
-      "rightsReview": "cleared",
+      "rightsReview": "original-content-only",
       "publicationState": "preview"
     },
     {
@@ -997,7 +997,7 @@
       "translationState": "complete",
       "technicalReview": "logic-reviewed",
       "languageReview": "pending",
-      "rightsReview": "cleared",
+      "rightsReview": "original-content-only",
       "publicationState": "preview"
     },
     {
@@ -1010,7 +1010,7 @@
       "translationState": "complete",
       "technicalReview": "logic-reviewed",
       "languageReview": "pending",
-      "rightsReview": "cleared",
+      "rightsReview": "original-content-only",
       "publicationState": "preview"
     },
     {
@@ -1023,7 +1023,7 @@
       "translationState": "complete",
       "technicalReview": "logic-reviewed",
       "languageReview": "pending",
-      "rightsReview": "cleared",
+      "rightsReview": "original-content-only",
       "publicationState": "preview"
     },
     {
@@ -1036,7 +1036,7 @@
       "translationState": "complete",
       "technicalReview": "logic-reviewed",
       "languageReview": "pending",
-      "rightsReview": "cleared",
+      "rightsReview": "original-content-only",
       "publicationState": "preview"
     },
     {
@@ -1049,7 +1049,7 @@
       "translationState": "complete",
       "technicalReview": "logic-reviewed",
       "languageReview": "pending",
-      "rightsReview": "cleared",
+      "rightsReview": "original-content-only",
       "publicationState": "preview"
     },
     {
@@ -1062,7 +1062,7 @@
       "translationState": "complete",
       "technicalReview": "logic-reviewed",
       "languageReview": "pending",
-      "rightsReview": "cleared",
+      "rightsReview": "original-content-only",
       "publicationState": "preview"
     },
     {
@@ -1075,7 +1075,7 @@
       "translationState": "complete",
       "technicalReview": "logic-reviewed",
       "languageReview": "pending",
-      "rightsReview": "cleared",
+      "rightsReview": "original-content-only",
       "publicationState": "preview"
     },
     {
@@ -1088,7 +1088,7 @@
       "translationState": "complete",
       "technicalReview": "logic-reviewed",
       "languageReview": "pending",
-      "rightsReview": "cleared",
+      "rightsReview": "original-content-only",
       "publicationState": "preview"
     },
     {
@@ -1101,7 +1101,7 @@
       "translationState": "complete",
       "technicalReview": "logic-reviewed",
       "languageReview": "pending",
-      "rightsReview": "cleared",
+      "rightsReview": "original-content-only",
       "publicationState": "preview"
     },
     {
@@ -1114,7 +1114,7 @@
       "translationState": "complete",
       "technicalReview": "logic-reviewed",
       "languageReview": "pending",
-      "rightsReview": "cleared",
+      "rightsReview": "original-content-only",
       "publicationState": "preview"
     },
     {
@@ -1127,7 +1127,7 @@
       "translationState": "complete",
       "technicalReview": "logic-reviewed",
       "languageReview": "pending",
-      "rightsReview": "cleared",
+      "rightsReview": "original-content-only",
       "publicationState": "preview"
     },
     {
@@ -1140,7 +1140,7 @@
       "translationState": "complete",
       "technicalReview": "logic-reviewed",
       "languageReview": "pending",
-      "rightsReview": "cleared",
+      "rightsReview": "original-content-only",
       "publicationState": "preview"
     },
     {
@@ -1153,7 +1153,7 @@
       "translationState": "complete",
       "technicalReview": "logic-reviewed",
       "languageReview": "pending",
-      "rightsReview": "cleared",
+      "rightsReview": "original-content-only",
       "publicationState": "preview"
     },
     {
@@ -1166,7 +1166,7 @@
       "translationState": "complete",
       "technicalReview": "logic-reviewed",
       "languageReview": "pending",
-      "rightsReview": "cleared",
+      "rightsReview": "original-content-only",
       "publicationState": "preview"
     },
     {
@@ -1179,7 +1179,7 @@
       "translationState": "complete",
       "technicalReview": "logic-reviewed",
       "languageReview": "pending",
-      "rightsReview": "cleared",
+      "rightsReview": "original-content-only",
       "publicationState": "preview"
     },
     {
@@ -1192,7 +1192,7 @@
       "translationState": "complete",
       "technicalReview": "logic-reviewed",
       "languageReview": "pending",
-      "rightsReview": "cleared",
+      "rightsReview": "original-content-only",
       "publicationState": "preview"
     },
     {
@@ -1205,7 +1205,7 @@
       "translationState": "complete",
       "technicalReview": "logic-reviewed",
       "languageReview": "pending",
-      "rightsReview": "cleared",
+      "rightsReview": "original-content-only",
       "publicationState": "preview"
     },
     {
@@ -1218,7 +1218,7 @@
       "translationState": "complete",
       "technicalReview": "logic-reviewed",
       "languageReview": "pending",
-      "rightsReview": "cleared",
+      "rightsReview": "original-content-only",
       "publicationState": "preview"
     },
     {
@@ -1231,7 +1231,7 @@
       "translationState": "complete",
       "technicalReview": "logic-reviewed",
       "languageReview": "pending",
-      "rightsReview": "cleared",
+      "rightsReview": "original-content-only",
       "publicationState": "preview"
     },
     {
@@ -1244,7 +1244,7 @@
       "translationState": "complete",
       "technicalReview": "logic-reviewed",
       "languageReview": "pending",
-      "rightsReview": "cleared",
+      "rightsReview": "original-content-only",
       "publicationState": "preview"
     },
     {
@@ -1257,7 +1257,7 @@
       "translationState": "complete",
       "technicalReview": "logic-reviewed",
       "languageReview": "pending",
-      "rightsReview": "cleared",
+      "rightsReview": "original-content-only",
       "publicationState": "preview"
     },
     {
@@ -1270,7 +1270,7 @@
       "translationState": "complete",
       "technicalReview": "logic-reviewed",
       "languageReview": "pending",
-      "rightsReview": "cleared",
+      "rightsReview": "original-content-only",
       "publicationState": "preview"
     },
     {
@@ -1283,7 +1283,7 @@
       "translationState": "complete",
       "technicalReview": "logic-reviewed",
       "languageReview": "pending",
-      "rightsReview": "cleared",
+      "rightsReview": "original-content-only",
       "publicationState": "preview"
     },
     {
@@ -1296,7 +1296,7 @@
       "translationState": "complete",
       "technicalReview": "logic-reviewed",
       "languageReview": "pending",
-      "rightsReview": "cleared",
+      "rightsReview": "original-content-only",
       "publicationState": "preview"
     },
     {
@@ -1309,7 +1309,7 @@
       "translationState": "complete",
       "technicalReview": "logic-reviewed",
       "languageReview": "pending",
-      "rightsReview": "cleared",
+      "rightsReview": "original-content-only",
       "publicationState": "preview"
     },
     {
@@ -1322,7 +1322,7 @@
       "translationState": "complete",
       "technicalReview": "logic-reviewed",
       "languageReview": "pending",
-      "rightsReview": "cleared",
+      "rightsReview": "original-content-only",
       "publicationState": "preview"
     },
     {
@@ -1335,7 +1335,7 @@
       "translationState": "complete",
       "technicalReview": "logic-reviewed",
       "languageReview": "pending",
-      "rightsReview": "cleared",
+      "rightsReview": "original-content-only",
       "publicationState": "preview"
     },
     {
@@ -1348,7 +1348,7 @@
       "translationState": "complete",
       "technicalReview": "logic-reviewed",
       "languageReview": "pending",
-      "rightsReview": "cleared",
+      "rightsReview": "original-content-only",
       "publicationState": "preview"
     },
     {
@@ -1361,7 +1361,7 @@
       "translationState": "complete",
       "technicalReview": "logic-reviewed",
       "languageReview": "pending",
-      "rightsReview": "cleared",
+      "rightsReview": "original-content-only",
       "publicationState": "preview"
     },
     {
@@ -1374,7 +1374,7 @@
       "translationState": "complete",
       "technicalReview": "logic-reviewed",
       "languageReview": "pending",
-      "rightsReview": "cleared",
+      "rightsReview": "original-content-only",
       "publicationState": "preview"
     },
     {
@@ -1387,7 +1387,7 @@
       "translationState": "complete",
       "technicalReview": "logic-reviewed",
       "languageReview": "pending",
-      "rightsReview": "cleared",
+      "rightsReview": "original-content-only",
       "publicationState": "preview"
     },
     {
@@ -1400,7 +1400,7 @@
       "translationState": "complete",
       "technicalReview": "logic-reviewed",
       "languageReview": "pending",
-      "rightsReview": "cleared",
+      "rightsReview": "original-content-only",
       "publicationState": "preview"
     },
     {
@@ -1413,7 +1413,7 @@
       "translationState": "complete",
       "technicalReview": "logic-reviewed",
       "languageReview": "pending",
-      "rightsReview": "cleared",
+      "rightsReview": "original-content-only",
       "publicationState": "preview"
     },
     {
@@ -1426,7 +1426,7 @@
       "translationState": "complete",
       "technicalReview": "logic-reviewed",
       "languageReview": "pending",
-      "rightsReview": "cleared",
+      "rightsReview": "original-content-only",
       "publicationState": "preview"
     },
     {
@@ -1439,7 +1439,7 @@
       "translationState": "complete",
       "technicalReview": "logic-reviewed",
       "languageReview": "pending",
-      "rightsReview": "cleared",
+      "rightsReview": "original-content-only",
       "publicationState": "preview"
     },
     {
@@ -1452,7 +1452,7 @@
       "translationState": "complete",
       "technicalReview": "logic-reviewed",
       "languageReview": "pending",
-      "rightsReview": "cleared",
+      "rightsReview": "original-content-only",
       "publicationState": "preview"
     },
     {
@@ -1465,7 +1465,7 @@
       "translationState": "complete",
       "technicalReview": "logic-reviewed",
       "languageReview": "pending",
-      "rightsReview": "cleared",
+      "rightsReview": "original-content-only",
       "publicationState": "preview"
     },
     {
@@ -1478,7 +1478,7 @@
       "translationState": "complete",
       "technicalReview": "logic-reviewed",
       "languageReview": "pending",
-      "rightsReview": "cleared",
+      "rightsReview": "original-content-only",
       "publicationState": "preview"
     },
     {
@@ -1491,7 +1491,7 @@
       "translationState": "complete",
       "technicalReview": "logic-reviewed",
       "languageReview": "pending",
-      "rightsReview": "cleared",
+      "rightsReview": "original-content-only",
       "publicationState": "preview"
     },
     {
@@ -1504,7 +1504,7 @@
       "translationState": "complete",
       "technicalReview": "logic-reviewed",
       "languageReview": "pending",
-      "rightsReview": "cleared",
+      "rightsReview": "original-content-only",
       "publicationState": "preview"
     },
     {
@@ -1517,7 +1517,7 @@
       "translationState": "complete",
       "technicalReview": "logic-reviewed",
       "languageReview": "pending",
-      "rightsReview": "cleared",
+      "rightsReview": "original-content-only",
       "publicationState": "preview"
     },
     {
@@ -1530,7 +1530,7 @@
       "translationState": "complete",
       "technicalReview": "logic-reviewed",
       "languageReview": "pending",
-      "rightsReview": "cleared",
+      "rightsReview": "original-content-only",
       "publicationState": "preview"
     },
     {
@@ -1543,7 +1543,7 @@
       "translationState": "complete",
       "technicalReview": "logic-reviewed",
       "languageReview": "pending",
-      "rightsReview": "cleared",
+      "rightsReview": "original-content-only",
       "publicationState": "preview"
     },
     {
@@ -1556,7 +1556,7 @@
       "translationState": "complete",
       "technicalReview": "logic-reviewed",
       "languageReview": "pending",
-      "rightsReview": "cleared",
+      "rightsReview": "original-content-only",
       "publicationState": "preview"
     },
     {
@@ -1569,7 +1569,7 @@
       "translationState": "complete",
       "technicalReview": "logic-reviewed",
       "languageReview": "pending",
-      "rightsReview": "cleared",
+      "rightsReview": "original-content-only",
       "publicationState": "preview"
     },
     {
@@ -1582,7 +1582,7 @@
       "translationState": "complete",
       "technicalReview": "logic-reviewed",
       "languageReview": "pending",
-      "rightsReview": "cleared",
+      "rightsReview": "original-content-only",
       "publicationState": "preview"
     },
     {
@@ -1595,7 +1595,7 @@
       "translationState": "complete",
       "technicalReview": "logic-reviewed",
       "languageReview": "pending",
-      "rightsReview": "cleared",
+      "rightsReview": "original-content-only",
       "publicationState": "preview"
     }
   ]

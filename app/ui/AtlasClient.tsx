@@ -2,7 +2,13 @@
 
 import Link from "next/link";
 import { useMemo, useState } from "react";
-import { Language, Lesson, roadmap, ui } from "../data/content";
+import { Language, Lesson, ui } from "../data/content";
+import {
+  courseUi,
+  getGuidedSupport,
+  guidedSlugs,
+  referenceSources,
+} from "../data/guided-course";
 import { ArrowUpRight, Check, CircleDot } from "./icons";
 
 const labCopy = {
@@ -170,7 +176,14 @@ export function AtlasClient({
   lessons: Lesson[];
 }) {
   const copy = ui[language];
-  const featuredLessons = lessons.filter((lesson) => lesson.featured).slice(0, 6);
+  const course = courseUi[language];
+  const guidedLessons = guidedSlugs
+    .map((slug) => lessons.find((lesson) => lesson.slug === slug))
+    .filter((lesson): lesson is Lesson => Boolean(lesson));
+  const referenceCount = lessons.length - guidedLessons.length;
+  const featuredReferences = referenceSources.filter((source) =>
+    ["microsoft-ml-for-beginners", "google-ml-crash-course", "dive-into-deep-learning", "scikit-learn"].includes(source.id),
+  );
   return (
     <>
       <section className="hero">
@@ -181,7 +194,7 @@ export function AtlasClient({
           <h1>{copy.heroTitle}<br /><em>{copy.heroAccent}</em></h1>
           <p className="hero-body">{copy.heroBody}</p>
           <div className="hero-actions">
-            <Link className="button primary" href={`/${language}/learn/${lessons[0].slug}/`}>{copy.start}<ArrowUpRight /></Link>
+            <Link className="button primary" href={`/${language}/learn/${guidedLessons[0].slug}/`}>{copy.start}<ArrowUpRight /></Link>
             <Link className="button secondary" href="#map">{copy.explore}</Link>
           </div>
           <p className="preview-note"><span />{copy.preview}</p>
@@ -201,15 +214,25 @@ export function AtlasClient({
           <p>{copy.mapBody}</p>
         </div>
         <div className="roadmap">
-          {roadmap[language].map(([part, title, summary, active], index) => (
-            <div className={`roadmap-card ${active ? "active" : "planned"}`} key={String(part)}>
-              <div className="roadmap-top"><span>PART {part}</span><small>{active ? copy.published : copy.planned}</small></div>
-              <strong>{title}</strong>
-              <p>{summary}</p>
-              <i>{String(index + 1).padStart(2, "0")}</i>
-              {active && <Check className="roadmap-check" />}
-            </div>
-          ))}
+          {guidedLessons.map((lesson, index) => {
+            const support = getGuidedSupport(language, lesson.slug);
+            return (
+              <Link
+                className="roadmap-card active guided-roadmap-card"
+                href={`/${language}/learn/${lesson.slug}/`}
+                key={lesson.id}
+              >
+                <div className="roadmap-top">
+                  <span>{course.step} {String(index + 1).padStart(2, "0")}</span>
+                  <small>{lesson.duration} {copy.minutes}</small>
+                </div>
+                <strong>{lesson.title}</strong>
+                <p>{support?.step ?? lesson.summary}</p>
+                <i>{String(index + 1).padStart(2, "0")}</i>
+                <Check className="roadmap-check" />
+              </Link>
+            );
+          })}
         </div>
       </section>
 
@@ -232,21 +255,21 @@ export function AtlasClient({
           <h2>{copy.lessonTitle}</h2>
           <p>{copy.lessonBody}</p>
         </div>
-        <div className="lesson-grid">
-          {featuredLessons.map((lesson) => (
-            <Link href={`/${language}/learn/${lesson.slug}/`} className="lesson-card" key={lesson.id}>
-              <div className="lesson-meta"><span>PART {lesson.part}</span><small>{lesson.duration} {copy.minutes}</small></div>
-              <b>{lesson.number}</b>
-              <h3>{lesson.title}</h3>
-              <p>{lesson.summary}</p>
-              <div><span>{copy.read}</span><ArrowUpRight /></div>
+        <div className="reference-atlas-card">
+          <div className="reference-atlas-count">
+            <strong>{referenceCount}</strong>
+            <span>{course.referenceAtlas}</span>
+          </div>
+          <div>
+            <h3>{course.referenceAtlas}</h3>
+            <p>{course.referenceBody}</p>
+            <div className="reference-source-row" aria-label={course.furtherReading}>
+              {featuredReferences.map((source) => <span key={source.id}>{source.title.replace(/^.* · /, "")}</span>)}
+            </div>
+            <Link className="button primary" href={`/${language}/catalog/`}>
+              {course.openAtlas}<ArrowUpRight />
             </Link>
-          ))}
-        </div>
-        <div className="catalog-cta">
-          <Link className="button primary" href={`/${language}/catalog/`}>
-            {copy.catalog}<ArrowUpRight />
-          </Link>
+          </div>
         </div>
       </section>
 
@@ -260,12 +283,13 @@ export function AtlasClient({
           <div className="policy-actions">
             <Link
               className="policy-original-link"
-              href="/source-policy/#source-outline"
+              href="/source-policy/#reference-library"
             >
               <Check />{copy.original}<ArrowUpRight />
             </Link>
             <span><CircleDot />CC BY 4.0 ready</span>
-            <a href="https://wikidocs.net/book/9057">{copy.relatedOutline}<ArrowUpRight /></a>
+            <a href="https://developers.google.com/machine-learning/crash-course">Google MLCC<ArrowUpRight /></a>
+            <a href="https://github.com/microsoft/ML-For-Beginners">Microsoft ML for Beginners<ArrowUpRight /></a>
             <Link href="/source-policy/">{copy.sourcePolicy}<ArrowUpRight /></Link>
           </div>
         </div>

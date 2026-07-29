@@ -4,9 +4,10 @@ import Link from "next/link";
 import { useMemo, useState } from "react";
 import type { Language, Lesson } from "../data/content";
 import { ui } from "../data/content";
+import { courseUi } from "../data/guided-course";
 import { ArrowUpRight } from "./icons";
 
-type Filter = "all" | "fundamentals" | "legacy";
+type Filter = "all" | "guided" | "reference";
 
 export function CatalogClient({
   language,
@@ -16,13 +17,16 @@ export function CatalogClient({
   lessons: Lesson[];
 }) {
   const copy = ui[language];
+  const course = courseUi[language];
   const [query, setQuery] = useState("");
   const [filter, setFilter] = useState<Filter>("all");
   const normalizedQuery = query.trim().toLocaleLowerCase(language);
   const visible = useMemo(
     () =>
       lessons.filter((lesson) => {
-        const collectionMatch = filter === "all" || lesson.collection === filter;
+        const collectionMatch =
+          filter === "all" ||
+          (filter === "guided" ? lesson.featured : !lesson.featured);
         const searchText = [lesson.title, lesson.summary, ...(lesson.tags ?? [])]
           .join(" ")
           .toLocaleLowerCase(language);
@@ -34,7 +38,7 @@ export function CatalogClient({
   const groups = useMemo(() => {
     const grouped = new Map<string, Lesson[]>();
     for (const lesson of visible) {
-      const key = `${lesson.collection}:${lesson.part}`;
+      const key = `${lesson.featured ? "guided" : lesson.collection}:${lesson.part}`;
       grouped.set(key, [...(grouped.get(key) ?? []), lesson]);
     }
     return [...grouped.entries()];
@@ -43,7 +47,7 @@ export function CatalogClient({
   return (
     <main className="catalog-page" id="catalog-content">
       <header className="catalog-hero">
-        <p className="eyebrow">122 × EN · VI · KO</p>
+        <p className="eyebrow">6 {course.guided} · 116 {course.referenceAtlas} · EN · VI · KO</p>
         <h1>{copy.catalogTitle}</h1>
         <p>{copy.catalogBody}</p>
       </header>
@@ -61,8 +65,8 @@ export function CatalogClient({
         <div className="catalog-filters" role="group" aria-label={copy.allCollections}>
           {([
             ["all", copy.allCollections],
-            ["fundamentals", copy.fundamentals],
-            ["legacy", copy.legacy],
+            ["guided", course.guided],
+            ["reference", course.referenceAtlas],
           ] as [Filter, string][]).map(([value, label]) => (
             <button
               type="button"
@@ -83,7 +87,13 @@ export function CatalogClient({
           return (
             <section className="catalog-group" key={key}>
               <header>
-                <span>{collection === "fundamentals" ? copy.fundamentals : copy.legacy}</span>
+                <span>
+                  {collection === "guided"
+                    ? course.guided
+                    : collection === "fundamentals"
+                      ? copy.fundamentals
+                      : copy.legacy}
+                </span>
                 <h2>PART {part}</h2>
                 <small>{group.length} {copy.pages}</small>
               </header>

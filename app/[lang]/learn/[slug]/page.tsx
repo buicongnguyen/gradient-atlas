@@ -2,6 +2,12 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getLesson, isLanguage, languages, lessons, ui } from "../../../data/content";
+import {
+  courseUi,
+  getGuidedSupport,
+  getReference,
+  guidedSlugs,
+} from "../../../data/guided-course";
 import { ArrowUpRight, Check, CircleDot } from "../../../ui/icons";
 import { BookSidebar } from "../../../ui/BookSidebar";
 import { LessonDiagram } from "../../../ui/LessonDiagram";
@@ -35,10 +41,17 @@ export default async function LessonPage({
   if (!lesson) notFound();
 
   const lessonList = lessons[lang];
-  const index = lessonList.findIndex((item) => item.id === lesson.id);
-  const previous = lessonList[index - 1];
-  const next = lessonList[index + 1];
+  const support = getGuidedSupport(lang, lesson.slug);
+  const readingSequence = support
+    ? guidedSlugs
+        .map((guidedSlug) => lessonList.find((item) => item.slug === guidedSlug))
+        .filter((item): item is (typeof lessonList)[number] => Boolean(item))
+    : lessonList.filter((item) => !guidedSlugs.includes(item.slug as (typeof guidedSlugs)[number]));
+  const index = readingSequence.findIndex((item) => item.id === lesson.id);
+  const previous = readingSequence[index - 1];
+  const next = readingSequence[index + 1];
   const copy = ui[lang];
+  const course = courseUi[lang];
   const suffix = `/learn/${lesson.slug}/`;
 
   return (
@@ -56,7 +69,11 @@ export default async function LessonPage({
         <article className="lesson-article" id="article">
           <header className="article-header">
             <div className="article-kicker">
-              <span>PART {lesson.part} · {lesson.number}</span>
+              <span>
+                {support
+                  ? `${course.step} ${String(index + 1).padStart(2, "0")} / ${readingSequence.length}`
+                  : `PART ${lesson.part} · ${lesson.number}`}
+              </span>
               <small><Check />{copy.original}</small>
             </div>
             <aside className="reader-review-banner">
@@ -105,6 +122,30 @@ export default async function LessonPage({
             </dl>
           </header>
 
+          {support && (
+            <section className="lesson-scaffold" aria-label={course.guided}>
+              <div className="lesson-prerequisites">
+                <span>{course.prerequisites}</span>
+                <ul>
+                  {support.prerequisites.map((item) => <li key={item}>{item}</li>)}
+                </ul>
+              </div>
+              <article className="lesson-warmup">
+                <span>{course.warmup}</span>
+                <h2>{support.warmup.question}</h2>
+                <details>
+                  <summary>{course.reveal}</summary>
+                  <p>{support.warmup.answer}</p>
+                </details>
+              </article>
+              <article className="course-project-card">
+                <span>{course.project}</span>
+                <h2>{support.project.action}</h2>
+                <p><strong>{course.deliverable}</strong>{support.project.deliverable}</p>
+              </article>
+            </section>
+          )}
+
           <LessonDiagram language={lang} slug={lesson.slug} />
 
           {lesson.sections.map((section, sectionIndex) => (
@@ -133,22 +174,52 @@ export default async function LessonPage({
             </section>
           ))}
 
-          <aside className="article-source">
-            <a
-              href={`https://wikidocs.net/${lesson.sourcePageId}`}
-              target="_blank"
-              rel="noreferrer"
-            >
-              {copy.relatedOutline} <ArrowUpRight />
-            </a>
-            <p>{copy.outlineAttribution}</p>
-          </aside>
+          {support && (
+            <section className="knowledge-check">
+              <span>{course.checkpoint}</span>
+              <h2>{support.checkpoint.question}</h2>
+              <details>
+                <summary>{course.reveal}</summary>
+                <p>{support.checkpoint.answer}</p>
+              </details>
+            </section>
+          )}
 
           <section className="exercise-card">
             <span>{copy.exercise}</span>
             <h2>{lesson.exercise}</h2>
             <p>{copy.exerciseHint}</p>
           </section>
+
+          {support && (
+            <section className="lesson-references">
+              <span>{course.furtherReading}</span>
+              <div>
+                {support.references.map((referenceId) => {
+                  const reference = getReference(referenceId);
+                  if (!reference) return null;
+                  return (
+                    <a href={reference.url} target="_blank" rel="noreferrer" key={reference.id}>
+                      <strong>{reference.title}<ArrowUpRight /></strong>
+                      <small>{reference.license}</small>
+                      <p>{reference.use[lang]}</p>
+                    </a>
+                  );
+                })}
+              </div>
+            </section>
+          )}
+
+          <aside className="article-source historical-source">
+            <a
+              href={`https://wikidocs.net/${lesson.sourcePageId}`}
+              target="_blank"
+              rel="noreferrer"
+            >
+              {course.historicalOutline} <ArrowUpRight />
+            </a>
+            <p>{course.historicalOutlineBody}</p>
+          </aside>
 
           <nav className="article-pagination" aria-label="Lesson pagination">
             {previous ? (

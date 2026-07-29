@@ -25,12 +25,12 @@ test("renders the language gate without starter metadata", async () => {
   assert.match(html, /English/);
   assert.match(html, /Tiếng Việt/);
   assert.match(html, /한국어/);
-  assert.match(html, /DL Bible – 07\. Machine Learning Fundamentals/);
+  assert.match(html, /Microsoft ML for Beginners/);
+  assert.match(html, /Google\s+ML Crash Course/);
+  assert.match(html, /six|6 guided chapters/i);
   assert.match(html, /https:\/\/wikidocs\.net\/book\/9057/);
-  assert.match(html, /고민수/);
-  assert.match(html, /장선진/);
-  assert.match(html, /CC BY 4\.0/);
-  assert.match(html, /WikiDocs prose and media are not copied/);
+  assert.match(html, /historical topic index/i);
+  assert.doesNotMatch(html, /WikiDocs.*CC BY 4\.0/i);
   assert.match(html, /href="\/source-policy\/"/);
   assert.doesNotMatch(html, /codex-preview|react-loading-skeleton|Your site is taking shape/);
 });
@@ -47,10 +47,9 @@ test("renders all locale atlas routes with labs and preview disclosure", async (
     const html = await response.text();
     assert.match(html, /Gradient Atlas/);
     assert.match(html, /type="range"/);
-    assert.match(html, /WikiDocs/);
-    assert.match(html, /https:\/\/wikidocs\.net\/book\/9057/);
-    assert.match(html, /CC BY 4\.0/);
-    assert.match(html, /href="\/source-policy\/#source-outline"/);
+    assert.match(html, /Microsoft ML for Beginners/);
+    assert.match(html, /Google MLCC/);
+    assert.match(html, /href="\/source-policy\/#reference-library"/);
     assert.match(html, /class="reader-shell"/);
     assert.match(html, /class="reader-sidebar book-sidebar/);
     assert.match(html, /class="book-menu-button"/);
@@ -59,7 +58,9 @@ test("renders all locale atlas routes with labs and preview disclosure", async (
     for (const label of localizedPartNames[locale]) {
       assert.match(html, new RegExp(label));
     }
-    assert.equal((html.match(/class="book-page-link"/g) ?? []).length, 122);
+    assert.equal((html.match(/class="book-guided-link"/g) ?? []).length, 6);
+    assert.equal((html.match(/class="book-page-link"/g) ?? []).length, 116);
+    assert.match(html, /class="reference-atlas-card"/);
     assert.match(html, /preview|xem trước|프리뷰/i);
   }
 });
@@ -75,7 +76,8 @@ test("renders searchable catalogs with the complete corpus", async () => {
     assert.match(html, /type="search"/);
     assert.match(html, /class="reader-sidebar book-sidebar/);
     assert.match(html, /class="book-menu-button"/);
-    assert.equal((html.match(/class="book-page-link"/g) ?? []).length, 122);
+    assert.equal((html.match(/class="book-guided-link"/g) ?? []).length, 6);
+    assert.equal((html.match(/class="book-page-link"/g) ?? []).length, 116);
   }
 });
 
@@ -97,8 +99,11 @@ test("renders exact trilingual lesson counterparts", async () => {
     assert.match(html, /book-menu-button/);
     assert.match(html, /book-sidebar/);
     assert.match(html, /book-outline/);
-    assert.match(html, /architecture-of-deep-learning-bible/);
-    assert.match(html, /projects/);
+    assert.match(html, /lesson-scaffold/);
+    assert.match(html, /course-project-card/);
+    assert.match(html, /knowledge-check/);
+    assert.match(html, /lesson-references/);
+    assert.match(html, /late-delivery|giao hàng trễ|배송 지연/i);
   }
 });
 
@@ -177,14 +182,22 @@ test("renders the source policy", async () => {
   assert.equal(response.status, 200);
   const html = await response.text();
   assert.match(html, /Original first/);
-  assert.match(html, /do not reproduce WikiDocs prose or media/);
+  assert.match(html, /does not reproduce or\s+translate its prose/i);
   assert.match(html, /CC BY 4.0/);
   assert.match(html, /id="original-content"/);
-  assert.match(html, /id="source-outline"/);
+  assert.match(html, /id="reference-library"/);
+  assert.match(html, /id="wikidocs-history"/);
+  assert.match(html, /Microsoft · Machine Learning for Beginners/);
+  assert.match(html, /Google · Machine Learning Crash Course/);
+  assert.match(html, /Dive into Deep Learning/);
+  assert.match(html, /scikit-learn User Guide/);
+  assert.match(html, /All rights reserved/);
+  assert.match(html, /does not\s+rely on a WikiDocs reuse license/i);
   assert.match(html, /https:\/\/wikidocs\.net\/book\/9057/);
   assert.match(html, /class="reader-sidebar book-sidebar/);
   assert.match(html, /class="book-menu-button"/);
-  assert.equal((html.match(/class="book-page-link"/g) ?? []).length, 122);
+  assert.equal((html.match(/class="book-guided-link"/g) ?? []).length, 6);
+  assert.equal((html.match(/class="book-page-link"/g) ?? []).length, 116);
 });
 
 test("renders every source-corresponding page in every locale", async () => {
@@ -196,7 +209,7 @@ test("renders every source-corresponding page in every locale", async () => {
       const html = await response.text();
       assert.match(html, new RegExp(`<div lang="${locale}" class="site-shell book-site"`), `${locale}/${seed.slug}`);
       assert.match(html, new RegExp(`https://wikidocs.net/${seed.sourcePageId}`));
-      assert.match(html, /CC BY 4\.0/);
+      assert.match(html, /historical-source/);
       if (locale === "vi") {
         assert.match(html, /canonical-english-term/, `${locale}/${seed.slug}`);
         assert.match(html, /terminology-panel/, `${locale}/${seed.slug}`);

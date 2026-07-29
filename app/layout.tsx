@@ -12,18 +12,18 @@ export const metadata: Metadata = {
     template: "%s · Gradient Atlas",
   },
   description:
-    "An original Korean, English, and Vietnamese visual guide to machine-learning foundations.",
+    "Six guided machine-learning chapters, one continuing project, and a trilingual reference atlas.",
   openGraph: {
     title: "Gradient Atlas",
     description:
-      "Machine-learning foundations, mapped in Korean, English, and Vietnamese.",
+      "Six chapters. One project. Machine learning in English, Vietnamese, and Korean.",
     type: "website",
     images: [
       {
-        url: new URL("og.png", siteUrl).toString(),
-        width: 1728,
+        url: new URL("og-course.png", siteUrl).toString(),
+        width: 1732,
         height: 908,
-        alt: "Gradient Atlas machine-learning evidence loop",
+        alt: "Gradient Atlas six-chapter machine-learning course",
       },
     ],
   },
@@ -31,8 +31,8 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Gradient Atlas",
     description:
-      "Machine-learning foundations, mapped in Korean, English, and Vietnamese.",
-    images: [new URL("og.png", siteUrl).toString()],
+      "Six chapters. One project. Machine learning in English, Vietnamese, and Korean.",
+    images: [new URL("og-course.png", siteUrl).toString()],
   },
 };
 
