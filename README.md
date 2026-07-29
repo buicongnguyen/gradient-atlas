@@ -12,7 +12,11 @@ appear first in a persistent left column, followed by collapsible reference
 parts. The same contents becomes an accessible off-canvas drawer on mobile.
 Guided lessons add prerequisites, warm-ups, a continuing project deliverable,
 knowledge checks, curated references, inline bookmarks, reading progress, and
-course-only previous/next navigation.
+course-only previous/next navigation. Each guided chapter also opens with a
+six-step course-position map, states the chapter's purpose, and draws a
+four-step reasoning flow. It closes with a dependency-free Python exercise,
+expected output and interpretation, two multiple-choice checks with explained
+answers, and a dated current-practice note grounded in primary sources.
 
 Every Vietnamese lesson displays its canonical English topic name and a curated
 Vietnamese–English terminology panel. Mathematically substantive lessons also
@@ -27,6 +31,11 @@ branching, cross-validation, ROC trade-offs, distribution shift,
 reinforcement learning, ensembles, dimensionality reduction, graph learning,
 support-vector margins, the training loop, class imbalance, and the course
 concept map. They use no copied or hotlinked media.
+
+The guided course adds twelve further code-native teaching visuals: one
+course-position map and one chapter-specific thinking flow in each of the six
+chapters. They show relationships and sequence rather than decorating the
+page, and remain horizontally scrollable on narrow screens.
 
 ## Read locally
 
@@ -73,10 +82,12 @@ This release is a public preview:
 - six guided chapters and 116 supporting reference notes;
 - three localized editions per topic;
 - one continuing late-delivery project;
+- six dependency-free Python exercises and twelve explained MCQs;
+- chapter-level orientation diagrams and dated current-practice guidance;
 - logic-reviewed technical drafts;
 - native-language and independent technical review pending;
 - no copied WikiDocs prose, code, or media;
-- no third-party assets.
+- no third-party assets; the generated social card has a provenance record.
 
 Machine-readable governance lives in:
 

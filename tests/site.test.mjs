@@ -107,6 +107,63 @@ test("renders exact trilingual lesson counterparts", async () => {
   }
 });
 
+test("renders the complete guided learning loop in every chapter and locale", async () => {
+  const guidedSlugs = [
+    "what-machine-learning-learns",
+    "data-features-and-labels",
+    "train-validation-and-test",
+    "metrics-and-thresholds",
+    "bias-variance-and-overfitting",
+    "end-to-end-ml-workflow",
+  ];
+  const datedTrendLabels = {
+    en: "Reviewed July 2026",
+    vi: "Đã rà soát tháng 7/2026",
+    ko: "2026년 7월 검토",
+  };
+
+  for (const slug of guidedSlugs) {
+    for (const locale of ["en", "vi", "ko"]) {
+      const response = await render(`/${locale}/learn/${slug}/`);
+      assert.equal(response.status, 200, `${locale}/${slug}`);
+      const html = await response.text();
+      assert.match(html, /id="big-picture"/, `${locale}/${slug}`);
+      assert.match(html, /class="course-position-map"/, `${locale}/${slug}`);
+      assert.equal(
+        (html.match(/aria-current="step"/g) ?? []).length,
+        1,
+        `${locale}/${slug}`,
+      );
+      assert.match(html, /class="thinking-flow"/, `${locale}/${slug}`);
+      assert.match(html, /id="try-it-yourself"/, `${locale}/${slug}`);
+      assert.match(html, /late_delivery_example\.py/, `${locale}/${slug}`);
+      assert.match(html, /id="mcq-review"/, `${locale}/${slug}`);
+      assert.equal(
+        (html.match(/class="mcq-card"/g) ?? []).length,
+        2,
+        `${locale}/${slug}`,
+      );
+      assert.match(html, /id="current-practice"/, `${locale}/${slug}`);
+      assert.match(html, new RegExp(datedTrendLabels[locale]), `${locale}/${slug}`);
+      assert.match(
+        html,
+        /developers\.google\.com|scikit-learn\.org|nist\.gov|stanford\.edu/,
+        `${locale}/${slug}`,
+      );
+    }
+  }
+});
+
+test("keeps the deeper guided blocks out of reference-only notes", async () => {
+  const response = await render("/en/learn/about-artificial-intelligence/");
+  assert.equal(response.status, 200);
+  const html = await response.text();
+  assert.doesNotMatch(html, /id="big-picture"/);
+  assert.doesNotMatch(html, /id="try-it-yourself"/);
+  assert.doesNotMatch(html, /id="mcq-review"/);
+  assert.doesNotMatch(html, /id="current-practice"/);
+});
+
 test("renders bilingual Vietnamese terminology and original mathematical notation", async () => {
   const terminologyResponse = await render("/vi/learn/linear-regression/");
   assert.equal(terminologyResponse.status, 200);
@@ -189,6 +246,8 @@ test("renders the source policy", async () => {
   assert.match(html, /id="wikidocs-history"/);
   assert.match(html, /Microsoft · Machine Learning for Beginners/);
   assert.match(html, /Google · Machine Learning Crash Course/);
+  assert.match(html, /NIST · AI Risk Management Framework Playbook/);
+  assert.match(html, /Stanford HAI · 2026 AI Index/);
   assert.match(html, /Dive into Deep Learning/);
   assert.match(html, /scikit-learn User Guide/);
   assert.match(html, /All rights reserved/);

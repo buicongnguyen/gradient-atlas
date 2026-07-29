@@ -1,13 +1,15 @@
 # Content license
 
 Unless a page states otherwise, the original lesson text, localized editions,
-exercises, diagrams, and learning design in Gradient Atlas are licensed under the
+exercises, example code, diagrams, and learning design in Gradient Atlas are
+licensed under the
 [Creative Commons Attribution 4.0 International license](https://creativecommons.org/licenses/by/4.0/).
 
 Attribution: “Gradient Atlas contributors.”
 
 The six-chapter guided course was independently reconstructed with a continuing
-late-delivery project, warm-ups, knowledge checks, and cited further reading.
+late-delivery project, warm-ups, knowledge checks, dependency-free Python
+examples, multiple-choice reviews, and cited further reading.
 The remaining 116 pages are supporting reference notes, not a recommended
 cover-to-cover reading order.
 
@@ -25,6 +27,10 @@ content; they are not transcribed from WikiDocs.
 Original Gradient Atlas concept diagrams are implemented with project-authored
 HTML and CSS and are licensed with the surrounding lesson content under CC BY
 4.0. No WikiDocs image, video, or other media is copied or hotlinked.
+
+The Python examples embedded in the guided lessons are independently authored.
+They may also be reused under the repository's MIT software license, at the
+reuser's option.
 
 Other third-party adaptations must retain their own attribution, source,
 license, and modification notice.

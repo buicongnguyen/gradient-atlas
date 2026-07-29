@@ -119,7 +119,7 @@ export const ui: Record<Language, UiCopy> = {
     mapEyebrow: "01 · Guided course",
     mapTitle: "Six chapters. One project. A visible chain of decisions.",
     mapBody:
-      "The recommended path follows a late-delivery warning from problem framing to operation. Each chapter adds one artifact to the same system.",
+      "The recommended path follows a late-delivery warning from problem framing to operation. Each chapter maps its reasoning, adds one artifact, and closes with Python practice and explained checks.",
     published: "Catalog live",
     planned: "Planned",
     labEyebrow: "02 · Interactive labs",
@@ -183,7 +183,7 @@ export const ui: Record<Language, UiCopy> = {
     mapEyebrow: "01 · Khóa học có hướng dẫn",
     mapTitle: "Sáu chương. Một dự án. Một chuỗi quyết định nhìn thấy được.",
     mapBody:
-      "Lộ trình khuyến nghị theo một cảnh báo giao hàng trễ từ định nghĩa bài toán đến vận hành. Mỗi chương bổ sung một sản phẩm cho cùng hệ thống.",
+      "Lộ trình khuyến nghị theo một cảnh báo giao hàng trễ từ định nghĩa bài toán đến vận hành. Mỗi chương vẽ luồng suy luận, bổ sung một sản phẩm rồi kết thúc bằng thực hành Python và câu hỏi có giải thích.",
     published: "Danh mục đã mở",
     planned: "Đang lên kế hoạch",
     labEyebrow: "02 · Phòng lab tương tác",
@@ -247,7 +247,7 @@ export const ui: Record<Language, UiCopy> = {
     mapEyebrow: "01 · 가이드 코스",
     mapTitle: "여섯 장. 하나의 프로젝트. 눈에 보이는 의사결정 사슬.",
     mapBody:
-      "권장 경로는 배송 지연 경보를 문제 정의부터 운영까지 따라갑니다. 각 장은 같은 시스템에 하나의 결과물을 추가합니다.",
+      "권장 경로는 배송 지연 경보를 문제 정의부터 운영까지 따라갑니다. 각 장은 사고 흐름을 그리고 하나의 결과물을 더한 뒤 Python 실습과 해설형 점검으로 마무리합니다.",
     published: "카탈로그 공개",
     planned: "준비 중",
     labEyebrow: "02 · 인터랙티브 실험실",

@@ -1,5 +1,18 @@
 {
   "schemaVersion": 1,
-  "policy": "No third-party media ships in the pilot.",
-  "assets": []
+  "policy": "No third-party media ships in the release. Project-generated media must keep a provenance record.",
+  "assets": [
+    {
+      "id": "gradient-atlas-learning-loop-social-card",
+      "path": "public/og.png",
+      "mediaType": "image/png",
+      "sourceType": "project-generated",
+      "created": "2026-07-30",
+      "creator": "Gradient Atlas contributors using the OpenAI image generation tool",
+      "externalInputs": [],
+      "rights": "Original project-generated asset; no third-party source image or book media was supplied",
+      "license": "CC-BY-4.0",
+      "promptSummary": "A six-chapter machine-learning atlas with an expanded see-think-try-check-and-monitor learning loop"
+    }
+  ]
 }

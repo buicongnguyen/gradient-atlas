@@ -2,14 +2,20 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getLesson, isLanguage, languages, lessons, ui } from "../../../data/content";
+import { getGuidedDepth, guidedDepthUi } from "../../../data/guided-depth";
 import {
   courseUi,
   getGuidedSupport,
   getReference,
   guidedSlugs,
+  type GuidedSlug,
 } from "../../../data/guided-course";
 import { ArrowUpRight, Check, CircleDot } from "../../../ui/icons";
 import { BookSidebar } from "../../../ui/BookSidebar";
+import {
+  GuidedOrientation,
+  GuidedPracticeReview,
+} from "../../../ui/GuidedLearningBlocks";
 import { LessonDiagram } from "../../../ui/LessonDiagram";
 import { SiteHeader } from "../../../ui/SiteHeader";
 
@@ -52,6 +58,9 @@ export default async function LessonPage({
   const next = readingSequence[index + 1];
   const copy = ui[lang];
   const course = courseUi[lang];
+  const depthLabels = guidedDepthUi[lang];
+  const guidedSlug = support ? lesson.slug as GuidedSlug : undefined;
+  const depth = guidedSlug ? getGuidedDepth(lang, guidedSlug) : undefined;
   const suffix = `/learn/${lesson.slug}/`;
 
   return (
@@ -86,12 +95,34 @@ export default async function LessonPage({
             <details className="book-outline">
               <summary>{copy.onThisPage}</summary>
               <nav aria-label={copy.onThisPage}>
+                {support && (
+                  <Link href="#big-picture">
+                    <span>00</span>
+                    {depthLabels.bigPicture}
+                  </Link>
+                )}
                 {lesson.sections.map((section, sectionIndex) => (
                   <Link href={`#section-${sectionIndex + 1}`} key={section.heading}>
                     <span>{String(sectionIndex + 1).padStart(2, "0")}</span>
                     {section.heading}
                   </Link>
                 ))}
+                {support && (
+                  <>
+                    <Link href="#try-it-yourself">
+                      <span>{String(lesson.sections.length + 1).padStart(2, "0")}</span>
+                      {depthLabels.tryIt}
+                    </Link>
+                    <Link href="#mcq-review">
+                      <span>{String(lesson.sections.length + 2).padStart(2, "0")}</span>
+                      {depthLabels.quiz}
+                    </Link>
+                    <Link href="#current-practice">
+                      <span>{String(lesson.sections.length + 3).padStart(2, "0")}</span>
+                      {depthLabels.currentTrend}
+                    </Link>
+                  </>
+                )}
               </nav>
             </details>
             <h1>{lesson.title}</h1>
@@ -116,11 +147,15 @@ export default async function LessonPage({
             )}
             <p>{lesson.summary}</p>
             <dl>
-              <div><dt>{copy.time}</dt><dd>{lesson.duration} {copy.minutes}</dd></div>
+              <div><dt>{copy.time}</dt><dd>{depth?.estimatedMinutes ?? lesson.duration} {copy.minutes}</dd></div>
               <div><dt>{copy.outcome}</dt><dd>{lesson.outcome}</dd></div>
               <div><dt>{copy.status}</dt><dd>{copy.humanReview}</dd></div>
             </dl>
           </header>
+
+          {guidedSlug && (
+            <GuidedOrientation language={lang} slug={guidedSlug} />
+          )}
 
           {support && (
             <section className="lesson-scaffold" aria-label={course.guided}>
@@ -190,6 +225,10 @@ export default async function LessonPage({
             <h2>{lesson.exercise}</h2>
             <p>{copy.exerciseHint}</p>
           </section>
+
+          {guidedSlug && (
+            <GuidedPracticeReview language={lang} slug={guidedSlug} />
+          )}
 
           {support && (
             <section className="lesson-references">

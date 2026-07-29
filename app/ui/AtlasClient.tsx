@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useMemo, useState } from "react";
 import { Language, Lesson, ui } from "../data/content";
+import { getGuidedDepth } from "../data/guided-depth";
 import {
   courseUi,
   getGuidedSupport,
@@ -216,6 +217,7 @@ export function AtlasClient({
         <div className="roadmap">
           {guidedLessons.map((lesson, index) => {
             const support = getGuidedSupport(language, lesson.slug);
+            const depth = getGuidedDepth(language, lesson.slug);
             return (
               <Link
                 className="roadmap-card active guided-roadmap-card"
@@ -224,7 +226,7 @@ export function AtlasClient({
               >
                 <div className="roadmap-top">
                   <span>{course.step} {String(index + 1).padStart(2, "0")}</span>
-                  <small>{lesson.duration} {copy.minutes}</small>
+                  <small>{depth?.estimatedMinutes ?? lesson.duration} {copy.minutes}</small>
                 </div>
                 <strong>{lesson.title}</strong>
                 <p>{support?.step ?? lesson.summary}</p>

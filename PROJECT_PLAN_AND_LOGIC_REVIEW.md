@@ -850,15 +850,16 @@ original conditions were:
 ## 13. Full-corpus execution addendum (implemented 2026-07-28)
 
 The project proceeded with the rights-safe path selected in the review:
-WikiDocs book 9057 supplies the licensed page order and topic outline, while
-Gradient Atlas supplies independently written explanations, exercises,
-examples, interface, and interactive demonstrations.
+WikiDocs book 9057 is retained only as a historical topic-link index. Gradient
+Atlas does not rely on a WikiDocs reuse license and supplies independently
+written explanations, exercises, examples, interface, and interactive
+demonstrations.
 
 ### 13.1 Delivered scope
 
 - 122 stable curriculum identities: 43 legacy/reference and 79 fundamentals.
 - 366 localized reader routes: English, Vietnamese, and Korean for every page.
-- Exact page-level WikiDocs source links and CC BY 4.0 modification disclosure.
+- Exact page-level historical WikiDocs links and a no-reproduction disclosure.
 - One searchable, filterable catalog per language.
 - Six expanded editorial showcase chapters retained inside the full catalog.
 - Generated governance records for all 122 documents and all three locales.
@@ -886,9 +887,10 @@ each language.
 
 `Risk: outline adaptation is mistaken for copied prose`
 
-Resolution: every page carries its exact source-page link and localized
-modification notice. Governance separates `outlineLicense: CC-BY-4.0` from
-`bodyRights: original`; no WikiDocs prose, images, code, or media are imported.
+Resolution: every page carries its exact historical topic link and a localized
+notice that the linked expression is not reproduced or translated. Governance
+records `sourceLicenseReliedOn: false` and `bodyRights: original`; no WikiDocs
+prose, images, code, equations, or media are imported.
 
 `Risk: generated coverage is mistaken for independent editorial approval`
 
@@ -938,9 +940,10 @@ content cards, and editorial disclosures.
 
 `Risk: source attribution becomes secondary in the new layout`
 
-Resolution: attribution stays inside the article flow on every breakpoint and
-now names 고민수 and 장선진, links the exact page and CC BY 4.0 license, and
-identifies translation and restructuring as modifications.
+Resolution: the historical-link disclosure stays inside the article flow on
+every breakpoint, links the exact page, and says that Gradient Atlas does not
+reproduce or translate it. Original Gradient Atlas material has a separate
+CC BY 4.0 policy.
 
 ## 15. Vietnamese terminology and mathematical notation review
 
@@ -1038,3 +1041,92 @@ tracking layered or branching structure, comparing repeated evaluation rounds,
 reading a two-axis trade-off, or noticing a distribution change. Topics that
 are already clearer as prose, formulas, or short lists remain text-only. This
 keeps diagrams instructional and avoids a decorative illustration quota.
+
+## 17. Deeper guided-learning review (implemented 2026-07-30)
+
+### 17.1 Evaluation of the proposal
+
+The proposal correctly identifies the main weakness of the previous guided
+course: it had a coherent project narrative, but the reasoning path was not
+visible enough at the point of reading. A reader could understand an individual
+section yet still lose track of why the chapter exists, how it connects to the
+other five chapters, and how to test the idea.
+
+The improved learning loop is:
+
+1. **Locate** — show the current chapter inside the six-step course.
+2. **Orient** — state the chapter purpose and draw its four-step reasoning flow.
+3. **Explain** — preserve the deeper prose, notation, and topic-specific visual.
+4. **Try** — run a small dependency-free Python example and inspect its output.
+5. **Check** — answer two concept-focused MCQs before revealing explanations.
+6. **Transfer** — connect the stable principle to dated current practice and
+   primary references.
+
+This pattern is applied only to the six recommended chapters. The 116 reference
+notes remain concise lookup material; forcing the full loop onto them would
+blur the distinction between a course and an encyclopedia.
+
+### 17.2 Implemented scope
+
+- one six-step course-position map on every guided chapter;
+- one localized four-step thinking-flow diagram per guided chapter;
+- a visible chapter purpose before the detailed explanation;
+- six original, dependency-free Python examples with expected output,
+  interpretation, and a small extension challenge;
+- two four-option MCQs with an explained answer on every guided chapter;
+- dated current-practice guidance in English, Vietnamese, and Korean;
+- primary-source links from Google, scikit-learn, NIST, and Stanford HAI;
+- larger desktop sidebar type and width without changing the mobile drawer;
+- dynamic in-page numbering so future section counts cannot make the outline
+  labels incorrect.
+
+### 17.3 Logic review
+
+`Risk: diagrams become decoration or repeat the prose`
+
+Resolution: the position map answers “where am I?” and the thinking flow answers
+“what reasoning should I perform?” They encode different relationships. Existing
+concept diagrams remain only on topics where geometry or system flow adds a
+third distinct explanation.
+
+`Risk: examples look runnable but depend on an unmentioned environment`
+
+Resolution: every example uses only the Python standard language, has fixed
+inputs and deterministic output, and is executed during release review. The
+small late-delivery scenario continues the same project instead of introducing
+six unrelated toy domains.
+
+`Risk: MCQs reward wording recognition instead of judgment`
+
+Resolution: each question tests a decision boundary, evaluation choice, failure
+mode, or operational consequence. Each has four plausible options and an
+explanation of why the selected answer follows from the chapter. Display order
+rotates deterministically across chapters so the answer position does not teach
+a repeated guessing pattern.
+
+`Risk: “current trends” age quickly or overstate consensus`
+
+Resolution: the section is called current practice, carries a July 2026 review
+date, separates stable advice from watch items, and links to primary technical
+or standards sources. It does not copy source prose or imply that a citation's
+content is CC BY 4.0.
+
+`Risk: the expanded chapter becomes too dense`
+
+Resolution: orientation, practice, review, and trend material are visually
+separated; code and wide flows scroll safely; answers use native disclosure
+controls; the inline outline links directly to the new blocks. Estimated reading
+times were increased to reflect the real work.
+
+`Risk: larger sidebar text reduces usable navigation`
+
+Resolution: the desktop rail is widened with the type increase and remains
+independently scrollable. At responsive breakpoints it still becomes the tested
+off-canvas contents drawer.
+
+`Risk: legal boundaries regress while adding current sources`
+
+Resolution: all new prose, diagrams, questions, and Python examples are original.
+External material is linked as reference-only and retains its own rights. No
+third-party media, code, or passages were imported, and WikiDocs remains a
+historical topic link only.

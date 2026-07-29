@@ -17,6 +17,16 @@ export type ReferenceId =
   | "dive-into-deep-learning"
   | "scikit-learn"
   | "statistical-learning"
+  | "google-problem-framing"
+  | "google-production-monitoring"
+  | "sklearn-time-series-split"
+  | "sklearn-threshold-tuning"
+  | "sklearn-calibration"
+  | "sklearn-learning-curves"
+  | "nist-ai-rmf"
+  | "nist-evaluation-2026"
+  | "nist-monitoring-2026"
+  | "stanford-ai-index-2026"
   | "wikidocs-index";
 
 export type ReferenceSource = {
@@ -81,6 +91,116 @@ export const referenceSources: ReferenceSource[] = [
       en: "Reading recommendation for its accessible sequence and end-of-chapter labs only. Nothing is copied, translated, or adapted.",
       vi: "Chỉ được đề xuất đọc vì trình tự dễ tiếp cận và lab cuối chương. Không sao chép, dịch hoặc chuyển thể nội dung.",
       ko: "접근하기 쉬운 순서와 장말 실습을 위한 읽기 자료로만 추천합니다. 어떤 내용도 복제·번역·각색하지 않습니다.",
+    },
+  },
+  {
+    id: "google-problem-framing",
+    title: "Google · Framing an ML problem",
+    url: "https://developers.google.com/machine-learning/problem-framing/ml-framing",
+    license: "CC BY 4.0 content · Apache 2.0 code",
+    use: {
+      en: "Current reference for separating ideal outcomes, model goals, outputs, proxy labels, and success metrics. No wording or figures are copied.",
+      vi: "Tài liệu hiện hành để tách ideal outcome, mục tiêu mô hình, output, proxy label và success metric. Không sao chép câu chữ hoặc hình.",
+      ko: "이상적 결과, 모델 목표, 출력, 대리 레이블, 성공 지표를 분리하는 최신 참고 자료입니다. 문장이나 그림은 복제하지 않습니다.",
+    },
+  },
+  {
+    id: "google-production-monitoring",
+    title: "Google · Monitoring ML pipelines",
+    url: "https://developers.google.com/machine-learning/crash-course/production-ml-systems/monitoring",
+    license: "CC BY 4.0 content · Apache 2.0 code",
+    use: {
+      en: "Current reference for data schemas, feature checks, slices, training-serving skew, real-world metrics, and live quality monitoring.",
+      vi: "Tài liệu hiện hành về schema dữ liệu, kiểm tra feature, slice, training-serving skew, chỉ số thực tế và giám sát chất lượng live.",
+      ko: "데이터 스키마, 특징 검사, 슬라이스, 학습-서빙 왜곡, 현실 지표, 운영 품질 모니터링을 위한 최신 참고 자료입니다.",
+    },
+  },
+  {
+    id: "sklearn-time-series-split",
+    title: "scikit-learn · TimeSeriesSplit",
+    url: "https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.TimeSeriesSplit.html",
+    license: "BSD-3-Clause",
+    use: {
+      en: "API reference for evaluating time-ordered data without training on the future and testing on the past.",
+      vi: "Tài liệu API để đánh giá dữ liệu theo thời gian mà không train bằng tương lai rồi test trên quá khứ.",
+      ko: "미래 데이터로 학습하고 과거를 평가하는 오류를 피하는 시계열 분할 API 참고 자료입니다.",
+    },
+  },
+  {
+    id: "sklearn-threshold-tuning",
+    title: "scikit-learn · Decision-threshold tuning",
+    url: "https://scikit-learn.org/stable/auto_examples/model_selection/plot_tuned_decision_threshold.html",
+    license: "BSD-3-Clause",
+    use: {
+      en: "Technical reference for tuning a classifier's operating threshold against a task-specific metric instead of assuming 0.5.",
+      vi: "Tài liệu kỹ thuật để chỉnh operating threshold theo metric của bài toán thay vì mặc định 0,5.",
+      ko: "0.5를 당연시하지 않고 과업별 지표에 맞춰 분류 임곗값을 조정하는 기술 참고 자료입니다.",
+    },
+  },
+  {
+    id: "sklearn-calibration",
+    title: "scikit-learn · Probability calibration",
+    url: "https://scikit-learn.org/stable/modules/calibration.html",
+    license: "BSD-3-Clause",
+    use: {
+      en: "Technical reference for checking whether predicted probabilities correspond to observed event frequencies.",
+      vi: "Tài liệu kỹ thuật để kiểm tra xác suất dự đoán có khớp với tần suất sự kiện quan sát hay không.",
+      ko: "예측 확률이 실제 사건 빈도와 일치하는지 확인하는 기술 참고 자료입니다.",
+    },
+  },
+  {
+    id: "sklearn-learning-curves",
+    title: "scikit-learn · Learning curves and scalability",
+    url: "https://scikit-learn.org/stable/auto_examples/model_selection/plot_learning_curve.html",
+    license: "BSD-3-Clause",
+    use: {
+      en: "Technical reference for reading train-validation behavior together with fit and scoring cost as data grows.",
+      vi: "Tài liệu kỹ thuật để đọc hành vi train-validation cùng chi phí fit và scoring khi dữ liệu tăng.",
+      ko: "데이터 증가에 따른 학습-검증 성능과 적합·추론 비용을 함께 읽는 기술 참고 자료입니다.",
+    },
+  },
+  {
+    id: "nist-ai-rmf",
+    title: "NIST · AI Risk Management Framework Playbook",
+    url: "https://www.nist.gov/itl/ai-risk-management-framework/nist-ai-rmf-playbook",
+    license: "U.S. government guidance · reference only",
+    use: {
+      en: "Risk-management reference for the Govern, Map, Measure, and Manage lifecycle. No NIST expression is reproduced.",
+      vi: "Tài liệu quản trị rủi ro cho vòng đời Govern, Map, Measure và Manage. Không tái bản cách diễn đạt của NIST.",
+      ko: "Govern, Map, Measure, Manage 수명주기를 위한 위험 관리 참고 자료입니다. NIST의 표현은 복제하지 않습니다.",
+    },
+  },
+  {
+    id: "nist-evaluation-2026",
+    title: "NIST · Expanding the AI evaluation toolbox (2026)",
+    url: "https://www.nist.gov/news-events/news/2026/02/new-report-expanding-ai-evaluation-toolbox-statistical-models",
+    license: "U.S. government publication · reference only",
+    use: {
+      en: "Current reference for making evaluation assumptions, measurement targets, and uncertainty explicit.",
+      vi: "Tài liệu hiện hành về việc nêu rõ giả định đánh giá, mục tiêu đo lường và uncertainty.",
+      ko: "평가 가정, 측정 목표, 불확실성을 명시하는 최신 참고 자료입니다.",
+    },
+  },
+  {
+    id: "nist-monitoring-2026",
+    title: "NIST · Monitoring deployed AI systems (2026)",
+    url: "https://www.nist.gov/publications/challenges-monitoring-deployed-ai-systems-center-ai-standards-and-innovation",
+    license: "U.S. government publication · reference only",
+    use: {
+      en: "Current reference on why post-deployment monitoring is necessary and why validated practices remain an active research area.",
+      vi: "Tài liệu hiện hành về lý do cần giám sát sau triển khai và vì sao phương pháp đã kiểm chứng vẫn là lĩnh vực nghiên cứu mở.",
+      ko: "배포 후 모니터링의 필요성과 검증된 방법론이 여전히 활발한 연구 과제인 이유를 다루는 최신 참고 자료입니다.",
+    },
+  },
+  {
+    id: "stanford-ai-index-2026",
+    title: "Stanford HAI · 2026 AI Index",
+    url: "https://hai.stanford.edu/ai-index/2026-ai-index-report/technical-performance",
+    license: "Reference only · no report content reused",
+    use: {
+      en: "Trend reference for the shift from model capability alone toward cost, reliability, and domain-specific performance.",
+      vi: "Tài liệu xu hướng về sự dịch chuyển từ năng lực mô hình đơn thuần sang chi phí, độ tin cậy và hiệu năng theo domain.",
+      ko: "모델 능력만이 아니라 비용, 신뢰성, 도메인별 성능으로 경쟁 기준이 이동하는 추세 참고 자료입니다.",
     },
   },
   {
