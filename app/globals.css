@@ -279,12 +279,13 @@ input[type="range"] { width: 100%; accent-color: var(--acid); cursor: pointer; }
 .book-search input { width: 100%; padding: .62rem .7rem; color: var(--ink); background: var(--bg); border: 1px solid var(--line-strong); font-size: .72rem; }
 .reader-sidebar nav { display: grid; }
 .book-chapter { border-bottom: 1px solid var(--line); }
-.book-chapter > summary { min-height: 58px; padding: .8rem .45rem; display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; gap: .5rem; cursor: pointer; list-style: none; }
+.book-chapter > summary { min-height: 76px; padding: .8rem .45rem; display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; gap: .5rem; cursor: pointer; list-style: none; }
 .book-chapter > summary::-webkit-details-marker { display: none; }
 .book-chapter > summary:hover { background: color-mix(in srgb, var(--panel-2) 72%, transparent); }
 .book-chapter > summary > span { display: grid; gap: .12rem; }
 .book-chapter > summary small { color: var(--acid); font: 700 .48rem ui-monospace, monospace; text-transform: uppercase; letter-spacing: .08em; }
 .book-chapter > summary strong { color: var(--muted); font: 700 .58rem ui-monospace, monospace; }
+.book-chapter-title { color: var(--ink); font-size: .68rem; line-height: 1.35; }
 .book-chapter > summary > i { width: 24px; height: 24px; display: grid; place-items: center; color: var(--muted); border: 1px solid var(--line); border-radius: 50%; font: 600 .48rem ui-monospace, monospace; font-style: normal; }
 .book-chapter[open] > summary { background: color-mix(in srgb, var(--panel-2) 54%, transparent); }
 .book-chapter[open] > summary > i { color: var(--bg-deep); background: var(--acid); border-color: var(--acid); }

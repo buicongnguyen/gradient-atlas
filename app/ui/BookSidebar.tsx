@@ -9,8 +9,19 @@ type LessonGroup = {
   key: string;
   collection: "legacy" | "fundamentals";
   part: string;
+  title: string;
   lessons: Lesson[];
 };
+
+const partLabels: Record<Language, string> = {
+  en: "PART",
+  vi: "PHẦN",
+  ko: "파트",
+};
+
+function partTitle(title: string) {
+  return title.replace(/^(?:Part|Phần|파트)\s+[\dA-Z]+\s*·\s*/iu, "").trim();
+}
 
 export function BookSidebar({
   language,
@@ -38,7 +49,13 @@ export function BookSidebar({
       const collection = lesson.collection;
       const key = `${collection}:${lesson.part}`;
       if (!grouped.has(key)) {
-        grouped.set(key, { key, collection, part: lesson.part, lessons: [] });
+        grouped.set(key, {
+          key,
+          collection,
+          part: lesson.part,
+          title: partTitle(lesson.title),
+          lessons: [],
+        });
       }
       const searchText = [lesson.title, lesson.summary, ...lesson.tags]
         .join(" ")
@@ -173,7 +190,10 @@ export function BookSidebar({
                   <small>
                   {group.collection === "fundamentals" ? copy.fundamentals : copy.legacy}
                   </small>
-                  <strong>PART {group.part}</strong>
+                  <strong data-part-label={`${partLabels[language]} ${group.part}`}>
+                    {partLabels[language]} {group.part}
+                  </strong>
+                  <b className="book-chapter-title">{group.title}</b>
                 </span>
                 <i>{group.lessons.length}</i>
               </summary>

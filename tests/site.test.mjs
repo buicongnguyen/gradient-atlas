@@ -36,6 +36,11 @@ test("renders the language gate without starter metadata", async () => {
 });
 
 test("renders all locale atlas routes with labs and preview disclosure", async () => {
+  const localizedPartNames = {
+    en: ['data-part-label="PART B"', "Learning approaches"],
+    vi: ['data-part-label="PHẦN B"', "Các phương pháp học"],
+    ko: ['data-part-label="파트 B"', "학습 접근법"],
+  };
   for (const locale of ["en", "vi", "ko"]) {
     const response = await render(`/${locale}/`);
     assert.equal(response.status, 200, locale);
@@ -50,6 +55,10 @@ test("renders all locale atlas routes with labs and preview disclosure", async (
     assert.match(html, /class="reader-sidebar book-sidebar/);
     assert.match(html, /class="book-menu-button"/);
     assert.match(html, /class="book-chapter"/);
+    assert.match(html, /class="book-chapter-title"/);
+    for (const label of localizedPartNames[locale]) {
+      assert.match(html, new RegExp(label));
+    }
     assert.equal((html.match(/class="book-page-link"/g) ?? []).length, 122);
     assert.match(html, /preview|xem trước|프리뷰/i);
   }
