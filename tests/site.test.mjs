@@ -1,8 +1,13 @@
 import assert from "node:assert/strict";
+import { readFileSync } from "node:fs";
 import test from "node:test";
 import { curriculumSeeds } from "../app/data/full-curriculum.ts";
 import { formulaSupportBySlug } from "../app/data/learning-support.ts";
 
+const globalStyles = readFileSync(
+  new URL("../app/globals.css", import.meta.url),
+  "utf8",
+);
 const workerUrl = new URL("../dist/server/index.js", import.meta.url);
 workerUrl.searchParams.set("test", `${process.pid}-${Date.now()}`);
 const { default: worker } = await import(workerUrl.href);
@@ -264,6 +269,25 @@ test("renders the source policy", async () => {
   assert.equal((html.match(/class="book-guided-link"/g) ?? []).length, 6);
   assert.equal((html.match(/class="book-page-link"/g) ?? []).length, 116);
   assert.equal((html.match(/class="policy-reference-card"/g) ?? []).length, 24);
+});
+
+test("keeps long-form lesson pages in a compact reading rhythm", () => {
+  assert.match(
+    globalStyles,
+    /\.article-section\s*\{[^}]*padding:\s*2\.75rem 0 \.35rem;/,
+  );
+  assert.match(
+    globalStyles,
+    /\.guided-orientation,\s*\.guided-practice,\s*\.guided-quiz,\s*\.guided-trend\s*\{[^}]*margin-top:\s*2\.75rem;/,
+  );
+  assert.match(
+    globalStyles,
+    /\.reading-resource-card\s*\{[^}]*min-height:\s*190px;/,
+  );
+  assert.match(
+    globalStyles,
+    /\.article-section > p\s*\{[^}]*line-height:\s*1\.68;/,
+  );
 });
 
 test("renders every source-corresponding page in every locale", async () => {
