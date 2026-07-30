@@ -1130,3 +1130,53 @@ Resolution: all new prose, diagrams, questions, and Python examples are original
 External material is linked as reference-only and retains its own rights. No
 third-party media, code, or passages were imported, and WikiDocs remains a
 historical topic link only.
+
+## 18. Topic-matched reading shelf (implemented 2026-07-30)
+
+The reference library now serves two clearly separated purposes:
+
+1. **traceability and verification** — sources used to check a technical claim
+   or explain the project’s learning design;
+2. **continued learning** — external books, courses, and technical guides a
+   reader can choose after completing a lesson.
+
+Every one of the 122 lesson identities receives four recommendations. Selection
+uses the lesson slug and teaching tags to choose one primary profile:
+foundations, data, evaluation, mathematics, deep learning, NLP, computer vision,
+reinforcement learning, production, or responsible AI. Guided chapters preserve
+their existing reviewed references, then fill the remaining positions with
+profile-matched material.
+
+The expanded shelf includes Mathematics for Machine Learning, Probabilistic
+Machine Learning, the Deep Learning textbook, the scikit-learn MOOC, fast.ai’s
+Practical Deep Learning for Coders, official PyTorch tutorials, the Hugging Face
+LLM Course, and Full Stack Deep Learning.
+
+### 18.1 Logic review
+
+`Risk: every page receives the same generic links`
+
+Resolution: a deterministic profile matcher selects books and courses by topic.
+Automated checks require exactly four unique recommendations for every lesson.
+
+`Risk: a long resource list overwhelms the lesson`
+
+Resolution: the page shows four cards only. Each card identifies whether it is a
+book, course, or technical guide and explains why the reader might choose it.
+
+`Risk: a recommendation is confused with copied source material`
+
+Resolution: the reading shelf is visually and structurally separate from the
+historical WikiDocs disclosure. Cards link outward, retain the external rights
+label, and reproduce no passages, figures, code, or book assets.
+
+`Risk: the historical WikiDocs page becomes a recommended learning path`
+
+Resolution: recommendation checks explicitly reject `wikidocs-index`. WikiDocs
+remains a page-level historical topic link only.
+
+`Risk: links exist only on the six editorial chapters`
+
+Resolution: the shelf renders on all English, Vietnamese, and Korean lesson
+routes, including the 116 reference notes. Route tests verify four cards on all
+366 localized pages.

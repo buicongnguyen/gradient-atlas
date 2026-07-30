@@ -17,6 +17,10 @@ six-step course-position map, states the chapter's purpose, and draws a
 four-step reasoning flow. It closes with a dependency-free Python exercise,
 expected output and interpretation, two multiple-choice checks with explained
 answers, and a dated current-practice note grounded in primary sources.
+Every one of the 122 lesson identities also ends with four topic-matched reading
+paths. The shelf distinguishes books, courses, and technical guides, explains
+why each resource is useful in all three languages, and keeps external rights
+separate from Gradient Atlas licensing.
 
 Every Vietnamese lesson displays its canonical English topic name and a curated
 Vietnamese–English terminology panel. Mathematically substantive lessons also
@@ -84,6 +88,7 @@ This release is a public preview:
 - one continuing late-delivery project;
 - six dependency-free Python exercises and twelve explained MCQs;
 - chapter-level orientation diagrams and dated current-practice guidance;
+- four curated continuation resources on every lesson and reference note;
 - logic-reviewed technical drafts;
 - native-language and independent technical review pending;
 - no copied WikiDocs prose, code, or media;

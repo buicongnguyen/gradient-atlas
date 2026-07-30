@@ -17,6 +17,14 @@ export type ReferenceId =
   | "dive-into-deep-learning"
   | "scikit-learn"
   | "statistical-learning"
+  | "mathematics-for-ml"
+  | "probabilistic-ml"
+  | "deep-learning-book"
+  | "sklearn-mooc"
+  | "fastai-book"
+  | "pytorch-tutorials"
+  | "huggingface-course"
+  | "full-stack-deep-learning"
   | "google-problem-framing"
   | "google-production-monitoring"
   | "sklearn-time-series-split"
@@ -91,6 +99,94 @@ export const referenceSources: ReferenceSource[] = [
       en: "Reading recommendation for its accessible sequence and end-of-chapter labs only. Nothing is copied, translated, or adapted.",
       vi: "Chỉ được đề xuất đọc vì trình tự dễ tiếp cận và lab cuối chương. Không sao chép, dịch hoặc chuyển thể nội dung.",
       ko: "접근하기 쉬운 순서와 장말 실습을 위한 읽기 자료로만 추천합니다. 어떤 내용도 복제·번역·각색하지 않습니다.",
+    },
+  },
+  {
+    id: "mathematics-for-ml",
+    title: "Mathematics for Machine Learning",
+    url: "https://mml-book.github.io/",
+    license: "Free-to-read book · publisher copyright",
+    use: {
+      en: "A focused bridge from linear algebra, calculus, probability, and optimization to central machine-learning methods. Recommended when a formula needs more derivation.",
+      vi: "Cầu nối có trọng tâm từ đại số tuyến tính, giải tích, xác suất và tối ưu hóa đến các phương pháp học máy cốt lõi. Phù hợp khi bạn cần xem kỹ phần suy diễn công thức.",
+      ko: "선형대수, 미적분, 확률, 최적화에서 핵심 머신러닝 방법으로 이어지는 수학 입문서입니다. 수식의 유도를 더 깊게 보고 싶을 때 권합니다.",
+    },
+  },
+  {
+    id: "probabilistic-ml",
+    title: "Probabilistic Machine Learning · An Introduction",
+    url: "https://probml.github.io/pml-book/book1.html",
+    license: "CC BY-NC-ND draft · MIT Press edition",
+    use: {
+      en: "A broad modern treatment that connects probability, decision theory, classical models, and deep learning. Best used as a deeper reference rather than a first quick read.",
+      vi: "Tài liệu hiện đại và rộng, nối xác suất, lý thuyết quyết định, mô hình cổ điển và deep learning. Phù hợp làm sách tra cứu chuyên sâu hơn là bài đọc nhanh đầu tiên.",
+      ko: "확률, 의사결정 이론, 고전 모델, 딥러닝을 연결하는 폭넓은 현대 교재입니다. 첫 입문서보다는 심화 참고서로 적합합니다.",
+    },
+  },
+  {
+    id: "deep-learning-book",
+    title: "Deep Learning · Goodfellow, Bengio, Courville",
+    url: "https://www.deeplearningbook.org/",
+    license: "Free-to-read online · MIT Press copyright",
+    use: {
+      en: "A rigorous reference for mathematical foundations, optimization, regularization, convolutional and sequence models, and representation learning.",
+      vi: "Sách tham khảo chặt chẽ về nền tảng toán học, tối ưu hóa, regularization, mô hình tích chập, mô hình chuỗi và representation learning.",
+      ko: "수학적 기초, 최적화, 정규화, 합성곱·시퀀스 모델, 표현 학습을 엄밀하게 다루는 참고서입니다.",
+    },
+  },
+  {
+    id: "sklearn-mooc",
+    title: "scikit-learn MOOC · Machine Learning in Python",
+    url: "https://inria.github.io/scikit-learn-mooc/",
+    license: "Free course · external rights retained",
+    use: {
+      en: "A self-paced, continuously maintained course from scikit-learn contributors, with executable notebooks on pipelines, preprocessing, model selection, and evaluation.",
+      vi: "Khóa tự học được các cộng tác viên scikit-learn duy trì liên tục, có notebook chạy được về pipeline, tiền xử lý, chọn mô hình và đánh giá.",
+      ko: "scikit-learn 기여자들이 지속적으로 관리하는 자율 학습 과정으로, 파이프라인·전처리·모델 선택·평가 실습 노트북을 제공합니다.",
+    },
+  },
+  {
+    id: "fastai-book",
+    title: "Practical Deep Learning for Coders · fast.ai",
+    url: "https://course.fast.ai/Resources/book.html",
+    license: "Free-to-read notebooks · prose rights retained",
+    use: {
+      en: "A code-first path through practical deep learning, deployment, computer vision, NLP, tabular models, and data ethics. Read and run it at the official site.",
+      vi: "Lộ trình ưu tiên mã nguồn về deep learning thực hành, triển khai, thị giác máy tính, NLP, mô hình bảng và đạo đức dữ liệu. Hãy đọc và chạy tại trang chính thức.",
+      ko: "실용 딥러닝, 배포, 컴퓨터 비전, NLP, 테이블 모델, 데이터 윤리를 코드 중심으로 배우는 과정입니다. 공식 사이트에서 읽고 실행할 수 있습니다.",
+    },
+  },
+  {
+    id: "pytorch-tutorials",
+    title: "PyTorch · Official Tutorials",
+    url: "https://docs.pytorch.org/tutorials/",
+    license: "Official tutorials · external rights retained",
+    use: {
+      en: "Runnable implementation guides ranging from tensors and training loops to vision, NLP, reinforcement learning, compilation, and distributed training.",
+      vi: "Hướng dẫn triển khai chạy được, từ tensor và training loop đến thị giác, NLP, reinforcement learning, biên dịch và huấn luyện phân tán.",
+      ko: "텐서와 학습 루프부터 비전, NLP, 강화학습, 컴파일, 분산 학습까지 다루는 실행 가능한 공식 구현 가이드입니다.",
+    },
+  },
+  {
+    id: "huggingface-course",
+    title: "Hugging Face · LLM Course",
+    url: "https://huggingface.co/learn/llm-course/en/chapter1/1",
+    license: "Free course · external rights retained",
+    use: {
+      en: "A current practical course connecting NLP foundations with transformers, datasets, tokenization, fine-tuning, evaluation, and modern LLM workflows.",
+      vi: "Khóa thực hành hiện hành nối nền tảng NLP với transformer, dataset, tokenization, fine-tuning, đánh giá và quy trình LLM hiện đại.",
+      ko: "NLP 기초를 트랜스포머, 데이터셋, 토큰화, 파인튜닝, 평가, 최신 LLM 워크플로와 연결하는 실습 과정입니다.",
+    },
+  },
+  {
+    id: "full-stack-deep-learning",
+    title: "Full Stack Deep Learning",
+    url: "https://fullstackdeeplearning.com/course/2022/",
+    license: "Free course · external rights retained",
+    use: {
+      en: "A system-level course on data management, testing, deployment, continual learning, monitoring, project design, and responsible ML operations.",
+      vi: "Khóa học cấp hệ thống về quản lý dữ liệu, kiểm thử, triển khai, continual learning, giám sát, thiết kế dự án và vận hành ML có trách nhiệm.",
+      ko: "데이터 관리, 테스트, 배포, 지속 학습, 모니터링, 프로젝트 설계, 책임 있는 ML 운영을 시스템 관점에서 다루는 과정입니다.",
     },
   },
   {

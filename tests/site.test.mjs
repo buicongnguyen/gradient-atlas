@@ -162,6 +162,8 @@ test("keeps the deeper guided blocks out of reference-only notes", async () => {
   assert.doesNotMatch(html, /id="try-it-yourself"/);
   assert.doesNotMatch(html, /id="mcq-review"/);
   assert.doesNotMatch(html, /id="current-practice"/);
+  assert.match(html, /id="continue-learning"/);
+  assert.equal((html.match(/class="reading-resource-card"/g) ?? []).length, 4);
 });
 
 test("renders bilingual Vietnamese terminology and original mathematical notation", async () => {
@@ -248,6 +250,10 @@ test("renders the source policy", async () => {
   assert.match(html, /Google · Machine Learning Crash Course/);
   assert.match(html, /NIST · AI Risk Management Framework Playbook/);
   assert.match(html, /Stanford HAI · 2026 AI Index/);
+  assert.match(html, /Mathematics for Machine Learning/);
+  assert.match(html, /Probabilistic Machine Learning · An Introduction/);
+  assert.match(html, /Practical Deep Learning for Coders · fast\.ai/);
+  assert.match(html, /Full Stack Deep Learning/);
   assert.match(html, /Dive into Deep Learning/);
   assert.match(html, /scikit-learn User Guide/);
   assert.match(html, /All rights reserved/);
@@ -257,6 +263,7 @@ test("renders the source policy", async () => {
   assert.match(html, /class="book-menu-button"/);
   assert.equal((html.match(/class="book-guided-link"/g) ?? []).length, 6);
   assert.equal((html.match(/class="book-page-link"/g) ?? []).length, 116);
+  assert.equal((html.match(/class="policy-reference-card"/g) ?? []).length, 24);
 });
 
 test("renders every source-corresponding page in every locale", async () => {
@@ -269,6 +276,17 @@ test("renders every source-corresponding page in every locale", async () => {
       assert.match(html, new RegExp(`<div lang="${locale}" class="site-shell book-site"`), `${locale}/${seed.slug}`);
       assert.match(html, new RegExp(`https://wikidocs.net/${seed.sourcePageId}`));
       assert.match(html, /historical-source/);
+      assert.match(html, /id="continue-learning"/, `${locale}/${seed.slug}`);
+      assert.equal(
+        (html.match(/class="reading-resource-card"/g) ?? []).length,
+        4,
+        `${locale}/${seed.slug}`,
+      );
+      const resourceIds = [
+        ...html.matchAll(/data-resource-id="([^"]+)"/g),
+      ].map((match) => match[1]);
+      assert.equal(new Set(resourceIds).size, 4, `${locale}/${seed.slug}`);
+      assert.ok(!resourceIds.includes("wikidocs-index"), `${locale}/${seed.slug}`);
       if (locale === "vi") {
         assert.match(html, /canonical-english-term/, `${locale}/${seed.slug}`);
         assert.match(html, /terminology-panel/, `${locale}/${seed.slug}`);

@@ -6,10 +6,10 @@ import { getGuidedDepth, guidedDepthUi } from "../../../data/guided-depth";
 import {
   courseUi,
   getGuidedSupport,
-  getReference,
   guidedSlugs,
   type GuidedSlug,
 } from "../../../data/guided-course";
+import { readingShelfUi } from "../../../data/reading-library";
 import { ArrowUpRight, Check, CircleDot } from "../../../ui/icons";
 import { BookSidebar } from "../../../ui/BookSidebar";
 import {
@@ -17,6 +17,7 @@ import {
   GuidedPracticeReview,
 } from "../../../ui/GuidedLearningBlocks";
 import { LessonDiagram } from "../../../ui/LessonDiagram";
+import { ReadingShelf } from "../../../ui/ReadingShelf";
 import { SiteHeader } from "../../../ui/SiteHeader";
 
 export function generateStaticParams() {
@@ -123,6 +124,14 @@ export default async function LessonPage({
                     </Link>
                   </>
                 )}
+                <Link href="#continue-learning">
+                  <span>
+                    {String(
+                      lesson.sections.length + (support ? 4 : 1),
+                    ).padStart(2, "0")}
+                  </span>
+                  {readingShelfUi[lang].eyebrow}
+                </Link>
               </nav>
             </details>
             <h1>{lesson.title}</h1>
@@ -230,24 +239,11 @@ export default async function LessonPage({
             <GuidedPracticeReview language={lang} slug={guidedSlug} />
           )}
 
-          {support && (
-            <section className="lesson-references">
-              <span>{course.furtherReading}</span>
-              <div>
-                {support.references.map((referenceId) => {
-                  const reference = getReference(referenceId);
-                  if (!reference) return null;
-                  return (
-                    <a href={reference.url} target="_blank" rel="noreferrer" key={reference.id}>
-                      <strong>{reference.title}<ArrowUpRight /></strong>
-                      <small>{reference.license}</small>
-                      <p>{reference.use[lang]}</p>
-                    </a>
-                  );
-                })}
-              </div>
-            </section>
-          )}
+          <ReadingShelf
+            language={lang}
+            lesson={lesson}
+            existing={support?.references}
+          />
 
           <aside className="article-source historical-source">
             <a

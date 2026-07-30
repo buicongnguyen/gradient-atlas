@@ -87,7 +87,7 @@ assert.equal(new Set(guidedSlugs).size, 6, "Guided course contains duplicate cha
 for (const slug of guidedSlugs) {
   assert.ok(curriculumSeeds.some((seed) => seed.slug === slug), `Unknown guided slug: ${slug}`);
 }
-assert.ok(referenceSources.length >= 16, "Expected the expanded primary-source reference library");
+assert.ok(referenceSources.length >= 24, "Expected the expanded reading and verification library");
 assert.equal(new Set(referenceSources.map((source) => source.id)).size, referenceSources.length);
 for (const source of referenceSources) {
   assert.match(source.url, /^https:\/\//, `${source.id} must use an HTTPS source URL`);
@@ -154,4 +154,4 @@ for (const slug of expectedDiagramSlugs) {
 await access("CONTENT_LICENSE.md");
 await access("LICENSE");
 
-console.log("Content audit passed: 6 deep guided chapters, 12 orientation visuals, 6 Python practices, 12 MCQs, 116 reference notes, and 122 topics × 3 locales.");
+console.log("Content audit passed: 122 topics × 3 locales, a 24-source reading and verification library, 6 deep guided chapters, 12 orientation visuals, 6 Python practices, and 12 MCQs.");

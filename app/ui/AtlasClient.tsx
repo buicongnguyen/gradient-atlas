@@ -183,7 +183,14 @@ export function AtlasClient({
     .filter((lesson): lesson is Lesson => Boolean(lesson));
   const referenceCount = lessons.length - guidedLessons.length;
   const featuredReferences = referenceSources.filter((source) =>
-    ["microsoft-ml-for-beginners", "google-ml-crash-course", "dive-into-deep-learning", "scikit-learn"].includes(source.id),
+    [
+      "microsoft-ml-for-beginners",
+      "google-ml-crash-course",
+      "dive-into-deep-learning",
+      "scikit-learn",
+      "mathematics-for-ml",
+      "sklearn-mooc",
+    ].includes(source.id),
   );
   return (
     <>

@@ -38,7 +38,7 @@ export default function SourcePolicyPage() {
             </p>
             <div className="policy-reference-list">
               {referenceSources.map((source) => (
-                <a href={source.url} key={source.id}>
+                <a className="policy-reference-card" href={source.url} key={source.id}>
                   <strong>{source.title}</strong>
                   <small>{source.license}</small>
                   <p>{source.use.en}</p>
