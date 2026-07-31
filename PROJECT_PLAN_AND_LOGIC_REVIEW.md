@@ -961,9 +961,11 @@ regression, probabilistic models, optimization, evaluation metrics, fitting
 diagnostics, regularization, deployment latency, monitoring, and scalability.
 Each entry is independently typeset and accompanied by an original trilingual
 explanation and symbol definitions. All 32 algorithm and code-focused pages go
-one level deeper: two reviewed intermediate equations lead into the existing
-anchor as a three-stage `set up → calculate → conclude` solution flow. The
-desktop reader keeps the stages side by side to reduce scrolling; narrow screens
+one level deeper with variable-length derivations. Each equation states its
+purpose, defines every displayed component, and ends with an explicit reasoning
+bridge explaining why the following equation is needed. A derivation ends at
+its natural mathematical result rather than at an arbitrary three-step limit.
+The desktop reader keeps stages side by side to reduce scrolling; narrow screens
 retain that relationship in a horizontally scrollable track.
 
 ### 15.1 Logic review
@@ -980,9 +982,11 @@ Resolution: formula support is keyed to specific mathematically substantive
 topics. Historical, policy, and other prose-first pages are not forced to
 contain equations. Automated checks reject unknown lesson keys, missing
 localized explanations or symbol definitions, technical pages without a
-mathematical anchor, technical flows without exactly two intermediate steps,
-missing localized step explanations, source URLs inside formulas, and coverage
-below the reviewed baseline.
+mathematical anchor, technical flows with fewer than two intermediate steps,
+steps without component definitions, missing localized explanations, source
+URLs inside formulas, and coverage below the reviewed baseline. The audit also
+requires at least one reviewed derivation beyond three equations so the data
+model cannot regress to a fixed three-card template.
 
 `Risk: mathematical facts are confused with copied exposition`
 

@@ -27,9 +27,10 @@ and all three editions include a curated terminology panel. Eighty-seven
 mathematically substantive topics now include independently written notation
 blocks with trilingual explanations and symbol definitions; every algorithm
 and code-focused lesson has a mathematical anchor. All 32 algorithm and
-code-focused lessons additionally present a compact three-equation reasoning
-flow—set up, calculate, conclude—so the notation teaches a solution path rather
-than displaying an isolated result.
+code-focused lessons additionally present a variable-length derivation. Every
+equation explains its own symbols and role, then states why its result is needed
+by the following equation. The sequence stops only when the lesson reaches its
+natural result; it is not forced into a fixed number of formulas.
 
 Twenty-two core lessons include original, code-native concept diagrams. The
 visual set covers data leakage, dataset splitting, the confusion matrix,

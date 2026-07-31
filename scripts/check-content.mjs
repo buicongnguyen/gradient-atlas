@@ -78,15 +78,17 @@ for (const [slug, formula] of formulaEntries) {
     assert.ok(formulaStep.explanation.en.trim(), `${slug} formula step ${index + 1} lacks English`);
     assert.ok(formulaStep.explanation.vi.trim(), `${slug} formula step ${index + 1} lacks Vietnamese`);
     assert.ok(formulaStep.explanation.ko.trim(), `${slug} formula step ${index + 1} lacks Korean`);
+    assert.ok(formulaStep.components?.length, `${slug} formula step ${index + 1} lacks component definitions`);
+    assert.ok(formulaStep.components.every((component) => component.includes(":")), `${slug} formula step ${index + 1} has an unexplained component`);
     assert.doesNotMatch(formulaStep.expression, /wikidocs|https?:\/\//i, `${slug} flow must be source-independent`);
   }
 }
 const technicalSeeds = curriculumSeeds.filter((item) => item.kind === "algorithm" || item.kind === "code");
 for (const seed of technicalSeeds) {
   assert.ok(formulaSupportBySlug[seed.slug], `${seed.slug} technical page needs a mathematical anchor`);
-  assert.equal(formulaSupportBySlug[seed.slug].steps?.length, 2, `${seed.slug} needs a three-equation solution flow`);
-  assert.deepEqual(formulaSupportBySlug[seed.slug].steps.map((step) => step.stage), ["setup", "compute"], `${seed.slug} flow order changed`);
+  assert.ok(formulaSupportBySlug[seed.slug].steps?.length >= 2, `${seed.slug} needs a multi-equation solution flow`);
 }
+assert.ok(technicalSeeds.some((seed) => formulaSupportBySlug[seed.slug].steps.length > 2), "Formula flows must not be fixed to three equations");
 
 for (const document of catalog.documents) {
   const seed = curriculumSeeds.find((item) => item.id === document.id);
@@ -198,4 +200,4 @@ for (const slug of expectedDiagramSlugs) {
 await access("CONTENT_LICENSE.md");
 await access("LICENSE");
 
-console.log(`Content audit passed: 122 topics × 3 structurally matched locales, ${formulaEntries.length} mathematical anchors and ${technicalSeeds.length} three-equation solution flows with trilingual explanations, localized terminology parity, a 24-source reading and verification library, 6 deep guided chapters, 12 orientation visuals, 6 Python practices, and 12 MCQs.`);
+console.log(`Content audit passed: 122 topics × 3 structurally matched locales, ${formulaEntries.length} mathematical anchors and ${technicalSeeds.length} variable-length derivation flows with per-equation components and trilingual reasoning bridges, localized terminology parity, a 24-source reading and verification library, 6 deep guided chapters, 12 orientation visuals, 6 Python practices, and 12 MCQs.`);

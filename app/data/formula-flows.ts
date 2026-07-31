@@ -45,10 +45,12 @@ export const formulaFlowsBySlug: Record<string, FormulaStep[]> = {
   "linear-regression": [
     step("setup", "ŷᵢ = β₀ + Σ_j β_jxᵢⱼ", "Use the current coefficients to predict each response.", "Dùng các hệ số hiện tại để dự đoán từng đáp ứng.", "현재 계수로 각 반응값을 예측합니다."),
     step("compute", "eᵢ = yᵢ − ŷᵢ", "Turn every prediction into a residual.", "Chuyển mỗi dự đoán thành một phần dư.", "각 예측을 잔차로 바꿉니다."),
+    step("compute", "MSE(β) = (1/n)Σ_i eᵢ²", "Combine all residuals into one differentiable measure of fit.", "Gộp mọi phần dư thành một thước đo độ khớp khả vi.", "모든 잔차를 하나의 미분 가능한 적합도 척도로 결합합니다."),
   ],
   "logistic-regression": [
     step("setup", "zᵢ = wᵀxᵢ+b", "Combine features into a linear score.", "Kết hợp các đặc trưng thành một điểm tuyến tính.", "특징을 선형 점수로 결합합니다."),
     step("compute", "pᵢ = 1/(1+e^{−zᵢ})", "Map the unbounded score to a probability.", "Ánh xạ điểm không bị chặn thành xác suất.", "제한 없는 점수를 확률로 변환합니다."),
+    step("compute", "CE(w,b) = −(1/n)Σ_i[yᵢlog pᵢ + (1−yᵢ)log(1−pᵢ)]", "Measure how well those probabilities agree with the observed binary labels.", "Đo mức độ các xác suất đó phù hợp với nhãn nhị phân đã quan sát.", "그 확률이 관측된 이진 레이블과 얼마나 잘 맞는지 측정합니다."),
   ],
   "genetic-algorithms": [
     step("setup", "Fᵢ = fitness(candidateᵢ)", "Evaluate every candidate with the task objective.", "Đánh giá từng ứng viên bằng mục tiêu của tác vụ.", "과제 목적함수로 각 후보를 평가합니다."),
@@ -60,7 +62,7 @@ export const formulaFlowsBySlug: Record<string, FormulaStep[]> = {
   ],
   "naive-bayes-classifier": [
     step("setup", "log score(y) = log P(y) + Σ_j log P(x_j|y)", "Add log-prior and log-likelihood terms for numerical stability.", "Cộng log tiên nghiệm và log khả năng để ổn định số học.", "수치 안정성을 위해 로그 사전확률과 로그 우도를 더합니다."),
-    step("compute", "ŷ = arg max_y log score(y)", "Select the class with the largest posterior score.", "Chọn lớp có điểm hậu nghiệm lớn nhất.", "사후 점수가 가장 큰 클래스를 선택합니다."),
+    step("compute", "P(y|x) = exp(log score(y)) / Σ_c exp(log score(c))", "Normalize the class scores into posterior probabilities.", "Chuẩn hóa các điểm lớp thành xác suất hậu nghiệm.", "클래스 점수를 사후확률로 정규화합니다."),
   ],
   "relevance-vector-machine": [
     step("setup", "Φᵢⱼ = K(xᵢ,xⱼ)", "Build a kernel design matrix from training examples.", "Lập ma trận thiết kế kernel từ các ví dụ huấn luyện.", "학습 예제로 커널 설계 행렬을 만듭니다."),
@@ -121,6 +123,7 @@ export const formulaFlowsBySlug: Record<string, FormulaStep[]> = {
   "practical-fitting-solutions": [
     step("setup", "J(θ,λ)=L_data(θ)+λΩ(θ)", "Write the fitting and complexity terms in one objective.", "Viết các hạng tử độ khớp và độ phức tạp trong một mục tiêu.", "적합도와 복잡도 항을 하나의 목적함수로 씁니다."),
     step("compute", "θ*(λ)=arg min_θ J(θ,λ)", "Fit one model for each candidate regularization strength.", "Khớp một mô hình cho mỗi độ mạnh điều chuẩn ứng viên.", "각 후보 정규화 강도마다 모델 하나를 적합합니다."),
+    step("compute", "λ* = arg min_λ L_val(θ*(λ))", "Use validation loss to choose among the fitted regularization strengths.", "Dùng mất mát xác thực để chọn trong các độ mạnh điều chuẩn đã khớp.", "검증 손실로 적합한 정규화 강도 중 하나를 선택합니다."),
   ],
   "model-training": [
     step("setup", "L_batch(θ_t)=(1/B)Σ_iL(f_{θ_t}(xᵢ),yᵢ)", "Aggregate example losses within the current batch.", "Gộp mất mát của các ví dụ trong batch hiện tại.", "현재 배치 안의 예제 손실을 집계합니다."),
@@ -139,3 +142,143 @@ export const formulaFlowsBySlug: Record<string, FormulaStep[]> = {
     step("compute", "m_{−j}=metric(system without component j)", "Remove one component while holding the rest fixed.", "Loại một thành phần trong khi giữ cố định phần còn lại.", "나머지는 고정하고 구성요소 하나를 제거합니다."),
   ],
 };
+
+const componentsBySlug: Record<string, string[][]> = {
+  "ensemble-learning": [
+    ["ŷₘ: prediction from base model m", "fₘ: base model m", "x: input", "M: number of models"],
+    ["wₘ: weight of model m", "Σₘwₘ=1: normalized weights", "wₘ≥0: nonnegative contribution"],
+  ],
+  clustering: [
+    ["xᵢ: data point i", "μ_k: center of cluster k", "cᵢ: assigned cluster", "‖·‖²: squared distance"],
+    ["C_k: points assigned to cluster k", "|C_k|: cluster size", "μ_k: updated mean center"],
+  ],
+  "dimensionality-reduction-and-metric-learning": [
+    ["X: data matrix", "μ: feature-mean vector", "1μᵀ: repeated mean row", "X_c: centered data"],
+    ["S: covariance matrix", "v_j: eigenvector", "λ_j: explained variance", "n: sample count"],
+  ],
+  "sparse-dictionary-learning": [
+    ["X: observations", "D: dictionary atoms", "α: sparse coefficients", "≈: approximate reconstruction"],
+    ["‖X−Dα‖²_F: reconstruction error", "‖α‖₁: sparsity penalty", "λ: sparsity strength"],
+  ],
+  "anomaly-detection": [
+    ["p̂(x): estimated normal-data likelihood", "−log: negative log transform", "s(x): anomaly score"],
+    ["τ: alert threshold", "α: allowed normal-tail rate", "quantile: selected score percentile"],
+  ],
+  "association-rule-learning": [
+    ["A: item set", "count(A): transactions containing A", "N: transaction count", "support(A): occurrence rate"],
+    ["A∩B: transactions satisfying both sides", "A∪B: all items required together", "support(A∩B): joint rate"],
+  ],
+  "decision-trees": [
+    ["S: samples at a node", "c: class", "p_c: class proportion", "H(S): entropy"],
+    ["S_j: child subset j", "n_j/n: child weight", "H_after: weighted post-split entropy"],
+  ],
+  "support-vector-machines": [
+    ["xᵢ: feature vector", "yᵢ∈{−1,+1}: label", "w,b: separating hyperplane", "mᵢ: signed margin"],
+    ["ℓᵢ: hinge loss", "1−mᵢ: margin shortfall", "max(0,·): no penalty outside the margin"],
+  ],
+  "linear-regression": [
+    ["ŷᵢ: prediction", "β₀: intercept", "β_j: coefficient j", "xᵢⱼ: feature j of example i"],
+    ["eᵢ: residual", "yᵢ: observed response", "ŷᵢ: predicted response"],
+    ["MSE: mean squared error", "eᵢ²: squared residual", "n: sample count", "β: coefficient vector"],
+  ],
+  "logistic-regression": [
+    ["zᵢ: linear score", "w: weight vector", "xᵢ: feature vector", "b: intercept"],
+    ["pᵢ: predicted positive probability", "e: exponential constant", "zᵢ: linear score"],
+    ["CE: binary cross-entropy", "yᵢ: binary label", "pᵢ: predicted probability", "n: sample count"],
+  ],
+  "genetic-algorithms": [
+    ["candidateᵢ: solution i", "fitness(·): task objective", "Fᵢ: raw fitness"],
+    ["F_min: smallest fitness", "ε: positive floor", "Fᵢ: safe selection weight"],
+  ],
+  perceptron: [
+    ["sᵢ: signed score", "w: weight vector", "xᵢ: feature vector", "b: intercept"],
+    ["ŷᵢ: predicted label", "sign(·): sign decision", "𝟙[·]: mistake indicator", "yᵢ: true label"],
+  ],
+  "naive-bayes-classifier": [
+    ["P(y): class prior", "P(x_j|y): feature likelihood", "log score(y): unnormalized log posterior"],
+    ["P(y|x): posterior probability", "exp(·): inverse log transform", "c: candidate class", "Σ_c: normalization over classes"],
+  ],
+  "relevance-vector-machine": [
+    ["Φ: kernel design matrix", "K: kernel function", "xᵢ,xⱼ: training examples"],
+    ["Σ: posterior covariance", "μ: posterior mean", "β: noise precision", "A: prior-precision matrix"],
+  ],
+  "ml-problem-formulation": [
+    ["D: dataset", "xᵢ: input", "yᵢ: target", "n: example count"],
+    ["R̂(θ): empirical risk", "f_θ: parameterized model", "L: example loss", "θ: parameters"],
+  ],
+  "data-normalization": [
+    ["μ: training mean", "xᵢ: training value", "n: training count"],
+    ["σ: training standard deviation", "xᵢ−μ: centered value", "√: square root"],
+  ],
+  "feature-selection": [
+    ["L(w): prediction loss", "f_w: weighted model", "xᵢ,yᵢ: labeled example", "n: sample count"],
+    ["Ω(w): L1 penalty", "w_j: feature coefficient", "|w_j|: coefficient magnitude"],
+  ],
+  "data-visualization": [
+    ["x̄,ȳ: sample means", "x̃ᵢ,ỹᵢ: centered values", "xᵢ,yᵢ: paired observation"],
+    ["cov(x,y): covariance", "Σ_ix̃ᵢỹᵢ: joint variation", "n−1: sample correction"],
+  ],
+  "cross-validation": [
+    ["D: complete dataset", "V_k: validation fold k", "⊔: disjoint union", "K: fold count"],
+    ["D∖V_k: training folds", "m_k: fold metric", "train(·): fitting procedure"],
+  ],
+  "hyperparameter-tuning": [
+    ["Λ: search space", "λ_m: candidate configuration", "M: candidate count"],
+    ["s_m: validation score", "CV(λ_m): cross-validated evaluation", "λ_m: candidate"],
+  ],
+  "training-loop": [
+    ["L_t: batch loss", "B: batch size", "θ_t: current parameters", "f_{θ_t}: current model"],
+    ["g_t: gradient", "∇_θ: derivative by parameters", "L_t: current loss"],
+  ],
+  reproducibility: [
+    ["run_id: experiment identity", "hash(·): deterministic fingerprint", "seed: random seed"],
+    ["Δ: metric difference", "run_a,run_b: recorded runs", "metric(·): evaluation function"],
+  ],
+  "confusion-matrix": [
+    ["pᵢ: predicted probability", "τ: decision threshold", "ŷᵢ: predicted label", "𝟙: indicator"],
+    ["TP: true-positive count", "yᵢ: true label", "ŷᵢ: predicted label", "∧: both conditions"],
+  ],
+  "roc-auc": [
+    ["pᵢ: model score", "τ: swept threshold", "ŷᵢ(τ): thresholded decision"],
+    ["TPR(τ): true-positive rate", "FPR(τ): false-positive rate", "ROC: set of rate pairs"],
+  ],
+  "real-world-evaluation": [
+    ["FP(τ): false positives", "FN(τ): false negatives", "pᵢ: score", "τ: threshold"],
+    ["N_flagged(τ): review volume", "𝟙[pᵢ≥τ]: flagged-case indicator", "Σ_i: sum over cases"],
+  ],
+  "overfitting-detection": [
+    ["g_t: generalization gap", "L_val,t: validation loss", "L_train,t: training loss"],
+    ["t_best: best checkpoint", "arg min_t: lowest-loss epoch", "L_val,t: validation loss history"],
+  ],
+  "underfitting-detection": [
+    ["L_train: training loss", "L_target: acceptable target loss", "≫: substantially larger"],
+    ["gap: train–validation difference", "L_val: validation loss", "|·|: absolute difference"],
+  ],
+  "practical-fitting-solutions": [
+    ["J: regularized objective", "L_data: fit loss", "Ω: complexity penalty", "λ: penalty strength"],
+    ["θ*(λ): fitted parameters", "arg min_θ: loss-minimizing choice", "λ: candidate strength"],
+    ["λ*: selected strength", "L_val: validation loss", "θ*(λ): model fitted at strength λ"],
+  ],
+  "model-training": [
+    ["L_batch: batch loss", "B: batch size", "f_{θ_t}: current model", "yᵢ: target"],
+    ["g_t: parameter gradient", "∇_θ: differentiation", "L_batch: batch objective"],
+  ],
+  "error-analysis": [
+    ["E: error-index set", "ŷᵢ: prediction", "yᵢ: target", "≠: incorrect decision"],
+    ["n_s: slice size", "s: chosen data slice", "𝟙[xᵢ∈s]: membership indicator"],
+  ],
+  "real-world-case-study": [
+    ["U(d): utility of design d", "benefit(d): expected gain", "cost(d): expected expense"],
+    ["feasible(d): constraint indicator", "R,B,C: risk, latency, and cost limits", "∧: all constraints hold"],
+  ],
+  "debugging-strategies": [
+    ["m_full: baseline metric", "system: complete pipeline", "metric(·): stable evaluation"],
+    ["m_{−j}: ablated metric", "component j: removed subsystem", "system without j: controlled ablation"],
+  ],
+};
+
+for (const [slug, components] of Object.entries(componentsBySlug)) {
+  formulaFlowsBySlug[slug]?.forEach((formulaStep, index) => {
+    formulaStep.components = components[index];
+  });
+}

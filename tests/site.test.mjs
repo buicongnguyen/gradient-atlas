@@ -173,9 +173,9 @@ test("keeps the deeper guided blocks out of reference-only notes", async () => {
 
 test("renders matched trilingual terminology and original mathematical notation", async () => {
   const terminologyCases = {
-    en: [/Key terminology/, /Linear regression/],
-    vi: [/canonical-english-term/, /Thuật ngữ Việt–Anh/, /Hồi quy tuyến tính/, /Linear regression/, /Ký hiệu/],
-    ko: [/canonical-english-term/, /한영 핵심 용어/, /선형 회귀/, /Linear regression/, /기호/],
+    en: [/Key terminology/, /Linear regression/, /Components/, /Why the next equation/],
+    vi: [/canonical-english-term/, /Thuật ngữ Việt–Anh/, /Hồi quy tuyến tính/, /Linear regression/, /Các thành phần/, /Vì sao cần công thức tiếp theo/],
+    ko: [/canonical-english-term/, /한영 핵심 용어/, /선형 회귀/, /Linear regression/, /구성요소/, /왜 다음 식이 필요한가요/],
   };
   for (const [locale, patterns] of Object.entries(terminologyCases)) {
     const terminologyResponse = await render(`/${locale}/learn/linear-regression/`);
@@ -199,12 +199,14 @@ test("renders matched trilingual terminology and original mathematical notation"
   const technicalSeeds = curriculumSeeds.filter((item) => item.kind === "algorithm" || item.kind === "code");
   assert.equal(technicalSeeds.length, 32);
   for (const seed of technicalSeeds) {
-    assert.equal(formulaSupportBySlug[seed.slug].steps?.length, 2, seed.slug);
+    assert.ok(formulaSupportBySlug[seed.slug].steps?.length >= 2, seed.slug);
     for (const locale of ["en", "vi", "ko"]) {
       const response = await render(`/${locale}/learn/${seed.slug}/`);
       const html = await response.text();
       assert.match(html, /formula-flow-steps/, `${locale}/${seed.slug}`);
-      assert.equal((html.match(/class="formula-expression"/g) ?? []).length >= 3, true, `${locale}/${seed.slug}`);
+      assert.match(html, /formula-components/, `${locale}/${seed.slug}`);
+      assert.match(html, /formula-transition/, `${locale}/${seed.slug}`);
+      assert.equal((html.match(/class="formula-expression"/g) ?? []).length >= formulaSupportBySlug[seed.slug].steps.length + 1, true, `${locale}/${seed.slug}`);
     }
   }
 });

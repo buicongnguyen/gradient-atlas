@@ -18,6 +18,9 @@ export type LessonSection = {
     label: string;
     expression: string;
     explanation: string;
+    components: string[];
+    nextReason?: string;
+    isResult: boolean;
   }>;
   code?: string;
   note?: string;
@@ -895,10 +898,23 @@ const formulaFlowHeadings: Record<Language, string> = {
   ko: "수학적 해결 흐름",
 };
 
-const formulaStageLabels: Record<Language, Record<"setup" | "compute" | "result", string>> = {
-  en: { setup: "1 · Set up", compute: "2 · Calculate", result: "3 · Conclude" },
-  vi: { setup: "1 · Thiết lập", compute: "2 · Tính toán", result: "3 · Kết luận" },
-  ko: { setup: "1 · 설정", compute: "2 · 계산", result: "3 · 결론" },
+const formulaFlowIntroductions: Record<Language, string> = {
+  en: "Read this derivation in order. Each equation defines its components, then explains why the next equation is needed.",
+  vi: "Hãy đọc phép suy dẫn theo thứ tự. Mỗi công thức giải thích các thành phần, rồi nêu lý do cần công thức tiếp theo.",
+  ko: "이 유도 과정을 순서대로 읽으세요. 각 식은 구성요소를 설명한 뒤 다음 식이 필요한 이유를 밝힙니다.",
+};
+
+const formulaStepLabel = (language: Language, index: number, isResult: boolean): string => {
+  const number = index + 1;
+  if (language === "vi") return `${isResult ? "Kết quả" : "Bước"} ${number}`;
+  if (language === "ko") return `${number}단계${isResult ? " · 결론" : ""}`;
+  return `${isResult ? "Result" : "Step"} ${number}`;
+};
+
+const formulaTransition = (language: Language, nextExplanation: string): string => {
+  if (language === "vi") return `Kết quả của bước này là đầu vào cần thiết cho bước kế tiếp: ${nextExplanation}`;
+  if (language === "ko") return `이 단계의 결과가 다음 단계에 필요한 입력이 됩니다. ${nextExplanation}`;
+  return `The result of this step is the input needed next: ${nextExplanation}`;
 };
 
 function enrichLesson(
@@ -909,19 +925,35 @@ function enrichLesson(
   const support = formulaSupportBySlug[seed.slug];
   const alreadyHasFormula = lesson.sections.some((section) => section.formula);
   const hasFlow = Boolean(support?.steps?.length);
+  const flowSteps = support && hasFlow
+    ? [
+        ...support.steps!,
+        {
+          stage: "compute" as const,
+          expression: support.expression,
+          explanation: support.explanation,
+          components: support.variables,
+        },
+      ]
+    : undefined;
   const sections =
     support && (!alreadyHasFormula || hasFlow)
       ? [
           ...lesson.sections,
           {
             heading: hasFlow ? formulaFlowHeadings[language] : formulaSectionHeadings[language],
-            paragraphs: [support.explanation[language]],
+            paragraphs: [hasFlow ? formulaFlowIntroductions[language] : support.explanation[language]],
             formula: support.expression,
             formulaVariables: support.variables,
-            formulaSteps: support.steps?.map((formulaStep) => ({
-              label: formulaStageLabels[language][formulaStep.stage],
+            formulaSteps: flowSteps?.map((formulaStep, index) => ({
+              label: formulaStepLabel(language, index, index === flowSteps.length - 1),
               expression: formulaStep.expression,
               explanation: formulaStep.explanation[language],
+              components: formulaStep.components ?? [],
+              nextReason: flowSteps[index + 1]
+                ? formulaTransition(language, flowSteps[index + 1].explanation[language])
+                : undefined,
+              isResult: index === flowSteps.length - 1,
             })),
           },
         ]

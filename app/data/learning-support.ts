@@ -20,6 +20,7 @@ export type FormulaStep = {
   stage: "setup" | "compute";
   expression: string;
   explanation: Record<LearningLanguage, string>;
+  components?: string[];
 };
 
 const vietnameseTerms = {
@@ -365,22 +366,22 @@ export const formulaSupportBySlug: Record<string, FormulaSupport> = {
     variables: ["C: violation cost", "w,b: decision boundary"],
   },
   "linear-regression": {
-    expression: "ŷ = β₀ + Σⱼ βⱼxⱼ,   MSE = (1/n)Σᵢ(yᵢ−ŷᵢ)²",
+    expression: "β* = arg min_β MSE(β)",
     explanation: explanations(
-      "Linear regression predicts an additive response and commonly fits it by mean squared error.",
-      "Hồi quy tuyến tính dự đoán đáp ứng cộng tính và thường khớp mô hình bằng sai số bình phương trung bình.",
-      "선형회귀는 가산적 반응을 예측하며 보통 평균제곱오차로 적합합니다.",
+      "Choose the coefficients that make mean squared error as small as possible.",
+      "Chọn các hệ số làm cho sai số bình phương trung bình nhỏ nhất có thể.",
+      "평균제곱오차를 가장 작게 만드는 계수를 선택합니다.",
     ),
-    variables: ["β: coefficients", "ŷ: prediction"],
+    variables: ["β*: fitted coefficient vector", "arg min_β: coefficient choice minimizing MSE", "MSE(β): mean squared error"],
   },
   "logistic-regression": {
-    expression: "P(y=1|x) = σ(wᵀx+b) = 1 / (1+e^{−(wᵀx+b)})",
+    expression: "(w*,b*) = arg min_{w,b} CE(w,b)",
     explanation: explanations(
-      "The sigmoid maps a linear score to a value between zero and one.",
-      "Hàm sigmoid ánh xạ điểm tuyến tính thành một giá trị nằm giữa 0 và 1.",
-      "시그모이드는 선형 점수를 0과 1 사이의 값으로 변환합니다.",
+      "Choose the weights and intercept that minimize binary cross-entropy.",
+      "Chọn trọng số và hệ số chặn làm nhỏ nhất cross-entropy nhị phân.",
+      "이진 교차엔트로피를 최소화하는 가중치와 절편을 선택합니다.",
     ),
-    variables: ["σ: sigmoid", "w,b: model parameters"],
+    variables: ["w*,b*: fitted parameters", "arg min: loss-minimizing choice", "CE(w,b): binary cross-entropy"],
   },
   "bayesian-networks": {
     expression: "P(x₁,…,xₙ) = ∏ᵢ P(xᵢ | parents(xᵢ))",
@@ -419,13 +420,13 @@ export const formulaSupportBySlug: Record<string, FormulaSupport> = {
     variables: ["η: learning rate"],
   },
   "naive-bayes-classifier": {
-    expression: "P(y|x₁,…,x_d) ∝ P(y) ∏ⱼ P(xⱼ|y)",
+    expression: "ŷ = arg max_y P(y|x)",
     explanation: explanations(
-      "Naive Bayes combines a class prior with conditionally independent feature likelihoods.",
-      "Naive Bayes kết hợp tiên nghiệm của lớp với các hàm khả năng đặc trưng độc lập có điều kiện.",
-      "나이브 베이즈는 클래스 사전확률과 조건부 독립 특징 우도를 결합합니다.",
+      "Choose the class with the largest normalized posterior probability.",
+      "Chọn lớp có xác suất hậu nghiệm đã chuẩn hóa lớn nhất.",
+      "정규화된 사후확률이 가장 큰 클래스를 선택합니다.",
     ),
-    variables: ["P(y): class prior", "P(xⱼ|y): feature likelihood"],
+    variables: ["ŷ: predicted class", "arg max_y: largest-probability class", "P(y|x): posterior class probability"],
   },
   "learning-probabilistic-models": {
     expression: "θ_MLE = arg max_θ Σᵢ log p(xᵢ|θ)",
@@ -491,13 +492,13 @@ export const formulaSupportBySlug: Record<string, FormulaSupport> = {
     variables: ["N: evaluated sample count"],
   },
   "roc-auc": {
-    expression: "TPR = TP/(TP+FN),   FPR = FP/(FP+TN),   AUC = ∫₀¹ TPR(FPR) dFPR",
+    expression: "AUC = ∫₀¹ TPR(FPR) dFPR",
     explanation: explanations(
-      "An ROC curve traces true-positive and false-positive rates as the threshold changes.",
-      "Đường ROC theo dõi tỷ lệ dương tính thật và dương tính giả khi ngưỡng thay đổi.",
-      "ROC 곡선은 임곗값에 따른 참양성률과 거짓양성률을 추적합니다.",
+      "Integrate the ROC curve to summarize ranking performance across all thresholds.",
+      "Tích phân đường ROC để tóm tắt hiệu năng xếp hạng trên mọi ngưỡng.",
+      "ROC 곡선을 적분해 모든 임곗값에서의 순위 성능을 요약합니다.",
     ),
-    variables: ["TPR: true-positive rate", "FPR: false-positive rate", "AUC: area under the ROC curve"],
+    variables: ["AUC: area under the ROC curve", "TPR(FPR): ROC curve", "dFPR: integration over false-positive rate"],
   },
   "regression-metrics": {
     expression: "MAE = (1/n)Σᵢ|yᵢ−ŷᵢ|,   RMSE = √[(1/n)Σᵢ(yᵢ−ŷᵢ)²]",

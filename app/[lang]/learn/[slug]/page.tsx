@@ -20,10 +20,10 @@ import { LessonDiagram } from "../../../ui/LessonDiagram";
 import { ReadingShelf } from "../../../ui/ReadingShelf";
 import { SiteHeader } from "../../../ui/SiteHeader";
 
-const formulaResultLabels = {
-  en: "3 · Conclude",
-  vi: "3 · Kết luận",
-  ko: "3 · 결론",
+const formulaFlowCopy = {
+  en: { components: "Components", whyNext: "Why the next equation?" },
+  vi: { components: "Các thành phần", whyNext: "Vì sao cần công thức tiếp theo?" },
+  ko: { components: "구성요소", whyNext: "왜 다음 식이 필요한가요?" },
 };
 
 export function generateStaticParams() {
@@ -210,20 +210,26 @@ export default async function LessonPage({
                   {section.formulaSteps && (
                     <ol className="formula-flow-steps">
                       {section.formulaSteps.map((formulaStep) => (
-                        <li key={formulaStep.expression}>
+                        <li className={formulaStep.isResult ? "formula-flow-result" : undefined} key={formulaStep.expression}>
                           <span className="formula-step-label">{formulaStep.label}</span>
+                          <div className="formula-components">
+                            <strong>{formulaFlowCopy[lang].components}</strong>
+                            <ul>
+                              {formulaStep.components.map((component) => <li key={component}>{component}</li>)}
+                            </ul>
+                          </div>
                           <div className="formula-expression" role="math" aria-label={formulaStep.expression}>
                             {formulaStep.expression}
                           </div>
                           <p>{formulaStep.explanation}</p>
+                          {formulaStep.nextReason && (
+                            <aside className="formula-transition">
+                              <strong>{formulaFlowCopy[lang].whyNext}</strong>
+                              <p>{formulaStep.nextReason}</p>
+                            </aside>
+                          )}
                         </li>
                       ))}
-                      <li className="formula-flow-result">
-                        <span className="formula-step-label">{formulaResultLabels[lang]}</span>
-                        <div className="formula-expression" role="math" aria-label={section.formula}>
-                          {section.formula}
-                        </div>
-                      </li>
                     </ol>
                   )}
                   {!section.formulaSteps && (
@@ -231,7 +237,7 @@ export default async function LessonPage({
                       {section.formula}
                     </div>
                   )}
-                  {section.formulaVariables && (
+                  {section.formulaVariables && !section.formulaSteps && (
                     <figcaption>
                       <strong>{copy.formulaVariables}</strong>
                       <ul>

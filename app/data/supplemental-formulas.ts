@@ -71,13 +71,13 @@ export const supplementalFormulaSupport: Record<string, FormulaSupport> = {
     variables: ["Fᵢ: fitness of candidate i", "p: selection probability"],
   },
   "relevance-vector-machine": {
-    expression: "y(x) = Σⱼ wⱼ K(x,xⱼ) + ε,   wⱼ ~ N(0, αⱼ⁻¹)",
+    expression: "ŷ(x*) = φ(x*)ᵀμ",
     explanation: explanations(
-      "A relevance vector machine combines kernel basis functions with individual sparse Bayesian priors on their weights.",
-      "Máy vector liên quan kết hợp các hàm cơ sở kernel với tiên nghiệm Bayes thưa riêng cho từng trọng số.",
-      "관련 벡터 머신은 커널 기저함수와 각 가중치에 대한 희소 베이지안 사전분포를 결합합니다.",
+      "Use the posterior mean weights with the new point's kernel features to make a prediction.",
+      "Dùng trọng số trung bình hậu nghiệm với các đặc trưng kernel của điểm mới để dự đoán.",
+      "사후 평균 가중치와 새 점의 커널 특징으로 예측합니다.",
     ),
-    variables: ["K: kernel", "wⱼ: basis weight", "αⱼ: prior precision"],
+    variables: ["ŷ(x*): prediction for a new point", "φ(x*): kernel-feature vector", "μ: posterior mean weights"],
   },
   "what-machine-learning-learns": {
     expression: "f* = arg min_{f∈ℱ} E_{(x,y)~P}[L(f(x),y)]",
@@ -332,13 +332,13 @@ export const supplementalFormulaSupport: Record<string, FormulaSupport> = {
     variables: ["n: training examples", "error_∞: asymptotic error", "a,b: fitted constants"],
   },
   "practical-fitting-solutions": {
-    expression: "θ* = arg min_θ [L_data(θ) + λΩ(θ)]",
+    expression: "θ_final = θ*(λ*)",
     explanation: explanations(
-      "Regularization changes the fitted solution by balancing data fit with a stated structural preference.",
-      "Điều chuẩn thay đổi nghiệm được khớp bằng cách cân bằng độ khớp dữ liệu với một ưu tiên cấu trúc đã nêu.",
-      "정규화는 데이터 적합도와 명시한 구조적 선호의 균형을 맞춰 적합 해를 바꿉니다.",
+      "Keep the fitted parameters associated with the validation-selected regularization strength.",
+      "Giữ các tham số đã khớp tương ứng với độ mạnh điều chuẩn được chọn bằng xác thực.",
+      "검증으로 선택한 정규화 강도에 해당하는 적합 매개변수를 유지합니다.",
     ),
-    variables: ["Ω: regularizer", "λ: regularization strength"],
+    variables: ["θ_final: chosen fitted parameters", "θ*(λ*): model fitted using the selected regularization strength"],
   },
   "data-preprocessing": {
     expression: "z = (x − μ_train) / σ_train",
@@ -476,13 +476,13 @@ export const supplementalFormulaSupport: Record<string, FormulaSupport> = {
     variables: ["I: conditional mutual information"],
   },
   reproducibility: {
-    expression: "result = F(data_version, code_version, config, seed)",
+    expression: "same inputs ⇒ run_id_a = run_id_b ∧ Δ = 0",
     explanation: explanations(
-      "A reproducible result identifies every material input to the computation, including data, code, configuration, and randomness.",
-      "Kết quả có thể tái tạo xác định mọi đầu vào quan trọng của phép tính, gồm dữ liệu, mã, cấu hình và tính ngẫu nhiên.",
-      "재현 가능한 결과는 데이터·코드·설정·난수를 포함한 계산의 모든 중요한 입력을 식별합니다.",
+      "Reproducibility is confirmed when identical recorded inputs produce the same run identity and result.",
+      "Khả năng tái tạo được xác nhận khi các đầu vào đã ghi giống nhau tạo ra cùng định danh lần chạy và kết quả.",
+      "기록된 입력이 같을 때 실행 ID와 결과가 같으면 재현성을 확인할 수 있습니다.",
     ),
-    variables: ["F: complete computation", "seed: random-state initializer"],
+    variables: ["run_id_a,run_id_b: experiment identities", "Δ: metric difference", "∧: both conditions must hold"],
   },
   "real-world-case-study": {
     expression: "design* = arg max_d utility(d)   s.t. risk(d)≤R, latency(d)≤B, cost(d)≤C",
