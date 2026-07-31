@@ -14,6 +14,11 @@ export type LessonSection = {
   bullets?: string[];
   formula?: string;
   formulaVariables?: string[];
+  formulaSteps?: Array<{
+    label: string;
+    expression: string;
+    explanation: string;
+  }>;
   code?: string;
   note?: string;
 };
@@ -884,6 +889,18 @@ const formulaSectionHeadings: Record<Language, string> = {
   ko: "수학적 기준점",
 };
 
+const formulaFlowHeadings: Record<Language, string> = {
+  en: "Mathematical solution flow",
+  vi: "Luồng giải bằng toán học",
+  ko: "수학적 해결 흐름",
+};
+
+const formulaStageLabels: Record<Language, Record<"setup" | "compute" | "result", string>> = {
+  en: { setup: "1 · Set up", compute: "2 · Calculate", result: "3 · Conclude" },
+  vi: { setup: "1 · Thiết lập", compute: "2 · Tính toán", result: "3 · Kết luận" },
+  ko: { setup: "1 · 설정", compute: "2 · 계산", result: "3 · 결론" },
+};
+
 function enrichLesson(
   language: Language,
   seed: (typeof curriculumSeeds)[number],
@@ -891,15 +908,21 @@ function enrichLesson(
 ): Lesson {
   const support = formulaSupportBySlug[seed.slug];
   const alreadyHasFormula = lesson.sections.some((section) => section.formula);
+  const hasFlow = Boolean(support?.steps?.length);
   const sections =
-    support && !alreadyHasFormula
+    support && (!alreadyHasFormula || hasFlow)
       ? [
           ...lesson.sections,
           {
-            heading: formulaSectionHeadings[language],
+            heading: hasFlow ? formulaFlowHeadings[language] : formulaSectionHeadings[language],
             paragraphs: [support.explanation[language]],
             formula: support.expression,
             formulaVariables: support.variables,
+            formulaSteps: support.steps?.map((formulaStep) => ({
+              label: formulaStageLabels[language][formulaStep.stage],
+              expression: formulaStep.expression,
+              explanation: formulaStep.explanation[language],
+            })),
           },
         ]
       : lesson.sections;
@@ -930,6 +953,7 @@ type LessonShape = {
     bullets: number;
     formula: boolean;
     formulaVariables: number;
+    formulaSteps: number;
     code: boolean;
     note: boolean;
   }>;
@@ -943,6 +967,7 @@ function lessonShape(lesson: Lesson): LessonShape {
       bullets: section.bullets?.length ?? 0,
       formula: Boolean(section.formula),
       formulaVariables: section.formulaVariables?.length ?? 0,
+      formulaSteps: section.formulaSteps?.length ?? 0,
       code: Boolean(section.code),
       note: Boolean(section.note),
     })),

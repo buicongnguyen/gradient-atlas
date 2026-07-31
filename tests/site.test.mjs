@@ -195,6 +195,18 @@ test("renders matched trilingual terminology and original mathematical notation"
       assert.match(await response.text(), /formula-expression/, `${locale}/${slug}`);
     }
   }
+
+  const technicalSeeds = curriculumSeeds.filter((item) => item.kind === "algorithm" || item.kind === "code");
+  assert.equal(technicalSeeds.length, 32);
+  for (const seed of technicalSeeds) {
+    assert.equal(formulaSupportBySlug[seed.slug].steps?.length, 2, seed.slug);
+    for (const locale of ["en", "vi", "ko"]) {
+      const response = await render(`/${locale}/learn/${seed.slug}/`);
+      const html = await response.text();
+      assert.match(html, /formula-flow-steps/, `${locale}/${seed.slug}`);
+      assert.equal((html.match(/class="formula-expression"/g) ?? []).length >= 3, true, `${locale}/${seed.slug}`);
+    }
+  }
 });
 
 test("renders twenty-two original localized concept diagrams", async () => {

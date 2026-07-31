@@ -1,5 +1,6 @@
 import type { CurriculumSeed } from "./full-curriculum";
 import { supplementalFormulaSupport } from "./supplemental-formulas.ts";
+import { formulaFlowsBySlug } from "./formula-flows.ts";
 
 export type LearningLanguage = "en" | "vi" | "ko";
 
@@ -12,6 +13,13 @@ export type FormulaSupport = {
   expression: string;
   explanation: Record<LearningLanguage, string>;
   variables?: string[];
+  steps?: FormulaStep[];
+};
+
+export type FormulaStep = {
+  stage: "setup" | "compute";
+  expression: string;
+  explanation: Record<LearningLanguage, string>;
 };
 
 const vietnameseTerms = {
@@ -483,13 +491,13 @@ export const formulaSupportBySlug: Record<string, FormulaSupport> = {
     variables: ["N: evaluated sample count"],
   },
   "roc-auc": {
-    expression: "TPR = TP/(TP+FN),   FPR = FP/(FP+TN)",
+    expression: "TPR = TP/(TP+FN),   FPR = FP/(FP+TN),   AUC = ∫₀¹ TPR(FPR) dFPR",
     explanation: explanations(
       "An ROC curve traces true-positive and false-positive rates as the threshold changes.",
       "Đường ROC theo dõi tỷ lệ dương tính thật và dương tính giả khi ngưỡng thay đổi.",
       "ROC 곡선은 임곗값에 따른 참양성률과 거짓양성률을 추적합니다.",
     ),
-    variables: ["TPR: true-positive rate", "FPR: false-positive rate"],
+    variables: ["TPR: true-positive rate", "FPR: false-positive rate", "AUC: area under the ROC curve"],
   },
   "regression-metrics": {
     expression: "MAE = (1/n)Σᵢ|yᵢ−ŷᵢ|,   RMSE = √[(1/n)Σᵢ(yᵢ−ŷᵢ)²]",
@@ -538,3 +546,9 @@ export const formulaSupportBySlug: Record<string, FormulaSupport> = {
   },
   ...supplementalFormulaSupport,
 };
+
+for (const [slug, steps] of Object.entries(formulaFlowsBySlug)) {
+  const support = formulaSupportBySlug[slug];
+  if (!support) throw new Error(`Formula flow references unknown formula support: ${slug}`);
+  support.steps = steps;
+}

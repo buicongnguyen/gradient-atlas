@@ -20,6 +20,12 @@ import { LessonDiagram } from "../../../ui/LessonDiagram";
 import { ReadingShelf } from "../../../ui/ReadingShelf";
 import { SiteHeader } from "../../../ui/SiteHeader";
 
+const formulaResultLabels = {
+  en: "3 · Conclude",
+  vi: "3 · Kết luận",
+  ko: "3 · 결론",
+};
+
 export function generateStaticParams() {
   return languages.flatMap((lang) =>
     lessons[lang].map((lesson) => ({ lang, slug: lesson.slug })),
@@ -200,10 +206,31 @@ export default async function LessonPage({
               <h2>{section.heading}</h2>
               {section.paragraphs.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
               {section.formula && (
-                <figure className="formula-block">
-                  <div className="formula-expression" role="math" aria-label={section.formula}>
-                    {section.formula}
-                  </div>
+                <figure className={`formula-block${section.formulaSteps ? " formula-flow" : ""}`}>
+                  {section.formulaSteps && (
+                    <ol className="formula-flow-steps">
+                      {section.formulaSteps.map((formulaStep) => (
+                        <li key={formulaStep.expression}>
+                          <span className="formula-step-label">{formulaStep.label}</span>
+                          <div className="formula-expression" role="math" aria-label={formulaStep.expression}>
+                            {formulaStep.expression}
+                          </div>
+                          <p>{formulaStep.explanation}</p>
+                        </li>
+                      ))}
+                      <li className="formula-flow-result">
+                        <span className="formula-step-label">{formulaResultLabels[lang]}</span>
+                        <div className="formula-expression" role="math" aria-label={section.formula}>
+                          {section.formula}
+                        </div>
+                      </li>
+                    </ol>
+                  )}
+                  {!section.formulaSteps && (
+                    <div className="formula-expression" role="math" aria-label={section.formula}>
+                      {section.formula}
+                    </div>
+                  )}
                   {section.formulaVariables && (
                     <figcaption>
                       <strong>{copy.formulaVariables}</strong>

@@ -960,7 +960,11 @@ clustering, dimensionality reduction, reinforcement learning, neural networks,
 regression, probabilistic models, optimization, evaluation metrics, fitting
 diagnostics, regularization, deployment latency, monitoring, and scalability.
 Each entry is independently typeset and accompanied by an original trilingual
-explanation and symbol definitions.
+explanation and symbol definitions. All 32 algorithm and code-focused pages go
+one level deeper: two reviewed intermediate equations lead into the existing
+anchor as a three-stage `set up → calculate → conclude` solution flow. The
+desktop reader keeps the stages side by side to reduce scrolling; narrow screens
+retain that relationship in a horizontally scrollable track.
 
 ### 15.1 Logic review
 
@@ -976,8 +980,9 @@ Resolution: formula support is keyed to specific mathematically substantive
 topics. Historical, policy, and other prose-first pages are not forced to
 contain equations. Automated checks reject unknown lesson keys, missing
 localized explanations or symbol definitions, technical pages without a
-mathematical anchor, source URLs inside formulas, and coverage below the
-reviewed baseline.
+mathematical anchor, technical flows without exactly two intermediate steps,
+missing localized step explanations, source URLs inside formulas, and coverage
+below the reviewed baseline.
 
 `Risk: mathematical facts are confused with copied exposition`
 
@@ -988,7 +993,9 @@ and symbol definitions are original Gradient Atlas content.
 `Risk: long notation breaks the mobile reader`
 
 Resolution: formula figures are horizontally scrollable, keep their semantic
-math label, and separate the expression from a wrapping symbol legend.
+math label, and separate the expression from a wrapping symbol legend. Formula
+flows use three compact cards and visible arrows; they remain one horizontal
+reasoning sequence on small screens instead of creating a tall stack.
 
 ## 16. Original concept-diagram review
 

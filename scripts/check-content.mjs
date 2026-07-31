@@ -73,9 +73,19 @@ for (const [slug, formula] of formulaEntries) {
   assert.ok(formula.variables?.length, `${slug} missing formula symbol definitions`);
   assert.ok(formula.variables.every((variable) => variable.trim()), `${slug} has an empty symbol definition`);
   assert.doesNotMatch(formula.expression, /wikidocs|https?:\/\//i, `${slug} formula must be source-independent`);
+  for (const [index, formulaStep] of (formula.steps ?? []).entries()) {
+    assert.ok(formulaStep.expression.trim(), `${slug} formula step ${index + 1} is empty`);
+    assert.ok(formulaStep.explanation.en.trim(), `${slug} formula step ${index + 1} lacks English`);
+    assert.ok(formulaStep.explanation.vi.trim(), `${slug} formula step ${index + 1} lacks Vietnamese`);
+    assert.ok(formulaStep.explanation.ko.trim(), `${slug} formula step ${index + 1} lacks Korean`);
+    assert.doesNotMatch(formulaStep.expression, /wikidocs|https?:\/\//i, `${slug} flow must be source-independent`);
+  }
 }
-for (const seed of curriculumSeeds.filter((item) => item.kind === "algorithm" || item.kind === "code")) {
+const technicalSeeds = curriculumSeeds.filter((item) => item.kind === "algorithm" || item.kind === "code");
+for (const seed of technicalSeeds) {
   assert.ok(formulaSupportBySlug[seed.slug], `${seed.slug} technical page needs a mathematical anchor`);
+  assert.equal(formulaSupportBySlug[seed.slug].steps?.length, 2, `${seed.slug} needs a three-equation solution flow`);
+  assert.deepEqual(formulaSupportBySlug[seed.slug].steps.map((step) => step.stage), ["setup", "compute"], `${seed.slug} flow order changed`);
 }
 
 for (const document of catalog.documents) {
@@ -188,4 +198,4 @@ for (const slug of expectedDiagramSlugs) {
 await access("CONTENT_LICENSE.md");
 await access("LICENSE");
 
-console.log(`Content audit passed: 122 topics × 3 structurally matched locales, ${formulaEntries.length} mathematical anchors with trilingual explanations, localized terminology parity, a 24-source reading and verification library, 6 deep guided chapters, 12 orientation visuals, 6 Python practices, and 12 MCQs.`);
+console.log(`Content audit passed: 122 topics × 3 structurally matched locales, ${formulaEntries.length} mathematical anchors and ${technicalSeeds.length} three-equation solution flows with trilingual explanations, localized terminology parity, a 24-source reading and verification library, 6 deep guided chapters, 12 orientation visuals, 6 Python practices, and 12 MCQs.`);

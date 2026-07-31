@@ -26,7 +26,10 @@ Every Vietnamese and Korean lesson displays its canonical English topic name,
 and all three editions include a curated terminology panel. Eighty-seven
 mathematically substantive topics now include independently written notation
 blocks with trilingual explanations and symbol definitions; every algorithm
-and code-focused lesson has a mathematical anchor.
+and code-focused lesson has a mathematical anchor. All 32 algorithm and
+code-focused lessons additionally present a compact three-equation reasoning
+flow—set up, calculate, conclude—so the notation teaches a solution path rather
+than displaying an isolated result.
 
 Twenty-two core lessons include original, code-native concept diagrams. The
 visual set covers data leakage, dataset splitting, the confusion matrix,
