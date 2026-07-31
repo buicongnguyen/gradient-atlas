@@ -1,4 +1,5 @@
 import type { CurriculumSeed } from "./full-curriculum";
+import { supplementalFormulaSupport } from "./supplemental-formulas.ts";
 
 export type LearningLanguage = "en" | "vi" | "ko";
 
@@ -533,5 +534,7 @@ export const formulaSupportBySlug: Record<string, FormulaSupport> = {
       "Dịch chuyển phân phối nghĩa là quá trình sinh dữ liệu vận hành khác với quá trình được biểu diễn trong dữ liệu huấn luyện.",
       "분포 이동은 운영 데이터 생성 과정이 학습 데이터가 나타낸 과정과 다르다는 뜻입니다.",
     ),
+    variables: ["P_train: training distribution", "P_production: production distribution"],
   },
+  ...supplementalFormulaSupport,
 };

@@ -945,19 +945,22 @@ every breakpoint, links the exact page, and says that Gradient Atlas does not
 reproduce or translate it. Original Gradient Atlas material has a separate
 CC BY 4.0 policy.
 
-## 15. Vietnamese terminology and mathematical notation review
+## 15. Trilingual terminology and mathematical notation review
 
-The Vietnamese reader now preserves a canonical English reference beside every
-localized lesson title. A curated terminology panel pairs recurring Vietnamese
-terms with their English equivalents so readers can detect an uncertain
-translation without losing the localized explanation.
+The Vietnamese and Korean readers preserve a canonical English reference beside
+every localized lesson title. Curated terminology panels pair recurring local
+terms with their English equivalents, while the English edition exposes the
+same key-concept set without repeating an English-title label.
 
 Mathematical notation is added only when a formula materially clarifies the
-topic. The formula catalog covers core supervised learning, clustering,
-dimensionality reduction, reinforcement learning, neural networks, regression,
-probabilistic models, optimization, evaluation metrics, regularization, and
-distribution shift. Each entry is independently typeset and accompanied by an
-original explanation and symbol definitions where needed.
+topic. The formula catalog now covers 87 of 122 topics, including every
+algorithm and code-focused page. It spans learning objectives, sampling,
+feature transformations, label noise, leakage timing, split integrity,
+clustering, dimensionality reduction, reinforcement learning, neural networks,
+regression, probabilistic models, optimization, evaluation metrics, fitting
+diagnostics, regularization, deployment latency, monitoring, and scalability.
+Each entry is independently typeset and accompanied by an original trilingual
+explanation and symbol definitions.
 
 ### 15.1 Logic review
 
@@ -970,9 +973,11 @@ limited to the main topic plus at most three verified recurring terms.
 `Risk: a formula is decorative or misleading`
 
 Resolution: formula support is keyed to specific mathematically substantive
-topics. Overview and operational pages are not forced to contain equations.
-Automated checks reject unknown lesson keys, missing localized explanations,
-source URLs inside formulas, and formula coverage below the reviewed baseline.
+topics. Historical, policy, and other prose-first pages are not forced to
+contain equations. Automated checks reject unknown lesson keys, missing
+localized explanations or symbol definitions, technical pages without a
+mathematical anchor, source URLs inside formulas, and coverage below the
+reviewed baseline.
 
 `Risk: mathematical facts are confused with copied exposition`
 

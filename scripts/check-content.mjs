@@ -63,14 +63,19 @@ for (const seed of curriculumSeeds) {
 }
 
 const formulaEntries = Object.entries(formulaSupportBySlug);
-assert.ok(formulaEntries.length >= 30, "Expected broad mathematical coverage");
+assert.ok(formulaEntries.length >= 87, "Expected broad mathematical coverage");
 for (const [slug, formula] of formulaEntries) {
   assert.ok(curriculumSeeds.some((seed) => seed.slug === slug), `Unknown formula slug: ${slug}`);
   assert.ok(formula.expression.trim(), `${slug} missing formula expression`);
   assert.ok(formula.explanation.en.trim(), `${slug} missing English formula explanation`);
   assert.ok(formula.explanation.vi.trim(), `${slug} missing Vietnamese formula explanation`);
   assert.ok(formula.explanation.ko.trim(), `${slug} missing Korean formula explanation`);
+  assert.ok(formula.variables?.length, `${slug} missing formula symbol definitions`);
+  assert.ok(formula.variables.every((variable) => variable.trim()), `${slug} has an empty symbol definition`);
   assert.doesNotMatch(formula.expression, /wikidocs|https?:\/\//i, `${slug} formula must be source-independent`);
+}
+for (const seed of curriculumSeeds.filter((item) => item.kind === "algorithm" || item.kind === "code")) {
+  assert.ok(formulaSupportBySlug[seed.slug], `${seed.slug} technical page needs a mathematical anchor`);
 }
 
 for (const document of catalog.documents) {
@@ -183,4 +188,4 @@ for (const slug of expectedDiagramSlugs) {
 await access("CONTENT_LICENSE.md");
 await access("LICENSE");
 
-console.log("Content audit passed: 122 topics × 3 structurally matched locales, localized terminology parity, a 24-source reading and verification library, 6 deep guided chapters, 12 orientation visuals, 6 Python practices, and 12 MCQs.");
+console.log(`Content audit passed: 122 topics × 3 structurally matched locales, ${formulaEntries.length} mathematical anchors with trilingual explanations, localized terminology parity, a 24-source reading and verification library, 6 deep guided chapters, 12 orientation visuals, 6 Python practices, and 12 MCQs.`);

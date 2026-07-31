@@ -22,10 +22,11 @@ paths. The shelf distinguishes books, courses, and technical guides, explains
 why each resource is useful in all three languages, and keeps external rights
 separate from Gradient Atlas licensing.
 
-Every Vietnamese lesson displays its canonical English topic name and a curated
-Vietnamese–English terminology panel. Mathematically substantive lessons also
-include independently written notation blocks with short explanations and
-symbol definitions.
+Every Vietnamese and Korean lesson displays its canonical English topic name,
+and all three editions include a curated terminology panel. Eighty-seven
+mathematically substantive topics now include independently written notation
+blocks with trilingual explanations and symbol definitions; every algorithm
+and code-focused lesson has a mathematical anchor.
 
 Twenty-two core lessons include original, code-native concept diagrams. The
 visual set covers data leakage, dataset splitting, the confusion matrix,

@@ -187,7 +187,7 @@ test("renders matched trilingual terminology and original mathematical notation"
     for (const pattern of patterns) assert.match(terminologyHtml, pattern, locale);
   }
 
-  assert.ok(Object.keys(formulaSupportBySlug).length >= 30);
+  assert.ok(Object.keys(formulaSupportBySlug).length >= 87);
   for (const slug of Object.keys(formulaSupportBySlug)) {
     for (const locale of ["en", "vi", "ko"]) {
       const response = await render(`/${locale}/learn/${slug}/`);
