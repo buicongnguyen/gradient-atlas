@@ -171,17 +171,21 @@ test("keeps the deeper guided blocks out of reference-only notes", async () => {
   assert.equal((html.match(/class="reading-resource-card"/g) ?? []).length, 4);
 });
 
-test("renders bilingual Vietnamese terminology and original mathematical notation", async () => {
-  const terminologyResponse = await render("/vi/learn/linear-regression/");
-  assert.equal(terminologyResponse.status, 200);
-  const terminologyHtml = await terminologyResponse.text();
-  assert.match(terminologyHtml, /canonical-english-term/);
-  assert.match(terminologyHtml, /terminology-panel/);
-  assert.match(terminologyHtml, /Hồi quy tuyến tính/);
-  assert.match(terminologyHtml, /Linear regression/);
-  assert.match(terminologyHtml, /formula-expression/);
-  assert.match(terminologyHtml, /role="math"/);
-  assert.match(terminologyHtml, /Ký hiệu/);
+test("renders matched trilingual terminology and original mathematical notation", async () => {
+  const terminologyCases = {
+    en: [/Key terminology/, /Linear regression/],
+    vi: [/canonical-english-term/, /Thuật ngữ Việt–Anh/, /Hồi quy tuyến tính/, /Linear regression/, /Ký hiệu/],
+    ko: [/canonical-english-term/, /한영 핵심 용어/, /선형 회귀/, /Linear regression/, /기호/],
+  };
+  for (const [locale, patterns] of Object.entries(terminologyCases)) {
+    const terminologyResponse = await render(`/${locale}/learn/linear-regression/`);
+    assert.equal(terminologyResponse.status, 200, locale);
+    const terminologyHtml = await terminologyResponse.text();
+    assert.match(terminologyHtml, /terminology-panel/, locale);
+    assert.match(terminologyHtml, /formula-expression/, locale);
+    assert.match(terminologyHtml, /role="math"/, locale);
+    for (const pattern of patterns) assert.match(terminologyHtml, pattern, locale);
+  }
 
   assert.ok(Object.keys(formulaSupportBySlug).length >= 30);
   for (const slug of Object.keys(formulaSupportBySlug)) {
@@ -293,6 +297,7 @@ test("keeps long-form lesson pages in a compact reading rhythm", () => {
 test("renders every source-corresponding page in every locale", async () => {
   assert.equal(curriculumSeeds.length, 122);
   for (const seed of curriculumSeeds) {
+    const localizedShapes = {};
     for (const locale of ["en", "vi", "ko"]) {
       const response = await render(`/${locale}/learn/${seed.slug}/`);
       assert.equal(response.status, 200, `${locale}/${seed.slug}`);
@@ -311,10 +316,23 @@ test("renders every source-corresponding page in every locale", async () => {
       ].map((match) => match[1]);
       assert.equal(new Set(resourceIds).size, 4, `${locale}/${seed.slug}`);
       assert.ok(!resourceIds.includes("wikidocs-index"), `${locale}/${seed.slug}`);
-      if (locale === "vi") {
+      assert.match(html, /class="terminology-panel"/, `${locale}/${seed.slug}`);
+      if (locale !== "en") {
         assert.match(html, /canonical-english-term/, `${locale}/${seed.slug}`);
-        assert.match(html, /terminology-panel/, `${locale}/${seed.slug}`);
+      } else {
+        assert.doesNotMatch(html, /canonical-english-term/, `${locale}/${seed.slug}`);
       }
+      localizedShapes[locale] = {
+        sections: (html.match(/class="article-section"/g) ?? []).length,
+        formulas: (html.match(/class="formula-block"/g) ?? []).length,
+        notes: (html.match(/class="article-note"/g) ?? []).length,
+        codeBlocks: (html.match(/<pre/g) ?? []).length,
+        diagrams: (html.match(/class="concept-diagram"/g) ?? []).length,
+        exercises: (html.match(/class="exercise-card"/g) ?? []).length,
+        terminology: (html.match(/class="terminology-panel"/g) ?? []).length,
+      };
     }
+    assert.deepEqual(localizedShapes.en, localizedShapes.vi, `${seed.slug}: en/vi shape`);
+    assert.deepEqual(localizedShapes.ko, localizedShapes.vi, `${seed.slug}: ko/vi shape`);
   }
 });

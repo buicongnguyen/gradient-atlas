@@ -135,20 +135,22 @@ export default async function LessonPage({
               </nav>
             </details>
             <h1>{lesson.title}</h1>
-            {lang === "vi" && lesson.englishTitle && (
+            {lang !== "en" && lesson.englishTitle && (
               <p className="canonical-english-term">
                 <span>{copy.englishTerm}</span>
                 <strong lang="en">{lesson.englishTitle}</strong>
               </p>
             )}
-            {lang === "vi" && lesson.terminology && (
+            {lesson.terminology && (
               <aside className="terminology-panel" aria-label={copy.terminology}>
                 <strong>{copy.terminology}</strong>
                 <dl>
                   {lesson.terminology.map((term) => (
                     <div key={`${term.local}:${term.english}`}>
                       <dt>{term.local}</dt>
-                      <dd lang="en">{term.english}</dd>
+                      {term.local.toLocaleLowerCase() !== term.english.toLocaleLowerCase() && (
+                        <dd lang="en">{term.english}</dd>
+                      )}
                     </div>
                   ))}
                 </dl>

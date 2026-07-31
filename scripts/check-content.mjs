@@ -3,6 +3,7 @@ import { access, readFile } from "node:fs/promises";
 import { curriculumSeeds } from "../app/data/full-curriculum.ts";
 import {
   formulaSupportBySlug,
+  localizedTerminology,
   vietnameseTerminology,
 } from "../app/data/learning-support.ts";
 import {
@@ -44,6 +45,21 @@ for (const seed of curriculumSeeds) {
   assert.ok(terminology.length >= 1, `${seed.id} missing Vietnamese–English terminology`);
   assert.equal(terminology[0].local, seed.titles.vi);
   assert.equal(terminology[0].english, seed.titles.en);
+  const englishTerminology = localizedTerminology("en", seed);
+  const koreanTerminology = localizedTerminology("ko", seed);
+  assert.equal(
+    englishTerminology.length,
+    terminology.length,
+    `${seed.id} English terminology differs from Vietnamese`,
+  );
+  assert.equal(
+    koreanTerminology.length,
+    terminology.length,
+    `${seed.id} Korean terminology differs from Vietnamese`,
+  );
+  assert.equal(englishTerminology[0].local, seed.titles.en);
+  assert.equal(koreanTerminology[0].local, seed.titles.ko);
+  assert.equal(koreanTerminology[0].english, seed.titles.en);
 }
 
 const formulaEntries = Object.entries(formulaSupportBySlug);
@@ -103,15 +119,28 @@ for (const slug of guidedSlugs) {
   for (const locale of ["en", "vi", "ko"]) {
     const depth = getGuidedDepth(locale, slug);
     assert.ok(depth, `${locale}/${slug} missing guided depth`);
+    assert.ok(depth.purpose.trim(), `${locale}/${slug} missing purpose`);
     assert.equal(depth.thinkingFlow.length, 4, `${locale}/${slug} needs a four-step reasoning flow`);
+    for (const step of depth.thinkingFlow) {
+      assert.ok(step.label.trim(), `${locale}/${slug} thinking step missing label`);
+      assert.ok(step.detail.trim(), `${locale}/${slug} thinking step missing detail`);
+    }
     assert.ok(Number(depth.estimatedMinutes) >= 15, `${locale}/${slug} reading time is too short`);
+    for (const field of ["title", "setup", "interpretation", "challenge"]) {
+      assert.ok(depth.practice[field].trim(), `${locale}/${slug} practice missing ${field}`);
+    }
     assert.equal(depth.quiz.length, 2, `${locale}/${slug} needs two MCQs`);
     for (const quiz of depth.quiz) {
+      assert.ok(quiz.question.trim(), `${locale}/${slug} MCQ missing question`);
       assert.equal(quiz.options.length, 4, `${locale}/${slug} MCQ needs four options`);
+      assert.ok(quiz.options.every((option) => option.trim()), `${locale}/${slug} MCQ has an empty option`);
       assert.ok(quiz.answer >= 0 && quiz.answer < quiz.options.length, `${locale}/${slug} MCQ answer is out of range`);
       assert.ok(quiz.explanation.trim(), `${locale}/${slug} MCQ missing explanation`);
     }
+    assert.ok(depth.trend.title.trim(), `${locale}/${slug} trend missing title`);
+    assert.ok(depth.trend.body.trim(), `${locale}/${slug} trend missing body`);
     assert.ok(depth.trend.watch.length >= 3, `${locale}/${slug} trend note needs practical signals`);
+    assert.ok(depth.trend.watch.every((item) => item.trim()), `${locale}/${slug} trend has an empty signal`);
     for (const referenceId of depth.trend.references) {
       assert.ok(referenceSources.some((source) => source.id === referenceId), `${locale}/${slug} has unknown trend reference ${referenceId}`);
     }
@@ -154,4 +183,4 @@ for (const slug of expectedDiagramSlugs) {
 await access("CONTENT_LICENSE.md");
 await access("LICENSE");
 
-console.log("Content audit passed: 122 topics × 3 locales, a 24-source reading and verification library, 6 deep guided chapters, 12 orientation visuals, 6 Python practices, and 12 MCQs.");
+console.log("Content audit passed: 122 topics × 3 structurally matched locales, localized terminology parity, a 24-source reading and verification library, 6 deep guided chapters, 12 orientation visuals, 6 Python practices, and 12 MCQs.");

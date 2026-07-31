@@ -1,7 +1,7 @@
 import { curriculumSeeds, type Collection, type PageKind } from "./full-curriculum";
 import {
   formulaSupportBySlug,
-  vietnameseTerminology,
+  localizedTerminology,
   type TerminologyPair,
 } from "./learning-support";
 
@@ -164,7 +164,7 @@ export const ui: Record<Language, UiCopy> = {
     currentPage: "Current page",
     readerProgress: "Reader progress",
     skipToArticle: "Skip to the lesson",
-    terminology: "Terminology",
+    terminology: "Key terminology",
     englishTerm: "Canonical English term",
     formulaVariables: "Symbols",
   },
@@ -292,7 +292,7 @@ export const ui: Record<Language, UiCopy> = {
     currentPage: "현재 페이지",
     readerProgress: "읽기 진행률",
     skipToArticle: "레슨으로 건너뛰기",
-    terminology: "용어",
+    terminology: "한영 핵심 용어",
     englishTerm: "표준 영어 용어",
     formulaVariables: "기호",
   },
@@ -907,7 +907,7 @@ function enrichLesson(
   return {
     ...lesson,
     englishTitle: seed.titles.en,
-    terminology: language === "vi" ? vietnameseTerminology(seed) : undefined,
+    terminology: localizedTerminology(language, seed),
     sections,
   };
 }
@@ -923,6 +923,69 @@ export const lessons: Record<Language, Lesson[]> = {
     enrichLesson("ko", seed, mergePilot("ko", seed, generatedLesson("ko", seed))),
   ),
 };
+
+type LessonShape = {
+  sections: Array<{
+    paragraphs: number;
+    bullets: number;
+    formula: boolean;
+    formulaVariables: number;
+    code: boolean;
+    note: boolean;
+  }>;
+  terminology: number;
+};
+
+function lessonShape(lesson: Lesson): LessonShape {
+  return {
+    sections: lesson.sections.map((section) => ({
+      paragraphs: section.paragraphs.length,
+      bullets: section.bullets?.length ?? 0,
+      formula: Boolean(section.formula),
+      formulaVariables: section.formulaVariables?.length ?? 0,
+      code: Boolean(section.code),
+      note: Boolean(section.note),
+    })),
+    terminology: lesson.terminology?.length ?? 0,
+  };
+}
+
+export const lessonParityIssues = curriculumSeeds.flatMap((seed) => {
+  const localized = languages.map((language) =>
+    lessons[language].find((lesson) => lesson.slug === seed.slug),
+  );
+  if (localized.some((lesson) => !lesson)) {
+    return [`${seed.slug}: missing localized lesson record`];
+  }
+
+  const [english, vietnamese, korean] = localized as [Lesson, Lesson, Lesson];
+  const expected = JSON.stringify(lessonShape(vietnamese));
+  const issues: string[] = [];
+  for (const [language, lesson] of [
+    ["en", english],
+    ["ko", korean],
+  ] as const) {
+    if (JSON.stringify(lessonShape(lesson)) !== expected) {
+      issues.push(`${seed.slug}: ${language} content shape differs from vi`);
+    }
+    for (const field of ["title", "summary", "outcome", "exercise"] as const) {
+      if (!lesson[field].trim()) issues.push(`${seed.slug}: ${language} missing ${field}`);
+    }
+    lesson.sections.forEach((section, index) => {
+      if (!section.heading.trim()) {
+        issues.push(`${seed.slug}: ${language} section ${index + 1} missing heading`);
+      }
+      if (section.paragraphs.some((paragraph) => !paragraph.trim())) {
+        issues.push(`${seed.slug}: ${language} section ${index + 1} has an empty paragraph`);
+      }
+    });
+  }
+  return issues;
+});
+
+if (lessonParityIssues.length > 0) {
+  throw new Error(`Localized lesson parity failed:\n${lessonParityIssues.join("\n")}`);
+}
 
 export function isLanguage(value: string): value is Language {
   return languages.includes(value as Language);

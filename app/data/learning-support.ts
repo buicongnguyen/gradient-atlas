@@ -13,7 +13,7 @@ export type FormulaSupport = {
   variables?: string[];
 };
 
-const vietnameseTerms: Record<string, string> = {
+const vietnameseTerms = {
   accuracy: "độ chính xác",
   activation: "hàm kích hoạt",
   agent: "tác tử",
@@ -97,6 +97,92 @@ const vietnameseTerms: Record<string, string> = {
   underfitting: "thiếu khớp",
   validation: "thẩm định",
   variance: "phương sai",
+} as const satisfies Record<string, string>;
+
+const koreanTerms: Record<keyof typeof vietnameseTerms, string> = {
+  accuracy: "정확도",
+  activation: "활성함수",
+  agent: "에이전트",
+  algorithm: "알고리즘",
+  annotation: "레이블링",
+  "artificial intelligence": "인공지능",
+  backpropagation: "역전파",
+  baseline: "기준선",
+  batch: "배치",
+  bias: "편향",
+  classification: "분류",
+  clustering: "군집화",
+  coefficient: "계수",
+  confidence: "신뢰도",
+  "conditional independence": "조건부 독립",
+  "concept drift": "개념 드리프트",
+  "confusion matrix": "혼동행렬",
+  consistency: "일관성",
+  "contrastive learning": "대조학습",
+  "covariate shift": "공변량 이동",
+  "cross-validation": "교차검증",
+  data: "데이터",
+  "data leakage": "데이터 누수",
+  "decision threshold": "결정 임곗값",
+  density: "밀도",
+  "dimensionality reduction": "차원 축소",
+  distribution: "분포",
+  drift: "드리프트",
+  embeddings: "임베딩",
+  encoding: "인코딩",
+  entropy: "엔트로피",
+  environment: "환경",
+  evaluation: "평가",
+  evidence: "근거",
+  features: "특징",
+  "feature selection": "특징 선택",
+  "false negative": "거짓 음성",
+  "false positive": "거짓 양성",
+  generalization: "일반화",
+  gradient: "기울기",
+  "gradient descent": "경사하강법",
+  hypothesis: "가설",
+  inference: "추론",
+  label: "레이블",
+  labels: "레이블",
+  latency: "지연 시간",
+  learning: "학습",
+  likelihood: "우도",
+  loss: "손실",
+  "machine learning": "머신러닝",
+  margin: "마진",
+  metric: "평가 지표",
+  monitoring: "모니터링",
+  objective: "목적함수",
+  optimization: "최적화",
+  outlier: "이상치",
+  overfitting: "과적합",
+  parameters: "매개변수",
+  policy: "정책",
+  precision: "정밀도",
+  prediction: "예측",
+  prevalence: "발생 비율",
+  probability: "확률",
+  recall: "재현율",
+  regression: "회귀",
+  regularization: "정규화",
+  representation: "표현",
+  residual: "잔차",
+  reward: "보상",
+  sampling: "표본추출",
+  scaling: "스케일링",
+  sparsity: "희소성",
+  standardization: "표준화",
+  support: "지지도",
+  "support vectors": "서포트 벡터",
+  target: "타깃",
+  threshold: "임곗값",
+  training: "학습",
+  transformer: "트랜스포머",
+  uncertainty: "불확실성",
+  underfitting: "과소적합",
+  validation: "검증",
+  variance: "분산",
 };
 
 function normalizedTerm(term: string) {
@@ -104,21 +190,36 @@ function normalizedTerm(term: string) {
 }
 
 export function vietnameseTerminology(seed: CurriculumSeed): TerminologyPair[] {
+  return localizedTerminology("vi", seed);
+}
+
+export function localizedTerminology(
+  language: LearningLanguage,
+  seed: CurriculumSeed,
+): TerminologyPair[] {
+  const locale = language === "ko" ? "ko" : language === "vi" ? "vi" : "en";
   const pairs: TerminologyPair[] = [
     {
-      local: seed.titles.vi,
+      local: seed.titles[language],
       english: seed.titles.en,
     },
   ];
 
   for (const tag of seed.tags) {
-    const local = vietnameseTerms[normalizedTerm(tag)];
+    const normalized = normalizedTerm(tag) as keyof typeof vietnameseTerms;
+    if (!(normalized in vietnameseTerms)) continue;
+    const local =
+      language === "vi"
+        ? vietnameseTerms[normalized]
+        : language === "ko"
+          ? koreanTerms[normalized]
+          : tag;
     if (!local) continue;
     if (
       pairs.some(
         (pair) =>
           pair.english.toLocaleLowerCase("en") === tag.toLocaleLowerCase("en") ||
-          pair.local.toLocaleLowerCase("vi") === local.toLocaleLowerCase("vi"),
+          pair.local.toLocaleLowerCase(locale) === local.toLocaleLowerCase(locale),
       )
     ) {
       continue;
@@ -434,4 +535,3 @@ export const formulaSupportBySlug: Record<string, FormulaSupport> = {
     ),
   },
 };
-
