@@ -306,6 +306,9 @@ test("keeps long-form lesson pages in a compact reading rhythm", () => {
     globalStyles,
     /\.article-section > p\s*\{[^}]*line-height:\s*1\.68;/,
   );
+  assert.match(globalStyles, /\.formula-flow-steps\s*\{[^}]*grid-template-columns:\s*1fr;/);
+  assert.match(globalStyles, /grid-template-areas:\s*"label components formula"/);
+  assert.doesNotMatch(globalStyles, /\.formula-flow-steps\s*\{[^}]*grid-auto-flow:\s*column;/);
 });
 
 test("renders every source-corresponding page in every locale", async () => {

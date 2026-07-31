@@ -965,8 +965,9 @@ one level deeper with variable-length derivations. Each equation states its
 purpose, defines every displayed component, and ends with an explicit reasoning
 bridge explaining why the following equation is needed. A derivation ends at
 its natural mathematical result rather than at an arbitrary three-step limit.
-The desktop reader keeps stages side by side to reduce scrolling; narrow screens
-retain that relationship in a horizontally scrollable track.
+Each stage is a full-width horizontal content row: step label, component
+definitions, then a wide formula-and-reasoning area. Rows stack in derivation
+order so long notation and explanatory text do not compete for narrow columns.
 
 ### 15.1 Logic review
 
@@ -996,10 +997,10 @@ and symbol definitions are original Gradient Atlas content.
 
 `Risk: long notation breaks the mobile reader`
 
-Resolution: formula figures are horizontally scrollable, keep their semantic
-math label, and separate the expression from a wrapping symbol legend. Formula
-flows use three compact cards and visible arrows; they remain one horizontal
-reasoning sequence on small screens instead of creating a tall stack.
+Resolution: individual expressions remain horizontally scrollable and keep
+their semantic math label. Formula flows use full-width rows with downward
+sequence arrows. On narrow screens, each row reflows internally to a single
+column while preserving the same component → formula → reasoning order.
 
 ## 16. Original concept-diagram review
 
