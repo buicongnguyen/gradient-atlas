@@ -289,7 +289,7 @@ test("renders the source policy", async () => {
   assert.equal((html.match(/class="policy-reference-card"/g) ?? []).length, 24);
 });
 
-test("keeps long-form lesson pages in a compact reading rhythm", () => {
+test("keeps long-form lessons compact without undersized reading text", () => {
   assert.match(
     globalStyles,
     /\.article-section\s*\{[^}]*padding:\s*2\.75rem 0 \.35rem;/,
@@ -304,8 +304,11 @@ test("keeps long-form lesson pages in a compact reading rhythm", () => {
   );
   assert.match(
     globalStyles,
-    /\.article-section > p\s*\{[^}]*line-height:\s*1\.68;/,
+    /\.article-section > p\s*\{[^}]*font-size:\s*1\.06rem;[^}]*line-height:\s*1\.72;/,
   );
+  assert.match(globalStyles, /\.book-page-link\s*\{[^}]*font-size:\s*\.84rem;/);
+  assert.match(globalStyles, /\.formula-components li\s*\{[^}]*font:\s*\.76rem\/1\.5/);
+  assert.match(globalStyles, /\.reading-resource-card p\s*\{[^}]*font-size:\s*\.82rem;/);
   assert.match(globalStyles, /\.formula-flow-steps\s*\{[^}]*grid-template-columns:\s*1fr;/);
   assert.match(globalStyles, /grid-template-areas:\s*"label components formula"/);
   assert.doesNotMatch(globalStyles, /\.formula-flow-steps\s*\{[^}]*grid-auto-flow:\s*column;/);

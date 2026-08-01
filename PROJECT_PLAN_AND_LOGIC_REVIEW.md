@@ -1197,3 +1197,39 @@ remains a page-level historical topic link only.
 Resolution: the shelf renders on all English, Vietnamese, and Korean lesson
 routes, including the 116 reference notes. Route tests verify four cards on all
 366 localized pages.
+
+## 19. Reader typography review (implemented 2026-08-01)
+
+The live desktop and mobile audit found that main lesson prose was already
+readable at 16 px, but several supporting surfaces were materially smaller:
+formula component definitions were about 9 px, sidebar descriptions about
+11 px, chapter links about 12 px, and reading-resource explanations about
+11 px. These sizes made the book feel compressed even when its main paragraphs
+were acceptable.
+
+The revised scale raises main lesson prose to approximately 17 px and moves
+navigation, formula explanations, exercises, quiz answers, references, and
+secondary descriptions into a practical 12–15 px range. Small uppercase labels
+remain visually subordinate but no longer carry essential explanatory content
+at the old micro-text scale.
+
+### 19.1 Logic review
+
+`Risk: globally enlarging every rem value breaks diagrams and navigation`
+
+Resolution: the change is targeted by semantic surface rather than changing
+the root font size. Dense diagrams retain their geometry, while the sidebar,
+article, formulas, practice blocks, questions, and resources receive explicit
+readability increases.
+
+`Risk: larger text recreates excessive vertical scrolling`
+
+Resolution: spacing and card counts stay unchanged. The typography pass changes
+font size and line height, while preserving the compact section rhythm and the
+full-width formula-row layout.
+
+`Risk: desktop improves while mobile remains difficult`
+
+Resolution: the same semantic sizes apply on mobile, where full-width formula
+rows already reflow internally. Automated checks protect the reviewed body,
+sidebar, formula-component, and resource-description minimums.

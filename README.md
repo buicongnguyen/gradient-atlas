@@ -32,6 +32,12 @@ equation explains its own symbols and role, then states why its result is needed
 by the following equation. The sequence stops only when the lesson reaches its
 natural result; it is not forced into a fixed number of formulas.
 
+The reader typography is calibrated for sustained reading rather than dense UI
+display. Main prose is approximately 17 px, navigation and explanatory copy are
+larger than the original compact scale, and formula components, exercises,
+questions, captions, and reading-resource descriptions remain legible on both
+desktop and mobile layouts.
+
 Twenty-two core lessons include original, code-native concept diagrams. The
 visual set covers data leakage, dataset splitting, the confusion matrix,
 linear regression, bias–variance behavior, the end-to-end workflow, learning
