@@ -8,6 +8,14 @@ const globalStyles = readFileSync(
   new URL("../app/globals.css", import.meta.url),
   "utf8",
 );
+const pagesWorkflow = readFileSync(
+  new URL("../.github/workflows/pages.yml", import.meta.url),
+  "utf8",
+);
+const ciWorkflow = readFileSync(
+  new URL("../.github/workflows/ci.yml", import.meta.url),
+  "utf8",
+);
 const workerUrl = new URL("../dist/server/index.js", import.meta.url);
 workerUrl.searchParams.set("test", `${process.pid}-${Date.now()}`);
 const { default: worker } = await import(workerUrl.href);
@@ -264,6 +272,7 @@ test("renders the source policy", async () => {
   assert.equal(response.status, 200);
   const html = await response.text();
   assert.match(html, /Original first/);
+  assert.match(html, /116\s+topic-specific reference lessons/i);
   assert.match(html, /does not reproduce or\s+translate its prose/i);
   assert.match(html, /CC BY 4.0/);
   assert.match(html, /id="original-content"/);
@@ -287,6 +296,17 @@ test("renders the source policy", async () => {
   assert.equal((html.match(/class="book-guided-link"/g) ?? []).length, 6);
   assert.equal((html.match(/class="book-page-link"/g) ?? []).length, 116);
   assert.equal((html.match(/class="policy-reference-card"/g) ?? []).length, 24);
+});
+
+test("gates publication on the complete code and route review", () => {
+  assert.match(pagesWorkflow, /- run: npm run lint/);
+  assert.match(pagesWorkflow, /- run: npm test/);
+  assert.match(pagesWorkflow, /- run: npm run build:pages/);
+  assert.ok(
+    pagesWorkflow.indexOf("npm test") < pagesWorkflow.indexOf("npm run build:pages"),
+  );
+  assert.match(ciWorkflow, /- run: npm run lint/);
+  assert.match(ciWorkflow, /- run: npm test/);
 });
 
 test("keeps long-form lessons compact without undersized reading text", () => {

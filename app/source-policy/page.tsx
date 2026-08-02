@@ -23,7 +23,7 @@ export default function SourcePolicyPage() {
             <h2>What this release contains</h2>
             <p>
               Gradient Atlas contains a six-chapter guided course and 116
-              supporting reference notes in English, Vietnamese, and Korean.
+              topic-specific reference lessons in English, Vietnamese, and Korean.
               Its explanatory prose, examples, exercises, interactive
               demonstrations, diagrams, and interface were written specifically
               for this project.
@@ -51,7 +51,7 @@ export default function SourcePolicyPage() {
             <p>
               The <a href="https://wikidocs.net/book/9057">DL Bible 07 WikiDocs
               book</a> is retained as the historical, fragmented topic index
-              that prompted this reconstruction. Every atlas note preserves the
+              that prompted this reconstruction. Every atlas lesson preserves the
               corresponding topic link for traceability. Gradient Atlas does not
               rely on a WikiDocs reuse license and does not reproduce or
               translate its prose, code, equations, images, or other media.

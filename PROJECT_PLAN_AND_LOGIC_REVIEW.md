@@ -1355,3 +1355,33 @@ Resolution: all lessons share the same header, drawer, article, formula,
 diagram, exercise, reference, and pagination components. Automated tests still
 render every locale/topic pair and now also require viewport metadata and the
 responsive safeguards used by those shared components.
+
+## 22. Publication-gate review (implemented 2026-08-02)
+
+### 22.1 Findings and corrections
+
+- The GitHub Pages workflow previously ran type checking and the static export,
+  but skipped lint and the test suite that renders all 366 localized lessons.
+  A direct push to `main` could therefore publish despite a mobile, content, or
+  route regression. Publication now requires lint, the complete test suite, and
+  the Pages build in that order.
+- Pull-request and branch validation duplicated type checking before `npm test`,
+  while omitting lint. The redundant step is replaced with lint because the test
+  command already performs the type check and application build.
+- The source-policy page still described the completed reference lessons as
+  “supporting reference notes.” Its release summary and traceability wording now
+  match the learnable lesson structure used throughout the atlas.
+
+### 22.2 Logic review
+
+`Risk: stricter publication checks make the deploy workflow unnecessarily slow`
+
+Resolution: the earlier standalone type-check step is not retained because
+`npm test` already runs it. The added work is only lint plus the regression suite
+that protects every published route.
+
+`Risk: a future workflow edit silently removes a required gate`
+
+Resolution: the site regression suite reads both workflow definitions and
+requires lint and tests, while also checking that the Pages build follows the
+test gate.
