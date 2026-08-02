@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { lessons, ui } from "../data/content";
+import { lessonNavigationItems, lessons, ui } from "../data/content";
 import { referenceSources } from "../data/guided-course";
 import { BookSidebar } from "../ui/BookSidebar";
 import { SiteHeader } from "../ui/SiteHeader";
@@ -12,7 +12,7 @@ export default function SourcePolicyPage() {
       <div className="reader-shell">
         <BookSidebar
           language="en"
-          lessons={lessons.en}
+          lessons={lessonNavigationItems(lessons.en)}
           currentLocation="policy"
         />
         <main className="policy-page" id="policy-content">

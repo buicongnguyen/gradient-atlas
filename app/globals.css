@@ -401,6 +401,22 @@ input[type="range"] { width: 100%; accent-color: var(--acid); cursor: pointer; }
 .thinking-flow li > strong { font-size: .92rem; }
 .thinking-flow li > p { margin: 0; color: var(--muted); font-size: .8rem; line-height: 1.6; }
 .thinking-flow li > i { position: absolute; right: -.75rem; top: 45%; z-index: 2; color: var(--acid); font-style: normal; }
+.decision-guide { margin-top: 2.75rem; padding-top: 1.5rem; scroll-margin-top: 82px; border-top: 1px solid var(--line-strong); }
+.decision-guide-heading > span { color: var(--acid); font: 750 .7rem ui-monospace, monospace; text-transform: uppercase; letter-spacing: .09em; }
+.decision-guide-heading h2 { margin: .65rem 0 0; font-size: clamp(1.8rem, 4vw, 2.7rem); line-height: 1.08; letter-spacing: -.04em; }
+.decision-guide-heading p { max-width: 720px; margin: .7rem 0 0; color: var(--muted); line-height: 1.62; }
+.decision-guide-steps { margin: 1rem 0 0; padding: .75rem; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: .6rem; overflow-x: auto; background: var(--bg-deep); border: 1px solid var(--line); list-style: none; }
+.decision-guide-steps > li { min-width: 0; min-height: 210px; padding: .8rem; position: relative; display: grid; align-content: start; gap: .38rem; background: var(--panel); border: 1px solid var(--line); }
+.decision-guide-steps > li > span { color: var(--acid); font: 700 .68rem ui-monospace, monospace; }
+.decision-guide-steps > li > strong { color: var(--cyan); font: 750 .68rem ui-monospace, monospace; text-transform: uppercase; letter-spacing: .06em; }
+.decision-guide-steps h3 { margin: .2rem 0 .15rem; font-size: .9rem; line-height: 1.35; }
+.decision-guide-steps p { margin: 0; color: var(--muted); font-size: .78rem; line-height: 1.58; }
+.decision-guide-steps i { position: absolute; right: -.75rem; top: 47%; z-index: 2; color: var(--acid); font-style: normal; }
+.decision-guide-checks { margin-top: .65rem; display: grid; grid-template-columns: .8fr 1.2fr; gap: .65rem; }
+.decision-guide-checks > section { padding: .8rem 1rem; background: color-mix(in srgb, var(--acid) 5%, var(--panel)); border: 1px solid var(--line); }
+.decision-guide-checks strong { color: var(--acid); font: 750 .68rem ui-monospace, monospace; text-transform: uppercase; letter-spacing: .06em; }
+.decision-guide-checks ul { margin: .55rem 0 0; padding-left: 1.1rem; }
+.decision-guide-checks li, .decision-guide-checks p { margin-top: .4rem; color: var(--muted); font-size: .8rem; line-height: 1.55; }
 .guided-practice { padding-top: 2rem; border-top: 1px solid var(--line-strong); }
 .practice-code-shell { margin-top: 1rem; overflow: hidden; background: var(--bg-deep); border: 1px solid var(--line-strong); border-radius: 12px; }
 .practice-code-shell > div { padding: .7rem .9rem; display: flex; justify-content: space-between; gap: 1rem; color: var(--muted); background: var(--panel); border-bottom: 1px solid var(--line); font: 650 .68rem ui-monospace, monospace; }
@@ -441,9 +457,9 @@ input[type="range"] { width: 100%; accent-color: var(--acid); cursor: pointer; }
 .formula-block, .article-section pre { margin: 1.1rem 0; padding: 1rem; overflow-x: auto; background: var(--bg-deep); border: 1px solid var(--line); color: var(--acid); font: .84rem/1.6 ui-monospace, SFMono-Regular, Consolas, monospace; }
 .formula-block { display: grid; gap: .75rem; border-left: 3px solid var(--acid); }
 .formula-expression { min-width: max-content; font-size: clamp(.86rem, 2.1vw, 1.08rem); letter-spacing: .01em; }
-.formula-flow-steps { min-width: 0; margin: 0; padding: 0; display: grid; grid-template-columns: 1fr; gap: .8rem; list-style: none; counter-reset: none; }
+.formula-flow-steps { min-width: 0; margin: 0; padding: 0 0 .35rem; display: grid; grid-auto-flow: column; grid-auto-columns: minmax(420px, 1fr); gap: .8rem; overflow-x: auto; overscroll-behavior-inline: contain; scrollbar-width: thin; list-style: none; counter-reset: none; }
 .formula-flow-steps > li { min-width: 0; padding: .9rem; position: relative; display: grid; grid-template-columns: minmax(76px, .22fr) minmax(190px, .72fr) minmax(0, 1.55fr); grid-template-areas: "label components formula" "label components explanation" "label components transition"; align-content: start; gap: .55rem 1rem; color: var(--ink); background: color-mix(in srgb, var(--panel) 72%, var(--bg-deep)); border: 1px solid var(--line); border-radius: 8px; }
-.formula-flow-steps > li:not(:last-child)::after { content: "↓"; width: 1.1rem; height: 1.1rem; position: absolute; left: 1.5rem; bottom: -.96rem; z-index: 1; display: grid; place-items: center; color: var(--acid); background: var(--bg-deep); font-weight: 800; }
+.formula-flow-steps > li:not(:last-child)::after { content: "→"; width: 1.1rem; height: 1.1rem; position: absolute; right: -.96rem; top: 50%; z-index: 1; display: grid; place-items: center; color: var(--acid); background: var(--bg-deep); font-weight: 800; }
 .formula-step-label { grid-area: label; color: var(--cyan); font: 750 .68rem/1.35 ui-monospace, monospace; letter-spacing: .06em; text-transform: uppercase; }
 .formula-flow-steps .formula-expression { min-width: 0; padding: .25rem 0; grid-area: formula; color: var(--acid); font-size: clamp(.88rem, 2vw, 1.08rem); white-space: nowrap; overflow-x: auto; }
 .formula-flow-steps > li > p { margin: 0; grid-area: explanation; color: var(--muted); font: .84rem/1.62 var(--font-body); }
@@ -880,11 +896,15 @@ input[type="range"] { width: 100%; accent-color: var(--acid); cursor: pointer; }
   .article-source a { max-width: 100%; flex-wrap: wrap; overflow-wrap: anywhere; }
   .reader-review-banner { margin-top: 1rem; }
   .article-section { padding-top: 2.25rem; }
+  .decision-guide { margin-top: 2.25rem; }
+  .decision-guide-steps { grid-template-columns: none; grid-auto-flow: column; grid-auto-columns: minmax(255px, 82vw); }
+  .decision-guide-steps > li { min-height: 0; }
+  .decision-guide-checks { grid-template-columns: 1fr; }
   .formula-block, .article-section pre, .practice-code-shell pre, .practice-result-grid pre,
   .course-position-map, .thinking-flow, .concept-diagram > div[role="img"] {
     max-width: 100%; overscroll-behavior-inline: contain; scrollbar-width: thin; touch-action: pan-x pan-y;
   }
-  .formula-flow-steps { min-width: 660px; }
+  .formula-flow-steps { min-width: 0; grid-auto-columns: minmax(620px, 86vw); }
   .guided-orientation, .guided-practice, .guided-quiz, .guided-trend,
   .exercise-card, .knowledge-check, .lesson-references { margin-top: 2.25rem; }
   .concept-diagram > header { align-items: flex-start; flex-direction: column; }

@@ -18,6 +18,7 @@ import {
 } from "../app/data/guided-course.ts";
 import { topicDepthBySlug } from "../app/data/topic-depth.ts";
 import { topicCodeBySlug } from "../app/data/topic-code.ts";
+import { getDecisionGuide } from "../app/data/decision-guides.ts";
 
 const catalog = JSON.parse(await readFile("governance/catalog.json", "utf8"));
 const status = JSON.parse(await readFile("governance/translation-status.json", "utf8"));
@@ -132,6 +133,14 @@ for (const seed of referenceSeeds) {
     assert.ok(depth.core[locale].trim().length >= minimumLength, `${locale}/${seed.slug} core explanation is too thin`);
     assert.ok(depth.example[locale].trim().length >= minimumLength, `${locale}/${seed.slug} worked example is too thin`);
     assert.doesNotMatch(depth.core[locale], /practical mental model|mô hình tư duy thực tế|실용적인 사고 모형/i);
+    const guide = getDecisionGuide(locale, seed, depth);
+    assert.ok(guide.question.includes(seed.titles[locale]), `${locale}/${seed.slug} decision question must name the topic`);
+    assert.equal(guide.steps.length, 4, `${locale}/${seed.slug} needs a four-step decision path`);
+    assert.equal(guide.alternatives.length, 2, `${locale}/${seed.slug} needs two explicit alternatives`);
+    assert.ok(guide.steps.every((step) => step.label.trim() && step.prompt.trim() && step.action.trim()), `${locale}/${seed.slug} has an incomplete decision step`);
+    assert.equal(new Set(guide.steps.map((step) => step.prompt)).size, 4, `${locale}/${seed.slug} decision prompts repeat`);
+    assert.ok(guide.reconsider.trim().length >= minimumLength, `${locale}/${seed.slug} reconsideration rule is too thin`);
+    assert.doesNotMatch(guide.reconsider, /result of this step is the input needed next/i, `${locale}/${seed.slug} uses the old generic transition`);
   }
 }
 for (const locale of ["en", "vi", "ko"]) {
@@ -139,6 +148,27 @@ for (const locale of ["en", "vi", "ko"]) {
   const examples = referenceSeeds.map((seed) => topicDepthBySlug[seed.slug].example[locale]);
   assert.equal(new Set(cores).size, cores.length, `${locale} has duplicate core explanations`);
   assert.equal(new Set(examples).size, examples.length, `${locale} has duplicate worked examples`);
+  const decisionSignatures = referenceSeeds.map((seed) => {
+    const guide = getDecisionGuide(locale, seed, topicDepthBySlug[seed.slug]);
+    return `${guide.question}|${guide.steps.map((step) => step.action).join("|")}`;
+  });
+  assert.equal(new Set(decisionSignatures).size, decisionSignatures.length, `${locale} has duplicate decision paths`);
+}
+const decisionProfileCases = {
+  "linear-regression": /Tree or spline/,
+  "decision-trees": /Pruned single tree/,
+  clustering: /Alternative representation or distance/,
+  "graph-machine-learning": /Row-only model/,
+  "gaussian-processes": /Bootstrap or calibrated baseline/,
+  "model-evaluation": /Alternative split or cost-aware metric/,
+  "model-deployment": /Rule-based fallback/,
+  "distribution-shift": /Reference-period replay/,
+};
+for (const [slug, expectedAlternative] of Object.entries(decisionProfileCases)) {
+  const seed = referenceSeeds.find((item) => item.slug === slug);
+  assert.ok(seed, `${slug} missing from reference curriculum`);
+  const guide = getDecisionGuide("en", seed, topicDepthBySlug[slug]);
+  assert.match(guide.alternatives.join(" | "), expectedAlternative, `${slug} uses the wrong decision family`);
 }
 const practiceSeeds = curriculumSeeds.filter((seed) => seed.kind === "code" || seed.kind === "exercise");
 assert.equal(practiceSeeds.length, 17, "Expected 17 code or exercise lessons");
@@ -243,4 +273,4 @@ for (const slug of expectedDiagramSlugs) {
 await access("CONTENT_LICENSE.md");
 await access("LICENSE");
 
-console.log(`Content audit passed: 122 topics × 3 structurally matched locales, 116 topic-specific reference lessons with unique cores and worked examples, 17 page-specific Python practices, ${formulaEntries.length} mathematical anchors and ${technicalSeeds.length} variable-length derivation flows with per-equation components and trilingual reasoning bridges, localized terminology parity, a 24-source reading and verification library, 6 deep guided chapters, 22 concept diagrams, 6 guided Python practices, and 12 MCQs.`);
+console.log(`Content audit passed: 122 topics × 3 structurally matched locales, 116 topic-specific reference lessons with unique cores, worked examples, four-step decision paths, explicit alternatives, and reversal conditions; 17 page-specific Python practices, ${formulaEntries.length} mathematical anchors and ${technicalSeeds.length} variable-length derivation flows with per-equation components and trilingual reasoning bridges, localized terminology parity, a 24-source reading and verification library, 6 deep guided chapters, 22 concept diagrams, 6 guided Python practices, and 12 MCQs.`);

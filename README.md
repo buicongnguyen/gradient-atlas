@@ -25,8 +25,9 @@ separate from Gradient Atlas licensing.
 
 All 116 reference lessons have distinct English, Vietnamese, and Korean core
 explanations and worked examples. Each follows with a subject-appropriate
-mechanism, four-step reasoning checklist, failure test, hands-on exercise, and
-topic-matched references. The 17 code or exercise routes also include a unique,
+mechanism, four-step decision path, two explicit alternatives, a condition for
+reversing the choice, a failure test, a hands-on exercise, and topic-matched
+references. The 17 code or exercise routes also include a unique,
 dependency-free Python example with an observable result.
 
 Every Vietnamese and Korean lesson displays its canonical English topic name,
@@ -36,8 +37,9 @@ blocks with trilingual explanations and symbol definitions; every algorithm
 and code-focused lesson has a mathematical anchor. All 32 algorithm and
 code-focused lessons additionally present a variable-length derivation. Every
 equation explains its own symbols and role, then states why its result is needed
-by the following equation. The sequence stops only when the lesson reaches its
-natural result; it is not forced into a fixed number of formulas.
+and which unresolved operation requires the following equation. The sequence
+stops only when the lesson reaches its natural result; it is not forced into a
+fixed number of formulas.
 
 The reader typography is calibrated for sustained reading rather than dense UI
 display. Main prose is approximately 17 px, navigation and explanatory copy are

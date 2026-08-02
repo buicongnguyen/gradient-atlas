@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { getLesson, isLanguage, languages, lessons, ui } from "../../../data/content";
+import { getLesson, isLanguage, languages, lessonNavigationItems, lessons, ui } from "../../../data/content";
 import { getGuidedDepth, guidedDepthUi } from "../../../data/guided-depth";
 import {
   courseUi,
@@ -24,6 +24,27 @@ const formulaFlowCopy = {
   en: { components: "Components", whyNext: "Why the next equation?" },
   vi: { components: "Các thành phần", whyNext: "Vì sao cần công thức tiếp theo?" },
   ko: { components: "구성요소", whyNext: "왜 다음 식이 필요한가요?" },
+};
+
+const decisionGuideCopy = {
+  en: {
+    eyebrow: "Decision path",
+    title: "Choose with a reason",
+    alternatives: "Compare before choosing",
+    reconsider: "Change course when",
+  },
+  vi: {
+    eyebrow: "Luồng quyết định",
+    title: "Lựa chọn có lý do",
+    alternatives: "So sánh trước khi chọn",
+    reconsider: "Khi nào cần đổi hướng",
+  },
+  ko: {
+    eyebrow: "의사결정 흐름",
+    title: "근거를 갖고 선택하기",
+    alternatives: "선택 전 비교",
+    reconsider: "방향을 바꿀 때",
+  },
 };
 
 export function generateStaticParams() {
@@ -80,7 +101,11 @@ export default async function LessonPage({
         readingPosition={`${lesson.number} / ${lessonList.length}`}
       />
       <main className="reader-shell">
-        <BookSidebar language={lang} lessons={lessonList} currentLesson={lesson} />
+        <BookSidebar
+          language={lang}
+          lessons={lessonNavigationItems(lessonList)}
+          currentLesson={lessonNavigationItems([lesson])[0]}
+        />
 
         <article className="lesson-article" id="article">
           <header className="article-header">
@@ -106,6 +131,12 @@ export default async function LessonPage({
                   <Link href="#big-picture">
                     <span>00</span>
                     {depthLabels.bigPicture}
+                  </Link>
+                )}
+                {!support && lesson.decisionGuide && (
+                  <Link href="#decision-path">
+                    <span>00</span>
+                    {decisionGuideCopy[lang].eyebrow}
                   </Link>
                 )}
                 {lesson.sections.map((section, sectionIndex) => (
@@ -195,6 +226,43 @@ export default async function LessonPage({
                 <h2>{support.project.action}</h2>
                 <p><strong>{course.deliverable}</strong>{support.project.deliverable}</p>
               </article>
+            </section>
+          )}
+
+          {!support && lesson.decisionGuide && (
+            <section className="decision-guide" id="decision-path">
+              <header className="decision-guide-heading">
+                <span>{decisionGuideCopy[lang].eyebrow}</span>
+                <h2>{decisionGuideCopy[lang].title}</h2>
+                <p>{lesson.decisionGuide.question}</p>
+              </header>
+              <ol className="decision-guide-steps">
+                {lesson.decisionGuide.steps.map((step, stepIndex) => (
+                  <li key={`${step.label}:${step.prompt}`}>
+                    <span>{String(stepIndex + 1).padStart(2, "0")}</span>
+                    <strong>{step.label}</strong>
+                    <h3>{step.prompt}</h3>
+                    <p>{step.action}</p>
+                    {stepIndex < lesson.decisionGuide!.steps.length - 1 && (
+                      <i aria-hidden="true">→</i>
+                    )}
+                  </li>
+                ))}
+              </ol>
+              <div className="decision-guide-checks">
+                <section>
+                  <strong>{decisionGuideCopy[lang].alternatives}</strong>
+                  <ul>
+                    {lesson.decisionGuide.alternatives.map((alternative) => (
+                      <li key={alternative}>{alternative}</li>
+                    ))}
+                  </ul>
+                </section>
+                <section>
+                  <strong>{decisionGuideCopy[lang].reconsider}</strong>
+                  <p>{lesson.decisionGuide.reconsider}</p>
+                </section>
+              </div>
             </section>
           )}
 

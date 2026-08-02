@@ -1385,3 +1385,69 @@ that protects every published route.
 Resolution: the site regression suite reads both workflow definitions and
 requires lint and tests, while also checking that the Pages build follows the
 test gate.
+
+## 23. Decision-reasoning audit (implemented 2026-08-02)
+
+### 23.1 Audit result
+
+The six guided chapters already teach a visible four-stage reasoning sequence,
+but the 116 reference lessons previously stopped at definition, mechanism,
+worked example, failure check, and exercise. That structure explained what a
+method does without consistently answering the learner's next questions:
+when should I choose it, what should I compare it with, what evidence earns
+trust, and what observation should make me change course?
+
+The mathematical renderer had a related weakness. Its “why next?” bridge said
+only that one result became the next input. That described ordering but did not
+identify the unfinished operation that required the following equation.
+
+### 23.2 Implemented content model
+
+Every reference lesson in English, Vietnamese, and Korean now includes a
+four-stage decision path:
+
+1. frame the real decision and the role of the topic;
+2. check the assumptions and constraints that make the method a fit;
+3. compare two explicit alternatives before choosing;
+4. verify the choice with held-out, operational, stability, or falsification
+   evidence appropriate to the topic family.
+
+Each path ends with a concrete reversal condition under “Change course when.”
+The rules distinguish linear models, trees and ensembles, margin-based models,
+unsupervised representation methods, deep models, probabilistic methods,
+reinforcement learning, data work, evaluation, production systems, and failure
+diagnosis. The topic's unique core explanation and worked case anchor the
+family-specific decision rule, so the learner sees both a reusable reasoning
+pattern and a page-specific application.
+
+Formula bridges now state the operation completed by the current equation, the
+operation still unresolved, and why the following equation performs the needed
+transformation. Formula steps remain in a horizontal sequence so the added
+logic does not recreate unnecessary vertical scrolling.
+
+### 23.3 Content and logic review
+
+`Risk: a decision guide becomes another generic paragraph template`
+
+Resolution: each guide names its localized topic, incorporates the page's
+unique core and worked example, selects a domain-specific choice profile, names
+two alternatives, and defines a reversal condition. Automated checks reject
+missing steps, duplicate decision signatures, absent alternatives, thin
+reconsideration rules, and the former generic equation transition.
+
+`Risk: the reasoning sequence implies that every decision is linear`
+
+Resolution: the third and fourth stages explicitly compare alternatives and
+define evidence that can reverse the initial choice. The visual arrow expresses
+reading order, while the “change course” rule makes iteration and rejection a
+first-class part of the model.
+
+`Risk: the new reasoning block makes phone lessons excessively tall`
+
+Resolution: the four steps use a bounded horizontal strip on narrow screens;
+alternatives and reversal conditions remain compact text panels. Touch targets
+and body-text size are preserved, and only the local reasoning strip scrolls
+horizontally. The review also found that the client sidebar was receiving every
+lesson's full body. It now receives a navigation-only projection, reducing a
+representative exported reference page from roughly 582 KB to 116 KB while
+preserving all 122 searchable destinations.

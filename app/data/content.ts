@@ -1,4 +1,5 @@
 import { curriculumSeeds, type Collection, type PageKind } from "./full-curriculum";
+import { getDecisionGuide, type DecisionGuide } from "./decision-guides";
 import {
   formulaSupportBySlug,
   localizedTerminology,
@@ -41,12 +42,31 @@ export type Lesson = {
   title: string;
   englishTitle?: string;
   terminology?: TerminologyPair[];
+  decisionGuide?: DecisionGuide;
   summary: string;
   duration: string;
   outcome: string;
   sections: LessonSection[];
   exercise: string;
 };
+
+export type LessonNavigationItem = Pick<
+  Lesson,
+  "id" | "collection" | "part" | "number" | "slug" | "title" | "summary" | "tags"
+>;
+
+export function lessonNavigationItems(items: Lesson[]): LessonNavigationItem[] {
+  return items.map(({ id, collection, part, number, slug, title, summary, tags }) => ({
+    id,
+    collection,
+    part,
+    number,
+    slug,
+    title,
+    summary,
+    tags,
+  }));
+}
 
 type LessonDraft = Omit<
   Lesson,
@@ -853,10 +873,18 @@ const formulaStepLabel = (language: Language, index: number, isResult: boolean):
   return `${isResult ? "Result" : "Step"} ${number}`;
 };
 
-const formulaTransition = (language: Language, nextExplanation: string): string => {
-  if (language === "vi") return `Kết quả của bước này là đầu vào cần thiết cho bước kế tiếp: ${nextExplanation}`;
-  if (language === "ko") return `이 단계의 결과가 다음 단계에 필요한 입력이 됩니다. ${nextExplanation}`;
-  return `The result of this step is the input needed next: ${nextExplanation}`;
+const formulaTransition = (
+  language: Language,
+  currentExplanation: string,
+  nextExplanation: string,
+): string => {
+  if (language === "vi") {
+    return `Bước hiện tại giải quyết thao tác này: ${currentExplanation} Câu hỏi còn lại là bước tiếp theo phải làm gì: ${nextExplanation} Công thức kế tiếp thực hiện chính phép biến đổi đó.`;
+  }
+  if (language === "ko") {
+    return `현재 식이 해결한 연산은 다음과 같습니다. ${currentExplanation} 아직 남은 질문은 다음 연산입니다. ${nextExplanation} 다음 식이 바로 그 변환을 수행합니다.`;
+  }
+  return `The current equation completes this operation: ${currentExplanation} The unresolved question is the next operation: ${nextExplanation} The following equation performs that transformation.`;
 };
 
 function enrichLesson(
@@ -865,6 +893,7 @@ function enrichLesson(
   lesson: Lesson,
 ): Lesson {
   const support = formulaSupportBySlug[seed.slug];
+  const topicDepth = getTopicDepth(seed);
   const alreadyHasFormula = lesson.sections.some((section) => section.formula);
   const hasFlow = Boolean(support?.steps?.length);
   const flowSteps = support && hasFlow
@@ -893,7 +922,11 @@ function enrichLesson(
               explanation: formulaStep.explanation[language],
               components: formulaStep.components ?? [],
               nextReason: flowSteps[index + 1]
-                ? formulaTransition(language, flowSteps[index + 1].explanation[language])
+                ? formulaTransition(
+                    language,
+                    formulaStep.explanation[language],
+                    flowSteps[index + 1].explanation[language],
+                  )
                 : undefined,
               isResult: index === flowSteps.length - 1,
             })),
@@ -905,6 +938,9 @@ function enrichLesson(
     ...lesson,
     englishTitle: seed.titles.en,
     terminology: localizedTerminology(language, seed),
+    decisionGuide: topicDepth
+      ? getDecisionGuide(language, seed, topicDepth)
+      : undefined,
     sections,
   };
 }
@@ -932,6 +968,8 @@ type LessonShape = {
     note: boolean;
   }>;
   terminology: number;
+  decisionSteps: number;
+  decisionAlternatives: number;
 };
 
 function lessonShape(lesson: Lesson): LessonShape {
@@ -946,6 +984,8 @@ function lessonShape(lesson: Lesson): LessonShape {
       note: Boolean(section.note),
     })),
     terminology: lesson.terminology?.length ?? 0,
+    decisionSteps: lesson.decisionGuide?.steps.length ?? 0,
+    decisionAlternatives: lesson.decisionGuide?.alternatives.length ?? 0,
   };
 }
 

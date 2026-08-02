@@ -175,6 +175,9 @@ test("keeps the deeper guided blocks out of reference-only notes", async () => {
   assert.doesNotMatch(html, /id="try-it-yourself"/);
   assert.doesNotMatch(html, /id="mcq-review"/);
   assert.doesNotMatch(html, /id="current-practice"/);
+  assert.match(html, /id="decision-path"/);
+  assert.match(html, /class="decision-guide-steps"/);
+  assert.equal((html.match(/class="decision-guide-checks"/g) ?? []).length, 1);
   assert.match(html, /id="continue-learning"/);
   assert.equal((html.match(/class="reading-resource-card"/g) ?? []).length, 4);
 });
@@ -329,9 +332,10 @@ test("keeps long-form lessons compact without undersized reading text", () => {
   assert.match(globalStyles, /\.book-page-link\s*\{[^}]*font-size:\s*\.84rem;/);
   assert.match(globalStyles, /\.formula-components li\s*\{[^}]*font:\s*\.76rem\/1\.5/);
   assert.match(globalStyles, /\.reading-resource-card p\s*\{[^}]*font-size:\s*\.82rem;/);
-  assert.match(globalStyles, /\.formula-flow-steps\s*\{[^}]*grid-template-columns:\s*1fr;/);
+  assert.match(globalStyles, /\.formula-flow-steps\s*\{[^}]*grid-auto-flow:\s*column;/);
+  assert.match(globalStyles, /\.formula-flow-steps\s*\{[^}]*overflow-x:\s*auto;/);
   assert.match(globalStyles, /grid-template-areas:\s*"label components formula"/);
-  assert.doesNotMatch(globalStyles, /\.formula-flow-steps\s*\{[^}]*grid-auto-flow:\s*column;/);
+  assert.match(globalStyles, /\.decision-guide-steps\s*\{[^}]*grid-template-columns:\s*repeat\(4,/);
 });
 
 test("keeps every shared page family safe at phone widths", () => {
@@ -355,7 +359,11 @@ test("keeps every shared page family safe at phone widths", () => {
   );
   assert.match(
     globalStyles,
-    /@media \(max-width:\s*720px\)[\s\S]*?\.formula-flow-steps\s*\{[^}]*min-width:\s*660px;/,
+    /@media \(max-width:\s*720px\)[\s\S]*?\.formula-flow-steps\s*\{[^}]*grid-auto-columns:\s*minmax\(620px,\s*86vw\);/,
+  );
+  assert.match(
+    globalStyles,
+    /@media \(max-width:\s*720px\)[\s\S]*?\.decision-guide-steps\s*\{[^}]*grid-auto-columns:\s*minmax\(255px,\s*82vw\);/,
   );
   assert.match(
     globalStyles,
@@ -389,6 +397,10 @@ test("renders every source-corresponding page in every locale", async () => {
       assert.equal(new Set(resourceIds).size, 4, `${locale}/${seed.slug}`);
       assert.ok(!resourceIds.includes("wikidocs-index"), `${locale}/${seed.slug}`);
       assert.match(html, /class="terminology-panel"/, `${locale}/${seed.slug}`);
+      if (!seed.featured) {
+        assert.match(html, /id="decision-path"/, `${locale}/${seed.slug}`);
+        assert.equal((html.match(/class="decision-guide-steps"/g) ?? []).length, 1, `${locale}/${seed.slug}`);
+      }
       assert.doesNotMatch(
         html,
         /Build a practical mental model|Xây dựng mô hình tư duy thực tế|실용적인 사고 모형/,

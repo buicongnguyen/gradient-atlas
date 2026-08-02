@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useMemo, useRef, useState } from "react";
-import type { Language, Lesson } from "../data/content";
+import type { Language, LessonNavigationItem } from "../data/content";
 import { ui } from "../data/content";
 import { courseUi, guidedSlugs } from "../data/guided-course";
 
@@ -11,7 +11,7 @@ type LessonGroup = {
   collection: "legacy" | "fundamentals";
   part: string;
   title: string;
-  lessons: Lesson[];
+  lessons: LessonNavigationItem[];
 };
 
 const partLabels: Record<Language, string> = {
@@ -31,8 +31,8 @@ export function BookSidebar({
   currentLocation = "lesson",
 }: {
   language: Language;
-  lessons: Lesson[];
-  currentLesson?: Lesson;
+  lessons: LessonNavigationItem[];
+  currentLesson?: LessonNavigationItem;
   currentLocation?: "home" | "catalog" | "lesson" | "policy";
 }) {
   const copy = ui[language];
@@ -49,7 +49,7 @@ export function BookSidebar({
     () =>
       guidedSlugs
         .map((slug) => lessons.find((lesson) => lesson.slug === slug))
-        .filter((lesson): lesson is Lesson => Boolean(lesson)),
+        .filter((lesson): lesson is LessonNavigationItem => Boolean(lesson)),
     [lessons],
   );
 

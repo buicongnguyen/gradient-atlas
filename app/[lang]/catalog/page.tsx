@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { isLanguage, languages, lessons, ui } from "../../data/content";
+import { isLanguage, languages, lessonNavigationItems, lessons, ui } from "../../data/content";
 import { CatalogClient } from "../../ui/CatalogClient";
 import { BookSidebar } from "../../ui/BookSidebar";
 import { SiteHeader } from "../../ui/SiteHeader";
@@ -34,7 +34,7 @@ export default async function CatalogPage({
       <div className="reader-shell">
         <BookSidebar
           language={lang}
-          lessons={lessons[lang]}
+          lessons={lessonNavigationItems(lessons[lang])}
           currentLocation="catalog"
         />
         <CatalogClient language={lang} lessons={lessons[lang]} />
