@@ -337,6 +337,15 @@ test("renders every source-corresponding page in every locale", async () => {
       assert.equal(new Set(resourceIds).size, 4, `${locale}/${seed.slug}`);
       assert.ok(!resourceIds.includes("wikidocs-index"), `${locale}/${seed.slug}`);
       assert.match(html, /class="terminology-panel"/, `${locale}/${seed.slug}`);
+      assert.doesNotMatch(
+        html,
+        /Build a practical mental model|Xây dựng mô hình tư duy thực tế|실용적인 사고 모형/,
+        `${locale}/${seed.slug} still renders placeholder copy`,
+      );
+      if (seed.kind === "code" || seed.kind === "exercise") {
+        assert.match(html, /<pre><code>/, `${locale}/${seed.slug} needs its Python practice`);
+        assert.match(html, /print\(|assert /, `${locale}/${seed.slug} practice needs an observable result`);
+      }
       if (locale !== "en") {
         assert.match(html, /canonical-english-term/, `${locale}/${seed.slug}`);
       } else {

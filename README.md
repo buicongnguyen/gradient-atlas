@@ -3,7 +3,8 @@
 Gradient Atlas is an original, visual, trilingual guide to machine-learning
 foundations. Its recommended path is a six-chapter guided course that builds
 one late-delivery risk system from decision framing to monitoring. A separate
-116-note reference atlas supports lookup by model, formula, and failure pattern.
+116-lesson reference atlas teaches individual models, formulas, workflows, and
+failure patterns through topic-specific explanations and worked examples.
 Together they form 122 English, Vietnamese, and Korean topics (366 localized
 reader routes).
 
@@ -21,6 +22,12 @@ Every one of the 122 lesson identities also ends with four topic-matched reading
 paths. The shelf distinguishes books, courses, and technical guides, explains
 why each resource is useful in all three languages, and keeps external rights
 separate from Gradient Atlas licensing.
+
+All 116 reference lessons have distinct English, Vietnamese, and Korean core
+explanations and worked examples. Each follows with a subject-appropriate
+mechanism, four-step reasoning checklist, failure test, hands-on exercise, and
+topic-matched references. The 17 code or exercise routes also include a unique,
+dependency-free Python example with an observable result.
 
 Every Vietnamese and Korean lesson displays its canonical English topic name,
 and all three editions include a curated terminology panel. Eighty-seven
@@ -94,10 +101,10 @@ npm run build:pages
 
 This release is a public preview:
 
-- six guided chapters and 116 supporting reference notes;
+- six guided chapters and 116 topic-specific reference lessons;
 - three localized editions per topic;
 - one continuing late-delivery project;
-- six dependency-free Python exercises and twelve explained MCQs;
+- twenty-three dependency-free Python exercises and twelve explained MCQs;
 - chapter-level orientation diagrams and dated current-practice guidance;
 - four curated continuation resources on every lesson and reference note;
 - logic-reviewed technical drafts;

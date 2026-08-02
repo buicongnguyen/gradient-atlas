@@ -1,5 +1,6 @@
 import assert from "node:assert/strict";
 import { access, readFile } from "node:fs/promises";
+import { spawnSync } from "node:child_process";
 import { curriculumSeeds } from "../app/data/full-curriculum.ts";
 import {
   formulaSupportBySlug,
@@ -15,6 +16,8 @@ import {
   guidedSlugs,
   referenceSources,
 } from "../app/data/guided-course.ts";
+import { topicDepthBySlug } from "../app/data/topic-depth.ts";
+import { topicCodeBySlug } from "../app/data/topic-code.ts";
 
 const catalog = JSON.parse(await readFile("governance/catalog.json", "utf8"));
 const status = JSON.parse(await readFile("governance/translation-status.json", "utf8"));
@@ -22,6 +25,9 @@ const assetRights = JSON.parse(await readFile("governance/asset-rights.json", "u
 const contentSource = await readFile("app/data/content.ts", "utf8");
 const diagramSource = await readFile("app/ui/LessonDiagram.tsx", "utf8");
 const plan = await readFile("PROJECT_PLAN_AND_LOGIC_REVIEW.md", "utf8");
+const pythonCommand = ["python3", "python"].find((command) =>
+  spawnSync(command, ["--version"], { encoding: "utf8" }).status === 0,
+);
 
 assert.equal(curriculumSeeds.length, 122, "Expected the verified 122-page outline");
 assert.equal(catalog.documents.length, 122, "Catalog must cover every outline page");
@@ -115,6 +121,43 @@ for (const marker of ["lessonsEn", "lessonsVi", "lessonsKo"]) {
 }
 assert.match(contentSource, /function generatedLesson/);
 assert.match(contentSource, /function mergePilot/);
+const referenceSeeds = curriculumSeeds.filter((seed) => !guidedSlugs.includes(seed.slug));
+assert.equal(referenceSeeds.length, 116, "Expected 116 non-guided lessons");
+assert.equal(Object.keys(topicDepthBySlug).length, 116, "Every non-guided lesson needs topic-specific depth");
+for (const seed of referenceSeeds) {
+  const depth = topicDepthBySlug[seed.slug];
+  assert.ok(depth, `${seed.slug} still relies on placeholder lesson content`);
+  for (const locale of ["en", "vi", "ko"]) {
+    const minimumLength = locale === "ko" ? 45 : 80;
+    assert.ok(depth.core[locale].trim().length >= minimumLength, `${locale}/${seed.slug} core explanation is too thin`);
+    assert.ok(depth.example[locale].trim().length >= minimumLength, `${locale}/${seed.slug} worked example is too thin`);
+    assert.doesNotMatch(depth.core[locale], /practical mental model|mô hình tư duy thực tế|실용적인 사고 모형/i);
+  }
+}
+for (const locale of ["en", "vi", "ko"]) {
+  const cores = referenceSeeds.map((seed) => topicDepthBySlug[seed.slug].core[locale]);
+  const examples = referenceSeeds.map((seed) => topicDepthBySlug[seed.slug].example[locale]);
+  assert.equal(new Set(cores).size, cores.length, `${locale} has duplicate core explanations`);
+  assert.equal(new Set(examples).size, examples.length, `${locale} has duplicate worked examples`);
+}
+const practiceSeeds = curriculumSeeds.filter((seed) => seed.kind === "code" || seed.kind === "exercise");
+assert.equal(practiceSeeds.length, 17, "Expected 17 code or exercise lessons");
+assert.equal(Object.keys(topicCodeBySlug).length, 17, "Every code or exercise lesson needs a distinct Python example");
+for (const seed of practiceSeeds) {
+  const code = topicCodeBySlug[seed.slug];
+  assert.ok(code, `${seed.slug} is missing its Python example`);
+  assert.match(code, /print\(|assert /, `${seed.slug} Python example needs an observable check`);
+  assert.doesNotMatch(code, /wikidocs|https?:\/\//i);
+  if (pythonCommand) {
+    const execution = spawnSync(pythonCommand, ["-c", code], {
+      encoding: "utf8",
+      timeout: 5_000,
+    });
+    assert.equal(execution.status, 0, `${seed.slug} Python example failed: ${execution.stderr}`);
+    assert.ok(execution.stdout.trim(), `${seed.slug} Python example produced no observable output`);
+  }
+}
+assert.equal(new Set(Object.values(topicCodeBySlug)).size, 17, "Python examples must be page-specific");
 assert.equal(guidedSlugs.length, 6, "Guided course must contain six chapters");
 assert.equal(new Set(guidedSlugs).size, 6, "Guided course contains duplicate chapters");
 for (const slug of guidedSlugs) {
@@ -200,4 +243,4 @@ for (const slug of expectedDiagramSlugs) {
 await access("CONTENT_LICENSE.md");
 await access("LICENSE");
 
-console.log(`Content audit passed: 122 topics × 3 structurally matched locales, ${formulaEntries.length} mathematical anchors and ${technicalSeeds.length} variable-length derivation flows with per-equation components and trilingual reasoning bridges, localized terminology parity, a 24-source reading and verification library, 6 deep guided chapters, 12 orientation visuals, 6 Python practices, and 12 MCQs.`);
+console.log(`Content audit passed: 122 topics × 3 structurally matched locales, 116 topic-specific reference lessons with unique cores and worked examples, 17 page-specific Python practices, ${formulaEntries.length} mathematical anchors and ${technicalSeeds.length} variable-length derivation flows with per-equation components and trilingual reasoning bridges, localized terminology parity, a 24-source reading and verification library, 6 deep guided chapters, 22 concept diagrams, 6 guided Python practices, and 12 MCQs.`);

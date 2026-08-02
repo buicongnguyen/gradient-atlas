@@ -1233,3 +1233,72 @@ full-width formula-row layout.
 Resolution: the same semantic sizes apply on mobile, where full-width formula
 rows already reflow internally. Automated checks protect the reviewed body,
 sidebar, formula-component, and resource-description minimums.
+
+## 20. Complete reference-lesson reconstruction (implemented 2026-08-02)
+
+### 20.1 Completion audit
+
+The route and localization audits were structurally green, but the content
+audit found a deeper editorial defect: 116 of 122 topics were produced by the
+same generic three-section function. Titles and terminology changed, yet the
+central explanation, workflow advice, failure discussion, and exercise were
+substantially repeated. These routes were valid pages but weak lessons.
+
+The six guided chapters already had manually written depth. The remaining 116
+routes are now backed by explicit topic-knowledge records. Every record contains
+a unique core explanation and worked example in English, Vietnamese, and
+Korean. A relevant learning profile adds the mechanism, four-step reasoning
+checklist, and failure test for its subject family. The page closes with a
+hands-on reconstruction exercise, mathematical support where applicable, and
+four topic-matched continuation resources.
+
+Seventeen code and exercise routes now include distinct dependency-free Python
+examples with observable output or assertions. Together with the six guided
+practices, the site contains 23 runnable small exercises.
+
+### 20.2 Research and rights boundary
+
+The reconstruction uses the existing 24-source library as a verification and
+further-reading layer. The main technical routing was checked against the
+official scikit-learn User Guide for supervised learning, unsupervised
+learning, preprocessing, model selection, evaluation, pipelines, and common
+pitfalls; official PyTorch tutorials for tensor, neural-network, training, and
+transformer workflows; Dive into Deep Learning for the explanation–math–code
+sequence; Hugging Face's official course for modern NLP workflows; Google's ML
+materials for problem framing and production monitoring; and NIST guidance for
+risk and deployed-system review.
+
+No source passage, figure, or sample program is reproduced. The lessons use
+independently written explanations, small original examples, mathematical
+notation, and original Python. WikiDocs remains a page-level historical topic
+link and is not used as a reuse-license basis.
+
+### 20.3 Logic review
+
+`Risk: replacing one template with several family templates still feels repetitive`
+
+Resolution: the family profile supplies only the reusable learning scaffold.
+The definition and worked example—the two parts that establish topic meaning—
+are unique for all 116 lessons and every locale. Automated checks reject a
+missing topic record, duplicate core, duplicate worked example, or the former
+placeholder phrases.
+
+`Risk: translated pages drift structurally or omit the new depth`
+
+Resolution: every topic record is a single trilingual unit and the renderer
+selects one locale from the same structure. Existing route tests continue to
+compare section, formula, note, code, diagram, exercise, and terminology shape
+for English, Vietnamese, and Korean.
+
+`Risk: a page labeled “with code” still contains only prose`
+
+Resolution: the audit enumerates every `code` and `exercise` route and requires
+one unique Python example with an observable `print` or `assert`. It rejects
+unknown, duplicated, copied, or URL-dependent samples.
+
+`Risk: more content recreates excessive scrolling`
+
+Resolution: each reference lesson uses three focused instructional sections:
+core idea, mechanism, and worked example plus failure check. Mathematical flows
+and code appear only where relevant, and deeper books or official guides remain
+in the continuation shelf instead of being paraphrased into oversized pages.

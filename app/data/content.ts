@@ -4,6 +4,8 @@ import {
   localizedTerminology,
   type TerminologyPair,
 } from "./learning-support";
+import { getLearningProfile, getTopicDepth } from "./topic-depth";
+import { getTopicCode } from "./topic-code";
 
 export const languages = ["en", "vi", "ko"] as const;
 export type Language = (typeof languages)[number];
@@ -137,7 +139,7 @@ export const ui: Record<Language, UiCopy> = {
     lessonEyebrow: "03 · Reference atlas",
     lessonTitle: "Look up a topic without losing the learning path.",
     lessonBody:
-      "The other 116 pages are clearly separated as supporting reference notes. Use them for models, formulas, and failure patterns—not as a cover-to-cover course.",
+      "The other 116 pages are topic-specific reference lessons with a core explanation, worked example, failure check, exercise, and deeper sources. Use them when the guided project reaches a model, formula, or operational question.",
     read: "Read lesson",
     minutes: "min",
     aboutEyebrow: "04 · Publishing policy",
@@ -159,8 +161,8 @@ export const ui: Record<Language, UiCopy> = {
     relatedOutline: "Historical WikiDocs topic",
     outlineAttribution: "This link records the topic that appeared in the earlier WikiDocs index. Gradient Atlas does not reproduce or translate the linked page.",
     catalog: "Browse the reference atlas",
-    catalogTitle: "Six guided chapters, 116 reference notes",
-    catalogBody: "Search the complete 122-topic atlas in English, Vietnamese, and Korean. Follow the six guided chapters first; use the remaining notes when you need a specific model, formula, or failure pattern.",
+    catalogTitle: "Six guided chapters, 116 reference lessons",
+    catalogBody: "Search the complete 122-topic atlas in English, Vietnamese, and Korean. Follow the six guided chapters first; each reference lesson then teaches one model, formula, workflow, or failure pattern with a worked example.",
     search: "Search titles and concepts",
     allCollections: "All collections",
     fundamentals: "Core reference",
@@ -201,7 +203,7 @@ export const ui: Record<Language, UiCopy> = {
     lessonEyebrow: "03 · Atlas tra cứu",
     lessonTitle: "Tra cứu chủ đề mà không làm mất lộ trình học.",
     lessonBody:
-      "116 trang còn lại được tách rõ thành ghi chú tham khảo. Hãy dùng chúng cho mô hình, công thức và kiểu thất bại—không đọc tuần tự như một khóa học.",
+      "116 trang còn lại là các bài học tra cứu theo từng chủ đề, có giải thích cốt lõi, ví dụ có lời giải, kiểm tra thất bại, bài tập và nguồn học sâu hơn. Hãy mở chúng khi dự án có câu hỏi về mô hình, công thức hoặc vận hành.",
     read: "Đọc bài",
     minutes: "phút",
     aboutEyebrow: "04 · Chính sách xuất bản",
@@ -223,8 +225,8 @@ export const ui: Record<Language, UiCopy> = {
     relatedOutline: "Chủ đề WikiDocs trước đây",
     outlineAttribution: "Liên kết này ghi nhận chủ đề từng xuất hiện trong mục lục WikiDocs. Gradient Atlas không tái bản hoặc dịch trang được liên kết.",
     catalog: "Mở atlas tra cứu",
-    catalogTitle: "Sáu chương có hướng dẫn, 116 ghi chú tra cứu",
-    catalogBody: "Tìm kiếm atlas 122 chủ đề bằng tiếng Anh, tiếng Việt và tiếng Hàn. Hãy học sáu chương có hướng dẫn trước; dùng các ghi chú còn lại khi cần một mô hình, công thức hoặc kiểu thất bại cụ thể.",
+    catalogTitle: "Sáu chương có hướng dẫn, 116 bài học tra cứu",
+    catalogBody: "Tìm kiếm atlas 122 chủ đề bằng tiếng Anh, tiếng Việt và tiếng Hàn. Hãy học sáu chương có hướng dẫn trước; sau đó mỗi bài tra cứu sẽ dạy một mô hình, công thức, quy trình hoặc kiểu thất bại bằng ví dụ có lời giải.",
     search: "Tìm theo tiêu đề và khái niệm",
     allCollections: "Tất cả bộ sưu tập",
     fundamentals: "Tham khảo cốt lõi",
@@ -265,7 +267,7 @@ export const ui: Record<Language, UiCopy> = {
     lessonEyebrow: "03 · 참고 아틀라스",
     lessonTitle: "학습 경로를 잃지 않고 필요한 주제를 찾아보세요.",
     lessonBody:
-      "나머지 116개 페이지는 보조 참고 노트로 명확히 분리됩니다. 모델, 수식, 실패 패턴을 찾을 때 사용하고 처음부터 끝까지 읽는 코스로 보지 마세요.",
+      "나머지 116개 페이지는 핵심 설명, 풀이 예제, 실패 점검, 연습문제, 심화 자료를 갖춘 주제별 참고 레슨입니다. 가이드 프로젝트에서 모델, 수식, 운영 질문이 생길 때 활용하세요.",
     read: "레슨 읽기",
     minutes: "분",
     aboutEyebrow: "04 · 출판 원칙",
@@ -287,8 +289,8 @@ export const ui: Record<Language, UiCopy> = {
     relatedOutline: "과거 WikiDocs 주제",
     outlineAttribution: "이 링크는 이전 WikiDocs 색인에 있던 주제를 기록합니다. Gradient Atlas는 링크된 페이지를 복제하거나 번역하지 않습니다.",
     catalog: "참고 아틀라스 열기",
-    catalogTitle: "여섯 개의 가이드 장과 116개 참고 노트",
-    catalogBody: "영어·베트남어·한국어로 된 122개 주제 아틀라스를 검색하세요. 먼저 여섯 개의 가이드 장을 따라가고, 특정 모델·수식·실패 패턴이 필요할 때 나머지 노트를 사용하세요.",
+    catalogTitle: "여섯 개의 가이드 장과 116개 참고 레슨",
+    catalogBody: "영어·베트남어·한국어로 된 122개 주제 아틀라스를 검색하세요. 먼저 여섯 개의 가이드 장을 따라가고, 이후 각 참고 레슨에서 풀이 예제와 함께 모델·수식·워크플로·실패 패턴을 학습하세요.",
     search: "제목과 개념 검색",
     allCollections: "전체 컬렉션",
     fundamentals: "핵심 참고",
@@ -722,105 +724,59 @@ function generatedLesson(language: Language, seed: (typeof curriculumSeeds)[numb
   const title = seed.titles[language];
   const concepts = seed.tags.join(", ");
   const number = String(seed.order).padStart(3, "0");
-  const duration = seed.kind === "code" || seed.kind === "exercise" ? "14" : seed.kind === "overview" ? "7" : "10";
+  const duration = seed.kind === "code" || seed.kind === "exercise"
+    ? "16"
+    : seed.kind === "algorithm"
+      ? "14"
+      : seed.kind === "overview"
+        ? "12"
+        : "11";
+  const topicDepth = getTopicDepth(seed);
+  const learningProfile = getLearningProfile(seed);
+  const core = topicDepth?.core[language];
+  const example = topicDepth?.example[language];
+  const mechanism = learningProfile.mechanism[language];
+  const caution = learningProfile.caution[language];
+  const steps = learningProfile.steps[language];
+  const code = getTopicCode(seed.slug);
 
-  if (language === "vi") {
-    return {
-      id: seed.id,
-      sourcePageId: seed.sourcePageId,
-      collection: seed.collection,
-      kind: seed.kind,
-      tags: seed.tags,
-      featured: seed.featured ?? false,
-      part: seed.part,
-      number,
-      slug: seed.slug,
-      title,
-      summary: `Xây dựng mô hình tư duy thực tế cho “${title}” và kết nối nó với bằng chứng, quyết định và vận hành.`,
-      duration,
-      outcome: `Giải thích ${title}, nhận diện giả định quan trọng và chọn một phép kiểm tra phù hợp.`,
-      sections: [
-        {
-          heading: `Vì sao ${title} quan trọng`,
-          paragraphs: [
-            `Chủ đề này nằm trong một chuỗi quyết định, không phải một định nghĩa đứng riêng. Khi làm việc với ${concepts}, hãy bắt đầu từ câu hỏi thực tế cần trả lời, thông tin có sẵn tại thời điểm quyết định và hậu quả của từng kiểu sai.`,
-            "Một kỹ thuật chỉ hữu ích khi giả định của nó phù hợp với cách dữ liệu được tạo ra. Vì vậy, hãy ghi rõ đơn vị quan sát, thời điểm đo, mục tiêu tối ưu và nhóm người hoặc tình huống mà kết luận sẽ áp dụng.",
-          ],
-          note: "Hãy xem mỗi điểm số như một bằng chứng có điều kiện, không phải một sự thật vô điều kiện.",
-        },
-        {
-          heading: "Mô hình làm việc",
-          paragraphs: [
-            `Một cách học vững chắc là nối bốn lớp: khái niệm (${concepts}), biểu diễn trong dữ liệu, thao tác của thuật toán và phép kiểm tra sau cùng. Mỗi mũi nối phải giải thích được đầu vào nào thay đổi và đầu ra nào cần quan sát.`,
-            "Bắt đầu bằng đường cơ sở đơn giản, sau đó chỉ thêm độ phức tạp khi một thử nghiệm có kiểm soát cho thấy lợi ích. Ghi cùng lúc cấu hình, phiên bản dữ liệu, phép chia và chỉ số để kết quả có thể tái tạo.",
-          ],
-          bullets: [
-            "Nêu câu hỏi và phạm vi áp dụng trước khi chọn công cụ.",
-            "Kiểm tra tính sẵn có của dữ liệu tại đúng thời điểm sử dụng.",
-            "So sánh với đường cơ sở và xem sai số theo từng nhóm.",
-            "Lưu giả định, phiên bản và điều kiện dừng.",
-          ],
-        },
-        {
-          heading: "Kiểm tra logic và kiểu thất bại",
-          paragraphs: [
-            "Hãy hỏi liệu quy trình có vô tình dùng thông tin tương lai, tối ưu trực tiếp trên tập kiểm thử hoặc che giấu khác biệt bằng một số trung bình hay không. Thay đổi cách chia dữ liệu và kiểm tra độ nhạy là hai phép thử rẻ nhưng mạnh.",
-            `Nếu kết luận về ${title} thay đổi mạnh khi đổi mẫu, ngưỡng hoặc hạt giống ngẫu nhiên, hãy báo cáo độ bất định thay vì chỉ chọn kết quả đẹp nhất. Trong vận hành, theo dõi cả chất lượng đầu vào, hành vi mô hình và kết quả đến muộn.`,
-          ],
-        },
-      ],
-      exercise: `Tạo một ví dụ nhỏ về ${title}. Viết câu hỏi, dữ liệu, đường cơ sở, phép chia, chỉ số và một kiểu thất bại; sau đó nêu bằng chứng có thể bác bỏ kết luận của bạn.`,
-    };
-  }
-
-  if (language === "ko") {
-    return {
-      id: seed.id,
-      sourcePageId: seed.sourcePageId,
-      collection: seed.collection,
-      kind: seed.kind,
-      tags: seed.tags,
-      featured: seed.featured ?? false,
-      part: seed.part,
-      number,
-      slug: seed.slug,
-      title,
-      summary: `‘${title}’의 실용적인 사고 모형을 만들고 증거·의사결정·운영과 연결합니다.`,
-      duration,
-      outcome: `${title}을 설명하고 핵심 가정을 찾아 적절한 검증 방법을 선택할 수 있습니다.`,
-      sections: [
-        {
-          heading: `${title}이 중요한 이유`,
-          paragraphs: [
-            `이 주제는 독립된 정의가 아니라 연속된 의사결정의 일부입니다. ${concepts}을 다룰 때는 실제로 답해야 할 질문, 결정 시점에 이용 가능한 정보, 각 오류가 만드는 결과부터 확인해야 합니다.`,
-            "기법은 데이터가 생성된 방식과 가정이 맞을 때만 유용합니다. 관측 단위, 측정 시점, 최적화 목표, 결론이 적용될 사람과 상황을 명시하세요.",
-          ],
-          note: "모든 점수는 조건이 붙은 증거이며, 무조건적인 사실이 아닙니다.",
-        },
-        {
-          heading: "작동 모형 만들기",
-          paragraphs: [
-            `탄탄한 학습법은 네 층을 연결합니다. 개념(${concepts}), 데이터 표현, 알고리즘의 연산, 마지막 검증입니다. 각 연결에서는 어떤 입력이 바뀌고 어떤 출력을 관찰해야 하는지 설명할 수 있어야 합니다.`,
-            "간단한 기준선에서 시작하고, 통제된 실험이 이점을 보여 줄 때만 복잡도를 높이세요. 설정, 데이터 버전, 분할, 지표를 함께 기록하면 결과를 재현할 수 있습니다.",
-          ],
-          bullets: [
-            "도구를 고르기 전에 질문과 적용 범위를 적습니다.",
-            "실제 사용 시점에 데이터가 존재하는지 확인합니다.",
-            "기준선과 비교하고 오류를 하위 집단별로 봅니다.",
-            "가정, 버전, 중단 조건을 기록합니다.",
-          ],
-        },
-        {
-          heading: "논리 검토와 실패 패턴",
-          paragraphs: [
-            "미래 정보를 실수로 사용했는지, 테스트 세트에 직접 맞췄는지, 평균 하나로 중요한 차이를 감췄는지 확인하세요. 데이터 분할을 바꾸고 민감도를 검사하는 것은 저렴하면서도 강력한 검증입니다.",
-            `${title}에 대한 결론이 표본, 임곗값, 난수 시드에 따라 크게 변한다면 가장 좋은 결과만 고르지 말고 불확실성을 보고하세요. 운영에서는 입력 품질, 모델 행동, 늦게 도착하는 결과를 함께 관찰해야 합니다.`,
-          ],
-        },
-      ],
-      exercise: `${title}에 관한 작은 예를 만드세요. 질문, 데이터, 기준선, 분할, 지표, 실패 패턴을 적고 어떤 증거가 결론을 반박할 수 있는지 설명하세요.`,
-    };
-  }
+  const copy = {
+    en: {
+      core: "Core idea",
+      mechanism: "How it works",
+      review: "Worked example and failure check",
+      summary: `A focused lesson on ${title}: understand the central idea, trace the mechanism, work through an example, and test where it fails.`,
+      fallback: `Learn the central operation behind ${title} and connect ${concepts} to a testable result.`,
+      fallbackExample: `Construct the smallest possible ${title} example and record every input, operation, and output.`,
+      outcome: `Explain ${title}, reproduce its central operation, and diagnose one important failure mode.`,
+      finalCheck: `A credible check for ${title} compares the worked result with a simple baseline, changes one assumption, and records the evidence that would reverse the conclusion.`,
+      exercise: () => `Recreate the ${title} worked example with your own small data. Change one assumption, calculate or inspect the new result, and explain why it moved.`,
+    },
+    vi: {
+      core: "Ý tưởng cốt lõi",
+      mechanism: "Cơ chế hoạt động",
+      review: "Ví dụ có lời giải và kiểm tra thất bại",
+      summary: `Bài học chuyên biệt về ${title}: hiểu ý tưởng cốt lõi, lần theo cơ chế, làm một ví dụ và kiểm tra nơi phương pháp thất bại.`,
+      fallback: `Học thao tác trung tâm của ${title} và nối ${concepts} với một kết quả có thể kiểm tra.`,
+      fallbackExample: `Tạo ví dụ nhỏ nhất có thể cho ${title} và ghi lại mọi đầu vào, thao tác cùng đầu ra.`,
+      outcome: `Giải thích ${title}, tái hiện thao tác trung tâm và chẩn đoán một kiểu thất bại quan trọng.`,
+      finalCheck: `Phép kiểm tra đáng tin cho ${title} phải so kết quả ví dụ với baseline đơn giản, thay đổi một giả định và ghi bằng chứng có thể đảo ngược kết luận.`,
+      exercise: () => `Hãy dựng lại ví dụ ${title} bằng dữ liệu nhỏ của bạn. Thay đổi một giả định, tính hoặc quan sát kết quả mới rồi giải thích vì sao nó thay đổi.`,
+    },
+    ko: {
+      core: "핵심 개념",
+      mechanism: "작동 원리",
+      review: "풀이 예제와 실패 점검",
+      summary: `${title} 집중 레슨: 핵심 개념을 이해하고 작동 원리를 따라가며 예제를 풀고 실패 지점을 점검합니다.`,
+      fallback: `${title}의 핵심 연산을 배우고 ${concepts}을 검증 가능한 결과와 연결합니다.`,
+      fallbackExample: `${title}의 가장 작은 예제를 만들고 모든 입력, 연산, 출력을 기록합니다.`,
+      outcome: `${title}을 설명하고 핵심 연산을 재현하며 중요한 실패 유형 하나를 진단할 수 있습니다.`,
+      finalCheck: `${title}의 신뢰할 수 있는 검사는 예제 결과를 단순 기준선과 비교하고 가정 하나를 바꾸며 결론을 뒤집을 근거를 기록합니다.`,
+      exercise: () => `작은 데이터로 ${title} 풀이 예제를 다시 만드세요. 가정 하나를 바꾸고 새 결과를 계산하거나 관찰한 뒤 왜 달라졌는지 설명하세요.`,
+    },
+  }[language];
+  const coreParagraph = core ?? copy.fallback;
+  const workedExample = example ?? copy.fallbackExample;
 
   return {
     id: seed.id,
@@ -833,40 +789,26 @@ function generatedLesson(language: Language, seed: (typeof curriculumSeeds)[numb
     number,
     slug: seed.slug,
     title,
-    summary: `Build a practical mental model for ${title} and connect it to evidence, decisions, and operation.`,
+    summary: copy.summary,
     duration,
-    outcome: `Explain ${title}, identify its critical assumptions, and choose an appropriate check.`,
+    outcome: copy.outcome,
     sections: [
       {
-        heading: `Why ${title} matters`,
-        paragraphs: [
-          `This topic belongs to a chain of decisions, not an isolated definition. When working with ${concepts}, begin with the real question, the information available at decision time, and the consequence of each kind of error.`,
-          "A technique is useful only when its assumptions match the process that produced the data. State the unit of observation, measurement time, optimization target, and the people or situations to which the conclusion will apply.",
-        ],
-        note: "Treat every score as conditional evidence, not an unconditional fact.",
+        heading: copy.core,
+        paragraphs: [coreParagraph],
       },
       {
-        heading: "Build a working model",
-        paragraphs: [
-          `A durable way to learn is to connect four layers: the concepts (${concepts}), their data representation, the algorithm's operation, and the final check. At every connection, explain which input changes and which output should be observed.`,
-          "Start with a simple baseline, then add complexity only when a controlled comparison demonstrates value. Record the configuration, data version, split, and metric together so the result can be reproduced.",
-        ],
-        bullets: [
-          "State the question and scope before choosing a tool.",
-          "Check that inputs exist at the actual decision time.",
-          "Compare with a baseline and inspect errors by meaningful slice.",
-          "Record assumptions, versions, and stopping conditions.",
-        ],
+        heading: copy.mechanism,
+        paragraphs: [mechanism],
+        bullets: steps,
+        code,
       },
       {
-        heading: "Logic review and failure modes",
-        paragraphs: [
-          "Ask whether the workflow accidentally uses future information, optimizes directly on the test set, or hides important differences behind one average. Changing the split strategy and checking sensitivity are inexpensive, powerful tests.",
-          `If a conclusion about ${title} changes sharply with the sample, threshold, or random seed, report uncertainty instead of selecting the most attractive result. In operation, monitor input quality, model behavior, and delayed outcomes together.`,
-        ],
+        heading: copy.review,
+        paragraphs: [workedExample, caution, copy.finalCheck],
       },
     ],
-    exercise: `Create a small example of ${title}. Write the question, data, baseline, split, metric, and one failure mode; then name evidence that could falsify your conclusion.`,
+    exercise: copy.exercise(),
   };
 }
 

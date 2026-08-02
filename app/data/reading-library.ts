@@ -128,7 +128,7 @@ const profileMatchers: Array<[string, RegExp]> = [
   ["nlp", /natural-language|nlp|language-model|transformer|token|attention/],
   ["vision", /computer-vision|convolution|image|object-detection|vision/],
   ["reinforcement", /reinforcement|q-learning|policy-gradient|reward/],
-  ["production", /workflow|production|deployment|monitor|mlops|pipeline|serving|reproducib/],
+  ["production", /workflow|production|deployment|monitor|mlops|pipeline|serving|reproducib|ingestion|feedback-loop|system-thinking|scalab|model-updating|case-study|end-to-end-project/],
   ["responsible", /ethic|fairness|responsib|risk-management|bias-and-fairness/],
   ["deep", /deep-learning|neural|perceptron|autoencoder|generative|gan|rnn|lstm/],
   ["math", /linear-regression|regression-analysis|probab|bayes|gaussian|optimization|gradient|matrix|dimensionality|support-vector|loss/],
