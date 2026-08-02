@@ -1302,3 +1302,56 @@ Resolution: each reference lesson uses three focused instructional sections:
 core idea, mechanism, and worked example plus failure check. Mathematical flows
 and code appear only where relevant, and deeper books or official guides remain
 in the continuation shelf instead of being paraphrased into oversized pages.
+
+## 21. Mobile layout completion audit (implemented 2026-08-02)
+
+### 21.1 Audit model
+
+The mobile review covers the language gate, all three localized book homes,
+all three catalogs, the source-policy page, and the shared lesson renderer used
+by all 366 localized lesson routes. The narrowest supported viewport is 320 px;
+360–390 px phone layouts are the primary review range, with the 720 px drawer
+breakpoint protecting small tablets and landscape phones.
+
+The first rendered phone check found a document-level horizontal scrollbar on
+localized home pages. Large decorative hero orbits extended beyond the hero,
+and `.book-site` intentionally allowed visible overflow. This made the whole
+page roughly twice the viewport width even though the learning content itself
+was responsive.
+
+### 21.2 Implemented corrections
+
+- Decorative hero orbits are removed below 720 px, edge nodes are pulled
+  inside the visual, and the hero plus page-content boundary clip decoration.
+- The mobile reader menu and locale/theme controls now meet a 44 px touch
+  target. At very narrow widths the redundant header wordmark is hidden so the
+  controls cannot collide.
+- Long lesson titles, catalog entries, source labels, and code-header labels can
+  wrap without widening the document.
+- Formula derivations retain the requested row layout and scroll inside their
+  own bounded panel. Code, thinking flows, course maps, and wide original
+  diagrams use the same contained touch-scroll behavior.
+- Cards, source-policy actions, lesson metadata, and reference headers reflow at
+  420 px without shrinking the main reading text.
+
+### 21.3 Logic review
+
+`Risk: hiding overflow conceals inaccessible learning content`
+
+Resolution: only decorative page-level overflow is clipped. Information that
+is inherently wide—formula rows, diagrams, code, the course map, and thinking
+flows—keeps an explicit inner horizontal scroller with touch panning and a
+visible thin scrollbar.
+
+`Risk: enlarging header controls creates a new collision on 320 px screens`
+
+Resolution: the book wordmark is redundant with the page identity and is hidden
+only below 420 px. The fixed menu, three locale targets, and theme target then
+fit with safe gaps at the minimum supported width.
+
+`Risk: one inspected lesson does not represent the complete atlas`
+
+Resolution: all lessons share the same header, drawer, article, formula,
+diagram, exercise, reference, and pagination components. Automated tests still
+render every locale/topic pair and now also require viewport metadata and the
+responsive safeguards used by those shared components.

@@ -314,6 +314,37 @@ test("keeps long-form lessons compact without undersized reading text", () => {
   assert.doesNotMatch(globalStyles, /\.formula-flow-steps\s*\{[^}]*grid-auto-flow:\s*column;/);
 });
 
+test("keeps every shared page family safe at phone widths", () => {
+  assert.match(globalStyles, /html\s*\{[^}]*overflow-x:\s*clip;/);
+  assert.match(globalStyles, /\.book-page-content\s*\{[^}]*overflow-x:\s*clip;/);
+  assert.match(
+    globalStyles,
+    /@media \(max-width:\s*720px\)[\s\S]*?\.hero\s*\{[^}]*overflow:\s*clip;/,
+  );
+  assert.match(
+    globalStyles,
+    /@media \(max-width:\s*720px\)[\s\S]*?\.orbit-one,\s*\.orbit-two\s*\{[^}]*display:\s*none;/,
+  );
+  assert.match(
+    globalStyles,
+    /\.book-menu-button\s*\{[^}]*width:\s*44px;[^}]*height:\s*44px;/,
+  );
+  assert.match(
+    globalStyles,
+    /\.locale-switch a\s*\{[^}]*min-width:\s*44px;[^}]*min-height:\s*44px;/,
+  );
+  assert.match(
+    globalStyles,
+    /@media \(max-width:\s*720px\)[\s\S]*?\.formula-flow-steps\s*\{[^}]*min-width:\s*660px;/,
+  );
+  assert.match(
+    globalStyles,
+    /@media \(max-width:\s*420px\)[\s\S]*?\.book-header \.brand\s*\{[^}]*display:\s*none;/,
+  );
+  assert.match(globalStyles, /overflow-wrap:\s*anywhere/);
+  assert.match(globalStyles, /touch-action:\s*pan-x pan-y/);
+});
+
 test("renders every source-corresponding page in every locale", async () => {
   assert.equal(curriculumSeeds.length, 122);
   for (const seed of curriculumSeeds) {
@@ -323,6 +354,7 @@ test("renders every source-corresponding page in every locale", async () => {
       assert.equal(response.status, 200, `${locale}/${seed.slug}`);
       const html = await response.text();
       assert.match(html, new RegExp(`<div lang="${locale}" class="site-shell book-site"`), `${locale}/${seed.slug}`);
+      assert.match(html, /<meta name="viewport" content="width=device-width, initial-scale=1"\s*\/>/, `${locale}/${seed.slug}`);
       assert.match(html, new RegExp(`https://wikidocs.net/${seed.sourcePageId}`));
       assert.match(html, /historical-source/);
       assert.match(html, /id="continue-learning"/, `${locale}/${seed.slug}`);
