@@ -375,6 +375,18 @@ test("keeps every shared page family safe at phone widths", () => {
 
 test("renders every source-corresponding page in every locale", async () => {
   assert.equal(curriculumSeeds.length, 122);
+  const readingRoutes = new Set();
+  const genericReadingPages = new Set([
+    "https://github.com/microsoft/ML-For-Beginners",
+    "https://developers.google.com/machine-learning/crash-course",
+    "https://d2l.ai/",
+    "https://scikit-learn.org/stable/user_guide.html",
+    "https://www.statlearning.com/",
+    "https://mml-book.github.io/",
+    "https://www.deeplearningbook.org/",
+    "https://inria.github.io/scikit-learn-mooc/",
+    "https://docs.pytorch.org/tutorials/",
+  ]);
   for (const seed of curriculumSeeds) {
     const localizedShapes = {};
     for (const locale of ["en", "vi", "ko"]) {
@@ -396,6 +408,16 @@ test("renders every source-corresponding page in every locale", async () => {
       ].map((match) => match[1]);
       assert.equal(new Set(resourceIds).size, 4, `${locale}/${seed.slug}`);
       assert.ok(!resourceIds.includes("wikidocs-index"), `${locale}/${seed.slug}`);
+      const route = html.match(/data-reading-route="([^"]+)"/)?.[1];
+      assert.ok(route, `${locale}/${seed.slug} needs a subject-specific reading route`);
+      readingRoutes.add(route);
+      const readingUrls = [...html.matchAll(/class="reading-resource-card"[^>]*href="([^"]+)"/g)].map((match) => match[1].replaceAll("&amp;", "&"));
+      assert.equal(new Set(readingUrls).size, 4, `${locale}/${seed.slug} repeats a reading URL`);
+      for (const url of readingUrls) {
+        assert.match(url, /^https:\/\//, `${locale}/${seed.slug} reading link must use HTTPS`);
+        assert.ok(!genericReadingPages.has(url), `${locale}/${seed.slug} links to a generic resource home page`);
+      }
+      assert.doesNotMatch(html, /Choose the next depth|Chọn mức đào sâu tiếp theo|다음 심화 경로를 선택하세요/, `${locale}/${seed.slug} repeats the generic shelf title`);
       assert.match(html, /class="terminology-panel"/, `${locale}/${seed.slug}`);
       if (!seed.featured) {
         assert.match(html, /id="decision-path"/, `${locale}/${seed.slug}`);
@@ -428,4 +450,5 @@ test("renders every source-corresponding page in every locale", async () => {
     assert.deepEqual(localizedShapes.en, localizedShapes.vi, `${seed.slug}: en/vi shape`);
     assert.deepEqual(localizedShapes.ko, localizedShapes.vi, `${seed.slug}: ko/vi shape`);
   }
+  assert.equal(readingRoutes.size, 13, "Every subject-specific reading route should be used");
 });

@@ -3,13 +3,13 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getLesson, isLanguage, languages, lessonNavigationItems, lessons, ui } from "../../../data/content";
 import { getGuidedDepth, guidedDepthUi } from "../../../data/guided-depth";
+import { getReadingShelfCopy } from "../../../data/reading-library";
 import {
   courseUi,
   getGuidedSupport,
   guidedSlugs,
   type GuidedSlug,
 } from "../../../data/guided-course";
-import { readingShelfUi } from "../../../data/reading-library";
 import { ArrowUpRight, Check, CircleDot } from "../../../ui/icons";
 import { BookSidebar } from "../../../ui/BookSidebar";
 import {
@@ -167,7 +167,7 @@ export default async function LessonPage({
                       lesson.sections.length + (support ? 4 : 1),
                     ).padStart(2, "0")}
                   </span>
-                  {readingShelfUi[lang].eyebrow}
+                  {getReadingShelfCopy(lesson, lang).eyebrow}
                 </Link>
               </nav>
             </details>
