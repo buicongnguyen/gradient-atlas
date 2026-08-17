@@ -11,13 +11,13 @@ export default function RootLanding() {
         </div>
         <p className="eyebrow">Original · Trilingual · Open learning</p>
         <h1>
-          Machine learning,
+          Machine Learning:
           <br />
-          <em>clearly mapped.</em>
+          <em>From Decisions to Reliable Systems</em>
         </h1>
         <p className="gate-lede">
-          Gradient Atlas is a visual field guide to the decisions behind useful,
-          reliable machine-learning systems.
+          Gradient Atlas is a visual, practical guide to reasoning from problem
+          framing and data to models, evaluation, and reliable production systems.
         </p>
         <div className="language-label">
           <Languages />

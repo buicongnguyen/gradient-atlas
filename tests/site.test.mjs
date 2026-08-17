@@ -34,7 +34,9 @@ test("renders the language gate without starter metadata", async () => {
   const response = await render("/");
   assert.equal(response.status, 200);
   const html = await response.text();
-  assert.match(html, /Machine learning,/);
+  assert.match(html, /Machine Learning:/);
+  assert.match(html, /From Decisions to Reliable Systems/);
+  assert.match(html, /<title>Gradient Atlas — Machine Learning: From Decisions to Reliable Systems<\/title>/);
   assert.match(html, /English/);
   assert.match(html, /Tiếng Việt/);
   assert.match(html, /한국어/);
@@ -49,6 +51,11 @@ test("renders the language gate without starter metadata", async () => {
 });
 
 test("renders all locale atlas routes with labs and preview disclosure", async () => {
+  const localizedBookTitles = {
+    en: ["Machine Learning:", "From Decisions to Reliable Systems"],
+    vi: ["Học máy:", "Từ quyết định đến hệ thống đáng tin cậy"],
+    ko: ["머신러닝:", "의사결정에서 신뢰할 수 있는 시스템까지"],
+  };
   const localizedPartNames = {
     en: ['data-part-label="PART B"', "Learning approaches"],
     vi: ['data-part-label="PHẦN B"', "Các phương pháp học"],
@@ -59,6 +66,9 @@ test("renders all locale atlas routes with labs and preview disclosure", async (
     assert.equal(response.status, 200, locale);
     const html = await response.text();
     assert.match(html, /Gradient Atlas/);
+    for (const titlePart of localizedBookTitles[locale]) {
+      assert.match(html, new RegExp(titlePart));
+    }
     assert.match(html, /type="range"/);
     assert.match(html, /Microsoft ML for Beginners/);
     assert.match(html, /Google MLCC/);
@@ -313,7 +323,8 @@ test("gates publication on the complete code and route review", () => {
 });
 
 test("keeps long-form lessons compact without undersized reading text", () => {
-  assert.match(globalStyles, /\.hero h1\s*\{[^}]*font-size:\s*clamp\(2\.6rem,\s*4\.6vw,\s*4\.5rem\);/);
+  assert.match(globalStyles, /\.hero h1\s*\{[^}]*font-size:\s*clamp\(2\.4rem,\s*3\.8vw,\s*3\.75rem\);/);
+  assert.match(globalStyles, /\.language-gate h1\s*\{[^}]*font-size:\s*clamp\(2\.4rem,\s*5vw,\s*4\.2rem\);/);
   assert.match(globalStyles, /\.article-header h1\s*\{[^}]*font-size:\s*clamp\(2\.25rem,\s*4vw,\s*3\.8rem\);/);
   assert.match(globalStyles, /\.article-section h2\s*\{[^}]*font-size:\s*1\.7rem;/);
   assert.match(globalStyles, /\.guided-block-heading h2\s*\{[^}]*font-size:\s*clamp\(1\.55rem,\s*3vw,\s*2\.15rem\);/);
@@ -344,7 +355,7 @@ test("keeps long-form lessons compact without undersized reading text", () => {
 });
 
 test("keeps every shared page family safe at phone widths", () => {
-  assert.match(globalStyles, /@media \(max-width:\s*720px\)[\s\S]*?\.hero h1,\s*\.language-gate h1\s*\{[^}]*font-size:\s*clamp\(2\.25rem,\s*8\.5vw,\s*3\.35rem\);/);
+  assert.match(globalStyles, /@media \(max-width:\s*720px\)[\s\S]*?\.hero h1,\s*\.language-gate h1\s*\{[^}]*font-size:\s*clamp\(2\.1rem,\s*7\.5vw,\s*2\.8rem\);/);
   assert.match(globalStyles, /@media \(max-width:\s*420px\)[\s\S]*?\.article-header h1\s*\{[^}]*font-size:\s*clamp\(2rem,\s*9vw,\s*2\.9rem\);/);
   assert.match(globalStyles, /html\s*\{[^}]*overflow-x:\s*clip;/);
   assert.match(globalStyles, /\.book-page-content\s*\{[^}]*overflow-x:\s*clip;/);

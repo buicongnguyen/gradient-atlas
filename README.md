@@ -1,4 +1,4 @@
-# Gradient Atlas
+# Gradient Atlas — Machine Learning: From Decisions to Reliable Systems
 
 Gradient Atlas is an original, visual, trilingual guide to machine-learning
 foundations. Its recommended path is a six-chapter guided course that builds

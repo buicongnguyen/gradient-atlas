@@ -31,7 +31,7 @@ export default async function LocaleHome({
             <AtlasClient language={lang} lessons={lessons[lang]} />
           </main>
           <footer className="site-footer">
-            <span>Gradient Atlas · 2026</span>
+            <span>Gradient Atlas — {ui[lang].siteSubtitle} · 2026</span>
             <span>Original trilingual learning project</span>
           </footer>
         </div>

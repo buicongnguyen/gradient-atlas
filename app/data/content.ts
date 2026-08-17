@@ -136,11 +136,11 @@ type UiCopy = {
 export const ui: Record<Language, UiCopy> = {
   en: {
     siteTitle: "Gradient Atlas",
-    siteSubtitle: "Machine learning, clearly mapped",
+    siteSubtitle: "From decisions to reliable systems",
     nav: { map: "Map", lessons: "Lessons", labs: "Labs", about: "About" },
     heroEyebrow: "A visual field guide to machine learning",
-    heroTitle: "Learn the decisions,",
-    heroAccent: "not just the definitions.",
+    heroTitle: "Machine Learning:",
+    heroAccent: "From Decisions to Reliable Systems",
     heroBody:
       "Build one late-delivery risk system across six guided chapters. Frame the decision, protect the evaluation, choose an operating point, and monitor what changes.",
     start: "Start the guided course",
@@ -200,11 +200,11 @@ export const ui: Record<Language, UiCopy> = {
   },
   vi: {
     siteTitle: "Gradient Atlas",
-    siteSubtitle: "Bản đồ học máy rõ ràng",
+    siteSubtitle: "Từ quyết định đến hệ thống đáng tin cậy",
     nav: { map: "Bản đồ", lessons: "Bài học", labs: "Phòng lab", about: "Giới thiệu" },
     heroEyebrow: "Cẩm nang trực quan về học máy",
-    heroTitle: "Học cách ra quyết định,",
-    heroAccent: "không chỉ học định nghĩa.",
+    heroTitle: "Học máy:",
+    heroAccent: "Từ quyết định đến hệ thống đáng tin cậy",
     heroBody:
       "Xây dựng một hệ thống dự báo giao hàng trễ qua sáu chương có hướng dẫn. Định khung quyết định, bảo vệ phép đánh giá, chọn điểm vận hành và theo dõi thay đổi.",
     start: "Bắt đầu khóa học",
@@ -264,11 +264,11 @@ export const ui: Record<Language, UiCopy> = {
   },
   ko: {
     siteTitle: "Gradient Atlas",
-    siteSubtitle: "명확하게 연결한 머신러닝 지도",
+    siteSubtitle: "의사결정에서 신뢰할 수 있는 시스템까지",
     nav: { map: "학습 지도", lessons: "레슨", labs: "실험실", about: "소개" },
     heroEyebrow: "머신러닝을 위한 시각적 필드 가이드",
-    heroTitle: "정의만 외우지 말고,",
-    heroAccent: "결정의 이유를 배우세요.",
+    heroTitle: "머신러닝:",
+    heroAccent: "의사결정에서 신뢰할 수 있는 시스템까지",
     heroBody:
       "여섯 개의 가이드 장에서 하나의 배송 지연 위험 시스템을 만드세요. 의사결정을 정의하고 평가를 보호하며 운영점을 고르고 변화를 모니터링합니다.",
     start: "가이드 코스 시작",
