@@ -313,6 +313,7 @@ test("gates publication on the complete code and route review", () => {
 });
 
 test("keeps long-form lessons compact without undersized reading text", () => {
+  assert.match(globalStyles, /\.hero h1\s*\{[^}]*font-size:\s*clamp\(2\.6rem,\s*4\.6vw,\s*4\.5rem\);/);
   assert.match(globalStyles, /\.article-header h1\s*\{[^}]*font-size:\s*clamp\(2\.25rem,\s*4vw,\s*3\.8rem\);/);
   assert.match(globalStyles, /\.article-section h2\s*\{[^}]*font-size:\s*1\.7rem;/);
   assert.match(globalStyles, /\.guided-block-heading h2\s*\{[^}]*font-size:\s*clamp\(1\.55rem,\s*3vw,\s*2\.15rem\);/);
@@ -343,6 +344,7 @@ test("keeps long-form lessons compact without undersized reading text", () => {
 });
 
 test("keeps every shared page family safe at phone widths", () => {
+  assert.match(globalStyles, /@media \(max-width:\s*720px\)[\s\S]*?\.hero h1,\s*\.language-gate h1\s*\{[^}]*font-size:\s*clamp\(2\.25rem,\s*8\.5vw,\s*3\.35rem\);/);
   assert.match(globalStyles, /@media \(max-width:\s*420px\)[\s\S]*?\.article-header h1\s*\{[^}]*font-size:\s*clamp\(2rem,\s*9vw,\s*2\.9rem\);/);
   assert.match(globalStyles, /html\s*\{[^}]*overflow-x:\s*clip;/);
   assert.match(globalStyles, /\.book-page-content\s*\{[^}]*overflow-x:\s*clip;/);
