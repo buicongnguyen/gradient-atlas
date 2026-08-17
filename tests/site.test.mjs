@@ -36,6 +36,7 @@ test("renders the language gate without starter metadata", async () => {
   const html = await response.text();
   assert.match(html, /Machine Learning:/);
   assert.match(html, /From Decisions to Reliable Systems/);
+  assert.match(html, /adaptable way of thinking/);
   assert.match(html, /<title>Gradient Atlas — Machine Learning: From Decisions to Reliable Systems<\/title>/);
   assert.match(html, /English/);
   assert.match(html, /Tiếng Việt/);
@@ -56,6 +57,11 @@ test("renders all locale atlas routes with labs and preview disclosure", async (
     vi: ["Học máy:", "Từ quyết định đến hệ thống đáng tin cậy"],
     ko: ["머신러닝:", "의사결정에서 신뢰할 수 있는 시스템까지"],
   };
+  const localizedIntroductions = {
+    en: "adaptable way of thinking",
+    vi: "cách tư duy linh hoạt",
+    ko: "유연한 사고방식",
+  };
   const localizedPartNames = {
     en: ['data-part-label="PART B"', "Learning approaches"],
     vi: ['data-part-label="PHẦN B"', "Các phương pháp học"],
@@ -69,6 +75,7 @@ test("renders all locale atlas routes with labs and preview disclosure", async (
     for (const titlePart of localizedBookTitles[locale]) {
       assert.match(html, new RegExp(titlePart));
     }
+    assert.match(html, new RegExp(localizedIntroductions[locale]));
     assert.match(html, /type="range"/);
     assert.match(html, /Microsoft ML for Beginners/);
     assert.match(html, /Google MLCC/);

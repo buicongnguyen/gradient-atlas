@@ -16,8 +16,9 @@ export default function RootLanding() {
           <em>From Decisions to Reliable Systems</em>
         </h1>
         <p className="gate-lede">
-          Gradient Atlas is a visual, practical guide to reasoning from problem
-          framing and data to models, evaluation, and reliable production systems.
+          Learn machine learning through choices: frame the problem, judge the
+          evidence, compare trade-offs, and revise decisions when conditions change.
+          Build an adaptable way of thinking instead of memorizing fixed recipes.
         </p>
         <div className="language-label">
           <Languages />

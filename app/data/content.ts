@@ -142,7 +142,7 @@ export const ui: Record<Language, UiCopy> = {
     heroTitle: "Machine Learning:",
     heroAccent: "From Decisions to Reliable Systems",
     heroBody:
-      "Build one late-delivery risk system across six guided chapters. Frame the decision, protect the evaluation, choose an operating point, and monitor what changes.",
+      "This book begins with choices: what problem to frame, what evidence to trust, which trade-off to accept, and when to revise a decision. Its goal is an adaptable way of thinking—not memorized recipes or a fixed mindset. Practise that approach by building one late-delivery risk system from framing through monitoring.",
     start: "Start the guided course",
     explore: "See the six steps",
     preview: "Editorial preview · human review pending",
@@ -206,7 +206,7 @@ export const ui: Record<Language, UiCopy> = {
     heroTitle: "Học máy:",
     heroAccent: "Từ quyết định đến hệ thống đáng tin cậy",
     heroBody:
-      "Xây dựng một hệ thống dự báo giao hàng trễ qua sáu chương có hướng dẫn. Định khung quyết định, bảo vệ phép đánh giá, chọn điểm vận hành và theo dõi thay đổi.",
+      "Cuốn sách bắt đầu từ các lựa chọn: định hình bài toán nào, tin vào bằng chứng nào, chấp nhận đánh đổi nào và khi nào cần xem lại quyết định. Mục tiêu là xây dựng cách tư duy linh hoạt—không học thuộc công thức hay giữ một tư duy cố định. Bạn sẽ thực hành cách tiếp cận đó qua một hệ thống dự báo giao hàng trễ, từ định hình đến giám sát.",
     start: "Bắt đầu khóa học",
     explore: "Xem sáu bước",
     preview: "Bản xem trước · đang chờ phản biện",
@@ -270,7 +270,7 @@ export const ui: Record<Language, UiCopy> = {
     heroTitle: "머신러닝:",
     heroAccent: "의사결정에서 신뢰할 수 있는 시스템까지",
     heroBody:
-      "여섯 개의 가이드 장에서 하나의 배송 지연 위험 시스템을 만드세요. 의사결정을 정의하고 평가를 보호하며 운영점을 고르고 변화를 모니터링합니다.",
+      "이 책은 어떤 문제를 정의하고, 어떤 근거를 믿으며, 어떤 절충을 받아들이고, 언제 결정을 다시 검토할지라는 선택에서 시작합니다. 목표는 암기한 공식이나 고정된 사고가 아니라 상황에 맞게 바꿀 수 있는 유연한 사고방식입니다. 문제 정의부터 모니터링까지 하나의 배송 지연 위험 시스템을 만들며 이 접근법을 연습합니다.",
     start: "가이드 코스 시작",
     explore: "여섯 단계 보기",
     preview: "편집 프리뷰 · 사람의 검토 대기 중",
